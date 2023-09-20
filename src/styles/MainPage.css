@@ -1,0 +1,12 @@
+.main.MuiBox-root {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .main-head.MuiBox-root {
+    height: 100%;
+  }
+  .container.MuiBox-root {
+    flex: 1;
+  }
+  
