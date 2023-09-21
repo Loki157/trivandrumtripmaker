@@ -14,7 +14,7 @@ function MainPage() {
             <HeaderPage />
           </header>
           <Box className="container">
-            <Container fixed className="container-main">
+            <Container fixed className="container-main" sx={{ height: "100%" }}>
               <Outlet />
             </Container>
           </Box>

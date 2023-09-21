@@ -1,12 +1,81 @@
 .main.MuiBox-root {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  .main-head.MuiBox-root {
-    height: 100%;
-  }
-  .container.MuiBox-root {
-    flex: 1;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.main-head.MuiBox-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.container.MuiBox-root {
+  flex: 1;
+  height: 100%;
+}
+
+/* headerpage */
+
+nav.nav-button {
+  display: flex;
+
+  align-items: center;
+  gap: 50px;
+}
+nav.nav-button a {
+  text-decoration: none;
+}
+.nav-button a.active {
+  color: var(--black);
+  font-family: Poppins-Medium;
+  font-size: 1.5vw;
+  transition: 0.3s all;
+}
+.nav-button a.active:hover {
+  color: var(--green);
+}
+.nav-button a.active::after {
+  content: "";
+  margin: auto;
+  display: block;
+  height: 2px;
+  width: 0%;
+  background-color: transparent;
+  /* transition: width 0.5s ease,background-color 0.5s ease; */
+  transition: all 0.3s ease;
+}
+.nav-button a.active:hover::after {
+  width: 100%;
+  background-color: var(--green);
+}
+/* .nav-button a.active::before {
+  content: "";
+  border: 2px solid #000000;
+} */
+
+/* Footer */
+.icon-btn.MuiIconButton-root {
+  color: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  /* transform: scaleX(-1); */
+
+  transition: all 0.3s;
+}
+.icon-btn.MuiIconButton-root:hover {
+  background-color: radial-gradient(
+    circle at 30% 107%,
+    #fdf497 0%,
+    #fdf497 5%,
+    #fd5949 45%,
+    #d6249f 60%,
+    #285aeb 90%
+  );
+  color: #ffffffff;
+  transform: scale(1.2);
+  /* animation: flip 0.5s linear; */
+}
