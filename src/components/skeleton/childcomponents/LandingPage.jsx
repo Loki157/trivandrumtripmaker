@@ -40,42 +40,80 @@ function LandingPage() {
             backgroundRepeat: "no-repeat",
             backgroundAttachment: "fixed",
             backgroundSize: "cover",
-            height: "500px",
+            height: isMobile || isDeviceDown ? "400px" : "500px",
             minWidth: "100%",
+            // filter: "brightness(50% )",
           }}
         >
-          <Container fixed sx={{ height: "100%" }}>
-            <Box height={"100%"}>
+          <Box
+            sx={{
+              height: "100%",
+              background: " rgba(0,0,0, 0.4)",
+              width: "100%",
+            }}
+          >
+            <Container
+              fixed
+              sx={{
+                height: "100%",
+              }}
+            >
               <Box
-                display={"flex"}
-                flexDirection={"column"}
-                gap={"10px"}
-                alignItems={"center"}
-                justifyContent={"center"}
-                sx={{ height: "100%" }}
+                height={"100%"}
+                sx={{ padding: isMobile || isDeviceDown ? "20px" : "" }}
               >
-                <Typography variant="h2" sx={{ fontFamily: "Barlow-Bold" }}>
-                  Experience the beauty of Kerala
-                </Typography>
-                <Typography>
-                  We make your trip memorable and peaceful. We offer affordable
-                  and convenient Travel plans for everyone.
-                </Typography>
-                <Button
+                <Box
+                  display={"flex"}
+                  flexDirection={"column"}
+                  gap={"10px"}
+                  alignItems={
+                    isMobile || isDeviceDown ? "center" : "flex-start"
+                  }
+                  justifyContent={"center"}
                   sx={{
-                    borderRadius: 0,
-                    boxShadow: 0,
-                    textTransform: "capitalize",
-                    backgroundColor: THEMEColor.PRIMARY,
-                    color: THEMEColor.buttons,
+                    height: "100%",
+                    width: isMobile || isDeviceDown ? "100%" : "50%",
                   }}
-                  variant="contained"
                 >
-                  Book a Trip
-                </Button>
+                  <Typography
+                    variant={isMobile || isDeviceDown ? "h3" : "h2"}
+                    sx={{
+                      fontFamily:
+                        isMobile || isDeviceDown
+                          ? "Barlow-Medium"
+                          : "Barlow-Bold",
+                      color: THEMEColor.PRIMARY,
+                      textAlign: isMobile || isDeviceDown ? "center" : "left",
+                    }}
+                  >
+                    Experience the beauty of Kerala
+                  </Typography>
+                  <Typography
+                    variant={isMobile || isDeviceDown ? "caption" : "body1"}
+                    sx={{
+                      fontFamily: "Barlow-SemiBold",
+                      color: THEMEColor.PRIMARY,
+                    }}
+                  >
+                    We make your trip memorable and peaceful. We offer
+                    affordable and convenient Travel plans for everyone.
+                  </Typography>
+                  <Button
+                    sx={{
+                      borderRadius: 0,
+                      boxShadow: 0,
+                      textTransform: "capitalize",
+                      backgroundColor: THEMEColor.PRIMARY,
+                      color: THEMEColor.buttons,
+                    }}
+                    variant="contained"
+                  >
+                    Book a Trip
+                  </Button>
+                </Box>
               </Box>
-            </Box>
-          </Container>
+            </Container>
+          </Box>
         </Box>
         {/* </Box> */}
       </div>
