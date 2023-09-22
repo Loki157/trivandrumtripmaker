@@ -30,9 +30,81 @@ function HeaderPage() {
   };
   return (
     <>
+      <Drawer
+        open={drawerOpen}
+        anchor=""
+        variant="temporary"
+        sx={{
+          "& .MuiDrawer-paper": {
+            // backgroundColor: "red",
+
+            width: "90%",
+            mx: 3.3,
+            my: 4,
+            zIndex: "999999",
+            position: "relative",
+          },
+        }}
+      >
+        {" "}
+        <Box textAlign={"right"}>
+          <IconButton
+            onClick={() => {
+              handleDrawerOpen(false);
+            }}
+          >
+            <CloseIcon />
+          </IconButton>
+        </Box>
+        <Box
+          sx={{
+            flex: 1,
+            width: "100%",
+            display: "flex",
+            justifyContent: "flex-start",
+            padding: "20px",
+          }}
+        >
+          <nav
+            className="nav-button-mobile"
+            style={{ flexDirection: "column" }}
+          >
+            <NavLink>Home</NavLink>
+
+            <NavLink>Places</NavLink>
+
+            <NavLink> About</NavLink>
+
+            <NavLink>Contact Us</NavLink>
+          </nav>
+        </Box>
+      </Drawer>
+      <Box position={"fixed"} width={"100%"} zIndex={"99999"}>
+        {isDeviceDown || isMobile ? (
+          <Button
+            sx={{
+              boxShadow: 0,
+              borderRadius: 0,
+              backgroundColor: THEMEColor.Secondary,
+            }}
+            variant={"contained"}
+            startIcon={<WhatsAppIcon />}
+            className="top-contact-btn"
+            fullWidth
+          >
+            {" "}
+            <a href="//api.whatsapp.com/send?phone=918086040400&text=WHATEVER_LINK_OR_TEXT_YOU_WANT_TO_SEND">
+              Contact Now
+            </a>
+          </Button>
+        ) : null}
+      </Box>
       <AppBar
-        sx={{ backgroundColor: THEMEColor.PRIMARY, boxShadow: 0 }}
-        position="statict"
+        sx={{
+          backgroundColor: THEMEColor.PRIMARY,
+          my: isDeviceDown || isMobile ? 4 : 0,
+        }}
+        position="fixed"
       >
         <Toolbar>
           <Box display={"flex"} width={"100%"}>
@@ -106,52 +178,6 @@ function HeaderPage() {
           </Box>
         </Toolbar>
       </AppBar>
-      <Drawer
-        open={drawerOpen}
-        anchor=""
-        variant="temporary"
-        sx={{
-          "& .MuiDrawer-paper": {
-            // backgroundColor: "red",
-
-            width: "90%",
-            mx: 3.3,
-          },
-        }}
-      >
-        {" "}
-        <Box textAlign={"right"}>
-          <IconButton
-            onClick={() => {
-              handleDrawerOpen(false);
-            }}
-          >
-            <CloseIcon />
-          </IconButton>
-        </Box>
-        <Box
-          sx={{
-            flex: 1,
-            width: "100%",
-            display: "flex",
-            justifyContent: "flex-start",
-            padding: "20px",
-          }}
-        >
-          <nav
-            className="nav-button-mobile"
-            style={{ flexDirection: "column" }}
-          >
-            <NavLink>Home</NavLink>
-
-            <NavLink>Places</NavLink>
-
-            <NavLink> About</NavLink>
-
-            <NavLink>Contact Us</NavLink>
-          </nav>
-        </Box>
-      </Drawer>
     </>
   );
 }

@@ -18,35 +18,21 @@ function MainPage() {
     <>
       <Box className="main">
         <Box className="main-head">
-          {isDeviceDown || isMobile ? (
-            <Button
-              sx={{
-                boxShadow: 0,
-                borderRadius: 0,
-                backgroundColor: THEMEColor.Secondary,
-              }}
-              variant={"contained"}
-              startIcon={<WhatsAppIcon />}
-              className="top-contact-btn"
-            >
-              {" "}
-              <a href="//api.whatsapp.com/send?phone=918086040400&text=WHATEVER_LINK_OR_TEXT_YOU_WANT_TO_SEND">
-                Contact Now
-              </a>
-            </Button>
-          ) : null}
+          {/* <Box position={"relative"} width={"100%"}> */}
+
           <header>
             <HeaderPage />
           </header>
+          {/* </Box> */}
           <Box className="container">
-            <Container fixed className="container-main" sx={{ height: "100%" }}>
-              <Outlet />
-            </Container>
+            <Outlet />
           </Box>
+          {/* <Box>
 
           <footer>
             <FooterPage />
           </footer>
+</Box> */}
         </Box>
       </Box>
     </>

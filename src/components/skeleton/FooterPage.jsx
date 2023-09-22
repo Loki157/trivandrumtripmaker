@@ -83,7 +83,10 @@ function FooterPage() {
                   justifyContent: "center",
                 }}
               >
-                <nav className="nav-button" style={{ flexDirection: "column" }}>
+                <nav
+                  className="nav-button"
+                  style={{ flexDirection: "column", gap: "10px" }}
+                >
                   <NavLink>Home</NavLink>
 
                   <NavLink>Places</NavLink>

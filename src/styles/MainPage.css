@@ -102,3 +102,9 @@ nav.nav-button-mobile a {
   transform: scale(1.2);
   /* animation: flip 0.5s linear; */
 }
+.image-container.MuiBox-root {
+  height: 600px;
+}
+.image-container img {
+  width: 100%;
+}
