@@ -1,4 +1,11 @@
-import { Box, Button, IconButton, Toolbar, Typography } from "@mui/material";
+import {
+  Box,
+  Button,
+  IconButton,
+  Toolbar,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import React from "react";
 import logo from "../../assets/svg/TTM_Black Letter.svg";
 import { NavLink } from "react-router-dom";
@@ -6,7 +13,14 @@ import {
   Instagram as InstagramIcon,
   Facebook as FacebookIcon,
 } from "@mui/icons-material";
+import { useTheme } from "@mui/material/styles";
+import { THEMEColor } from "../../assets/THEMES";
+import { WhatsApp as WhatsAppIcon } from "@mui/icons-material";
 function FooterPage() {
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const isDevice = useMediaQuery(theme.breakpoints.up("md"));
+  const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
       <Box height={"100%"} maXWidth={"100%"} padding={"10px"}>
@@ -35,7 +49,11 @@ function FooterPage() {
                       width: "70%",
                       textAlign: "left",
                       fontFamily: "Poppins-Light",
-                      fontSize: "12px",
+                      fontSize: isMobile
+                        ? "5px"
+                        : isDeviceDown
+                        ? "8px"
+                        : "15px",
                     }}
                     variant="body1"
                   >
@@ -81,7 +99,21 @@ function FooterPage() {
                 alignItems={"center"}
                 justifyContent={"center"}
               >
-                <Button variant="contained">Contact Now</Button>
+                <Button
+                  sx={{
+                    boxShadow: 0,
+                    borderRadius: 0,
+                    backgroundColor: THEMEColor.Secondary,
+                  }}
+                  variant={"contained"}
+                  startIcon={<WhatsAppIcon />}
+                  className="top-contact-btn"
+                >
+                  {" "}
+                  <a href="//api.whatsapp.com/send?phone=918086040400&text=WHATEVER_LINK_OR_TEXT_YOU_WANT_TO_SEND">
+                    Contact Now
+                  </a>
+                </Button>
               </Box>
             </Box>
           </Box>

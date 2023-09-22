@@ -1,5 +1,5 @@
 export const ROUTEPATH = {
   MAIN: "/",
-  HOME: "home",
+  HOME: "",
   ABOUT: "aboutus",
 };

@@ -1,5 +1,5 @@
 export const THEMEColor = {
   Secondary: "#3dae2b",
-  PRIMARY: "#FFFCF6",
+  PRIMARY: "#ffffff",
   buttons: "#282626",
 };

@@ -10,7 +10,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path={ROUTEPATH.MAIN} element={<MainPage />}>
-            <Route index path="" element={<LandingPage />} />
+            <Route path={ROUTEPATH.HOME} element={<LandingPage />} />
           </Route>
         </Routes>
       </BrowserRouter>

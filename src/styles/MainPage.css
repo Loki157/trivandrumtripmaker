@@ -12,9 +12,17 @@
   flex: 1;
   height: 100%;
 }
-
+.top-contact-btn.MuiButton-root {
+  text-transform: capitalize;
+}
+.top-contact-btn.MuiButton-root:hover {
+  background-color: var(--green);
+}
+.top-contact-btn.MuiButton-root a {
+  text-decoration: none;
+  color: #ffffffff;
+}
 /* headerpage */
-
 nav.nav-button {
   display: flex;
 
@@ -46,6 +54,21 @@ nav.nav-button a {
 .nav-button a.active:hover::after {
   width: 100%;
   background-color: var(--green);
+}
+nav.nav-button-mobile {
+  display: flex;
+
+  align-items: center;
+  gap: 50px;
+}
+nav.nav-button-mobile a {
+  text-decoration: none;
+}
+.nav-button-mobile a.active {
+  color: var(--black);
+  font-family: Poppins-Medium;
+  font-size: 10px;
+  transition: 0.3s all;
 }
 /* .nav-button a.active::before {
   content: "";
