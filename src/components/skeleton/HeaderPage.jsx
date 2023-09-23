@@ -2,6 +2,7 @@ import {
   AppBar,
   Box,
   Button,
+  Container,
   Drawer,
   IconButton,
   Toolbar,
@@ -17,6 +18,8 @@ import {
   Close as CloseIcon,
   MenuRounded as MenuRoundedIcon,
   WhatsApp as WhatsAppIcon,
+  MailRounded as MailRoundedIcon,
+  CallRounded as CallRoundedIcon,
 } from "@mui/icons-material";
 
 function HeaderPage() {
@@ -86,6 +89,7 @@ function HeaderPage() {
               boxShadow: 0,
               borderRadius: 0,
               backgroundColor: THEMEColor.Secondary,
+              // height: "0px",
             }}
             variant={"contained"}
             startIcon={<WhatsAppIcon />}
@@ -97,12 +101,32 @@ function HeaderPage() {
               Contact Now
             </a>
           </Button>
-        ) : null}
+        ) : (
+          <Container fixed>
+            <Box
+              height={"100%"}
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+              }}
+            >
+              <Box>
+                <IconButton>
+                  <MailRoundedIcon />
+                </IconButton>{" "}
+                <a href=""></a>trivandrumtripmaker@gmail.com
+              </Box>
+              {/* <Box></Box> */}
+              <Box></Box>
+            </Box>
+          </Container>
+        )}
       </Box>
       <AppBar
         sx={{
           backgroundColor: THEMEColor.PRIMARY,
-          my: isDeviceDown || isMobile ? 4 : 0,
+          my: isDeviceDown || isMobile ? 4 : 3,
         }}
         position="fixed"
       >

@@ -81,7 +81,7 @@ function LandingPage() {
                       fontFamily:
                         isMobile || isDeviceDown
                           ? "Barlow-Medium"
-                          : "Barlow-Bold",
+                          : "Barlow-SemiBold",
                       color: THEMEColor.PRIMARY,
                       textAlign: isMobile || isDeviceDown ? "center" : "left",
                     }}
@@ -91,7 +91,7 @@ function LandingPage() {
                   <Typography
                     variant={isMobile || isDeviceDown ? "caption" : "body1"}
                     sx={{
-                      fontFamily: "Barlow-SemiBold",
+                      fontFamily: "Barlow-Regular",
                       color: THEMEColor.PRIMARY,
                     }}
                   >
@@ -99,13 +99,8 @@ function LandingPage() {
                     affordable and convenient Travel plans for everyone.
                   </Typography>
                   <Button
-                    sx={{
-                      borderRadius: 0,
-                      boxShadow: 0,
-                      textTransform: "capitalize",
-                      backgroundColor: THEMEColor.PRIMARY,
-                      color: THEMEColor.buttons,
-                    }}
+                    className="book-trip-btn"
+                    sx={{ boxShadow: 0 }}
                     variant="contained"
                   >
                     Book a Trip
@@ -117,6 +112,7 @@ function LandingPage() {
         </Box>
         {/* </Box> */}
       </div>
+      <Container fixed sx={{ height: "100%" }}></Container>
     </>
   );
 }

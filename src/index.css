@@ -6,6 +6,8 @@
   -webkit-text-size-adjust: 100%;
   --green: #3dae2b;
   --black: #282626;
+  --white: #ffffff;
+  scroll-behavior: smooth;
 }
 body,
 html {
@@ -35,6 +37,11 @@ html {
   font-family: "Poppins-Thin";
   src: url("./assets/fonts/Poppins/Poppins-Thin.ttf");
 }
+@font-face {
+  font-family: "Barlow-Regular";
+  src: url("./assets/fonts/Barlow/BarlowCondensed-Regular.ttf");
+}
+
 @font-face {
   font-family: "Barlow-Medium";
   src: url("./assets/fonts/Barlow/BarlowCondensed-Medium.ttf");

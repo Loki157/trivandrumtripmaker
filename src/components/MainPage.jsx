@@ -28,11 +28,10 @@ function MainPage() {
             <Outlet />
           </Box>
           {/* <Box>
-
-          <footer>
-            <FooterPage />
-          </footer>
-</Box> */}
+            <footer>
+              <FooterPage />
+            </footer>
+          </Box> */}
         </Box>
       </Box>
     </>

@@ -108,3 +108,16 @@ nav.nav-button-mobile a {
 .image-container img {
   width: 100%;
 }
+.book-trip-btn.MuiButton-root {
+  border-radius: 0;
+
+  text-transform: capitalize;
+  background-color: var(--white);
+  color: var(--black);
+  border: 2px solid var(--white);
+  transition: 0.2s all;
+}
+.book-trip-btn.MuiButton-root:hover {
+  color: var(--white);
+  background-color: transparent;
+}

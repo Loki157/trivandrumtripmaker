@@ -23,7 +23,14 @@ function FooterPage() {
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
-      <Box height={"100%"} maXWidth={"100%"} padding={"10px"}>
+      <Box
+        height={"100%"}
+        maXWidth={"100%"}
+        padding={"10px"}
+        overflow={"hidden"}
+        boxShadow={"3px 3px 10px 3px #dddddd"}
+        position={"sticky"}
+      >
         <Toolbar>
           <Box display={"flex"} width={"100%"}>
             <Box
