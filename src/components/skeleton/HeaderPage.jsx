@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Container,
+  Divider,
   Drawer,
   IconButton,
   Toolbar,
@@ -20,6 +21,8 @@ import {
   WhatsApp as WhatsAppIcon,
   MailRounded as MailRoundedIcon,
   CallRounded as CallRoundedIcon,
+  FacebookOutlined as FacebookOutlinedIcon,
+  Instagram as InstagramIcon,
 } from "@mui/icons-material";
 
 function HeaderPage() {
@@ -102,31 +105,70 @@ function HeaderPage() {
             </a>
           </Button>
         ) : (
-          <Container fixed>
-            <Box
-              height={"100%"}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-              }}
-            >
-              <Box>
-                <IconButton>
-                  <MailRoundedIcon />
-                </IconButton>{" "}
-                <a href=""></a>trivandrumtripmaker@gmail.com
+          <Box sx={{ backgroundColor: THEMEColor.PRIMARY }}>
+            <Container fixed>
+              <Box
+                height={"100%"}
+                sx={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <Box display="flex" gap="15px">
+                  <Box className="email-mob mail">
+                    <IconButton sx={{}}>
+                      <MailRoundedIcon fontSize="small" />
+                    </IconButton>{" "}
+                    <a href="mailto:trivandrumtripmaker@gmail.com">
+                      trivandrumtripmaker@gmail.com
+                    </a>
+                  </Box>
+                  <Divider
+                    orientation="vertical"
+                    variant="middle"
+                    sx={{ height: "auto", borderColor: THEMEColor.buttons }}
+                  />
+                  <Box className="email-mob phone">
+                    {" "}
+                    <IconButton sx={{}}>
+                      <CallRoundedIcon fontSize="small" />
+                    </IconButton>
+                    <a href="tel:+918086040400">Ph :+918086040400</a>
+                  </Box>
+                </Box>
+                <Box display={"flex"} gap="10px" className="header-svg-box">
+                  <a
+                    href="https://www.facebook.com/profile.php?id=100095193374683&mibextid=haYZDX"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <FacebookOutlinedIcon className="header-svg fb" />
+                  </a>
+                  <a
+                    href="https://wa.me/message/5QKJSYVWLPELD1"
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <WhatsAppIcon className="header-svg wa" />
+                  </a>
+                  <a
+                    href="https://instagram.com/trivandrumtripmaker?igshid=NzZlODBkYWE4Ng=="
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    <InstagramIcon className="header-svg in" />
+                  </a>
+                </Box>
               </Box>
-              {/* <Box></Box> */}
-              <Box></Box>
-            </Box>
-          </Container>
+            </Container>
+          </Box>
         )}
       </Box>
       <AppBar
         sx={{
           backgroundColor: THEMEColor.PRIMARY,
-          my: isDeviceDown || isMobile ? 4 : 3,
+          my: isDeviceDown || isMobile ? 4 : 4,
         }}
         position="fixed"
       >

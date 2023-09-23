@@ -16,10 +16,10 @@ function MainPage() {
 
   return (
     <>
-      <Box className="main">
-        <Box className="main-head">
-          {/* <Box position={"relative"} width={"100%"}> */}
-
+      {/* <Box className="main"> */}
+      <Box className="main-head">
+        {/* <Box position={"relative"} width={"100%"}> */}
+        <Box>
           <header>
             <HeaderPage />
           </header>
@@ -27,13 +27,14 @@ function MainPage() {
           <Box className="container">
             <Outlet />
           </Box>
-          {/* <Box>
+          <Box>
             <footer>
               <FooterPage />
             </footer>
-          </Box> */}
+          </Box>
         </Box>
       </Box>
+      {/* </Box> */}
     </>
   );
 }

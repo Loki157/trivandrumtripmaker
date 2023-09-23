@@ -2,6 +2,7 @@ import {
   Box,
   Button,
   Container,
+  Grid,
   Typography,
   useMediaQuery,
 } from "@mui/material";
@@ -40,7 +41,7 @@ function LandingPage() {
             backgroundRepeat: "no-repeat",
             backgroundAttachment: "fixed",
             backgroundSize: "cover",
-            height: isMobile || isDeviceDown ? "400px" : "500px",
+            height: isMobile || isDeviceDown ? "400px" : "600px",
             minWidth: "100%",
             // filter: "brightness(50% )",
           }}
@@ -111,6 +112,97 @@ function LandingPage() {
           </Box>
         </Box>
         {/* </Box> */}
+        <Box
+          sx={{
+            width: "100%",
+            height: "50%",
+            backgroundColor: THEMEColor.buttons,
+          }}
+        >
+          <Container fixed sx={{ width: "100%", height: "100%" }}>
+            <Box
+              sx={{
+                height: "100%",
+                // padding: "20px",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+              }}
+              className="about-box"
+            >
+              {/* <Typography
+                variant="h4"
+                sx={{
+                  fontFamily: "Barlow-Bold",
+                  color: THEMEColor.PRIMARY,
+                }}
+                className="aboutus-text"
+              >
+                About Us
+              </Typography> */}
+
+              <Grid container height={"100%"} alignItems={"center"}>
+                <Grid item md={6}>
+                  <Box height={"100%"} className="about-img">
+                    asdasfasdasdas
+                  </Box>
+                </Grid>
+                <Grid item md={6}>
+                  <Box
+                    height="100%"
+                    display={"flex"}
+                    flexDirection={"column"}
+                    gap="30px"
+                  >
+                    <Typography variant="h5" className="about-company">
+                      <span></span>About Our Company
+                    </Typography>
+                    <Typography
+                      variant="h4"
+                      sx={{
+                        fontFamily: "Poppins-SemiBold",
+                        color: THEMEColor.PRIMARY,
+                      }}
+                    >
+                      We are your trusted companion for exploring the enchanting
+                      city of Trivandrum{" "}
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontFamily: "Poppins-Regular",
+                        color: " #dedede",
+                      }}
+                    >
+                      We strive to make your travel experience the best and most
+                      affordable. Our team of experienced professionals is
+                      dedicated to bringing you the best of Kerala, whether
+                      you’re looking for a taxi service, site-seeing, or
+                      planning a trip with us. Choose us for a seamless and
+                      memorable travel experience.
+                    </Typography>
+                    <Box>
+                      <Typography
+                        variant="h5"
+                        fontFamily={"Barlow-Regular"}
+                        sx={{ color: "#f2f2f2" }}
+                      >
+                        Call For Request
+                      </Typography>
+                      <Typography
+                        variant="h3"
+                        fontFamily={"Barlow-Bold"}
+                        sx={{ color: THEMEColor.Secondary }}
+                      >
+                        +91-8086040400
+                      </Typography>
+                    </Box>
+                  </Box>
+                </Grid>
+              </Grid>
+            </Box>
+          </Container>
+        </Box>
       </div>
       <Container fixed sx={{ height: "100%" }}></Container>
     </>

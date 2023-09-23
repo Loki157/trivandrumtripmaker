@@ -27,9 +27,9 @@ function FooterPage() {
         height={"100%"}
         maXWidth={"100%"}
         padding={"10px"}
-        overflow={"hidden"}
-        boxShadow={"3px 3px 10px 3px #dddddd"}
-        position={"sticky"}
+        sx={{
+          backgroundColor: THEMEColor.PRIMARY,
+        }}
       >
         <Toolbar>
           <Box display={"flex"} width={"100%"}>
