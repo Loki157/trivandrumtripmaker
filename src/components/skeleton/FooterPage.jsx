@@ -29,7 +29,7 @@ function FooterPage() {
         padding={"10px"}
         sx={{
           backgroundColor: THEMEColor.PRIMARY,
-        }}
+        }}        boxShadow={"3px 3px 10px 3px #dddddd"}
       >
         <Toolbar>
           <Box display={"flex"} width={"100%"}>

@@ -1,3 +1,22 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  transition: 0.3s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0a6d2e;
+}
 .main.MuiBox-root {
   display: flex;
   flex-direction: column;
@@ -12,6 +31,15 @@
 .container.MuiBox-root {
   flex-grow: 1;
   height: 100%;
+  min-height: 85vh;
+}
+footer {
+  min-height: 5vh;
+  /* position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999; */
 }
 .top-contact-btn.MuiButton-root {
   text-transform: capitalize;
@@ -24,25 +52,52 @@
   color: #ffffffff;
 }
 /* headerpage */
-.email-mob.MuiBox-root {display: flex;gap:10px;align-items: center;}
-.email-mob.MuiBox-root .css-78trlr-MuiButtonBase-root-MuiIconButton-root{color:var(--black);
-border: 2px solid var(--black);
-padding: 5px;transition: 0.2s all;
-
+.email-mob.MuiBox-root {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
-.email-mob.MuiBox-root:hover .css-78trlr-MuiButtonBase-root-MuiIconButton-root{
-  color:var(--white);border: 2px solid var(--green);background-color: var(--green);
+.email-mob.MuiBox-root .css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+  color: var(--black);
+  border: 2px solid var(--black);
+  padding: 5px;
+  transition: 0.2s all;
+}
+.email-mob.MuiBox-root:hover .css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+  color: var(--white);
+  border: 2px solid var(--green);
+  background-color: var(--green);
 }
 
-.email-mob.MuiBox-root a{text-decoration: none;color: var(--black);font-family:Poppins-Medium;font-size: 12px;text-align: center;}
-.email-mob.MuiBox-root:hover a{color: var(--green);}
-.header-svg-box.MuiBox-root a .fb,.header-svg-box.MuiBox-root a .wa,.header-svg-box.MuiBox-root a .in{
-  color:var(--black);
+.email-mob.MuiBox-root a {
+  text-decoration: none;
+  color: var(--black);
+  font-family: Poppins-Medium;
+  font-size: 12px;
+  text-align: center;
+}
+.email-mob.MuiBox-root:hover a {
+  color: var(--green);
+}
+.header-svg-box.MuiBox-root a .fb,
+.header-svg-box.MuiBox-root a .wa,
+.header-svg-box.MuiBox-root a .in {
+  color: var(--black);
   cursor: pointer;
   transition: 0.3s all;
-}.header-svg-box.MuiBox-root a .fb:hover{color:#1877F2;transform: scale(1.2);}
-.header-svg-box.MuiBox-root a .wa:hover{color:#25D366;transform: scale(1.2);}
-.header-svg-box.MuiBox-root a .in:hover{color:#E4405F;transform: scale(1.2);}
+}
+.header-svg-box.MuiBox-root a .fb:hover {
+  color: #1877f2;
+  transform: scale(1.2);
+}
+.header-svg-box.MuiBox-root a .wa:hover {
+  color: #25d366;
+  transform: scale(1.2);
+}
+.header-svg-box.MuiBox-root a .in:hover {
+  color: #e4405f;
+  transform: scale(1.2);
+}
 nav.nav-button {
   display: flex;
 
@@ -141,51 +196,60 @@ nav.nav-button-mobile a {
   color: var(--white);
   background-color: transparent;
 }
-.aboutus-text::after{
+.aboutus-text::after {
   content: "";
   margin: auto;
   display: block;
   height: 5px;
   width: 100%;
-  background-color:#ffffff;
+  background-color: #ffffff;
   border-radius: 20px;
-  
-   /* color: red; */
+
+  /* color: red; */
 }
-.about-company.MuiTypography-root span{background-color: var(--green);
-  transform: skew(-20deg,0deg);
+.about-company.MuiTypography-root span {
+  background-color: var(--green);
+  transform: skew(-20deg, 0deg);
   display: inline-flex;
   width: 4px;
   height: 15px;
   position: relative;
   margin-left: 20px;
-  margin-right: 10px;}
-  .about-company.MuiTypography-root{color: var(--green);font-family: Barlow-Bold;}
-  .about-company.MuiTypography-root span::before,.about-company.MuiTypography-root span::after{
-    background-color: var(--green);
-    content: "";
-    width: 4px;
-    height: 100%;
-    position: absolute;
-    right: 8px;
-    top: 0;
-    opacity: .8;
-  }
-  .about-company.MuiTypography-root span::after{ right: 16px;
-    opacity: .5;
+  margin-right: 10px;
 }
-/* .about-img.MuiBox-root {
-  position: relative;
-  margin-top: 80px;
-  z-index: 1;
+.about-company.MuiTypography-root {
+  color: var(--green);
+  font-family: Barlow-Bold;
 }
-.about-img.MuiBox-root{background-color: var(--green);
-  border-radius: 2px;
-  transform: skew(-20deg,0deg);
+.about-company.MuiTypography-root span::before,
+.about-company.MuiTypography-root span::after {
+  background-color: var(--green);
   content: "";
-  width: 200px;
-  height: calc(100% + 70px);
+  width: 4px;
+  height: 100%;
   position: absolute;
-  right: 10px;
-  bottom: -80px;
-  z-index: -1;} */
+  right: 8px;
+  top: 0;
+  opacity: 0.8;
+}
+.about-company.MuiTypography-root span::after {
+  right: 16px;
+  opacity: 0.5;
+}
+.learnmore-btn.MuiButton-root {
+  background-color: var(--green);
+  color: var(--white);
+  text-transform: capitalize;
+  font-family: Poppins-Regular;
+  transition: 0.2s all;
+}
+.learnmore-btn.MuiButton-root:hover {
+  background-color: #0a6d2e;
+}
+.learnmore-btn.MuiButton-root:hover .arrow-icn {
+  transform: translateX(10px);
+}
+.card-trip.MuiCard-root .card-img{transition: 0.2s all;}
+.card-trip.MuiCard-root:hover .card-img {
+  transform: scale(1.1);
+}

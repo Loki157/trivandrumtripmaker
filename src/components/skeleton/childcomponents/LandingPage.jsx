@@ -5,32 +5,59 @@ import {
   Grid,
   Typography,
   useMediaQuery,
+  Card,
+  CardMedia,
+  CardContent,
+  CardActions,
 } from "@mui/material";
 import React from "react";
 import landImage from "../../../assets/images/wallpaperflare.com_wallpaper (4).jpg";
+import ttmCar1 from "../../../assets/images/ttmcar1.jpeg";
+import ttmCard1 from "../../../assets/images/ttmcard1.png";
 import { useTheme } from "@mui/material/styles";
 import { THEMEColor } from "../../../assets/THEMES";
+import kathak from "../../../assets/images/kerala_kathak.jpg";
+import padhmanabha from "../../../assets/images/places/Padmanabhaswamy_temple.jpg";
+import airport from "../../../assets/images/places/airport.jpg";
+import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
 function LandingPage() {
   const theme = useTheme();
+  const isMobileUp = useMediaQuery(theme.breakpoints.up("sm"));
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDevice = useMediaQuery(theme.breakpoints.up("md"));
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeDeviceUp = useMediaQuery(theme.breakpoints.up("lg"));
   const isLargeDeviceDown = useMediaQuery(theme.breakpoints.up("lg"));
+
+  const rides = [
+    {
+      title: "One Day trip",
+      imgs: padhmanabha,
+      subHead:
+        "Experience the best of Trivandrum in just one day with our expertly curated one-day trip. Explore the city's highlights, savor local cuisine, and create lasting memories in 24 hours.",
+    },
+    {
+      title: "Airport Pickup & Drop",
+      imgs: airport,
+      subHead:
+        "Arriving or departing from Trivandrum's airport has never been easier. Our airport pickup and drop service ensures a smooth and stress-free transition to and from your flight.",
+    },
+    {
+      title: "Tour Plan to explore",
+      imgs: airport,
+      subHead:
+        "Unveil the treasures of Trivandrum with our meticulously crafted tour plans. From ancient temples to scenic beaches. Let us be your guide to an unforgettable Trivandrum experience.",
+    },
+  ];
   return (
     <>
       <div
         style={{
-          marginTop: isLargeDeviceUp
-            ? "6%"
-            : isMobile
-            ? "16.5%"
-            : isDeviceDown
-            ? ""
-            : isDevice || isLargeDeviceDown
-            ? "6%"
-            : "",
+          marginTop: isLargeDeviceUp ? "3.33vh" : "5vh",
           height: "100%",
+          // display: "flex",
+          // flexDirection: "column",
+          // alignItems: "center",justifyContent:"space-between"
         }}
       >
         {/* <Box width={"99vw"}> */}
@@ -112,11 +139,13 @@ function LandingPage() {
           </Box>
         </Box>
         {/* </Box> */}
+
+        {/* AboutUs */}
         <Box
           sx={{
             width: "100%",
             height: "50%",
-            backgroundColor: THEMEColor.buttons,
+            backgroundColor: THEMEColor.PRIMARY,
           }}
         >
           <Container fixed sx={{ width: "100%", height: "100%" }}>
@@ -142,10 +171,29 @@ function LandingPage() {
               </Typography> */}
 
               <Grid container height={"100%"} alignItems={"center"}>
-                <Grid item md={6}>
-                  <Box height={"100%"} className="about-img">
-                    asdasfasdasdas
-                  </Box>
+                <Grid item md={6} sm={0} xs={0}>
+                  {isMobile || isDeviceDown ? null : (
+                    <Box
+                      height={"100%"}
+                      className="about-img"
+                      width={"70%"}
+                      // borderRadius="50%"
+                    >
+                      {/* <Box
+                        display={"flex"}
+                        justifyContent={"space-between"}
+                        width={"100%"}
+                        // gap={"20px"}
+                      >
+                        <Box width="50%"> */}
+                      <img src={ttmCar1} height={"100%"} width={"100%"} />
+                      {/* </Box>
+                        <Box width={"50%"}>
+                          <img src={ttmCard1} height={"100%"} width={"100%"} />
+                        </Box>
+                      </Box> */}
+                    </Box>
+                  )}
                 </Grid>
                 <Grid item md={6}>
                   <Box
@@ -161,17 +209,17 @@ function LandingPage() {
                       variant="h4"
                       sx={{
                         fontFamily: "Poppins-SemiBold",
-                        color: THEMEColor.PRIMARY,
+                        color: THEMEColor.buttons,
                       }}
                     >
                       We are your trusted companion for exploring the enchanting
-                      city of Trivandrum{" "}
+                      city of Kerala{" "}
                     </Typography>
                     <Typography
                       variant="body2"
                       sx={{
                         fontFamily: "Poppins-Regular",
-                        color: " #dedede",
+                        color: THEMEColor.buttons,
                       }}
                     >
                       We strive to make your travel experience the best and most
@@ -185,7 +233,7 @@ function LandingPage() {
                       <Typography
                         variant="h5"
                         fontFamily={"Barlow-Regular"}
-                        sx={{ color: "#f2f2f2" }}
+                        sx={{ color: THEMEColor.buttons }}
                       >
                         Call For Request
                       </Typography>
@@ -203,8 +251,157 @@ function LandingPage() {
             </Box>
           </Container>
         </Box>
+        {/* What we offer */}
+        <Box
+          sx={{
+            width: "100%",
+            height: "50%",
+            background: ` linear-gradient(white,white) bottom/100% 40% no-repeat,url(${kathak}) center/cover no-repeat`,
+          }}
+        >
+          <Box
+            height={"100%"}
+            sx={{
+              background:
+                "linear-gradient(white,white) bottom/100% 40% no-repeat,rgba(0,0,0, 0.7) center/cover no-repeat ",
+            }}
+          >
+            <Container fixed sx={{ width: "100%", height: "100%" }}>
+              <Box height={"100%"}>
+                <Box
+                  height="100%"
+                  display={"flex"}
+                  flexDirection={"column"}
+                  gap="20px"
+                  padding={"20px"}
+                  alignItems={"center"}
+                  // sx={{ transform: "translateY(15%)" }}
+                  // justifyContent="inherit/"
+                >
+                  <Typography variant="h5" className="about-company">
+                    <span></span>What we Offer{" "}
+                  </Typography>
+                  <Box
+                    width={"60%"}
+                    display={"flex"}
+                    flexDirection={"column"}
+                    gap="10px"
+                  >
+                    <Typography
+                      variant="h4"
+                      sx={{
+                        fontFamily: "Poppins-SemiBold",
+                        color: THEMEColor.PRIMARY,
+                        textAlign: "center",
+                        lineHeight: "40px",
+                      }}
+                    >
+                      Craft your Unforgettable memories with Trivandrum Trip
+                      Maker
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      sx={{
+                        fontFamily: "Poppins-Regular",
+                        color: THEMEColor.PRIMARY,
+                        textAlign: "center",
+                        lineHeight: "20px",
+                      }}
+                    >
+                      Our passion lies in crafting unforgettable travel moments
+                      for every traveler who chooses us. With our range of
+                      services, we transform ordinary trips into extraordinary
+                      adventures.
+                    </Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      display: "flex",
+                      justifyContent: "space-between",
+                      gap: "30px",
+                      height: "60%",
+                      width: "100%",
+                    }}
+                  >
+                    {rides.map((i) => {
+                      return (
+                        <>
+                          <Card
+                            sx={{ borderRadius: 0, boxShadow: 0 }}
+                            className="card-trip"
+                          >
+                            <CardMedia
+                            // component={"img"}
+                            // alt="title"
+                            // image={i.imgs}
+                            // height="300px"
+                            >
+                              {" "}
+                              <img
+                                src={i.imgs}
+                                alt={i.title}
+                                height={"300px"}
+                                className="card-img"
+                              />{" "}
+                            </CardMedia>
+                            <CardContent>
+                              <Box
+                                width={"100%"}
+                                display={"flex"}
+                                flexDirection={"column"}
+                                gap="10px"
+                              >
+                                <Typography
+                                  variant="h5"
+                                  sx={{
+                                    fontFamily: "Poppins-Bold",
+                                    color: THEMEColor.buttons,
+                                    textAlign: "center",
+                                    // lineHeight: "40px",
+                                  }}
+                                >
+                                  {i.title}
+                                </Typography>
+                                <Typography
+                                  variant="body2"
+                                  sx={{
+                                    fontFamily: "Poppins-Regular",
+                                    color: THEMEColor.buttons,
+                                    textAlign: "center",
+                                    // lineHeight: "20px",
+                                  }}
+                                >
+                                  {i.subHead}
+                                </Typography>
+                              </Box>
+                            </CardContent>
+                            <CardActions>
+                              <Button
+                                variant="contained"
+                                sx={{ borderRadius: 0, boxShadow: 0 }}
+                                fullWidth
+                                className="learnmore-btn"
+                              >
+                                Learn More &nbsp;{" "}
+                                <ArrowForwardIcon
+                                  sx={{ transition: "0.2s all" }}
+                                  className="arrow-icn"
+                                />
+                              </Button>
+                            </CardActions>
+                          </Card>
+                        </>
+                      );
+                    })}
+                  </Box>
+                </Box>
+              </Box>
+            </Container>
+          </Box>
+        </Box>
+        <Box></Box>
       </div>
-      <Container fixed sx={{ height: "100%" }}></Container>
+      {/* <Container fixed sx={{ height: "100%" }}></Container> */}
     </>
   );
 }

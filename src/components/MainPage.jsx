@@ -17,21 +17,19 @@ function MainPage() {
   return (
     <>
       {/* <Box className="main"> */}
-      <Box className="main-head">
+      <Box className="main-head" id="main-head-scroll">
         {/* <Box position={"relative"} width={"100%"}> */}
         <Box>
-          <header>
+          <header style={{ minHeight: "10vh" }}>
             <HeaderPage />
           </header>
           {/* </Box> */}
           <Box className="container">
             <Outlet />
           </Box>
-          <Box>
-            <footer>
-              <FooterPage />
-            </footer>
-          </Box>
+          {/* <footer >
+            <FooterPage />
+          </footer> */}
         </Box>
       </Box>
       {/* </Box> */}
