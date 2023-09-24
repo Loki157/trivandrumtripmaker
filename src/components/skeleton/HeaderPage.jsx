@@ -12,7 +12,7 @@ import {
 import React, { useState } from "react";
 import { THEMEColor } from "../../assets/THEMES";
 import logo from "../../assets/svg/TTM_Black Letter.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/MainPage.css";
 import { useTheme } from "@mui/material/styles";
 import {
@@ -24,16 +24,21 @@ import {
   FacebookOutlined as FacebookOutlinedIcon,
   Instagram as InstagramIcon,
 } from "@mui/icons-material";
+import { ROUTEPATH } from "../ROUTEPATH";
 
 function HeaderPage() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const theme = useTheme();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const currentUrl = location.pathname;
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDevice = useMediaQuery(theme.breakpoints.up("md"));
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   const handleDrawerOpen = (value) => {
     setDrawerOpen(value);
   };
+  console.log("object", currentUrl, ROUTEPATH.MAIN + ROUTEPATH.HOME);
   return (
     <>
       <Drawer
@@ -75,13 +80,50 @@ function HeaderPage() {
             className="nav-button-mobile"
             style={{ flexDirection: "column" }}
           >
-            <NavLink>Home</NavLink>
+            <Link
+              className={
+                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.HOME
+                  ? "nav-active-btn"
+                  : "nav-btn"
+              }
+              to={ROUTEPATH.HOME}
+            >
+              Home
+            </Link>
 
-            <NavLink>Places</NavLink>
+            <Link
+              className={
+                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.PLACES
+                  ? "nav-active-btn"
+                  : "nav-btn"
+              }
+              to={ROUTEPATH.PLACES}
+            >
+              Places
+            </Link>
 
-            <NavLink> About</NavLink>
+            <Link
+              className={
+                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.ABOUT
+                  ? "nav-active-btn"
+                  : "nav-btn"
+              }
+              to={ROUTEPATH.ABOUT}
+            >
+              {" "}
+              About
+            </Link>
 
-            <NavLink>Contact Us</NavLink>
+            <Link
+              className={
+                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.CONTACT
+                  ? "nav-active-btn"
+                  : "nav-btn"
+              }
+              to={ROUTEPATH.CONTACT}
+            >
+              Contact Us
+            </Link>
           </nav>
         </Box>
       </Drawer>
@@ -195,13 +237,50 @@ function HeaderPage() {
                   }}
                 >
                   <nav className="nav-button">
-                    <NavLink>Home</NavLink>
+                    <Link
+                      className={
+                        currentUrl === ROUTEPATH.MAIN + ROUTEPATH.HOME
+                          ? "nav-active-btn"
+                          : "nav-btn"
+                      }
+                      to={ROUTEPATH.HOME}
+                    >
+                      Home
+                    </Link>
 
-                    <NavLink>Places</NavLink>
+                    <Link
+              className={
+                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.PLACES
+                  ? "nav-active-btn"
+                  : "nav-btn"
+              }
+              to={ROUTEPATH.PLACES}
+            >
+              Places
+            </Link>
 
-                    <NavLink> About</NavLink>
+            <Link
+              className={
+                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.ABOUT
+                  ? "nav-active-btn"
+                  : "nav-btn"
+              }
+              to={ROUTEPATH.ABOUT}
+            >
+              {" "}
+              About
+            </Link>
 
-                    <NavLink>Contact Us</NavLink>
+            <Link
+              className={
+                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.CONTACT
+                  ? "nav-active-btn"
+                  : "nav-btn"
+              }
+              to={ROUTEPATH.CONTACT}
+            >
+              Contact Us
+            </Link>
                   </nav>
                 </Box>
               )}

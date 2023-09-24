@@ -11,17 +11,23 @@ import {
   CardActions,
 } from "@mui/material";
 import React from "react";
+// Imagesss////
 import landImage from "../../../assets/images/wallpaperflare.com_wallpaper (4).jpg";
 import ttmCar1 from "../../../assets/images/ttmcar1.jpeg";
 import ttmCard1 from "../../../assets/images/ttmcard1.png";
-import { useTheme } from "@mui/material/styles";
-import { THEMEColor } from "../../../assets/THEMES";
 import kathak from "../../../assets/images/kerala_kathak.jpg";
 import padhmanabha from "../../../assets/images/places/Padmanabhaswamy_temple.jpg";
 import airport from "../../../assets/images/places/airport.jpg";
+// -------//
+import { THEMEColor } from "../../../assets/THEMES";
+import { useTheme } from "@mui/material/styles";
 import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
+import { useNavigate } from "react-router-dom";
+import { ROUTEPATH } from "../../ROUTEPATH";
 function LandingPage() {
   const theme = useTheme();
+  const navigate = useNavigate();
+
   const isMobileUp = useMediaQuery(theme.breakpoints.up("sm"));
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDevice = useMediaQuery(theme.breakpoints.up("md"));
@@ -35,18 +41,21 @@ function LandingPage() {
       imgs: padhmanabha,
       subHead:
         "Experience the best of Trivandrum in just one day with our expertly curated one-day trip. Explore the city's highlights, savor local cuisine, and create lasting memories in 24 hours.",
+      nav: ROUTEPATH.MAIN + ROUTEPATH.ONEDAY,
     },
     {
       title: "Airport Pickup & Drop",
       imgs: airport,
       subHead:
         "Arriving or departing from Trivandrum's airport has never been easier. Our airport pickup and drop service ensures a smooth and stress-free transition to and from your flight.",
+      nav: ROUTEPATH.MAIN + ROUTEPATH.PICKDROP,
     },
     {
       title: "Tour Plan to explore",
       imgs: airport,
       subHead:
         "Unveil the treasures of Trivandrum with our meticulously crafted tour plans. From ancient temples to scenic beaches. Let us be your guide to an unforgettable Trivandrum experience.",
+      nav: ROUTEPATH.MAIN + ROUTEPATH.TOURPLAN,
     },
   ];
   return (
@@ -144,7 +153,7 @@ function LandingPage() {
         <Box
           sx={{
             width: "100%",
-            height: "50%",
+            height: "30%",
             backgroundColor: THEMEColor.PRIMARY,
           }}
         >
@@ -174,7 +183,7 @@ function LandingPage() {
                 <Grid item md={6} sm={0} xs={0}>
                   {isMobile || isDeviceDown ? null : (
                     <Box
-                      height={"100%"}
+                      height={"50%"}
                       className="about-img"
                       width={"70%"}
                       // borderRadius="50%"
@@ -186,7 +195,7 @@ function LandingPage() {
                         // gap={"20px"}
                       >
                         <Box width="50%"> */}
-                      <img src={ttmCar1} height={"100%"} width={"100%"} />
+                      <img src={ttmCar1} height={"90%"} width={"100%"} />
                       {/* </Box>
                         <Box width={"50%"}>
                           <img src={ttmCard1} height={"100%"} width={"100%"} />
@@ -200,26 +209,34 @@ function LandingPage() {
                     height="100%"
                     display={"flex"}
                     flexDirection={"column"}
-                    gap="30px"
+                    gap="20px"
                   >
-                    <Typography variant="h5" className="about-company">
+                    <Typography
+                      variant="h5"
+                      className="about-company"
+                      sx={{
+                        textAlign: isMobile || isDeviceDown ? "center" : "",
+                      }}
+                    >
                       <span></span>About Our Company
                     </Typography>
                     <Typography
-                      variant="h4"
+                      variant={isMobile || isDeviceDown ? "h5" : "h4"}
                       sx={{
                         fontFamily: "Poppins-SemiBold",
                         color: THEMEColor.buttons,
+                        textAlign: isMobile || isDeviceDown ? "center" : "",
                       }}
                     >
                       We are your trusted companion for exploring the enchanting
                       city of Kerala{" "}
                     </Typography>
                     <Typography
-                      variant="body2"
+                      variant={isMobile || isDeviceDown ? "caption" : "body2"}
                       sx={{
                         fontFamily: "Poppins-Regular",
                         color: THEMEColor.buttons,
+                        textAlign: isMobile || isDeviceDown ? "center" : "",
                       }}
                     >
                       We strive to make your travel experience the best and most
@@ -231,14 +248,14 @@ function LandingPage() {
                     </Typography>
                     <Box>
                       <Typography
-                        variant="h5"
+                        variant={"h5"}
                         fontFamily={"Barlow-Regular"}
                         sx={{ color: THEMEColor.buttons }}
                       >
                         Call For Request
                       </Typography>
                       <Typography
-                        variant="h3"
+                        variant={isMobile || isDeviceDown ? "h4" : "h3"}
                         fontFamily={"Barlow-Bold"}
                         sx={{ color: THEMEColor.Secondary }}
                       >
@@ -255,7 +272,7 @@ function LandingPage() {
         <Box
           sx={{
             width: "100%",
-            height: "50%",
+            height: "60%",
             background: ` linear-gradient(white,white) bottom/100% 40% no-repeat,url(${kathak}) center/cover no-repeat`,
           }}
         >
@@ -381,8 +398,9 @@ function LandingPage() {
                                 sx={{ borderRadius: 0, boxShadow: 0 }}
                                 fullWidth
                                 className="learnmore-btn"
+                                onClick={() => navigate(i.nav)}
                               >
-                                Learn More &nbsp;{" "}
+                                Book Now &nbsp;{" "}
                                 <ArrowForwardIcon
                                   sx={{ transition: "0.2s all" }}
                                   className="arrow-icn"
@@ -401,7 +419,7 @@ function LandingPage() {
         </Box>
         <Box></Box>
       </div>
-      {/* <Container fixed sx={{ height: "100%" }}></Container> */}
+      <Container fixed sx={{ height: "100%" }}></Container>
     </>
   );
 }

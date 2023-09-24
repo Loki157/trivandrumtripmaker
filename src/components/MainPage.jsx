@@ -27,9 +27,9 @@ function MainPage() {
           <Box className="container">
             <Outlet />
           </Box>
-          {/* <footer >
+          <footer >
             <FooterPage />
-          </footer> */}
+          </footer>
         </Box>
       </Box>
       {/* </Box> */}

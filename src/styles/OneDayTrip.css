@@ -1,0 +1,28 @@
+.oneday-heading.MuiTypography-root::after {
+  content: "";
+  margin: auto;
+  display: block;
+  height: 6px;
+  width: 80%;
+  float: left;
+  border-bottom-right-radius: 10px;
+  background-color: var(--green);
+}
+.scroll-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: var(--green);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s ease-in-out;
+    z-index: 99999;
+  }
+  
+  .scroll-to-top-button:hover {
+    opacity: 1;
+  }
