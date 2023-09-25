@@ -1,134 +1,138 @@
 import {
   Box,
   Button,
+  Container,
   IconButton,
   Toolbar,
   Typography,
   useMediaQuery,
 } from "@mui/material";
+
+import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
+
 import React from "react";
 import logo from "../../assets/svg/TTM_Black Letter.svg";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 import {
   Instagram as InstagramIcon,
   Facebook as FacebookIcon,
+  MailRounded as MailRoundedIcon,
+  CallRounded as CallRoundedIcon,
 } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
 import { THEMEColor } from "../../assets/THEMES";
 import { WhatsApp as WhatsAppIcon } from "@mui/icons-material";
+import { ROUTEPATH } from "../ROUTEPATH";
 function FooterPage() {
   const theme = useTheme();
+  const location = useLocation();
+  const currentUrl = location.pathname;
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDevice = useMediaQuery(theme.breakpoints.up("md"));
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
-      <Box
-        height={"100%"}
-        maXWidth={"100%"}
-        padding={"10px"}
-        sx={{
-          backgroundColor: THEMEColor.PRIMARY,
-        }}        boxShadow={"3px 3px 10px 3px #dddddd"}
-      >
-        <Toolbar>
-          <Box display={"flex"} width={"100%"}>
-            <Box
-              sx={{
-                width: "100%",
-                display: "flex",
-                justifyContent: "space-between",
-              }}
-            >
-              <Box
-                height={"100%"}
-                display={"flex"}
-                flexDirection={"column"}
-                width={"40%"}
-                gap={"10px"}
-              >
-                <Box sx={{ width: "30vh" }}>
-                  <img src={logo} width={"100%"} />
-                </Box>
-                <div style={{ display: "flex", justifyContent: "flex-start" }}>
-                  <Typography
+      <div id="footer" className="footer">
+        <Container>
+          <div
+            className="footer-split"
+            style={{
+              gridTemplateColumns:
+                isMobile || isDeviceDown ? "100%" : "30% 23% 23% 23%",
+            }}
+          >
+            <div className="footer-box-1">
+              <div className="footer-box-img">
+                <img src={logo} />
+              </div>
+              <div>
+                <p>
+                  Trivandrum trip makers is a car booking service provider that
+                  offers safe and comfortable trips in trivandrum. we committed
+                  to providing the best travel experience to our customers.
+                </p>
+              </div>
+            </div>
+            <div className="footer-box-2">
+              <h2>Quick Links</h2>
+              <ul>
+                <li>
+                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                  Home
+                </li>
+                <li>
+                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                  Place
+                </li>
+                <li>
+                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                  About
+                </li>
+                <li>
+                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                  Contact Us
+                </li>
+              </ul>
+            </div>
+            <div className="footer-box-3">
+              <h2>Contact Details</h2>
+              <div className="contactus-details-1">
+                <h3>Phone Number</h3>
+                <div>
+                  <CallRoundedIcon
                     sx={{
-                      width: "70%",
-                      textAlign: "left",
-                      fontFamily: "Poppins-Light",
-                      fontSize: isMobile
-                        ? "5px"
-                        : isDeviceDown
-                        ? "8px"
-                        : "15px",
+                      fontSize: 18,
+                      marginRight: "10px",
+                      backgroundColor: "#3dae2b",
+                      color: "white",
+                      padding: "5px",
                     }}
-                    variant="body1"
-                  >
-                    Trivandrum trip makers is a car booking service provider
-                    that offers safe and comfortable trips in trivandrum. we
-                    committed to providing the best travel experience to our
-                    customers.
-                  </Typography>
+                  />
+                  <text>+918086040400</text>
                 </div>
-                <Box>
-                  <IconButton className="icon-btn">
-                    <InstagramIcon />
-                  </IconButton>
-                  <IconButton className="icon-btn">
-                    <FacebookIcon />
-                  </IconButton>
-                  {/* <IconButton></IconButton>
-<IconButton></IconButton>
-<IconButton></IconButton> */}
-                </Box>
-              </Box>
-              <Box
-                sx={{
-                  flex: 1,
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "center",
-                }}
-              >
-                <nav
-                  className="nav-button"
-                  style={{ flexDirection: "column", gap: "10px" }}
-                >
-                  <NavLink>Home</NavLink>
-
-                  <NavLink>Places</NavLink>
-
-                  <NavLink> About</NavLink>
-
-                  <NavLink>Contact Us</NavLink>
-                </nav>
-              </Box>
-              <Box
-                width={"20%"}
-                display={"flex"}
-                alignItems={"center"}
-                justifyContent={"center"}
-              >
-                <Button
-                  sx={{
-                    boxShadow: 0,
-                    borderRadius: 0,
-                    backgroundColor: THEMEColor.Secondary,
-                  }}
-                  variant={"contained"}
-                  startIcon={<WhatsAppIcon />}
-                  className="top-contact-btn"
-                >
-                  {" "}
-                  <a href="//api.whatsapp.com/send?phone=918086040400&text=WHATEVER_LINK_OR_TEXT_YOU_WANT_TO_SEND">
-                    Contact Now
-                  </a>
-                </Button>
-              </Box>
-            </Box>
-          </Box>
-        </Toolbar>
-      </Box>
+              </div>
+              <div className="contactus-details-1">
+                <h3>Email</h3>
+                <div>
+                  <MailRoundedIcon
+                    sx={{
+                      fontSize: 18,
+                      marginRight: "10px",
+                      backgroundColor: "#3dae2b",
+                      color: "white",
+                      padding: "5px",
+                    }}
+                  />
+                  <text> trivandrumtripmaker@gmail.com</text>
+                </div>
+              </div>
+              <div className="contactus-details-2">
+                <h3>Address</h3>
+                <div>
+                  <LocationOnIcon
+                    sx={{
+                      fontSize: 18,
+                      marginRight: "10px",
+                      backgroundColor: "#3dae2b",
+                      color: "white",
+                      padding: "5px",
+                    }}
+                  />
+                  <text>
+                    Puunamoodu House TC 89/1162, Near wireless station, Beach
+                    Post, Trivandrum 695007
+                  </text>
+                </div>
+              </div>
+            </div>
+            <div className="footer-box-4">cfsd</div>
+          </div>
+        </Container>
+        <div className="footer-copyrights">
+          © 2023 TAXIAR. ALL RIGHTS RESERVED.
+        </div>
+      </div>
     </>
   );
 }

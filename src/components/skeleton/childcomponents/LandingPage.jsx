@@ -24,7 +24,14 @@ import { useTheme } from "@mui/material/styles";
 import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { ROUTEPATH } from "../../ROUTEPATH";
+import { motion } from "framer-motion";
+
 function LandingPage() {
+  const Typographymotion = motion(Typography);
+  const Buttonmotion = motion(Button);
+  const Cardmotion = motion(Card);
+
+
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -112,7 +119,15 @@ function LandingPage() {
                     width: isMobile || isDeviceDown ? "100%" : "50%",
                   }}
                 >
-                  <Typography
+                  <Typographymotion
+                    initial={{ opacity: 0, x: -100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{
+                      duration: 0.9,
+                      delay: 0.9,
+                      ease: [0, 0.71, 0.2, 1.01],
+                    }}
                     variant={isMobile || isDeviceDown ? "h3" : "h2"}
                     sx={{
                       fontFamily:
@@ -124,24 +139,40 @@ function LandingPage() {
                     }}
                   >
                     Experience the beauty of Kerala
-                  </Typography>
-                  <Typography
+                  </Typographymotion>
+                  <Typographymotion
                     variant={isMobile || isDeviceDown ? "caption" : "body1"}
                     sx={{
                       fontFamily: "Barlow-Regular",
                       color: THEMEColor.PRIMARY,
                     }}
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{
+                      duration: 0.9,
+                      delay: 1.3,
+                      ease: [0, 0.71, 0.2, 1.01],
+                    }}
                   >
                     We make your trip memorable and peaceful. We offer
                     affordable and convenient Travel plans for everyone.
-                  </Typography>
-                  <Button
+                  </Typographymotion>
+                  <Buttonmotion
                     className="book-trip-btn"
                     sx={{ boxShadow: 0 }}
                     variant="contained"
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{
+                      duration: 0.9,
+                      delay: 1.5,
+                      ease: [0, 0.71, 0.2, 1.01],
+                    }}
                   >
                     Book a Trip
-                  </Button>
+                  </Buttonmotion>
                 </Box>
               </Box>
             </Container>
@@ -195,7 +226,19 @@ function LandingPage() {
                         // gap={"20px"}
                       >
                         <Box width="50%"> */}
-                      <img src={ttmCar1} height={"90%"} width={"100%"} />
+                      <motion.img
+                        src={ttmCar1}
+                        height={"90%"}
+                        width={"100%"}
+                        initial={{ opacity: 0, y: 100 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.5 }}
+                        transition={{
+                          duration: 0.9,
+                          delay: 0.9,
+                          ease: [0, 0.71, 0.2, 1.01],
+                        }}
+                      />
                       {/* </Box>
                         <Box width={"50%"}>
                           <img src={ttmCard1} height={"100%"} width={"100%"} />
@@ -205,11 +248,21 @@ function LandingPage() {
                   )}
                 </Grid>
                 <Grid item md={6}>
-                  <Box
+                  <motion.div
                     height="100%"
-                    display={"flex"}
-                    flexDirection={"column"}
-                    gap="20px"
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "20px",
+                    }}
+                    initial={{ opacity: 0, x: 100 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{
+                      duration: 0.9,
+                      delay: 0.9,
+                      ease: [0, 0.71, 0.2, 1.01],
+                    }}
                   >
                     <Typography
                       variant="h5"
@@ -246,7 +299,13 @@ function LandingPage() {
                       planning a trip with us. Choose us for a seamless and
                       memorable travel experience.
                     </Typography>
-                    <Box display={"flex"} flexDirection={"column"}alignItems={isMobile || isDeviceDown ?"center":"flex-start"}>
+                    <Box
+                      display={"flex"}
+                      flexDirection={"column"}
+                      alignItems={
+                        isMobile || isDeviceDown ? "center" : "flex-start"
+                      }
+                    >
                       <Typography
                         variant={"h5"}
                         fontFamily={"Barlow-Regular"}
@@ -262,7 +321,7 @@ function LandingPage() {
                         +91-8086040400
                       </Typography>
                     </Box>
-                  </Box>
+                  </motion.div>
                 </Grid>
               </Grid>
             </Box>
@@ -295,41 +354,68 @@ function LandingPage() {
                   // sx={{ transform: "translateY(15%)" }}
                   // justifyContent="inherit/"
                 >
-                  <Typography variant="h5" className="about-company">
+                  <Typographymotion
+                    initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{
+                      duration: 0.9,
+                      delay: 0.9,
+                      ease: [0, 0.71, 0.2, 1.01],
+                    }}
+                    variant="h5"
+                    className="about-company"
+                  >
                     <span></span>What we Offer{" "}
-                  </Typography>
+                  </Typographymotion>
                   <Box
-                    width={isMobile || isDeviceDown ?"100%":"60%"}
+                    width={isMobile || isDeviceDown ? "100%" : "60%"}
                     display={"flex"}
                     flexDirection={"column"}
                     gap="10px"
                   >
-                    <Typography
-                     variant={isMobile || isDeviceDown ? "h5" : "h4"}
+                    <Typographymotion
+                      variant={isMobile || isDeviceDown ? "h5" : "h4"}
                       sx={{
                         fontFamily: "Poppins-SemiBold",
                         color: THEMEColor.PRIMARY,
                         textAlign: "center",
                         lineHeight: "40px",
                       }}
+                      initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{
+                      duration: 0.9,
+                      delay: 0.9,
+                      ease: [0, 0.71, 0.2, 1.01],
+                    }}
                     >
                       Craft your Unforgettable memories with Trivandrum Trip
                       Maker
-                    </Typography>
-                    <Typography
-                      variant={isMobile || isDeviceDown ?"caption":"body2"}
+                    </Typographymotion>
+                    <Typographymotion
+                      variant={isMobile || isDeviceDown ? "caption" : "body2"}
                       sx={{
                         fontFamily: "Poppins-Regular",
                         color: THEMEColor.PRIMARY,
                         textAlign: "center",
                         lineHeight: "20px",
                       }}
+                      initial={{ opacity: 0, scale: 0.5 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true, amount: 0.5 }}
+                    transition={{
+                      duration: 0.9,
+                      delay: 0.9,
+                      ease: [0, 0.71, 0.2, 1.01],
+                    }}
                     >
                       Our passion lies in crafting unforgettable travel moments
                       for every traveler who chooses us. With our range of
                       services, we transform ordinary trips into extraordinary
                       adventures.
-                    </Typography>
+                    </Typographymotion>
                   </Box>
                   <Box
                     sx={{
@@ -339,15 +425,24 @@ function LandingPage() {
                       justifyContent: "space-between",
                       gap: "30px",
                       height: "60%",
-                      width:isMobile || isDeviceDown ? "75%":"100%",
+                      width: isMobile || isDeviceDown ? "75%" : "100%",
                     }}
                   >
-                    {rides.map((i) => {
+                    {rides.map((i,index) => {
                       return (
                         <>
-                          <Card
+                          <Cardmotion
                             sx={{ borderRadius: 0, boxShadow: 0 }}
                             className="card-trip"
+
+                            initial={{ opacity: 0, y: 100 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{
+                              duration: 1.2,
+                              delay: index === 0 ? 1.1 :index === 1 ? 1.5 : 1.9,
+                              ease: [0, 0.71, 0.2, 1.01],
+                            }}
                           >
                             <CardMedia
                             // component={"img"}
@@ -373,7 +468,10 @@ function LandingPage() {
                                 <Typography
                                   variant="h5"
                                   sx={{
-                                    fontFamily:isMobile || isDeviceDown ?"Poppins-SemiBold": "Poppins-Bold",
+                                    fontFamily:
+                                      isMobile || isDeviceDown
+                                        ? "Poppins-SemiBold"
+                                        : "Poppins-Bold",
                                     color: THEMEColor.buttons,
                                     textAlign: "center",
                                     // lineHeight: "40px",
@@ -382,7 +480,11 @@ function LandingPage() {
                                   {i.title}
                                 </Typography>
                                 <Typography
-                                  variant={isMobile || isDeviceDown ?"caption":"body2"}
+                                  variant={
+                                    isMobile || isDeviceDown
+                                      ? "caption"
+                                      : "body2"
+                                  }
                                   sx={{
                                     fontFamily: "Poppins-Regular",
                                     color: THEMEColor.buttons,
@@ -409,7 +511,7 @@ function LandingPage() {
                                 />
                               </Button>
                             </CardActions>
-                          </Card>
+                          </Cardmotion>
                         </>
                       );
                     })}

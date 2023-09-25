@@ -1,0 +1,8 @@
+.contact-us-bg.MuiBox-root {
+  background-image: url(../assets/images/service-boxes-bg.jpg);
+  height: 600px;
+  /* background-position: 1; */
+  background-size: cover;
+  background-attachment: fixed;
+  /* position: relative; */
+}

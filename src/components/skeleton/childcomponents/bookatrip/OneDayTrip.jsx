@@ -21,7 +21,7 @@ import {
   ArrowForward as ArrowForwardIcon,
   Call as CallIcon,
 } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { THEMEColor } from "../../../../assets/THEMES";
 import { styled, useTheme } from "@mui/material/styles";
 import "../../../../styles/OneDayTrip.css";
@@ -51,7 +51,11 @@ const Accordion = styled((props) => (
 
 const AccordionSummary = styled((props) => (
   <MuiAccordionSummary
-    expandIcon={<ArrowForwardIosSharpIcon sx={{ fontSize: "0.9rem" }} />}
+    expandIcon={
+      <ArrowForwardIosSharpIcon
+        sx={{ fontSize: "0.9rem", color: THEMEColor.PRIMARY }}
+      />
+    }
     {...props}
   />
 ))(({ theme }) => ({
@@ -82,7 +86,7 @@ function OneDayTrip() {
 
   const theme = useTheme();
   const navigate = useNavigate();
-
+  const { pathname } = useLocation();
   const isMobileUp = useMediaQuery(theme.breakpoints.up("sm"));
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDevice = useMediaQuery(theme.breakpoints.up("md"));
@@ -134,6 +138,9 @@ function OneDayTrip() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
@@ -143,7 +150,7 @@ function OneDayTrip() {
           className="scroll-to-top-button"
           onClick={handleReqCallBackIntoView}
         >
-          Scroll to Top
+          Check
         </button>
       )}
       <div
@@ -622,7 +629,7 @@ function OneDayTrip() {
                   flexDirection: "column",
                   gap: "15px",
                   alignItems: "flex-start",
-                  width:isMobile || isDeviceDown ?"100%":"100%"
+                  width: isMobile || isDeviceDown ? "100%" : "100%",
                 }}
               >
                 <Typography
@@ -673,7 +680,7 @@ function OneDayTrip() {
                             id="panel1d-header"
                           >
                             <Typography
-                              variant="h5"
+                              variant="body1"
                               sx={{
                                 fontFamily: "Poppins-SemiBold",
                                 color: THEMEColor.PRIMARY,
@@ -702,7 +709,12 @@ function OneDayTrip() {
                               >
                                 {i.heading}
                               </Typography>
-                              <Box height={"100%"}     width={isMobile || isDeviceDown ?"100%":"80%"}>
+                              <Box
+                                height={"100%"}
+                                width={
+                                  isMobile || isDeviceDown ? "100%" : "80%"
+                                }
+                              >
                                 <img
                                   src={i.image}
                                   height={"100%"}
