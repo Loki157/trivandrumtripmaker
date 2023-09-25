@@ -246,7 +246,7 @@ function LandingPage() {
                       planning a trip with us. Choose us for a seamless and
                       memorable travel experience.
                     </Typography>
-                    <Box>
+                    <Box display={"flex"} flexDirection={"column"}alignItems={isMobile || isDeviceDown ?"center":"flex-start"}>
                       <Typography
                         variant={"h5"}
                         fontFamily={"Barlow-Regular"}
@@ -299,13 +299,13 @@ function LandingPage() {
                     <span></span>What we Offer{" "}
                   </Typography>
                   <Box
-                    width={"60%"}
+                    width={isMobile || isDeviceDown ?"100%":"60%"}
                     display={"flex"}
                     flexDirection={"column"}
                     gap="10px"
                   >
                     <Typography
-                      variant="h4"
+                     variant={isMobile || isDeviceDown ? "h5" : "h4"}
                       sx={{
                         fontFamily: "Poppins-SemiBold",
                         color: THEMEColor.PRIMARY,
@@ -317,7 +317,7 @@ function LandingPage() {
                       Maker
                     </Typography>
                     <Typography
-                      variant="body2"
+                      variant={isMobile || isDeviceDown ?"caption":"body2"}
                       sx={{
                         fontFamily: "Poppins-Regular",
                         color: THEMEColor.PRIMARY,
@@ -334,10 +334,12 @@ function LandingPage() {
                   <Box
                     sx={{
                       display: "flex",
+                      flexDirection:
+                        isMobile || isDeviceDown ? "column" : "row",
                       justifyContent: "space-between",
                       gap: "30px",
                       height: "60%",
-                      width: "100%",
+                      width:isMobile || isDeviceDown ? "75%":"100%",
                     }}
                   >
                     {rides.map((i) => {
@@ -371,7 +373,7 @@ function LandingPage() {
                                 <Typography
                                   variant="h5"
                                   sx={{
-                                    fontFamily: "Poppins-Bold",
+                                    fontFamily:isMobile || isDeviceDown ?"Poppins-SemiBold": "Poppins-Bold",
                                     color: THEMEColor.buttons,
                                     textAlign: "center",
                                     // lineHeight: "40px",
@@ -380,7 +382,7 @@ function LandingPage() {
                                   {i.title}
                                 </Typography>
                                 <Typography
-                                  variant="body2"
+                                  variant={isMobile || isDeviceDown ?"caption":"body2"}
                                   sx={{
                                     fontFamily: "Poppins-Regular",
                                     color: THEMEColor.buttons,

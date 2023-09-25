@@ -63,3 +63,10 @@ html {
   font-family: "Barlow-Black";
   src: url("./assets/fonts/Barlow/BarlowCondensed-Black.ttf");
 }
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
+}
