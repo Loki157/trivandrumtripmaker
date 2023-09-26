@@ -9,8 +9,9 @@ import {
   CardMedia,
   CardContent,
   CardActions,
+  IconButton,
 } from "@mui/material";
-import React from "react";
+import React, { useEffect, useState } from "react";
 // Imagesss////
 import landImage from "../../../assets/images/wallpaperflare.com_wallpaper (4).jpg";
 import ttmCar1 from "../../../assets/images/ttmcar1.jpeg";
@@ -21,7 +22,7 @@ import airport from "../../../assets/images/places/airport.jpg";
 // -------//
 import { THEMEColor } from "../../../assets/THEMES";
 import { useTheme } from "@mui/material/styles";
-import { ArrowForward as ArrowForwardIcon } from "@mui/icons-material";
+import { ArrowForward as ArrowForwardIcon, ArrowUpwardRounded as ArrowUpwardRoundedIcon } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { ROUTEPATH } from "../../ROUTEPATH";
 import { motion } from "framer-motion";
@@ -30,8 +31,21 @@ function LandingPage() {
   const Typographymotion = motion(Typography);
   const Buttonmotion = motion(Button);
   const Cardmotion = motion(Card);
+  const [isVisible, setIsVisible] = useState(false);
+  const handleScroll = () => {
+    if (window.scrollY > 100) {
+      setIsVisible(true);
+    } else {
+      setIsVisible(false);
+    }
+  };
 
-
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -64,9 +78,21 @@ function LandingPage() {
         "Unveil the treasures of Trivandrum with our meticulously crafted tour plans. From ancient temples to scenic beaches. Let us be your guide to an unforgettable Trivandrum experience.",
       nav: ROUTEPATH.MAIN + ROUTEPATH.TOURPLAN,
     },
-  ];
+  ];const scrollToTop = () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      });
+    };
   return (
-    <>
+    <> {isVisible && (
+      <IconButton
+        className="scroll-to-top-button"
+        onClick={scrollToTop}
+      >
+        <ArrowUpwardRoundedIcon/>
+      </IconButton>
+    )}
       <div
         style={{
           marginTop: isLargeDeviceUp ? "3.33vh" : "5vh",

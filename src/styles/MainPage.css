@@ -161,7 +161,7 @@ nav.nav-button-mobile a.nav-active-btn {
   text-decoration: none;
 }
 .nav-button-mobile a.nav-btn {
-  color: var(--black);
+  color: var(--white);
   font-family: Poppins-Medium;
   font-size: 10px;
   transition: 0.3s all;
@@ -169,7 +169,7 @@ nav.nav-button-mobile a.nav-active-btn {
 .nav-button-mobile a.nav-active-btn {
   color: var(--green);
   font-family: Poppins-Medium;
-  font-size: 1.5vw;
+  font-size: 10px;
   transition: 0.3s all;
 }
 .nav-button-mobile a.nav-active-btn::after {
@@ -330,49 +330,49 @@ nav.nav-button-footer a.nav-btn {
   transform: scale(1.1);
 }
 
-
-
-
 /* footer */
-.footer
-{
+.footer {
   background-color: white;
   border-top: 2px solid #3dae2b;
 }
 
-.footer-split{
+.footer-split {
   display: grid;
   grid-template-columns: 30% 23% 23% 23%;
-  padding: 30px 0px ;
+  padding: 30px 0px;
 }
-.footer-box-1,.footer-box-2,.footer-box-3,.footer-box-4{
+.footer-box-1,
+.footer-box-2,
+.footer-box-3,
+.footer-box-4 {
   padding: 0px 20px;
 }
 
-.footer-box-1 .footer-box-img img{
+.footer-box-1 .footer-box-img img {
   width: 60%;
 }
-.footer-box-1 p{
+.footer-box-1 p {
   font-family: "Poppins-Regular";
   font-size: 12px;
-
 }
-.footer-box-2 h2,.footer-box-3 h2{
+.footer-box-2 h2,
+.footer-box-3 h2 {
   font-family: "Poppins-Bold";
   font-size: 1.25rem;
   position: relative;
 }
-.footer-box-2 h2::after,.footer-box-3 h2::after{
+.footer-box-2 h2::after,
+.footer-box-3 h2::after {
   content: "";
-    position: absolute;
-    display: block;
-    width: 40px;
-    height: 2.5px;
-    background: #3dae2b;
-    bottom: -5px;
-    left: 2px;
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 2.5px;
+  background: #3dae2b;
+  bottom: -5px;
+  left: 2px;
 }
-.footer-box-2 ul li{
+.footer-box-2 ul li {
   list-style: none;
   padding: 10px;
   font-family: "Poppins-SemiBold";
@@ -381,47 +381,58 @@ nav.nav-button-footer a.nav-btn {
   align-items: center;
   cursor: pointer;
   transition: 0.3s;
-  
 }
-.footer-box-2 ul{
+.footer-box-2 ul {
   padding-left: 20px;
 }
 
-.footer-box-2 ul li:hover{
+.footer-box-2 ul li:hover {
   color: #3dae2b;
 }
-.footer-box-3 .contactus-details-1 h3{
+.footer-box-3 .contactus-details-1 h3 {
   font-family: "Poppins-SemiBold";
   font-size: 16px;
   margin-bottom: 5px;
   margin-top: 10px;
 }
-.footer-box-3 .contactus-details-1 div{
+.footer-box-3 .contactus-details-1 div {
   display: flex;
   align-items: center;
 }
-.footer-box-3 .contactus-details-1 div text{
+.footer-box-3 .contactus-details-1 div text {
   font-family: "Poppins-SemiBold";
   font-size: 12px;
 }
-.footer-box-3 .contactus-details-2 h3{
+.footer-box-3 .contactus-details-2 h3 {
   font-family: "Poppins-SemiBold";
   font-size: 16px;
   margin-bottom: 5px;
   margin-top: 10px;
 }
-.footer-box-3 .contactus-details-2 div{
+.footer-box-3 .contactus-details-2 div {
   display: flex;
-
 }
-.footer-box-3 .contactus-details-2 div text{
+.footer-box-3 .contactus-details-2 div text {
   font-family: "Poppins-SemiBold";
   font-size: 12px;
 }
-.footer-copyrights{
+.footer-copyrights {
   text-align: center;
   padding: 20px 0px;
   font-family: "Poppins-SemiBold";
   background-color: #3dae2b;
   color: white;
+}
+.scroll-to-top-button.MuiIconButton-root {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--green);
+  color: #fff;
+
+  transition: all 0.3s ease-in-out;
+  z-index: 99999;
+}
+.scroll-to-top-button.MuiIconButton-root:hover {
+  background-color: #0a6d2e;
 }

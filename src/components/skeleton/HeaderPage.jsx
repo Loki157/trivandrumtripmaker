@@ -23,6 +23,7 @@ import {
   CallRounded as CallRoundedIcon,
   FacebookOutlined as FacebookOutlinedIcon,
   Instagram as InstagramIcon,
+  ArrowUpwardRounded as ArrowUpwardRoundedIcon,
 } from "@mui/icons-material";
 import { ROUTEPATH } from "../ROUTEPATH";
 
@@ -47,7 +48,7 @@ function HeaderPage() {
         variant="temporary"
         sx={{
           "& .MuiDrawer-paper": {
-            // backgroundColor: "red",
+            background: " rgba(0,0,0, 0.85)",
 
             width: "90%",
             mx: 3.3,
@@ -63,6 +64,7 @@ function HeaderPage() {
             onClick={() => {
               handleDrawerOpen(false);
             }}
+            sx={{ color: THEMEColor.PRIMARY }}
           >
             <CloseIcon />
           </IconButton>
@@ -72,7 +74,7 @@ function HeaderPage() {
             flex: 1,
             width: "100%",
             display: "flex",
-            justifyContent: "flex-start",
+            justifyContent: "center",
             padding: "20px",
           }}
         >
@@ -87,6 +89,9 @@ function HeaderPage() {
                   : "nav-btn"
               }
               to={ROUTEPATH.HOME}
+              onClick={() => {
+                handleDrawerOpen(false);
+              }}
             >
               Home
             </Link>
@@ -98,6 +103,9 @@ function HeaderPage() {
                   : "nav-btn"
               }
               to={ROUTEPATH.PLACES}
+              onClick={() => {
+                handleDrawerOpen(false);
+              }}
             >
               Places
             </Link>
@@ -109,6 +117,9 @@ function HeaderPage() {
                   : "nav-btn"
               }
               to={ROUTEPATH.ABOUT}
+              onClick={() => {
+                handleDrawerOpen(false);
+              }}
             >
               {" "}
               About
@@ -121,6 +132,9 @@ function HeaderPage() {
                   : "nav-btn"
               }
               to={ROUTEPATH.CONTACT}
+              onClick={() => {
+                handleDrawerOpen(false);
+              }}
             >
               Contact Us
             </Link>
@@ -223,7 +237,12 @@ function HeaderPage() {
                 justifyContent: "space-between",
               }}
             >
-              <Box sx={{ width: "30vh" }}>
+              <Box
+                sx={{ width: "30vh", cursor: "pointer" }}
+                onClick={() => {
+                  navigate(ROUTEPATH.HOME);
+                }}
+              >
                 <img src={logo} width={"100%"} />
               </Box>
               {/* <Box flex={1} display={"flex"} alignItems={"center"}> */}
@@ -244,43 +263,46 @@ function HeaderPage() {
                           : "nav-btn"
                       }
                       to={ROUTEPATH.HOME}
+                      onClick={() => {
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                      }}
                     >
                       Home
                     </Link>
 
                     <Link
-              className={
-                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.PLACES
-                  ? "nav-active-btn"
-                  : "nav-btn"
-              }
-              to={ROUTEPATH.PLACES}
-            >
-              Places
-            </Link>
+                      className={
+                        currentUrl === ROUTEPATH.MAIN + ROUTEPATH.PLACES
+                          ? "nav-active-btn"
+                          : "nav-btn"
+                      }
+                      to={ROUTEPATH.PLACES}
+                    >
+                      Places
+                    </Link>
 
-            <Link
-              className={
-                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.ABOUT
-                  ? "nav-active-btn"
-                  : "nav-btn"
-              }
-              to={ROUTEPATH.ABOUT}
-            >
-              {" "}
-              About
-            </Link>
+                    <Link
+                      className={
+                        currentUrl === ROUTEPATH.MAIN + ROUTEPATH.ABOUT
+                          ? "nav-active-btn"
+                          : "nav-btn"
+                      }
+                      to={ROUTEPATH.ABOUT}
+                    >
+                      {" "}
+                      About
+                    </Link>
 
-            <Link
-              className={
-                currentUrl === ROUTEPATH.MAIN + ROUTEPATH.CONTACT
-                  ? "nav-active-btn"
-                  : "nav-btn"
-              }
-              to={ROUTEPATH.CONTACT}
-            >
-              Contact Us
-            </Link>
+                    <Link
+                      className={
+                        currentUrl === ROUTEPATH.MAIN + ROUTEPATH.CONTACT
+                          ? "nav-active-btn"
+                          : "nav-btn"
+                      }
+                      to={ROUTEPATH.CONTACT}
+                    >
+                      Contact Us
+                    </Link>
                   </nav>
                 </Box>
               )}

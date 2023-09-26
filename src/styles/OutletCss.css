@@ -6,3 +6,8 @@
   background-attachment: fixed;
   /* position: relative; */
 }
+@media only screen and (max-width: 600px) {
+  .contact-us-bg.MuiBox-root {
+    height: 1000px;
+  }
+}

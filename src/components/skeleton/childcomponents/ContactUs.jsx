@@ -70,12 +70,12 @@ function ContactUs() {
     }
   };
 
-  // const scrollToTop = () => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: 'smooth',
-  //   });
-  // };
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("values", reqACall);
@@ -164,9 +164,9 @@ function ContactUs() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [pathname]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
   return (
     <>
       {" "}
@@ -270,7 +270,7 @@ function ContactUs() {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </Box>
-        <Box className="contact-us-bg">
+        <Box className="contact-us-bg" >
           <div
             style={{ background: " rgba(255, 255, 255, 0.82)", height: "100%" }}
           >
@@ -285,7 +285,7 @@ function ContactUs() {
                 sx={{ height: "100%" }}
                 gap={"20px"}
               >
-                <Grid container>
+                <Grid container spacing={4}>
                   <Grid item md={6}>
                     <Box
                       height={"100%"}

@@ -130,7 +130,7 @@ function FooterPage() {
           </div>
         </Container>
         <div className="footer-copyrights">
-          © 2023 TAXIAR. ALL RIGHTS RESERVED.
+          © 2023 TRIVANDRUM TRIP MAKER. ALL RIGHTS RESERVED.
         </div>
       </div>
     </>
