@@ -9,7 +9,7 @@ import {
   CardMedia,
   CardContent,
   CardActions,
-  IconButton,
+  IconButton,ImageList,ImageListItem
 } from "@mui/material";
 import React, { useEffect, useState } from "react";
 // Imagesss////
@@ -26,7 +26,15 @@ import { ArrowForward as ArrowForwardIcon, ArrowUpwardRounded as ArrowUpwardRoun
 import { useNavigate } from "react-router-dom";
 import { ROUTEPATH } from "../../ROUTEPATH";
 import { motion } from "framer-motion";
-
+import { rides } from "../../../assets/rides";
+function srcset(image, size, rows = 1, cols = 1) {
+  return {
+    src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
+    srcSet: `${image}?w=${size * cols}&h=${
+      size * rows
+    }&fit=crop&auto=format&dpr=2 2x`,
+  };
+}
 function LandingPage() {
   const Typographymotion = motion(Typography);
   const Buttonmotion = motion(Button);
@@ -56,29 +64,7 @@ function LandingPage() {
   const isLargeDeviceUp = useMediaQuery(theme.breakpoints.up("lg"));
   const isLargeDeviceDown = useMediaQuery(theme.breakpoints.up("lg"));
 
-  const rides = [
-    {
-      title: "One Day trip",
-      imgs: padhmanabha,
-      subHead:
-        "Experience the best of Trivandrum in just one day with our expertly curated one-day trip. Explore the city's highlights, savor local cuisine, and create lasting memories in 24 hours.",
-      nav: ROUTEPATH.MAIN + ROUTEPATH.ONEDAY,
-    },
-    {
-      title: "Airport Pickup & Drop",
-      imgs: airport,
-      subHead:
-        "Arriving or departing from Trivandrum's airport has never been easier. Our airport pickup and drop service ensures a smooth and stress-free transition to and from your flight.",
-      nav: ROUTEPATH.MAIN + ROUTEPATH.PICKDROP,
-    },
-    {
-      title: "Tour Plan to explore",
-      imgs: airport,
-      subHead:
-        "Unveil the treasures of Trivandrum with our meticulously crafted tour plans. From ancient temples to scenic beaches. Let us be your guide to an unforgettable Trivandrum experience.",
-      nav: ROUTEPATH.MAIN + ROUTEPATH.TOURPLAN,
-    },
-  ];const scrollToTop = () => {
+  const scrollToTop = () => {
       window.scrollTo({
         top: 0,
         behavior: 'smooth',
@@ -547,7 +533,24 @@ function LandingPage() {
             </Container>
           </Box>
         </Box>
-        <Box></Box>
+        <Box>
+        <ImageList
+      sx={{ width: 500, height: 450 }}
+      variant="quilted"
+      cols={4}
+      rowHeight={121}
+    >
+      {itemData.map((item) => (
+        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
+          <img
+            {...srcset(item.img, 121, item.rows, item.cols)}
+            alt={item.title}
+            loading="lazy"
+          />
+        </ImageListItem>
+      ))}
+    </ImageList>
+        </Box>
       </div>
       <Container fixed sx={{ height: "100%" }}></Container>
     </>
