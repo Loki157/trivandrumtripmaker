@@ -1,3 +1,22 @@
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: var(--black);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--green);
+  transition: 0.3s;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #0a6d2e;
+}
 .main.MuiBox-root {
   display: flex;
   flex-direction: column;
@@ -6,34 +25,118 @@
 .main-head.MuiBox-root {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  /* justify-content: space-between; */
+  min-height: 100vh;
+  flex-grow: 1;
 }
 .container.MuiBox-root {
-  flex: 1;
-  height: 100%;
+  flex-grow: 1;
+
+  min-height: 100vh;
+  padding-bottom: 30px;
+}
+footer {
+  min-height: 5vh;
+  /* position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9999; */
+}
+.top-contact-btn.MuiButton-root {
+  text-transform: capitalize;
+}
+.top-contact-btn.MuiButton-root:hover {
+  background-color: var(--green);
+}
+.top-contact-btn.MuiButton-root a {
+  text-decoration: none;
+  color: #ffffffff;
+}
+/* headerpage */
+.email-mob.MuiBox-root {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.email-mob.MuiBox-root .css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+  color: var(--black);
+  border: 2px solid var(--black);
+  padding: 5px;
+  transition: 0.2s all;
+}
+.email-mob.MuiBox-root:hover .css-78trlr-MuiButtonBase-root-MuiIconButton-root {
+  color: var(--white);
+  border: 2px solid var(--green);
+  background-color: var(--green);
 }
 
-/* headerpage */
-
+.email-mob.MuiBox-root a {
+  text-decoration: none;
+  color: var(--black);
+  font-family: Poppins-Medium;
+  font-size: 12px;
+  text-align: center;
+}
+.email-mob.MuiBox-root:hover a {
+  color: var(--green);
+}
+.header-svg-box.MuiBox-root a .fb,
+.header-svg-box.MuiBox-root a .wa,
+.header-svg-box.MuiBox-root a .in {
+  color: var(--black);
+  cursor: pointer;
+  transition: 0.3s all;
+}
+.header-svg-box.MuiBox-root a .fb:hover {
+  color: #1877f2;
+  transform: scale(1.2);
+}
+.header-svg-box.MuiBox-root a .wa:hover {
+  color: #25d366;
+  transform: scale(1.2);
+}
+.header-svg-box.MuiBox-root a .in:hover {
+  color: #e4405f;
+  transform: scale(1.2);
+}
 nav.nav-button {
   display: flex;
 
   align-items: center;
   gap: 50px;
 }
-nav.nav-button a {
+nav.nav-button a.nav-btn {
   text-decoration: none;
 }
-.nav-button a.active {
+.nav-button a.nav-btn {
   color: var(--black);
   font-family: Poppins-Medium;
   font-size: 1.5vw;
   transition: 0.3s all;
 }
-.nav-button a.active:hover {
+nav.nav-button a.nav-active-btn {
+  text-decoration: none;
+}
+.nav-button a.nav-active-btn {
+  color: var(--green);
+  font-family: Poppins-Medium;
+  font-size: 1.5vw;
+  transition: 0.3s all;
+}
+.nav-button a.nav-active-btn::after {
+  content: "";
+  margin: auto;
+  display: block;
+  height: 2px;
+  width: 100%;
+  background-color: var(--green);
+}
+.nav-button a.nav-btn:hover {
   color: var(--green);
 }
-.nav-button a.active::after {
+
+.nav-button a.nav-btn::after {
   content: "";
   margin: auto;
   display: block;
@@ -43,7 +146,37 @@ nav.nav-button a {
   /* transition: width 0.5s ease,background-color 0.5s ease; */
   transition: all 0.3s ease;
 }
-.nav-button a.active:hover::after {
+.nav-button a.nav-btn:hover::after {
+  width: 100%;
+  background-color: var(--green);
+}
+nav.nav-button-mobile {
+  display: flex;
+
+  align-items: center;
+  gap: 50px;
+}
+nav.nav-button-mobile a.nav-btn,
+nav.nav-button-mobile a.nav-active-btn {
+  text-decoration: none;
+}
+.nav-button-mobile a.nav-btn {
+  color: var(--white);
+  font-family: Poppins-Medium;
+  font-size: 10px;
+  transition: 0.3s all;
+}
+.nav-button-mobile a.nav-active-btn {
+  color: var(--green);
+  font-family: Poppins-Medium;
+  font-size: 10px;
+  transition: 0.3s all;
+}
+.nav-button-mobile a.nav-active-btn::after {
+  content: "";
+  margin: auto;
+  display: block;
+  height: 2px;
   width: 100%;
   background-color: var(--green);
 }
@@ -78,4 +211,313 @@ nav.nav-button a {
   color: #ffffffff;
   transform: scale(1.2);
   /* animation: flip 0.5s linear; */
+}
+nav.nav-button-footer {
+  display: flex;
+
+  align-items: flex-start;
+  gap: 15px;
+}
+nav.nav-button-footer a.nav-btn {
+  text-decoration: none;
+}
+.nav-button-footer a.nav-btn {
+  color: var(--black);
+  font-family: Poppins-Medium;
+  font-size: 14px;
+  transition: 0.3s all;
+}
+
+.nav-button-footer a.nav-btn:hover {
+  color: var(--green);
+}
+/* .footer-heading.MuiTypography-root::after {
+  content: "";
+  margin: auto;
+  display: block;
+  height: 9px;
+  width: 60%;
+
+  border-bottom-right-radius: 10px;
+  background-color: var(--green);
+} */
+
+.footer-link.MuiBox-root a {
+  text-decoration: none;
+  color: var(--black);
+  font-family: Poppins-Medium;
+  font-size: 12px;
+  text-align: center;
+}
+/* ---------------- */
+
+.image-container.MuiBox-root {
+  height: 600px;
+}
+.image-container img {
+  width: 100%;
+}
+.book-trip-btn.MuiButton-root {
+  border-radius: 0;
+
+  text-transform: capitalize;
+  background-color: var(--white);
+  color: var(--black);
+  border: 2px solid var(--white);
+  transition: 0.2s all;
+}
+.book-trip-btn.MuiButton-root:hover {
+  color: var(--white);
+  background-color: transparent;
+}
+.aboutus-text::after {
+  content: "";
+  margin: auto;
+  display: block;
+  height: 5px;
+  width: 100%;
+  background-color: #ffffff;
+  border-radius: 20px;
+
+  /* color: red; */
+}
+.about-company.MuiTypography-root span {
+  background-color: var(--green);
+  transform: skew(-20deg, 0deg);
+  display: inline-flex;
+  width: 4px;
+  height: 15px;
+  position: relative;
+  margin-left: 20px;
+  margin-right: 10px;
+}
+.about-company.MuiTypography-root {
+  color: var(--green);
+  font-family: Barlow-Bold;
+}
+.about-company.MuiTypography-root span::before,
+.about-company.MuiTypography-root span::after {
+  background-color: var(--green);
+  content: "";
+  width: 4px;
+  height: 100%;
+  position: absolute;
+  right: 8px;
+  top: 0;
+  opacity: 0.8;
+}
+.about-company.MuiTypography-root span::after {
+  right: 16px;
+  opacity: 0.5;
+}
+.learnmore-btn.MuiButton-root {
+  background-color: var(--green);
+  color: var(--white);
+  text-transform: capitalize;
+  font-family: Poppins-Regular;
+  transition: 0.2s all;
+}
+.learnmore-btn.MuiButton-root:hover {
+  background-color: #0a6d2e;
+}
+.learnmore-btn.MuiButton-root:hover .arrow-icn {
+  transform: translateX(10px);
+}
+.card-trip.MuiCard-root .card-img {
+  transition: 0.2s all;
+  width: 100%;
+  background-position: center;
+}
+.card-trip.MuiCard-root:hover .card-img {
+  transform: scale(1.1);
+}
+
+/* footer */
+.footer {
+  background-color: white;
+  border-top: 2px solid #3dae2b;
+}
+
+.footer-split {
+  display: grid;
+  grid-template-columns: 30% 23% 23% 23%;
+  padding: 30px 0px;
+}
+.footer-box-1,
+.footer-box-2,
+.footer-box-3,
+.footer-box-4 {
+  padding: 0px 20px;
+}
+
+.footer-box-1 .footer-box-img img {
+  width: 60%;
+}
+.footer-box-1 p {
+  font-family: "Poppins-Regular";
+  font-size: 12px;
+}
+.footer-box-2 h2,
+.footer-box-3 h2 {
+  font-family: "Poppins-Bold";
+  font-size: 1.25rem;
+  position: relative;
+}
+.footer-box-2 h2::after,
+.footer-box-3 h2::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 40px;
+  height: 2.5px;
+  background: #3dae2b;
+  bottom: -5px;
+  left: 2px;
+}
+.footer-box-2 ul li {
+  list-style: none;
+  padding: 10px;
+  font-family: "Poppins-SemiBold";
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.footer-box-2 ul {
+  padding-left: 20px;
+}
+
+.footer-box-2 ul li:hover {
+  color: #3dae2b;
+}
+.footer-box-3 .contactus-details-1 h3 {
+  font-family: "Poppins-SemiBold";
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.footer-box-3 .contactus-details-1 div {
+  display: flex;
+  align-items: center;
+}
+.footer-box-3 .contactus-details-1 div text {
+  font-family: "Poppins-SemiBold";
+  font-size: 12px;
+}
+.footer-box-3 .contactus-details-2 h3 {
+  font-family: "Poppins-SemiBold";
+  font-size: 16px;
+  margin-bottom: 5px;
+  margin-top: 10px;
+}
+.footer-box-3 .contactus-details-2 div {
+  display: flex;
+}
+.footer-box-3 .contactus-details-2 div text {
+  font-family: "Poppins-SemiBold";
+  font-size: 12px;
+}
+.footer-copyrights {
+  text-align: center;
+  padding: 20px 0px;
+  font-family: "Poppins-SemiBold";
+  background-color: #3dae2b;
+  color: white;
+}
+.scroll-to-top-button.MuiIconButton-root {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--green);
+  color: #fff;
+
+  transition: all 0.3s ease-in-out;
+  z-index: 99999;
+}
+.scroll-to-top-button.MuiIconButton-root:hover {
+  background-color: #0a6d2e;
+}
+.container {
+  width: 100%;
+  margin: 2rem auto;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(8, 4vw);
+  grid-gap: 10px;
+}
+
+.gallery__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.gallery__item--1 {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+  /** Alternative Syntax **/
+  /* grid-column: 1 / span 2;  */
+  /* grid-row: 1 / span 2; */
+}
+
+.gallery__item--2 {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row-start: 1;
+  grid-row-end: 3;
+
+  /** Alternative Syntax **/
+  /* grid-column: 3 / span 2;  */
+  /* grid-row: 1 / span 2; */
+}
+
+.gallery__item--3 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 1;
+  grid-row-end: 6;
+
+  /** Alternative Syntax **/
+  /* grid-column: 5 / span 4;
+  grid-row: 1 / span 5; */
+}
+
+.gallery__item--4 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 3;
+  grid-row-end: 6;
+
+  /** Alternative Syntax **/
+  /* grid-column: 1 / span 4;  */
+  /* grid-row: 3 / span 3; */
+}
+
+.gallery__item--5 {
+  grid-column-start: 1;
+  grid-column-end: 5;
+  grid-row-start: 6;
+  grid-row-end: 9;
+
+  /** Alternative Syntax **/
+  /* grid-column: 1 / span 4; */
+  /* grid-row: 6 / span 3; */
+}
+
+.gallery__item--6 {
+  grid-column-start: 5;
+  grid-column-end: 9;
+  grid-row-start: 6;
+  grid-row-end: 9;
+
+  /** Alternative Syntax **/
+  /* grid-column: 5 / span 4; */
+  /* grid-row: 6 / span 3; */
 }

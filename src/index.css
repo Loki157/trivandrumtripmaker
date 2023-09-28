@@ -6,18 +6,25 @@
   -webkit-text-size-adjust: 100%;
   --green: #3dae2b;
   --black: #282626;
+  --white: #ffffff;
+  scroll-behavior: smooth;
 }
 body,
 html {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 100vh;
   min-height: 100vh;
   max-height: 100vh;
 }
 @font-face {
   font-family: "Poppins-Medium";
   src: url("./assets/fonts/Poppins/Poppins-Medium.ttf");
+}
+@font-face {
+  font-family: "Poppins-Bold";
+  src: url("./assets/fonts/Poppins/Poppins-Bold.ttf");
 }
 @font-face {
   font-family: "Poppins-Regular";
@@ -36,6 +43,11 @@ html {
   src: url("./assets/fonts/Poppins/Poppins-Thin.ttf");
 }
 @font-face {
+  font-family: "Barlow-Regular";
+  src: url("./assets/fonts/Barlow/BarlowCondensed-Regular.ttf");
+}
+
+@font-face {
   font-family: "Barlow-Medium";
   src: url("./assets/fonts/Barlow/BarlowCondensed-Medium.ttf");
 }
@@ -50,4 +62,11 @@ html {
 @font-face {
   font-family: "Barlow-Black";
   src: url("./assets/fonts/Barlow/BarlowCondensed-Black.ttf");
+}
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0; 
 }
