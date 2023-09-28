@@ -334,18 +334,18 @@ function OneDayTrip() {
                     Request a CallBack
                   </Typography>
                 </Box>
-                <Box display={"flex"} justifyContent={"center"} width="100%">
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      gap: "10px",
-                      alignItems: "center",
-                      width: isMobile || isDeviceDown ? "100%" : "60%",
-                    }}
-                  >
-                    {" "}
-                    <form style={{ width: "100%" }} onSubmit={handleSubmit}>
+                <Box display={"flex"} justifyContent={"center"} width="100%" height={"100%"}>
+                  <form style={{ width: "100%",height:"100%",display:"flex",justifyContent:"center" }} onSubmit={handleSubmit}>
+                    <Box
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        gap: "10px",
+                        alignItems: "center",
+                        width: isMobile || isDeviceDown ? "100%" : "60%",
+                      }}
+                    >
+                      {" "}
                       <Box
                         display={"flex"}
                         gap="20px"
@@ -581,46 +581,46 @@ function OneDayTrip() {
                       >
                         Submit
                       </Button>
-                    </form>
-                    <Divider
-                      sx={{
-                        width: "100%",
-                        "::before": {
-                          borderTop: `2px solid ${THEMEColor.buttons}`,
-                        },
-                        "::after": {
-                          borderTop: `2px solid ${THEMEColor.buttons}`,
-                        },
-                      }}
-                      textAlign="center"
-                    >
-                      <b>OR</b>
-                    </Divider>
-                    <Box
-                      display={"flex"}
-                      gap="20px"
-                      width="100%"
-                      justifyContent={"center"}
-                    >
-                      {" "}
-                      <Button
-                        variant="contained"
-                        className="learnmore-btn"
-                        fullWidth
-                        startIcon={<CallIcon />}
+                      <Divider
+                        sx={{
+                          width: "100%",
+                          "::before": {
+                            borderTop: `2px solid ${THEMEColor.buttons}`,
+                          },
+                          "::after": {
+                            borderTop: `2px solid ${THEMEColor.buttons}`,
+                          },
+                        }}
+                        textAlign="center"
                       >
-                        +918086040400
-                      </Button>{" "}
-                      <Button
-                        variant="contained"
-                        className="learnmore-btn"
-                        fullWidth
-                        startIcon={<WhatsAppIcon />}
+                        <b>OR</b>
+                      </Divider>
+                      <Box
+                        display={"flex"}
+                        gap="20px"
+                        width="100%"
+                        justifyContent={"center"}
                       >
-                        WhatsApp
-                      </Button>
+                        {" "}
+                        <Button
+                          variant="contained"
+                          className="learnmore-btn"
+                          fullWidth
+                          startIcon={<CallIcon />}
+                        >
+                          +918086040400
+                        </Button>{" "}
+                        <Button
+                          variant="contained"
+                          className="learnmore-btn"
+                          fullWidth
+                          startIcon={<WhatsAppIcon />}
+                        >
+                          WhatsApp
+                        </Button>
+                      </Box>
                     </Box>
-                  </Box>
+                  </form>
                 </Box>
               </Box>
               {/* ==------- -------------------*****---------------------------*/}
