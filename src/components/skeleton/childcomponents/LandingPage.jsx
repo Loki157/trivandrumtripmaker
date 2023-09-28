@@ -9,9 +9,11 @@ import {
   CardMedia,
   CardContent,
   CardActions,
-  IconButton,ImageList,ImageListItem
+  IconButton,
+  ImageList,
+  ImageListItem,
 } from "@mui/material";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 // Imagesss////
 import landImage from "../../../assets/images/wallpaperflare.com_wallpaper (4).jpg";
 import ttmCar1 from "../../../assets/images/ttmcar1.jpeg";
@@ -22,11 +24,15 @@ import airport from "../../../assets/images/places/airport.jpg";
 // -------//
 import { THEMEColor } from "../../../assets/THEMES";
 import { useTheme } from "@mui/material/styles";
-import { ArrowForward as ArrowForwardIcon, ArrowUpwardRounded as ArrowUpwardRoundedIcon } from "@mui/icons-material";
+import {
+  ArrowForward as ArrowForwardIcon,
+  ArrowUpwardRounded as ArrowUpwardRoundedIcon,
+} from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { ROUTEPATH } from "../../ROUTEPATH";
 import { motion } from "framer-motion";
 import { rides } from "../../../assets/rides";
+import { imageListData } from "../../../assets/imageListData";
 function srcset(image, size, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
@@ -39,21 +45,16 @@ function LandingPage() {
   const Typographymotion = motion(Typography);
   const Buttonmotion = motion(Button);
   const Cardmotion = motion(Card);
-  const [isVisible, setIsVisible] = useState(false);
-  const handleScroll = () => {
-    if (window.scrollY > 100) {
-      setIsVisible(true);
-    } else {
-      setIsVisible(false);
-    }
+  const bookAtrip = useRef(null);
+  const handleScrollToBookTrip = () => {
+    bookAtrip.current.scrollIntoView({ behavior: "smooth" });
   };
-
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  // useEffect(() => {
+  //    window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   const theme = useTheme();
   const navigate = useNavigate();
 
@@ -64,21 +65,20 @@ function LandingPage() {
   const isLargeDeviceUp = useMediaQuery(theme.breakpoints.up("lg"));
   const isLargeDeviceDown = useMediaQuery(theme.breakpoints.up("lg"));
 
-  const scrollToTop = () => {
-      window.scrollTo({
-        top: 0,
-        behavior: 'smooth',
-      });
-    };
+  // const scrollToTop = () => {
+  //   window.scrollTo({
+  //     top: 0,
+  //     behavior: "smooth",
+  //   });
+  // };
   return (
-    <> {isVisible && (
-      <IconButton
-        className="scroll-to-top-button"
-        onClick={scrollToTop}
-      >
-        <ArrowUpwardRoundedIcon/>
-      </IconButton>
-    )}
+    <>
+      {" "}
+      {/* {isVisible && (
+        <IconButton className="scroll-to-top-button" onClick={scrollToTop}>
+          <ArrowUpwardRoundedIcon />
+        </IconButton>
+      )} */}
       <div
         style={{
           marginTop: isLargeDeviceUp ? "3.33vh" : "5vh",
@@ -91,20 +91,21 @@ function LandingPage() {
         {/* <Box width={"99vw"}> */}
         <Box
           sx={{
-            backgroundImage: `url("${landImage}")`,
+            backgroundImage: `url("${kathak}")`,
 
             backgroundRepeat: "no-repeat",
             backgroundAttachment: "fixed",
             backgroundSize: "cover",
             height: isMobile || isDeviceDown ? "400px" : "600px",
             minWidth: "100%",
-            // filter: "brightness(50% )",
+            // backgroundPositionY:"10%"
+            backgroundPosition: "center",
           }}
         >
           <Box
             sx={{
               height: "100%",
-              background: " rgba(0,0,0, 0.4)",
+              // background: " rgba(0,0,0, 0.4)",
               width: "100%",
             }}
           >
@@ -182,6 +183,7 @@ function LandingPage() {
                       delay: 1.5,
                       ease: [0, 0.71, 0.2, 1.01],
                     }}
+                    onClick={handleScrollToBookTrip}
                   >
                     Book a Trip
                   </Buttonmotion>
@@ -363,6 +365,7 @@ function LandingPage() {
                   gap="20px"
                   padding={"20px"}
                   alignItems={"center"}
+                  width={"100%"}
                   // sx={{ transform: "translateY(15%)" }}
                   // justifyContent="inherit/"
                 >
@@ -395,18 +398,19 @@ function LandingPage() {
                         lineHeight: "40px",
                       }}
                       initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{
-                      duration: 0.9,
-                      delay: 0.9,
-                      ease: [0, 0.71, 0.2, 1.01],
-                    }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{
+                        duration: 0.9,
+                        delay: 0.9,
+                        ease: [0, 0.71, 0.2, 1.01],
+                      }}
                     >
                       Craft your Unforgettable memories with Trivandrum Trip
                       Maker
                     </Typographymotion>
                     <Typographymotion
+                      ref={bookAtrip}
                       variant={isMobile || isDeviceDown ? "caption" : "body2"}
                       sx={{
                         fontFamily: "Poppins-Regular",
@@ -415,13 +419,13 @@ function LandingPage() {
                         lineHeight: "20px",
                       }}
                       initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{
-                      duration: 0.9,
-                      delay: 0.9,
-                      ease: [0, 0.71, 0.2, 1.01],
-                    }}
+                      whileInView={{ opacity: 1, scale: 1 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{
+                        duration: 0.9,
+                        delay: 0.9,
+                        ease: [0, 0.71, 0.2, 1.01],
+                      }}
                     >
                       Our passion lies in crafting unforgettable travel moments
                       for every traveler who chooses us. With our range of
@@ -440,19 +444,19 @@ function LandingPage() {
                       width: isMobile || isDeviceDown ? "75%" : "100%",
                     }}
                   >
-                    {rides.map((i,index) => {
+                    {rides.map((i, index) => {
                       return (
                         <>
                           <Cardmotion
                             sx={{ borderRadius: 0, boxShadow: 0 }}
                             className="card-trip"
-
                             initial={{ opacity: 0, y: 100 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{
                               duration: 1.2,
-                              delay: index === 0 ? 1.1 :index === 1 ? 1.5 : 1.9,
+                              delay:
+                                index === 0 ? 1.1 : index === 1 ? 1.5 : 1.9,
                               ease: [0, 0.71, 0.2, 1.01],
                             }}
                           >
@@ -533,23 +537,56 @@ function LandingPage() {
             </Container>
           </Box>
         </Box>
-        <Box>
-        <ImageList
-      sx={{ width: 500, height: 450 }}
-      variant="quilted"
-      cols={4}
-      rowHeight={121}
-    >
-      {itemData.map((item) => (
-        <ImageListItem key={item.img} cols={item.cols || 1} rows={item.rows || 1}>
-          <img
-            {...srcset(item.img, 121, item.rows, item.cols)}
-            alt={item.title}
-            loading="lazy"
-          />
-        </ImageListItem>
-      ))}
-    </ImageList>
+        <Box height="100%">
+          <Container fixed sx={{ height: "100%" }}>
+            <Box
+              height="100%"
+              sx={{
+                display: "flex",
+                flexDirection: "column",
+                gap: "10px",
+                alignItems: "center",
+              }}
+            >
+              <Box>
+                {" "}
+                <Typography
+                  variant={isMobile || isDeviceDown ? "h6" : "h5"}
+                  sx={{
+                    fontFamily: "Poppins-Bold",
+                    color: THEMEColor.buttons,
+                    textAlign: "center",
+                    // width: "80%",
+                    my: 2,
+                  }}
+                  className="oneday-heading"
+                >
+                  Gallery
+                </Typography>
+              </Box>
+
+              <ImageList
+                sx={{ width: "100%", height: "100%" }}
+                variant="quilted"
+                cols={3}
+                rowHeight={121}
+              >
+                {imageListData.map((item) => (
+                  <ImageListItem
+                    key={item.img}
+                    cols={item.cols || 1}
+                    rows={item.rows || 1}
+                  >
+                    <img
+                      {...srcset(item.img, 121, item.rows, item.cols)}
+                      alt={item.title}
+                      loading="lazy"
+                    />
+                  </ImageListItem>
+                ))}
+              </ImageList>
+            </Box>
+          </Container>
         </Box>
       </div>
       <Container fixed sx={{ height: "100%" }}></Container>

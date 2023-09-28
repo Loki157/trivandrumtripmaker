@@ -20,6 +20,7 @@ import {
 import {
   ArrowForward as ArrowForwardIcon,
   Call as CallIcon,
+  WhatsApp as WhatsAppIcon,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 import { THEMEColor } from "../../../../assets/THEMES";
@@ -78,7 +79,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
   borderTop: `1px solid ${THEMEColor.PRIMARY}`,
 }));
 function OneDayTrip() {
-  const [expanded, setExpanded] = React.useState("panel1");
+  const [expanded, setExpanded] = React.useState("panel0");
 
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
@@ -614,8 +615,9 @@ function OneDayTrip() {
                         variant="contained"
                         className="learnmore-btn"
                         fullWidth
+                        startIcon={<WhatsAppIcon />}
                       >
-                        Submit
+                        WhatsApp
                       </Button>
                     </Box>
                   </Box>
