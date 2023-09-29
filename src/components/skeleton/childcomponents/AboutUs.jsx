@@ -89,9 +89,10 @@ function AboutUs() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [pathname]);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "instant" });
+  }, [pathname]);
+  
   return (
     <>
       {" "}
@@ -346,7 +347,7 @@ function AboutUs() {
             }}
           >
             <Container fixed sx={{ width: "100%", height: "100%" }}>
-              <Box height={"100%"}>
+              <Box height={"100%"} width={"100%"}>
                 <Box
                   height="100%"
                   display={"flex"}
@@ -354,6 +355,7 @@ function AboutUs() {
                   gap="20px"
                   padding={"20px"}
                   alignItems={"center"}
+                  // width={"100%"}
                   // sx={{ transform: "translateY(15%)" }}
                   // justifyContent="inherit/"
                 >
@@ -398,6 +400,7 @@ function AboutUs() {
                       Maker
                     </Typographymotion>
                     <Typographymotion
+                      // ref={bookAtrip}
                       variant={isMobile || isDeviceDown ? "caption" : "body2"}
                       sx={{
                         fontFamily: "Poppins-Regular",
@@ -428,23 +431,27 @@ function AboutUs() {
                       justifyContent: "space-between",
                       gap: "30px",
                       height: "60%",
-                      width: isMobile || isDeviceDown ? "75%" : "100%",
+                      width: "100%",
                     }}
                   >
                     {rides.map((i, index) => {
                       return (
                         <>
                           <Cardmotion
-                            sx={{ borderRadius: 0, boxShadow: 0 }}
+                            sx={{
+                              borderRadius: 0,
+                              boxShadow: 0,
+                              width: isMobile || isDeviceDown ? "100%" : "75%",
+                            }}
                             className="card-trip"
                             initial={{ opacity: 0, y: 100 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{
-                              duration: 1.2,
+                              duration: 1,
                               delay:
-                                index === 0 ? 1.1 : index === 1 ? 1.5 : 1.9,
-                              ease: [0, 0.71, 0.2, 1.01],
+                                index === 0 ? 0.1 : index === 1 ? 0.4 : 0.9,
+                              ease: [0, 0.5, 0.2, 1.01],
                             }}
                           >
                             <CardMedia
@@ -531,7 +538,7 @@ function AboutUs() {
             backgroundRepeat: "no-repeat",
             backgroundAttachment: "fixed",
             backgroundSize: "cover",
-            height: isMobile || isDeviceDown ? "300px" : "350px",
+            height: isMobile || isDeviceDown ? "400px" : "350px",
             minWidth: "100%",
             // filter: "brightness(50% )",
           }}
@@ -556,7 +563,7 @@ function AboutUs() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  width: "60%",
+                  width: isMobile || isDeviceDown ? "100%" : "60%",
                   justifyContent: "center",
                   gap: "20px",
                 }}
@@ -565,7 +572,10 @@ function AboutUs() {
                 <Typography
                   variant={isMobile || isDeviceDown ? "h5" : "h4"}
                   sx={{
-                    fontFamily: "Poppins-SemiBold",
+                    fontFamily:
+                      isMobile || isDeviceDown
+                        ? "Poppins-Medium"
+                        : "Poppins-SemiBold",
                     color: THEMEColor.PRIMARY,
                     textAlign: isMobile || isDeviceDown ? "center" : "",
                   }}
@@ -588,7 +598,15 @@ function AboutUs() {
                   city of Kerala.Choose us for a seamless and memorable travel
                   experience.
                 </Typography>
-                <Box display="flex" gap={"10px"} height="20%" justifyContent={"flex-start"} width={"100%"}>
+                <Box
+                  display="flex"
+                  gap={"10px"}
+                  height="20%"
+                  justifyContent={
+                    isMobile || isDeviceDown ? "center" : "flex-start"
+                  }
+                  width={"100%"}
+                >
                   <Box display="flex" alignItems={"center"}>
                     <IconButton
                       disableFocusRipple
@@ -606,23 +624,31 @@ function AboutUs() {
                     </IconButton>
                   </Box>
                   <Box
-                  height={"100%"}
+                    height={"100%"}
                     display="flex"
                     flexDirection={"column"}
-                     justifyContent={"center"}
+                    justifyContent={"center"}
                     alignItems={"flex-start "}
                   >
                     <Typography
                       variant="body1"
-                      sx={{ fontFamily: "Poppins-SemiBold" ,color:THEMEColor.PRIMARY,}}
+                      sx={{
+                        fontFamily:
+                          isMobile || isDeviceDown
+                            ? "Poppins-Medium"
+                            : "Poppins-SemiBold",
+                        color: THEMEColor.PRIMARY,
+                      }}
                     >
                       Contact Number
                     </Typography>
                     <Typography
-                      variant="h4"
+                      variant={isMobile || isDeviceDown ? "h5" : "h4"}
                       sx={{
-                        
-                        fontFamily: "Poppins-Bold",
+                        fontFamily:
+                          isMobile || isDeviceDown
+                            ? "Poppins-SemiBold"
+                            : "Poppins-Bold",
                         color: THEMEColor.Secondary,
                       }}
                     >

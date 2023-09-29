@@ -1,6 +1,7 @@
 import { ROUTEPATH } from "../components/ROUTEPATH";
 import padhmanabha from "../assets/images/places/Padmanabhaswamy_temple.jpg";
 import airport from "../assets/images/places/airport.jpg";
+import keralaTourism from "../assets/images/keralaTourism.jpeg"
 export const rides = [
   {
     title: "One Day trip",
@@ -18,7 +19,7 @@ export const rides = [
   },
   {
     title: "Tour Plan to explore",
-    imgs: airport,
+    imgs: keralaTourism,
     subHead:
       "Unveil the treasures of Trivandrum with our meticulously crafted tour plans. From ancient temples to scenic beaches. Let us be your guide to an unforgettable Trivandrum experience.",
     nav: ROUTEPATH.MAIN + ROUTEPATH.TOURPLAN,

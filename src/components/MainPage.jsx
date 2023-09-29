@@ -1,27 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
-import {
-  Box,
-  Button,
-  Container,
-  IconButton,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import "../styles/MainPage.css";
 import { Outlet } from "react-router-dom";
 import HeaderPage from "./skeleton/HeaderPage";
 import FooterPage from "./skeleton/FooterPage";
-import { useTheme } from "@mui/material/styles";
-import {
-  WhatsApp as WhatsAppIcon,
-  ArrowUpwardRounded as ArrowUpwardRoundedIcon,
-} from "@mui/icons-material";
-import { THEMEColor } from "../assets/THEMES";
+
+import { ArrowUpwardRounded as ArrowUpwardRoundedIcon } from "@mui/icons-material";
+
 function MainPage() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isDevice = useMediaQuery(theme.breakpoints.up("md"));
-  const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   const [isVisible, setIsVisible] = useState(false);
   const handleScroll = () => {
     if (window.scrollY > 100) {

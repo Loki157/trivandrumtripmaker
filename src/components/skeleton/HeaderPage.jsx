@@ -9,10 +9,10 @@ import {
   Toolbar,
   useMediaQuery,
 } from "@mui/material";
-import React, { useState } from "react";
+import { useState } from "react";
 import { THEMEColor } from "../../assets/THEMES";
 import logo from "../../assets/svg/TTM_Black Letter.svg";
-import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../../styles/MainPage.css";
 import { useTheme } from "@mui/material/styles";
 import {
@@ -23,7 +23,6 @@ import {
   CallRounded as CallRoundedIcon,
   FacebookOutlined as FacebookOutlinedIcon,
   Instagram as InstagramIcon,
-  ArrowUpwardRounded as ArrowUpwardRoundedIcon,
 } from "@mui/icons-material";
 import { ROUTEPATH } from "../ROUTEPATH";
 
@@ -34,7 +33,7 @@ function HeaderPage() {
   const location = useLocation();
   const currentUrl = location.pathname;
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isDevice = useMediaQuery(theme.breakpoints.up("md"));
+
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   const handleDrawerOpen = (value) => {
     setDrawerOpen(value);
@@ -50,8 +49,8 @@ function HeaderPage() {
           "& .MuiDrawer-paper": {
             background: " rgba(0,0,0, 0.85)",
 
-            width: "90%",
-            mx: 3.3,
+            width: "100%",
+            // mx: 3.3,
             my: 4,
             zIndex: "999999",
             position: "relative",
@@ -238,7 +237,10 @@ function HeaderPage() {
               }}
             >
               <Box
-                sx={{ width: "30vh", cursor: "pointer" }}
+                sx={{
+                  width: isMobile || isDeviceDown ? "15vh" : "30vh",
+                  cursor: "pointer",
+                }}
                 onClick={() => {
                   navigate(ROUTEPATH.HOME);
                 }}

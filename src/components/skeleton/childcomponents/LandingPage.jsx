@@ -21,6 +21,7 @@ import ttmCard1 from "../../../assets/images/ttmcard1.png";
 import kathak from "../../../assets/images/kerala_kathak.jpg";
 import padhmanabha from "../../../assets/images/places/Padmanabhaswamy_temple.jpg";
 import airport from "../../../assets/images/places/airport.jpg";
+
 // -------//
 import { THEMEColor } from "../../../assets/THEMES";
 import { useTheme } from "@mui/material/styles";
@@ -81,7 +82,7 @@ function LandingPage() {
       )} */}
       <div
         style={{
-          marginTop: isLargeDeviceUp ? "3.33vh" : "5vh",
+          marginTop: isLargeDeviceUp ? "3.33vh" :isMobile || isDeviceDown ?"-4vh": "5vh",
           height: "100%",
           // display: "flex",
           // flexDirection: "column",
@@ -138,7 +139,7 @@ function LandingPage() {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{
                       duration: 0.9,
-                      delay: 0.9,
+                      delay: 0.5,
                       ease: [0, 0.71, 0.2, 1.01],
                     }}
                     variant={isMobile || isDeviceDown ? "h3" : "h2"}
@@ -164,7 +165,7 @@ function LandingPage() {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{
                       duration: 0.9,
-                      delay: 1.3,
+                      delay: 0.7,
                       ease: [0, 0.71, 0.2, 1.01],
                     }}
                   >
@@ -180,7 +181,7 @@ function LandingPage() {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{
                       duration: 0.9,
-                      delay: 1.5,
+                      delay: 1,
                       ease: [0, 0.71, 0.2, 1.01],
                     }}
                     onClick={handleScrollToBookTrip}
@@ -357,7 +358,7 @@ function LandingPage() {
             }}
           >
             <Container fixed sx={{ width: "100%", height: "100%" }}>
-              <Box height={"100%"}>
+              <Box height={"100%"} width={"100%"}>
                 <Box
                   height="100%"
                   display={"flex"}
@@ -365,7 +366,7 @@ function LandingPage() {
                   gap="20px"
                   padding={"20px"}
                   alignItems={"center"}
-                  width={"100%"}
+                  // width={"100%"}
                   // sx={{ transform: "translateY(15%)" }}
                   // justifyContent="inherit/"
                 >
@@ -441,23 +442,27 @@ function LandingPage() {
                       justifyContent: "space-between",
                       gap: "30px",
                       height: "60%",
-                      width: isMobile || isDeviceDown ? "75%" : "100%",
+                      width: "100%",
                     }}
                   >
                     {rides.map((i, index) => {
                       return (
                         <>
                           <Cardmotion
-                            sx={{ borderRadius: 0, boxShadow: 0 }}
+                            sx={{
+                              borderRadius: 0,
+                              boxShadow: 0,
+                              width: isMobile || isDeviceDown ? "100%" : "75%",
+                            }}
                             className="card-trip"
                             initial={{ opacity: 0, y: 100 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.2 }}
                             transition={{
-                              duration: 1.2,
+                              duration: 1,
                               delay:
-                                index === 0 ? 1.1 : index === 1 ? 1.5 : 1.9,
-                              ease: [0, 0.71, 0.2, 1.01],
+                                index === 0 ? 0.1 : index === 1 ? 0.4 : 0.9,
+                              ease: [0, 0.5, 0.2, 1.01],
                             }}
                           >
                             <CardMedia

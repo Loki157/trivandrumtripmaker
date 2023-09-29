@@ -1,35 +1,24 @@
-import {
-  Box,
-  Button,
-  Container,
-  IconButton,
-  Toolbar,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Container, useMediaQuery } from "@mui/material";
 
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
-import React from "react";
 import logo from "../../assets/svg/TTM_Black Letter.svg";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import {
-  Instagram as InstagramIcon,
-  Facebook as FacebookIcon,
   MailRounded as MailRoundedIcon,
   CallRounded as CallRoundedIcon,
 } from "@mui/icons-material";
 import { useTheme } from "@mui/material/styles";
-import { THEMEColor } from "../../assets/THEMES";
-import { WhatsApp as WhatsAppIcon } from "@mui/icons-material";
+
 import { ROUTEPATH } from "../ROUTEPATH";
 function FooterPage() {
   const theme = useTheme();
-  const location = useLocation();
-  const currentUrl = location.pathname;
+
+  const navigate = useNavigate();
+
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  const isDevice = useMediaQuery(theme.breakpoints.up("md"));
+
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   return (
     <>
@@ -57,19 +46,39 @@ function FooterPage() {
             <div className="footer-box-2">
               <h2>Quick Links</h2>
               <ul>
-                <li>
+                <li
+                  onClick={() => {
+                    navigate(ROUTEPATH.HOME);
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                  }}
+                >
                   <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
                   Home
                 </li>
-                <li>
+                <li
+                  onClick={() => {
+                    navigate(ROUTEPATH.PLACES);
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                  }}
+                >
                   <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
                   Place
                 </li>
-                <li>
+                <li
+                  onClick={() => {
+                    navigate(ROUTEPATH.ABOUT);
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                  }}
+                >
                   <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
                   About
                 </li>
-                <li>
+                <li
+                  onClick={() => {
+                    navigate(ROUTEPATH.CONTACT);
+                    window.scrollTo({ top: 0, behavior: "instant" });
+                  }}
+                >
                   <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
                   Contact Us
                 </li>
@@ -121,15 +130,23 @@ function FooterPage() {
                   />
                   <text>
                     Puunamoodu House TC 89/1162, Near wireless station, Beach
-                    Post, Trivandrum 695007
+                    Post, Trivandrum-695007
                   </text>
                 </div>
               </div>
             </div>
-            <div className="footer-box-4">cfsd</div>
+            {/* <div className="footer-box-4">cfsd</div> */}
           </div>
         </Container>
-        <div className="footer-copyrights">
+        <div
+          className="footer-copyrights"
+          style={{
+            fontFamily:
+              isMobile || isDeviceDown ? "Poppins-Medium" : "Poppins-SemiBold",
+            fontSize: isMobile || isDeviceDown ? "10px" : "",
+            textTransform: "capitalize",
+          }}
+        >
           © 2023 TRIVANDRUM TRIP MAKER. ALL RIGHTS RESERVED.
         </div>
       </div>
