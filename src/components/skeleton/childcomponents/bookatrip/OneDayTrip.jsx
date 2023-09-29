@@ -16,6 +16,7 @@ import {
   Select,
   MenuItem,
   Divider,
+  Alert,
 } from "@mui/material";
 import {
   ArrowForward as ArrowForwardIcon,
@@ -130,23 +131,41 @@ function OneDayTrip() {
   //   });
   // };
   const form = useRef();
+  const [openAlert, setOpenAlert] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
 
     e.preventDefault();
 
     const serviceID = "service_n2nymz7";
+
     const templateID = "template_d9f10qw";
     const publickey = "jJhGOvecr6Fg00Xcl";
 
-    emailjs.sendForm(serviceID, templateID, form.current, publickey).then(
-      (result) => {
-        console.log(result.text);
-      },
-      (error) => {
-        console.log(error.text);
-      }
-    );
+    try {
+      emailjs.sendForm(serviceID, templateID, form.current, publickey).then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+      setOpenAlert(true);
+      setReqACall({
+        ...reqACall,
+        name: "",
+        email: "",
+        mobile: null,
+        altMobile: null,
+        noOfTravel: null,
+        vehicle: "",
+        travelDate: moment(),
+        desc: "",
+      });
+    } catch (err) {
+      console.log("error", err);
+    }
   };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -651,6 +670,15 @@ function OneDayTrip() {
                     </Box>
                   </form>
                 </Box>
+                {openAlert ? (
+                  <Alert
+                    onClose={() => {
+                      setOpenAlert(false);
+                    }}
+                  >
+                    Thanks for submitting!
+                  </Alert>
+                ) : null}
               </Box>
               {/* ==------- -------------------*****---------------------------*/}
               {/* ittineration */}
