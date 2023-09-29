@@ -30,9 +30,11 @@ import { styled, useTheme } from "@mui/material/styles";
 import oneDay from "../../../assets/images/places/oneday.jpg";
 import moment from "moment";
 import { THEMEColor } from "../../../assets/THEMES";
-
+import emailjs from "@emailjs/browser";
+// require("dot")
 function ContactUs() {
   const theme = useTheme();
+  const form = useRef();
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const isMobileUp = useMediaQuery(theme.breakpoints.up("sm"));
@@ -78,85 +80,21 @@ function ContactUs() {
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("values", reqACall);
-    const recipient = "contact@example.com";
-    const subject = "Regarding Your Services";
-    const details = `
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>User Feedback</title>
-        <!-- Add your custom CSS styles here if needed -->
-        <style>
-            /* Add your custom CSS styles here */
-            body {
-                font-family: Arial, sans-serif;
-                background-color: #f4f4f4;
-            }
-            .container {
-                max-width: 600px;
-                margin: 0 auto;
-                padding: 20px;
-                background-color: #ffffff;
-                border-radius: 5px;
-                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            }
-            .header {
-                text-align: center;
-                padding: 20px 0;
-            }
-            .content {
-                padding: 20px 0;
-            }
-            .footer {
-                text-align: center;
-                color: #888;
-                padding-top: 20px;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="header">
-                <h1>User Feedback</h1>
-            </div>
-            <div class="content">
-                <p>Hello ${recipient},</p>
-                <p>A user has submitted feedback or suggestions through your Trip Maker website. Here are the details:</p>
-                
-                <ul>
-                    <li><strong>Name:</strong> ${reqACall.name}</li>
-                    <li><strong>Mobile No:</strong> ${reqACall.mobile}</li>
-                    <li><strong>Email:</strong>${reqACall.email}</li>
-                </ul>
-                
-                <p><strong>Feedback/Suggestion:</strong></p>
-                <p>${reqACall.desc}</p>
-    
-                
-            </div>
-            <div class="footer">
-                <p>Regards,</p>
-                <p>Your Trip Maker Website Team</p>
-            </div>
-        </div>
-    </body>
-    </html>
-    `;
-    const htmlContent = details;
-    const parser = new DOMParser();
+  
+    e.preventDefault();
 
-    // Parse the HTML content
-    const doc = parser.parseFromString(htmlContent, "text/html");
+    const serviceID = "service_n2nymz7";
+    const templateID = "template_d9f10qw";
+    const publickey = "jJhGOvecr6Fg00Xcl";
 
-    // Extract the text content from the parsed document
-    const plainText = doc.body.textContent.trim();
-    const mailtoURL = `mailto:${recipient}?subject=${encodeURIComponent(
-      subject
-    )}&body=${encodeURIComponent(plainText)}`;
-
-    window.location.href = mailtoURL;
+    emailjs.sendForm(serviceID, templateID, form.current, publickey).then(
+      (result) => {
+        console.log(result.text);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
   };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -270,7 +208,7 @@ function ContactUs() {
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
         </Box>
-        <Box className="contact-us-bg" >
+        <Box className="contact-us-bg">
           <div
             style={{ background: " rgba(255, 255, 255, 0.82)", height: "100%" }}
           >
@@ -474,6 +412,7 @@ function ContactUs() {
                         >
                           {" "}
                           <form
+                            ref={form}
                             style={{ width: "100%" }}
                             onSubmit={handleSubmit}
                           >

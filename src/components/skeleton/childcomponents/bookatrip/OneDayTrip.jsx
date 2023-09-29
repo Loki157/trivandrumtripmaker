@@ -35,7 +35,7 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
-
+import emailjs from "@emailjs/browser";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -129,9 +129,24 @@ function OneDayTrip() {
   //     behavior: 'smooth',
   //   });
   // };
+  const form = useRef();
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("values", reqACall);
+
+    e.preventDefault();
+
+    const serviceID = "service_n2nymz7";
+    const templateID = "template_d9f10qw";
+    const publickey = "jJhGOvecr6Fg00Xcl";
+
+    emailjs.sendForm(serviceID, templateID, form.current, publickey).then(
+      (result) => {
+        console.log(result.text);
+      },
+      (error) => {
+        console.log(error.text);
+      }
+    );
   };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -334,8 +349,22 @@ function OneDayTrip() {
                     Request a CallBack
                   </Typography>
                 </Box>
-                <Box display={"flex"} justifyContent={"center"} width="100%" height={"100%"}>
-                  <form style={{ width: "100%",height:"100%",display:"flex",justifyContent:"center" }} onSubmit={handleSubmit}>
+                <Box
+                  display={"flex"}
+                  justifyContent={"center"}
+                  width="100%"
+                  height={"100%"}
+                >
+                  <form
+                    ref={form}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      display: "flex",
+                      justifyContent: "center",
+                    }}
+                    onSubmit={handleSubmit}
+                  >
                     <Box
                       sx={{
                         display: "flex",
