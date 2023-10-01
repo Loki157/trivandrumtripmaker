@@ -82,7 +82,11 @@ function LandingPage() {
       )} */}
       <div
         style={{
-          marginTop: isLargeDeviceUp ? "3.33vh" :isMobile || isDeviceDown ?"-4vh": "5vh",
+          marginTop: isLargeDeviceUp
+            ? "3.33vh"
+            : isMobile || isDeviceDown
+            ? "-4vh"
+            : "5vh",
           height: "100%",
           // display: "flex",
           // flexDirection: "column",
@@ -99,6 +103,8 @@ function LandingPage() {
             backgroundSize: "cover",
             height: isMobile || isDeviceDown ? "400px" : "600px",
             minWidth: "100%",
+            maxWidth: "100%",
+            imageRendering: "auto",
             // backgroundPositionY:"10%"
             backgroundPosition: "center",
           }}
