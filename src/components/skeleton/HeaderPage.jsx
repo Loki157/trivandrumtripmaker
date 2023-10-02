@@ -1,4 +1,4 @@
-import {
+  import {
   AppBar,
   Box,
   Button,
@@ -155,7 +155,7 @@ function HeaderPage() {
             fullWidth
           >
             {" "}
-            <a href="//api.whatsapp.com/send?phone=918086040400&text=WHATEVER_LINK_OR_TEXT_YOU_WANT_TO_SEND">
+            <a href="//api.whatsapp.com/send?phone=918086040400&text=Hi i would ">
               Contact Now
             </a>
           </Button>

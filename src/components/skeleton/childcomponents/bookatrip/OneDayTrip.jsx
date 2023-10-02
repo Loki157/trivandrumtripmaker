@@ -648,24 +648,35 @@ function OneDayTrip() {
                         gap="20px"
                         width="100%"
                         justifyContent={"center"}
+                        flexDirection={
+                          isMobile || isDeviceDown ? "column" : "row"
+                        }
                       >
-                        {" "}
-                        <Button
-                          variant="contained"
-                          className="learnmore-btn"
-                          fullWidth
-                          startIcon={<CallIcon />}
+                        <a href="tel:+918086040400">
+                          {" "}
+                          <Button
+                            variant="contained"
+                            className="learnmore-btn"
+                            fullWidth
+                            startIcon={<CallIcon />}
+                          >
+                            +918086040400
+                          </Button>
+                        </a>
+                        <a
+                          href="https://wa.me/message/5QKJSYVWLPELD1"
+                          target="_blank"
+                          rel="noreferrer"
                         >
-                          +918086040400
-                        </Button>{" "}
-                        <Button
-                          variant="contained"
-                          className="learnmore-btn"
-                          fullWidth
-                          startIcon={<WhatsAppIcon />}
-                        >
-                          WhatsApp
-                        </Button>
+                          <Button
+                            variant="contained"
+                            className="learnmore-btn"
+                            fullWidth
+                            startIcon={<WhatsAppIcon />}
+                          >
+                            WhatsApp
+                          </Button>
+                        </a>
                       </Box>
                     </Box>
                   </form>
