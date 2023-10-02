@@ -96,18 +96,18 @@ function LandingPage() {
         {/* <Box width={"99vw"}> */}
         <Box
           sx={{
-            backgroundImage: `url("${kathak}")`,
+            background: `url("${kathak}") no-repeat fixed center center`,
 
-            backgroundRepeat: "no-repeat",
+            // backgroundRepeat: "no-repeat",
             backgroundAttachment: "fixed",
             backgroundSize: "cover",
             height: isMobile || isDeviceDown ? "400px" : "600px",
-            minWidth: "100%",
-            maxWidth: "100%",
-            imageRendering: "auto",
-            // backgroundPositionY:"10%"
-            backgroundPosition: "center",
+            "-webkit-background-size": "cover",
+            "-moz-background-size": "cover",
+            "-o-background-size": "cover",
+            "background-size": "cover",
           }}
+          className="land-main-img"
         >
           <Box
             sx={{
