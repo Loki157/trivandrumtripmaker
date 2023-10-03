@@ -11,3 +11,12 @@
     height: 1000px;
   }
 }
+.place-card{
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-color: #3dae2b;
+  border-radius: 50%;
+  bottom: -80px;
+  right: -80px;
+}

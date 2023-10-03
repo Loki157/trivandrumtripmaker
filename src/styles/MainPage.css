@@ -267,13 +267,13 @@ nav.nav-button-footer a.nav-btn {
   border-radius: 0;
 
   text-transform: capitalize;
-  background-color: var(--white);
-  color: var(--black);
-  border: 2px solid var(--white);
+  background-color: var(--green);
+  color: var(--white);
+  border: 2px solid var(--green);
   transition: 0.2s all;
 }
 .book-trip-btn.MuiButton-root:hover {
-  color: var(--white);
+  color: var(--green);
   background-color: transparent;
 }
 .aboutus-text::after {
@@ -454,4 +454,13 @@ nav.nav-button-footer a.nav-btn {
   .land-main-img.MuiBox-root {
     background-attachment: initial !important;
   }
+}
+.place-card{
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-color: #3dae2b;
+  border-radius: 50%;
+  bottom: -80px;
+  right: -80px;
 }

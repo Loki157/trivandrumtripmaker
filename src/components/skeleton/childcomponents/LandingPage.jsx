@@ -97,8 +97,7 @@ function LandingPage() {
         <Box
           sx={{
             background: `url("${kathak}") no-repeat fixed center center`,
-
-            // backgroundRepeat: "no-repeat",
+          
             backgroundAttachment: "fixed",
             // backgroundSize: "cover",
             height: isMobile || isDeviceDown ? "400px" : "600px",
