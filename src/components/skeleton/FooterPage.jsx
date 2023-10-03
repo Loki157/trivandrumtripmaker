@@ -1,4 +1,4 @@
-import { Container, useMediaQuery } from "@mui/material";
+import { Box, Container, useMediaQuery } from "@mui/material";
 
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
@@ -46,42 +46,73 @@ function FooterPage() {
             <div className="footer-box-2">
               <h2>Quick Links</h2>
               <ul>
-                <li
-                  onClick={() => {
-                    navigate(ROUTEPATH.HOME);
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                  }}
-                >
-                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
-                  Home
-                </li>
-                <li
-                  onClick={() => {
-                    navigate(ROUTEPATH.PLACES);
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                  }}
-                >
-                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
-                  Place
-                </li>
-                <li
-                  onClick={() => {
-                    navigate(ROUTEPATH.ABOUT);
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                  }}
-                >
-                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
-                  About
-                </li>
-                <li
-                  onClick={() => {
-                    navigate(ROUTEPATH.CONTACT);
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                  }}
-                >
-                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
-                  Contact Us
-                </li>
+                <Box>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.ONEDAY);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    One day trip
+                  </li>{" "}
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.PICKDROP);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Airport Pickup & Drop
+                  </li>{" "}
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.TOURPLAN);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Tour Package
+                  </li>
+                </Box>
+                <Box>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.HOME);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Home
+                  </li>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.PLACES);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Place
+                  </li>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.ABOUT);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    About
+                  </li>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.CONTACT);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Contact Us
+                  </li>
+                </Box>
               </ul>
             </div>
             <div className="footer-box-3">
