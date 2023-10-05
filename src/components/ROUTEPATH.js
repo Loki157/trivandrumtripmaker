@@ -8,4 +8,7 @@ export const ROUTEPATH = {
   ONEDAY: "book-a-trip/oneday-trip",
   PICKDROP: "book-a-trip/airport-pickup-drop",
   TOURPLAN: "book-a-trip/tour-plans",
+  HONEYMOON: "honeymoon",
+  PILGRIMAGE: "pilgrimage",
+  TOURPACK: "tour-package",
 };

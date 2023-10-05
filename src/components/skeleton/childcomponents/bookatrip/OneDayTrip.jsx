@@ -338,36 +338,36 @@ function OneDayTrip() {
               </Box>
 
               {/* --------------------Request CallBack ---------------------------*/}
-              <Box
-                ref={reqCallBackRef}
-                sx={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "20px",
-                  width: "100%",
-                }}
-              >
                 <Box
+                  ref={reqCallBackRef}
                   sx={{
                     display: "flex",
                     flexDirection: "column",
-                    gap: "15px",
-                    alignItems: "flex-start",
+                    gap: "20px",
+                    width: "100%",
                   }}
                 >
-                  <Typography
-                    variant={isMobile || isDeviceDown ? "h6" : "h5"}
+                  <Box
                     sx={{
-                      fontFamily: "Poppins-Bold",
-                      color: THEMEColor.buttons,
-                      textAlign: "center",
-                      // width: "80%",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "15px",
+                      alignItems: "flex-start",
                     }}
-                    className="oneday-heading"
                   >
-                    Request a CallBack
-                  </Typography>
-                </Box>
+                    <Typography
+                      variant={isMobile || isDeviceDown ? "h6" : "h5"}
+                      sx={{
+                        fontFamily: "Poppins-Bold",
+                        color: THEMEColor.buttons,
+                        textAlign: "center",
+                        // width: "80%",
+                      }}
+                      className="oneday-heading"
+                    >
+                      Request a CallBack
+                    </Typography>
+                  </Box>
                 <Box
                   display={"flex"}
                   justifyContent={"center"}
@@ -652,7 +652,7 @@ function OneDayTrip() {
                           isMobile || isDeviceDown ? "column" : "row"
                         }
                       >
-                        <a href="tel:+918086040400">
+                        <a href="tel:+918086040400" style={{width:"100%"}} >
                           {" "}
                           <Button
                             variant="contained"
@@ -666,7 +666,7 @@ function OneDayTrip() {
                         <a
                           href="https://wa.me/message/5QKJSYVWLPELD1"
                           target="_blank"
-                          rel="noreferrer"
+                          rel="noreferrer" style={{width:"100%"}} 
                         >
                           <Button
                             variant="contained"
