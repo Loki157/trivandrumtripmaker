@@ -119,7 +119,7 @@ function FooterPage() {
               <h2>Contact Details</h2>
               <div className="contactus-details-1">
                 <h3>Phone Number</h3>
-                <div>
+                <div style={{ display: "flex" }}>
                   <CallRoundedIcon
                     sx={{
                       fontSize: 18,
@@ -129,7 +129,24 @@ function FooterPage() {
                       padding: "5px",
                     }}
                   />
-                  <text>+918086040400</text>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems:"flex-start"
+                      // gap: "10px",
+                    }}
+                  >
+                    <a href="tel:+918086040400">
+                      <text>+918086040400</text>
+                    </a>
+                    {/* <br></br> */}
+
+                    <p>or</p>
+                    <a href="tel:+918547676840">
+                      <text>+918547676840</text>
+                    </a>
+                  </div>{" "}
                 </div>
               </div>
               <div className="contactus-details-1">
@@ -160,8 +177,8 @@ function FooterPage() {
                     }}
                   />
                   <text>
-                    Puunamoodu House TC 89/1162, Near wireless station, Beach
-                    Post, Trivandrum-695007
+                    TC 89/1162, Near wireless station, Beach Post,
+                    Trivandrum-695007
                   </text>
                 </div>
               </div>
