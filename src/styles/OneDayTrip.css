@@ -8,6 +8,16 @@
   border-bottom-right-radius: 10px;
   background-color: var(--green);
 }
+.oneday-heading1.MuiTypography-root::after {
+  content: "";
+  margin: auto;
+  display: block;
+  height: 4px;
+  width: 40%;
+  float: left;
+  border-bottom-right-radius: 10px;
+  background-color: var(--green);
+}
 .scroll-to-top-button {
     position: fixed;
     bottom: 20px;
@@ -34,3 +44,4 @@
     bottom: -80px;
     right: -80px;
   }
+  ul.list-space li{margin-top: 10px;}

@@ -391,8 +391,8 @@ function ContactUs() {
                               color: THEMEColor.Secondary,
                             }}
                           >
-                            Puunamoodu House TC 89/1162, Near wireless station,
-                            Beach Post, Trivandrum 695007
+                            TC 89/1162, Near wireless station, Beach Post,
+                            Trivandrum 695007
                           </Typography>
                         </Box>
                       </Box>

@@ -133,7 +133,7 @@ function FooterPage() {
                     style={{
                       display: "flex",
                       flexDirection: "column",
-                      alignItems:"flex-start"
+                      alignItems: "flex-start",
                       // gap: "10px",
                     }}
                   >
@@ -161,7 +161,9 @@ function FooterPage() {
                       padding: "5px",
                     }}
                   />
-                  <text> trivandrumtripmaker@gmail.com</text>
+                  <a href="mailto:trivandrumtripmaker@gmail.com">
+                    <text> trivandrumtripmaker@gmail.com</text>
+                  </a>
                 </div>
               </div>
               <div className="contactus-details-2">

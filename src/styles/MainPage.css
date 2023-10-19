@@ -270,7 +270,7 @@ nav.nav-button-footer a.nav-btn {
   background-color: var(--green);
   color: var(--white);
   border: 2px solid var(--green);
-  transition: 0.2s all;
+  transition: 0.3s all;
 }
 .book-trip-btn.MuiButton-root:hover {
   color: var(--green);
@@ -407,15 +407,17 @@ nav.nav-button-footer a.nav-btn {
   display: flex;
   align-items: center;
 }
-.footer-box-3 .contactus-details-1 div a text ,.footer-box-3 .contactus-details-1 div p{
+.footer-box-3 .contactus-details-1 div a text ,.footer-box-3 .contactus-details-1 div p,.footer-box-3 .contactus-details-1 div text {
   font-family: "Poppins-SemiBold";
   font-size: 12px;
-}
-.footer-box-3 .contactus-details-1 div div a {
+  transition: 0.2s all;
   text-decoration: none;
-  color:var(--black)
 }
-.footer-box-3 .contactus-details-1 div a:hover{
+.footer-box-3 .contactus-details-1 div div a ,.contactus-details-1 div text,.footer-box-3 .contactus-details-1 div a{
+  text-decoration: none;
+  color:var(--black);cursor: pointer;
+}
+.footer-box-3 .contactus-details-1 div a:hover,.contactus-details-1 div text:hover{
   color:var(--green)
 }
 .footer-box-3 .contactus-details-2 h3 {
