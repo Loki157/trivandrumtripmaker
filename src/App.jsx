@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, HashRouter, Route, Routes } from "react-router-dom";
 import { ROUTEPATH } from "./components/ROUTEPATH";
 import MainPage from "./components/MainPage";
 import LandingPage from "./components/skeleton/childcomponents/LandingPage";
@@ -15,7 +15,7 @@ import TourPackage from "./components/skeleton/childcomponents/bookatrip/TourPac
 function App() {
   return (
     <>
-      <BrowserRouter>
+      <HashRouter>
         <Routes>
           <Route path={ROUTEPATH.MAIN} element={<MainPage />}>
             <Route path={ROUTEPATH.HOME} element={<LandingPage />} />
@@ -39,7 +39,7 @@ function App() {
             <Route path={ROUTEPATH.PLACES} element={<Places />} />
           </Route>
         </Routes>
-      </BrowserRouter>
+      </HashRouter>
     </>
   );
 }

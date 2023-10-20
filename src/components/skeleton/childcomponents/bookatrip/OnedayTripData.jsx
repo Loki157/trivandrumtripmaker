@@ -544,29 +544,39 @@ export const towardsVarkala = [
       "Discover inner peace, seek blessings, and experience the divine grace of Lord Ganesha at Ganapathy Temple, Trivandrum.",
   },
   {
-    title: "Attukal Bhagavathy Temple",
+    title: "Thiruvananthapuram Zoo",
     heading:
-      "Welcome to the enchanting Attukal Bhagavathy Temple, located in the heart of Thiruvananthapuram (Trivandrum), Kerala. This revered temple, dedicated to the goddess Attukal Bhagavathy, is not only a place of worship but also a captivating tourist destination. Join us as we take you on a virtual tour of this divine haven.",
-    introduction: `The Attukal Bhagavathy Temple, often referred to as the "Sabarimala of Women," holds a special place in the hearts of devotees and tourists alike. It is renowned for the annual Attukal Pongala festival, one of the largest gatherings of women in the world, attracting millions of female devotees from across the globe.`,
-    history: `The history of the temple dates back centuries, with legends and folklore weaving tales of its origin. The word "Attukal" means "necklace" in Malayalam, and it is believed that the temple got its name because a divine presence was discovered here when a local woman found a necklace in a nearby stream.`,
-    image: attukal,
+      "Welcome to the captivating world of Thiruvananthapuram Zoo, an enchanting haven for wildlife enthusiasts located in the heart of Trivandrum, Kerala. This historic zoo, also known as the Thiruvananthapuram Zoological Park, offers a wonderful opportunity to explore a wide variety of animal and bird species while surrounded by lush greenery. Join us as we embark on a journey to discover the natural beauty and biodiversity of this unique attraction.",
+    introduction: `Established in 1857, Thiruvananthapuram Zoo is one of the oldest and most well-maintained zoos in Asia. Spread over 55 acres of lush greenery, the zoo serves as a significant center for wildlife conservation, education, and recreation.`,
+    history: `Built during the reign of Maharaja Sree Moolam Thirunal in the late 19th century, the palace initially served as a guesthouse for visiting dignitaries. Later, it became a summer retreat for the royal family. Today, it stands as a cultural and heritage center, hosting various events and exhibitions.`,
+    wildllife: {
+      majestic:
+        "Watch in awe as lions and tigers roam in their enclosures, showcasing their regal presence.",
+      gentle:
+        "Get up close to the gentle giants of the animal kingdom as you observe these magnificent creatures in their natural habitat.",
+      reptile:
+        " Explore a diverse collection of reptiles, including snakes, crocodiles, and turtles, while learning about their unique characteristics.",
+      aviary:
+        "Discover a wide array of bird species in the zoo's aviary, featuring colorful parrots, exotic waterfowl, and more.",
+    },
+    image: kanakulla,
     Visiting: {
       timing:
-        "The temple is open for devotees throughout the day, with specific timings for morning and evening rituals. It's advisable to check with the temple authorities for precise timings.",
-      dressCode:
-        "Modest attire is expected when visiting the temple. Both men and women should dress conservatively, covering their shoulders and knees.",
+        "Thiruvananthapuram Zoo is generally open to the public from 9:00 AM to 5:15 PM, with a lunch break from 1:00 PM to 1:30 PM. Please confirm the timings on the official website before your visit.",
+      entryFee:
+        "There is a nominal entry fee for adults and children, with separate rates for foreign tourists. Please check the official website for the most current fee structure.",
       photography:
-        "Photography is generally allowed inside the temple, but it's essential to respect the privacy and sanctity of the place. Always ask for permission before taking photos.",
+        "Photography is usually allowed within the zoo premises, but it's advisable to check for any specific guidelines or areas where photography may be restricted.",
     },
     planVisit: {
       content:
-        "Attukal Bhagavathy Temple is not just a place of worship; it's a cultural and spiritual experience that leaves an indelible mark on every visitor. Plan your trip to this enchanting temple in the heart of Trivandrum, Kerala, and immerse yourself in the rich heritage and traditions of the region.",
+        "Thiruvananthapuram Zoo is not just a place to see animals; it's a destination to learn about wildlife and appreciate the beauty of the natural world. Plan your visit to this enriching and enjoyable attraction, and explore the fascinating world of animals, birds, and nature.",
       address:
-        " Attukal Bhagavathy Temple, Attukal, Manacaud P.O., Thiruvananthapuram, Kerala, India - 695009",
+        " LMS Vellayambalam Road,Near Museum Police Station, Trivandrum 695033.",
       web: "www.attukal.org",
     },
     conclude:
-      "Don't miss the chance to explore this divine abode and make lasting memories in God's own country. Attukal Bhagavathy Temple welcomes you with open arms.",
+      "Embark on a journey of wildlife discovery and natural beauty at Thiruvananthapuram Zoo.",
   },
 
   {
@@ -595,29 +605,37 @@ export const towardsVarkala = [
       "Embark on a cultural journey through the vibrant past of Kerala at Napier Museum. Discover the stories, art, and heritage that define this enchanting region.",
   },
   {
-    title: "Natural History Museum",
+    title: "Kuthiramalika Palace Museum (Puthenmalika)",
     heading:
-      "Welcome to the fascinating world of the Natural History Museum, situated in the heart of Thiruvananthapuram (Trivandrum), Kerala. This museum is a treasure trove of knowledge, offering visitors a unique opportunity to explore the diverse flora, fauna, and geological wonders of Kerala and beyond. Join us as we delve into the marvels of nature and history.",
-    introduction: `The Natural History Museum is a haven for nature enthusiasts, students, and curious minds. It serves as a bridge between the past and the present, allowing visitors to connect with the natural world and gain a deeper understanding of the ecological wealth of Kerala.`,
-    history: `Established with the aim of preserving and showcasing Kerala's natural heritage, the museum has grown to become a vital educational institution. Its origins can be traced back to a humble beginning and have evolved over the years into a prominent center for research and public engagement.`,
+      "Welcome to the regal world of Kuthiramalika Palace Museum, an architectural gem steeped in history and culture, located in the heart of Trivandrum, Kerala. This stunning palace museum, also known as Puthenmalika, is a testimony to the artistic excellence of Kerala's traditional architecture. Join us as we journey through time to discover the rich heritage and royal elegance of this historic attraction.",
+    introduction: `Kuthiramalika Palace Museum, often referred to as the Horse Palace, is a historical mansion that once served as the royal residence of the Maharaja of Travancore, Swathi Thirunal Rama Varma. The museum is celebrated for its unique architectural style and impressive collection of artifacts.`,
+    history: `The palace was built by Maharaja Swathi Thirunal Rama Varma in the 19th century. Its name, Kuthiramalika, which translates to "Palace of Horses," is derived from the 122 horses that are carved into the wooden frieze running around the palace courtyard. The palace is a testament to the rich cultural heritage of Travancore.`,
+    highlights: {
+      regal:
+        " The museum houses an impressive collection of artifacts, including paintings, sculptures, musical instruments, and antique furniture, offering a glimpse into the opulent lifestyle of the Travancore royal family.",
+      music:
+        "Kuthiramalika Palace is closely associated with the Swathi Sangeethotsavam, a renowned music festival dedicated to Maharaja Swathi Thirunal, a composer and patron of classical music.",
+      tranq:
+        "The palace features tranquil courtyards adorned with beautiful flowering plants and trees, creating a serene atmosphere that contrasts the bustling city outside.",
+    },
     image: national,
     Visiting: {
       timing:
-        "The Natural History Museum is open from 10:00 AM to 5:00 PM, Tuesday to Sunday. It remains closed on Mondays and national holidays.",
+        "Kuthiramalika Palace Museum is usually open to visitors from 8:30 AM to 1:00 PM and 3:00 PM to 5:30 PM. It's recommended to verify the current timings on the official website before your visit.",
       entryFee:
-        "For Indians: INR 10 per person,For Foreigners: INR 100 per person,Students and groups may be eligible for discounted rates. Inquire at the museum entrance for details.",
-      tourGuide:
-        "Guided tours are available for a more in-depth understanding of the exhibits and the history of the museum. Check with the museum staff for availability.",
+        "There is a nominal entry fee for adults and children. Foreign tourists may have a separate fee structure. Please check the official website for the most current rates.",
+      photography:
+        "Photography is usually allowed within the palace premises, but it's advisable to check with the museum authorities for any specific guidelines.",
     },
     planVisit: {
       content:
-        "The Natural History Museum offers a unique opportunity to explore the wonders of the natural world in an educational and engaging manner. Plan your visit to this hub of knowledge and embark on a journey through Kerala's ecological history.",
+        "Kuthiramalika Palace Museum is not just a museum; it's a journey through time, an exploration of art and culture, and a glimpse into the grandeur of a bygone era. Plan your visit to this royal masterpiece and immerse yourself in the rich history and elegance of Travancore.",
       address:
-        "Natural History Museum,Maruthankuzhy-PTP Rd, Thiruvananthapuram, Kerala 695038.",
+        "East Fort, Pazhavangadi, Thiruvananthapuram, Kerala, 695023,",
       web: " www.naturalhistorymuseumtrivandrum.org",
     },
     conclude:
-      "Uncover the mysteries of nature, explore the geological wonders, and ignite your curiosity at the Natural History Museum in Trivandrum.",
+      "Explore the royal elegance and cultural heritage of Kerala at Kuthiramalika Palace Museum.",
   },
 
   {
