@@ -13,8 +13,15 @@ import pilgrimg from "../assets/images/tour/kerala-pilgrimage.jpg";
 import tourplan from "../assets/images/tour/tourplan.jpg";
 import { useNavigate } from "react-router-dom";
 
-
 export const rides = [
+  {
+    head: "What we Offer",
+    title: "Craft your Unforgettable memories with Trivandrum TripMaker",
+    imgs: padhmanabha,
+    subHead:
+      "Our passion lies in crafting unforgettable travel moments for every traveler who chooses us. With our range of services, we transform ordinary trips into extraordinary adventures.",
+    nav: ROUTEPATH.MAIN + ROUTEPATH.ONEDAY,
+  },
   {
     title: "One Day trip",
     imgs: padhmanabha,

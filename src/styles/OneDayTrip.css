@@ -13,8 +13,8 @@
   margin: auto;
   display: block;
   height: 4px;
-  width: 40%;
-  float: left;
+  width: 70%;
+  /* float: left; */
   border-bottom-right-radius: 10px;
   background-color: var(--green);
 }

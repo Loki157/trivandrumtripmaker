@@ -41,6 +41,7 @@ import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
 import {
   itineraryTemple,
   towardsKanyakumari,
+  towardsPilgrimage,
   towardsVarkala,
 } from "./OnedayTripData";
 import moment from "moment";
@@ -836,16 +837,7 @@ function OneDayTrip() {
                   >
                     {" "}
                     <Grid container spacing={5}>
-                      <Grid item md={5}>
-                        <Box sx={{ height: "400px", width: "100%" }}>
-                          <img
-                            src={kanyakumari}
-                            height={"100%"}
-                            width={"100%"}
-                          />
-                        </Box>
-                      </Grid>
-                      <Grid item md={6}>
+                      <Grid item md={12}>
                         <Box
                           sx={{
                             display: "flex",
@@ -854,18 +846,28 @@ function OneDayTrip() {
                             gap: "20px",
                           }}
                         >
-                          <Typography
-                            variant={isMobile || isDeviceDown ? "h6" : "h5"}
+                          {" "}
+                          <Box
                             sx={{
-                              fontFamily: "Poppins-Bold",
-                              color: THEMEColor.buttons,
-                              textAlign: "center",
-                              // width: "80%",
+                              display: "flex",
+                              height: "100%",
+                              justifyContent: "center",
+                              width: "100%",
                             }}
-                            className="oneday-heading1"
                           >
-                            Towards Kanyakumari
-                          </Typography>
+                            <Typography
+                              variant={isMobile || isDeviceDown ? "h6" : "h4"}
+                              sx={{
+                                fontFamily: "Poppins-Bold",
+                                color: THEMEColor.buttons,
+                                textAlign: "center",
+                                // width: "80%",
+                              }}
+                              className="oneday-heading1"
+                            >
+                              Towards Kanyakumari
+                            </Typography>
+                          </Box>
                           <Typography
                             variant="body1"
                             sx={{
@@ -904,6 +906,15 @@ function OneDayTrip() {
                             many enchanting stops that await you on this
                             unforgettable route.
                           </Typography>
+                        </Box>
+                      </Grid>{" "}
+                      <Grid item md={12}>
+                        <Box sx={{ height: "600px", width: "100%" }}>
+                          <img
+                            src={kanyakumari}
+                            height={"100%"}
+                            width={"100%"}
+                          />
                         </Box>
                       </Grid>
                     </Grid>
@@ -1262,7 +1273,9 @@ function OneDayTrip() {
                                             </>
                                           ) : ind === 0 ||
                                             ind === 1 ||
-                                            ind === 8 ? (
+                                            ind === 8 ||
+                                            ind === 9 ||
+                                            ind === 10 ? (
                                             <>
                                               <span
                                                 style={{
@@ -1303,7 +1316,7 @@ function OneDayTrip() {
                                               </span>
                                               -{i.Visiting.photography}
                                             </>
-                                          ) : ind === 3 ? (
+                                          ) : ind === 3 || ind === 6 ? (
                                             <>
                                               <span
                                                 style={{
@@ -1424,18 +1437,27 @@ function OneDayTrip() {
                             gap: "20px",
                           }}
                         >
-                          <Typography
-                            variant={isMobile || isDeviceDown ? "h6" : "h5"}
+                          <Box
                             sx={{
-                              fontFamily: "Poppins-Bold",
-                              color: THEMEColor.buttons,
-                              textAlign: "center",
-                              // width: "80%",
+                              display: "flex",
+                              height: "100%",
+                              justifyContent: "center",
+                              width: "100%",
                             }}
-                            className="oneday-heading1"
                           >
-                            Towards Varkala
-                          </Typography>
+                            <Typography
+                              variant={isMobile || isDeviceDown ? "h6" : "h4"}
+                              sx={{
+                                fontFamily: "Poppins-Bold",
+                                color: THEMEColor.buttons,
+                                textAlign: "center",
+                                // width: "80%",
+                              }}
+                              className="oneday-heading1"
+                            >
+                              Towards Varkala
+                            </Typography>
+                          </Box>
                           <Typography
                             variant="body1"
                             sx={{
@@ -1493,8 +1515,8 @@ function OneDayTrip() {
                         return (
                           <>
                             <Accordion
-                              expanded={expanded === `panel${ind}`}
-                              onChange={handleChange(`panel${ind}`)}
+                              expanded={expanded === `panel${ind + 30}`}
+                              onChange={handleChange(`panel${ind + 30}`)}
                             >
                               <AccordionSummary
                                 aria-controls="panel1d-content"
@@ -1699,7 +1721,12 @@ function OneDayTrip() {
                                       </>
                                     )}
                                   </Box>
-                                  {ind === 3 ? (
+                                  {ind === 3 ||
+                                  ind === 4 ||
+                                  ind === 5 ||
+                                  ind === 6 ||
+                                  ind === 7 ||
+                                  ind === 8 ? (
                                     <Box
                                       sx={{
                                         display: "flex",
@@ -1740,9 +1767,18 @@ function OneDayTrip() {
                                             >
                                               {ind === 3
                                                 ? `Regal Artifacts(Royal Collection)`
-                                                : ""}
+                                                : ind === 5
+                                                ? `Seashell Treasures(Beachcombing)`
+                                                : ind === 6 || ind === 8
+                                                ? `Relaxation by the Sea(Sunbathing)`
+                                                : ind === 7
+                                                ? `Historic Graves(Cemetery)`
+                                                : `Hiking Trails(Jatayu Nature Park)`}
                                             </span>
-                                            -{i.highlights.regal}
+                                            -
+                                            {ind === 3
+                                              ? i.highlights.regal
+                                              : i.activity.hiking}
                                           </li>
                                           <li>
                                             <span
@@ -1752,9 +1788,18 @@ function OneDayTrip() {
                                             >
                                               {ind === 3
                                                 ? `Musical Legacy(Swathi Sangeethotsavam)`
-                                                : ""}
+                                                : ind === 5
+                                                ? `Capture the Serenity(Photography)`
+                                                : ind === 6 || ind === 8
+                                                ? `Refreshing Waters(Swimming)`
+                                                : ind === 7
+                                                ? `Colonial Legacy(Chapel)`
+                                                : `Zip Lining(Jatayu Nature Park)`}
                                             </span>
-                                            -{i.highlights.music}
+                                            -
+                                            {ind === 3
+                                              ? i.highlights.music
+                                              : i.activity.zip}
                                           </li>
                                           <li>
                                             <span
@@ -1764,116 +1809,147 @@ function OneDayTrip() {
                                             >
                                               {ind === 3
                                                 ? `Tranquil Retreat(Exquisite Courtyards)`
-                                                : ""}
+                                                : ind === 5
+                                                ? `Refreshing Waters(Swimming)`
+                                                : ind === 6 || ind === 8
+                                                ? `Catch the Waves(Surfing)`
+                                                : ind === 7
+                                                ? `Panoramic Views(Lighthouse)`
+                                                : `Rock Climbing(Jatayu Adventure Center)`}
                                             </span>
-                                            -{i.highlights.tranq}
+                                            -
+                                            {ind === 3
+                                              ? i.highlights.tranq
+                                              : i.activity.rock}
                                           </li>
+                                          {ind === 4 ||
+                                          ind === 5 ||
+                                          ind === 6 ||
+                                          ind === 7 ? (
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 4
+                                                  ? ` Rappelling(Jatayu Adventure
+                                                Center)`
+                                                  : ind === 6
+                                                  ? `Holistic Wellness(Ayurvedic Treatments)`
+                                                  : ind === 7
+                                                  ? `Militaristic Past(Cannon Battery)`
+                                                  : ind === 8
+                                                  ? `Mesmerizing Evenings(Sunset Views)`
+                                                  : `Backwater Cruises(Boat Rides)`}
+                                              </span>
+                                              -{i.activity.rappeling}
+                                            </li>
+                                          ) : null}
                                         </ul>
                                       </Typography>
                                     </Box>
                                   ) : null}
 
-                                  <Box
-                                    sx={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      gap: "15px",
-                                      alignItems: "flex-start",
-                                    }}
-                                  >
-                                    <Typography
-                                      variant={
-                                        isMobile || isDeviceDown ? "h6" : "h5"
-                                      }
+                                  {ind === 5 || ind === 6 ? null : (
+                                    <Box
                                       sx={{
-                                        fontFamily: "Poppins-Bold",
-                                        color: THEMEColor.buttons,
-                                        textAlign: "center",
-                                        // width: "80%",
-                                      }}
-                                      // className="oneday-heading"
-                                    >
-                                      Visiting {i.title}
-                                    </Typography>
-                                    <Typography
-                                      variant="body2"
-                                      sx={{
-                                        fontFamily: "Poppins-Medium",
-                                        color: THEMEColor.buttons,
-                                        // textAlign: "center",
-                                        // lineHeight: "20px",
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "15px",
+                                        alignItems: "flex-start",
                                       }}
                                     >
-                                      <ul className="list-space">
-                                        <li>
-                                          <span
-                                            style={{
-                                              fontFamily: "Poppins-Bold",
-                                            }}
-                                          >
-                                            {"Timing"}
-                                          </span>
-                                          -{i.Visiting.timing}
-                                        </li>
-                                        <li>
-                                          {ind === 0 || ind === 8 ? (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                Dress Code
-                                              </span>
-                                              -
-                                              {ind === 4
-                                                ? i.Visiting.entryFee
-                                                : i.Visiting.dressCode}
-                                            </>
-                                          ) : (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                {"Entry Fee"}
-                                              </span>
-                                              -{i.Visiting.entryFee}
-                                            </>
-                                          )}
-                                        </li>
-                                        <li>
-                                          {ind === 2 ? (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                {"Tour Guide"}
-                                              </span>
-                                              -{i.Visiting.tourGuide}
-                                            </>
-                                          ) : (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                Photography
-                                              </span>
-                                              -
-                                              {ind === 4
-                                                ? i.Visiting.tourGuide
-                                                : i.Visiting.photography}
-                                            </>
-                                          )}
-                                        </li>
-                                      </ul>
-                                    </Typography>
-                                  </Box>
+                                      <Typography
+                                        variant={
+                                          isMobile || isDeviceDown ? "h6" : "h5"
+                                        }
+                                        sx={{
+                                          fontFamily: "Poppins-Bold",
+                                          color: THEMEColor.buttons,
+                                          textAlign: "center",
+                                          // width: "80%",
+                                        }}
+                                        // className="oneday-heading"
+                                      >
+                                        Visiting {i.title}
+                                      </Typography>
+                                      <Typography
+                                        variant="body2"
+                                        sx={{
+                                          fontFamily: "Poppins-Medium",
+                                          color: THEMEColor.buttons,
+                                          // textAlign: "center",
+                                          // lineHeight: "20px",
+                                        }}
+                                      >
+                                        <ul className="list-space">
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {"Timing"}
+                                            </span>
+                                            -{i.Visiting.timing}
+                                          </li>
+                                          <li>
+                                            {ind === 0 ? (
+                                              <>
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Poppins-Bold",
+                                                  }}
+                                                >
+                                                  Dress Code
+                                                </span>
+                                                -{i.Visiting.dressCode}
+                                              </>
+                                            ) : (
+                                              <>
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Poppins-Bold",
+                                                  }}
+                                                >
+                                                  {"Entry Fee"}
+                                                </span>
+                                                -{i.Visiting.entryFee}
+                                              </>
+                                            )}
+                                          </li>
+                                          <li>
+                                            {ind === 2 ? (
+                                              <>
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Poppins-Bold",
+                                                  }}
+                                                >
+                                                  {"Tour Guide"}
+                                                </span>
+                                                -{i.Visiting.tourGuide}
+                                              </>
+                                            ) : (
+                                              <>
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Poppins-Bold",
+                                                  }}
+                                                >
+                                                  {ind === 4
+                                                    ? "Safety Guidelines"
+                                                    : "Photography"}
+                                                </span>
+                                                -{i.Visiting.photography}
+                                              </>
+                                            )}
+                                          </li>
+                                        </ul>
+                                      </Typography>
+                                    </Box>
+                                  )}
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -1963,18 +2039,28 @@ function OneDayTrip() {
                             gap: "20px",
                           }}
                         >
-                          <Typography
-                            variant={isMobile || isDeviceDown ? "h6" : "h5"}
+                          {" "}
+                          <Box
                             sx={{
-                              fontFamily: "Poppins-Bold",
-                              color: THEMEColor.buttons,
-                              textAlign: "center",
-                              // width: "80%",
+                              display: "flex",
+                              height: "100%",
+                              justifyContent: "center",
+                              width: "100%",
                             }}
-                            className="oneday-heading1"
                           >
-                            Pilgrimage Oneday trip
-                          </Typography>
+                            <Typography
+                              variant={isMobile || isDeviceDown ? "h6" : "h4"}
+                              sx={{
+                                fontFamily: "Poppins-Bold",
+                                color: THEMEColor.buttons,
+                                textAlign: "center",
+                                // width: "80%",
+                              }}
+                              className="oneday-heading1"
+                            >
+                              Pilgrimage Oneday trip
+                            </Typography>
+                          </Box>
                           <Typography
                             variant="body1"
                             sx={{
@@ -2041,12 +2127,12 @@ function OneDayTrip() {
                       height={"100%"}
                       width="100%"
                     >
-                      {towardsKanyakumari.map((i, ind) => {
+                      {towardsPilgrimage.map((i, ind) => {
                         return (
                           <>
                             <Accordion
-                              expanded={expanded === `panel${ind}`}
-                              onChange={handleChange(`panel${ind}`)}
+                              expanded={expanded === `panel${ind + 20}`}
+                              onChange={handleChange(`panel${ind + 20}`)}
                             >
                               <AccordionSummary
                                 aria-controls="panel1d-content"
@@ -2130,91 +2216,15 @@ function OneDayTrip() {
                                       {i.introduction}
                                     </Typography>
                                   </Box>
-                                  <Box
-                                    sx={{
-                                      display: "flex",
-                                      flexDirection: "column",
-                                      gap: "15px",
-                                      alignItems: "flex-start",
-                                    }}
-                                  >
-                                    {ind === 3 || ind === 4 || ind === 6 ? (
-                                      <>
-                                        <Typography
-                                          variant={
-                                            isMobile || isDeviceDown
-                                              ? "h6"
-                                              : "h5"
-                                          }
-                                          sx={{
-                                            fontFamily: "Poppins-Bold",
-                                            color: THEMEColor.buttons,
-                                            textAlign: "center",
-                                            // width: "80%",
-                                          }}
-                                          // className="oneday-heading"
-                                        >
-                                          {ind === 3
-                                            ? "Backwater Cruises"
-                                            : "The Statue"}
-                                        </Typography>
-                                        <Box
-                                          sx={{
-                                            fontFamily: "Poppins-Medium",
-                                            color: THEMEColor.buttons,
-                                            // textAlign: "center",
-                                            // lineHeight: "20px",
-                                          }}
-                                        >
-                                          <ul className="list-space">
-                                            <li>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                {ind === 3
-                                                  ? ` Houseboat Cruises (Scenic
-                                                Backwater Tours)`
-                                                  : ind === 6
-                                                  ? `Towering Statue(Grand Monument)`
-                                                  : `Majestic Sculpture`}
-                                              </span>
-                                              -{i.backwaterCruises.house}
-                                            </li>
-                                            <li>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                {ind === 3
-                                                  ? `Avian Paradise (Bird watching)`
-                                                  : ind === 6
-                                                  ? `Homage to Thiruvalluvar(Literary Significance)`
-                                                  : "Pilgrimage Site"}
-                                              </span>
-                                              -{i.backwaterCruises.avian}
-                                            </li>
-                                            <li>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                {ind === 3
-                                                  ? `Mangrove Safari (Mangrove
-                                                Forest)`
-                                                  : ind === 6
-                                                  ? `Cultural Bridge(Literary Significance)`
-                                                  : "Rituals and Offerings"}
-                                              </span>
-                                              -{i.backwaterCruises.avian}
-                                            </li>
-                                          </ul>
-                                        </Box>
-                                      </>
-                                    ) : (
+                                  {ind === 3 ? null : (
+                                    <Box
+                                      sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "15px",
+                                        alignItems: "flex-start",
+                                      }}
+                                    >
                                       <>
                                         {" "}
                                         <Typography
@@ -2245,9 +2255,12 @@ function OneDayTrip() {
                                           {i.history}
                                         </Typography>
                                       </>
-                                    )}
-                                  </Box>
-                                  {ind === 5 || ind === 7 ? (
+                                    </Box>
+                                  )}
+                                  {ind === 2 ||
+                                  ind === 3 ||
+                                  ind === 4 ||
+                                  ind === 7 ? (
                                     <Box
                                       sx={{
                                         display: "flex",
@@ -2286,11 +2299,17 @@ function OneDayTrip() {
                                                 fontFamily: "Poppins-Bold",
                                               }}
                                             >
-                                              {ind === 7
-                                                ? `Mahatma Gandhi Statue(Central Statue)`
-                                                : "Mantrasala"}
+                                              {ind === 2
+                                                ? `Aaraattu Festival`
+                                                : ind === 3
+                                                ? `Majestic Sculpture`
+                                                : ind === 4
+                                                ? `Architecture`
+                                                : ind === 7
+                                                ? `Goddess Bhadrakali`
+                                                : ``}
                                             </span>
-                                            -{i.highlights.mantrasala}
+                                            -{i.highlights.one}
                                           </li>
                                           <li>
                                             <span
@@ -2298,11 +2317,17 @@ function OneDayTrip() {
                                                 fontFamily: "Poppins-Bold",
                                               }}
                                             >
-                                              {ind === 7
-                                                ? `Mahatma's Life in Panels(Memorial Wall)`
+                                              {ind === 2
+                                                ? `Navaratri Festival`
+                                                : ind === 3
+                                                ? `Pilgrimage`
+                                                : ind === 4
+                                                ? `Deity`
+                                                : ind === 7
+                                                ? `Festivals`
                                                 : " Amma Vilasom"}
                                             </span>
-                                            -{i.highlights.ammaVilasom}
+                                            -{i.highlights.two}
                                           </li>
                                           <li>
                                             <span
@@ -2310,24 +2335,18 @@ function OneDayTrip() {
                                                 fontFamily: "Poppins-Bold",
                                               }}
                                             >
-                                              {ind === 7
-                                                ? `A Place of Reflection(Meditation Hall)`
+                                              {ind === 2
+                                                ? `Vishu`
+                                                : ind === 3
+                                                ? `Rituals and Offerings`
+                                                : ind === 4
+                                                ? `Festivals`
+                                                : ind === 7
+                                                ? `Artistic Significance`
                                                 : "Kottaram"}
                                             </span>
-                                            -{i.highlights.kottaram}
+                                            -{i.highlights.three}
                                           </li>
-                                          {ind === 7 ? null : (
-                                            <li>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                Nataksala
-                                              </span>
-                                              -{i.highlights.nataksala}
-                                            </li>
-                                          )}
                                         </ul>
                                       </Typography>
                                     </Box>
@@ -2371,93 +2390,39 @@ function OneDayTrip() {
                                               fontFamily: "Poppins-Bold",
                                             }}
                                           >
-                                            {ind === 2 ? "Swimming" : "Timing"}
+                                            Timing
                                           </span>
                                           -{i.Visiting.timing}
                                         </li>
                                         <li>
-                                          {ind === 2 ? (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                Surfing
-                                              </span>
-                                              -{i.Visiting.dressCode}
-                                            </>
-                                          ) : ind === 0 ||
-                                            ind === 1 ||
-                                            ind === 8 ? (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                Dress Code
-                                              </span>
-                                              -
-                                              {ind === 4
-                                                ? i.Visiting.entryFee
-                                                : i.Visiting.dressCode}
-                                            </>
-                                          ) : (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                {ind === 3
-                                                  ? "Packages"
-                                                  : "Entry Fee"}
-                                              </span>
-                                              -{i.Visiting.entryFee}
-                                            </>
-                                          )}
+                                          <span
+                                            style={{
+                                              fontFamily: "Poppins-Bold",
+                                            }}
+                                          >
+                                            {ind === 3
+                                              ? `Entry Fee`
+                                              : `Dress Code`}
+                                          </span>
+                                          -
+                                          {ind === 3
+                                            ? i.Visiting.entryFee
+                                            : i.Visiting.dressCode}
                                         </li>
                                         <li>
-                                          {ind === 2 ? (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                Parasailing
-                                              </span>
-                                              -{i.Visiting.photography}
-                                            </>
-                                          ) : ind === 3 ? (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                {ind === 3
-                                                  ? "Eco-friendly Practices"
-                                                  : "Tour Guide"}
-                                              </span>
-                                              -{i.Visiting.tourGuide}
-                                            </>
-                                          ) : (
-                                            <>
-                                              <span
-                                                style={{
-                                                  fontFamily: "Poppins-Bold",
-                                                }}
-                                              >
-                                                Photography
-                                              </span>
-                                              -
-                                              {ind === 4
-                                                ? i.Visiting.tourGuide
-                                                : i.Visiting.photography}
-                                            </>
-                                          )}
+                                          <span
+                                            style={{
+                                              fontFamily: "Poppins-Bold",
+                                            }}
+                                          >
+                                            {ind === 3
+                                              ? `Tour Guide`
+                                              : "Photography"}
+                                          </span>
+                                          -
+                                          {ind === 3
+                                            ? i.Visiting.tourGuide
+                                            : i.Visiting.photography}
                                         </li>
                                       </ul>
                                     </Typography>
