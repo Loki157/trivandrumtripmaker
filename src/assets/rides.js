@@ -11,6 +11,7 @@ import varkala from "../assets/images/places/Varkala_beach_from_above.jpg";
 import honeymoon from "../assets/images/tour/honeymoon.jpg";
 import pilgrimg from "../assets/images/tour/kerala-pilgrimage.jpg";
 import tourplan from "../assets/images/tour/tourplan.jpg";
+import tourPlan from "../assets/images/tour/Kerala-Tour.jpg"
 import { useNavigate } from "react-router-dom";
 
 export const rides = [
@@ -38,7 +39,7 @@ export const rides = [
   },
   {
     title: "Tour Plan to explore",
-    imgs: keralaTourism,
+    imgs: tourPlan,
     subHead:
       "Unveil the treasures of Trivandrum with our meticulously crafted tour plans. From ancient temples to scenic beaches. Let us be your guide to an unforgettable Trivandrum experience.",
     nav: ROUTEPATH.MAIN + ROUTEPATH.TOURPLAN,

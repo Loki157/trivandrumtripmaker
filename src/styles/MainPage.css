@@ -74,18 +74,18 @@ footer {
 
 .email-mob.MuiBox-root a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--white);
   font-family: Poppins-Medium;
   font-size: 12px;
   text-align: center;
 }
-.email-mob.MuiBox-root:hover a {
+/* .email-mob.MuiBox-root:hover a {
   color: var(--green);
-}
+} */
 .header-svg-box.MuiBox-root a .fb,
 .header-svg-box.MuiBox-root a .wa,
 .header-svg-box.MuiBox-root a .in {
-  color: var(--black);
+  color: var(--white);
   cursor: pointer;
   transition: 0.3s all;
 }
@@ -164,13 +164,13 @@ nav.nav-button-mobile a.nav-active-btn {
 .nav-button-mobile a.nav-btn {
   color: var(--white);
   font-family: Poppins-Medium;
-  font-size: 10px;
+  font-size: 24px;
   transition: 0.3s all;
 }
 .nav-button-mobile a.nav-active-btn {
   color: var(--green);
   font-family: Poppins-Medium;
-  font-size: 10px;
+  font-size: 24px;
   transition: 0.3s all;
 }
 .nav-button-mobile a.nav-active-btn::after {
@@ -266,6 +266,11 @@ nav.nav-button-footer a.nav-btn {
 .swiper-button-prev,
 .swiper-button-next {
   color: var(--green) !important;
+}
+.swiper-pagination-bullet {
+  background-color:  var(--green) !important;
+  /* width: 13px !important; */
+  /* height: 13px !important; */
 }
 .book-trip-btn.MuiButton-root {
   border-radius: 0;

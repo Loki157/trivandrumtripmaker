@@ -17,11 +17,13 @@ import {
   MenuItem,
   Divider,
   Alert,
+  IconButton,
 } from "@mui/material";
 import {
   ArrowForward as ArrowForwardIcon,
   Call as CallIcon,
   WhatsApp as WhatsAppIcon,
+  ArrowBackRounded as ArrowBackRoundedIcon,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 import { THEMEColor } from "../../../../assets/THEMES";
@@ -90,6 +92,7 @@ function TourPlans() {
   const theme = useTheme();
   const navigate = useNavigate();
   const { pathname } = useLocation();
+  const XS = useMediaQuery(theme.breakpoints.up("xs"));
   const isMobileUp = useMediaQuery(theme.breakpoints.up("sm"));
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDevice = useMediaQuery(theme.breakpoints.up("md"));
@@ -174,9 +177,9 @@ function TourPlans() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [pathname]);
 
   return (
     <>
@@ -191,7 +194,7 @@ function TourPlans() {
       )} */}
       <div
         style={{
-          marginTop: isLargeDeviceUp ? "7.1vh" : isDevice ? "4.8vh" : "5vh",
+          marginTop: isDevice ? "9px" : "-28px",
           height: "100%",
           // display: "flex",
           // flexDirection: "column",
@@ -262,12 +265,12 @@ function TourPlans() {
                     <span></span>Tour Plans
                   </Typography>
                   <Typography
-                    variant={isMobile || isDeviceDown ? "h5" : "h4"}
+                    variant={isMobile || isDeviceDown ? "h6" : "h4"}
                     sx={{
                       fontFamily: "Poppins-SemiBold",
                       color: THEMEColor.PRIMARY,
                       textAlign: "center",
-                      width: "80%",
+                      width: isMobile || isDeviceDown ? "100%" : "80%",
                     }}
                   >
                     Explore, Experience, Embrace: Unveiling Our Tour Plans
@@ -314,7 +317,10 @@ function TourPlans() {
                 <Typography
                   variant="body2"
                   sx={{
-                    fontFamily: "Poppins-Medium",
+                    fontFamily:
+                      isMobile || isDeviceDown
+                        ? "Poppins-Regular"
+                        : "Poppins-Medium",
                     color: THEMEColor.buttons,
                     // textAlign: "center",
                     // lineHeight: "20px",
@@ -397,7 +403,7 @@ function TourPlans() {
                                   isMobile || isDeviceDown ? "100%" : "100%",
                                 border: "2px solid #3dae2b",
                                 overflow: "hidden",
-                                height: "650px",
+                                height: "680px",
                                 position: "relative",
                                 borderRadius: "10px",
                               }}
@@ -472,8 +478,33 @@ function TourPlans() {
                                   Read More
                                 </Button>
                               </CardContent>
+                              <div
+                                style={{
+                                  float: "right",
+                                  marginTop:
+                                    index === 1
+                                      ? isMobile || isDeviceDown
+                                        ? ""
+                                        : "-30px"
+                                      : isMobile || isDeviceDown
+                                      ? "30px"
+                                      : XS?"60px":"",
+                                }}
+                              >
+                                <IconButton
+                                  sx={{
+                                    backgroundColor: THEMEColor.Secondary,
+                                    color: THEMEColor.PRIMARY,
+                                    transition: "0.2s all",
+                                    "&:hover": { backgroundColor: "#0a6d2e" },
+                                  }}
+                                  onClick={() => navigate(-1)}
+                                >
+                                  <WhatsAppIcon />
+                                </IconButton>
+                              </div>
                             </div>
-                            <CardActions></CardActions>
+                            <CardActions> </CardActions>
                           </Card>
                         </Grid>
                       </>

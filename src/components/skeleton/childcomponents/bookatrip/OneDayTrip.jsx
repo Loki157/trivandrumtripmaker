@@ -221,10 +221,10 @@ function OneDayTrip() {
       {" "}
       {isVisible && (
         <button
-          className="scroll-to-top-button"
+          className="scroll-to-top-button1"
           onClick={handleReqCallBackIntoView}
         >
-          Check
+          Check Availability
         </button>
       )}
       <div
@@ -909,7 +909,13 @@ function OneDayTrip() {
                         </Box>
                       </Grid>{" "}
                       <Grid item md={12}>
-                        <Box sx={{ height: "600px", width: "100%" }}>
+                        <Box
+                          sx={{
+                            height:
+                              isMobile || isDeviceDown ? "300px" : "600px",
+                            width: "100%",
+                          }}
+                        >
                           <img
                             src={kanyakumari}
                             height={"100%"}
@@ -966,20 +972,21 @@ function OneDayTrip() {
                                   >
                                     {i.heading}
                                   </Typography>
-                                  {/* <Box
-                                    height={"100%"}
-                                    width={
-                                      isMobile || isDeviceDown
-                                        ? "400px"
-                                        : "800px"
-                                    }
+                                  <Box
+                                    sx={{
+                                      height:
+                                        isMobile || isDeviceDown
+                                          ? "300px"
+                                          : "600px",
+                                      width: "100%",
+                                    }}
                                   >
                                     <img
                                       src={i.image}
                                       height={"100%"}
                                       width={"100%"}
                                     />
-                                  </Box> */}
+                                  </Box>
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -1499,7 +1506,13 @@ function OneDayTrip() {
                         </Box>
                       </Grid>{" "}
                       <Grid item md={12}>
-                        <Box sx={{ height: "600px", width: "100%" }}>
+                        <Box
+                          sx={{
+                            height:
+                              isMobile || isDeviceDown ? "300px" : "600px",
+                            width: "100%",
+                          }}
+                        >
                           <img src={varkala} height={"100%"} width={"100%"} />
                         </Box>
                       </Grid>
@@ -1552,20 +1565,21 @@ function OneDayTrip() {
                                   >
                                     {i.heading}
                                   </Typography>
-                                  {/* <Box
-                                    height={"100%"}
-                                    width={
-                                      isMobile || isDeviceDown
-                                        ? "400px"
-                                        : "800px"
-                                    }
+                                  <Box
+                                    sx={{
+                                      height:
+                                        isMobile || isDeviceDown
+                                          ? "300px"
+                                          : "600px",
+                                      width: "100%",
+                                    }}
                                   >
                                     <img
                                       src={i.image}
                                       height={"100%"}
                                       width={"100%"}
                                     />
-                                  </Box> */}
+                                  </Box>
                                   <Box
                                     sx={{
                                       display: "flex",
@@ -2111,7 +2125,13 @@ function OneDayTrip() {
                         </Box>
                       </Grid>{" "}
                       <Grid item md={12}>
-                        <Box sx={{ height: "600px", width: "100%" }}>
+                        <Box
+                          sx={{
+                            height:
+                              isMobile || isDeviceDown ? "300px" : "600px",
+                            width: "100%",
+                          }}
+                        >
                           <img
                             src={pilgrimage}
                             height={"100%"}
@@ -2168,20 +2188,21 @@ function OneDayTrip() {
                                   >
                                     {i.heading}
                                   </Typography>
-                                  {/* <Box
-                                    height={"100%"}
-                                    width={
-                                      isMobile || isDeviceDown
-                                        ? "400px"
-                                        : "800px"
-                                    }
+                                  <Box
+                                    sx={{
+                                      height:
+                                        isMobile || isDeviceDown
+                                          ? "300px"
+                                          : "600px",
+                                      width: "100%",
+                                    }}
                                   >
                                     <img
                                       src={i.image}
                                       height={"100%"}
                                       width={"100%"}
                                     />
-                                  </Box> */}
+                                  </Box>
                                   <Box
                                     sx={{
                                       display: "flex",

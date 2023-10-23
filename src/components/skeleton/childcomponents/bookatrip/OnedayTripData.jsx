@@ -10,6 +10,30 @@ import science from "../../../../assets/images/oneday/science.jpg";
 import chitra from "../../../../assets/images/oneday/chitra.jpg";
 import kanakulla from "../../../../assets/images/oneday/kanakulla.jpg";
 import kuthiramila from "../../../../assets/images/oneday/kuthiramila.jpg";
+
+// Towards Kanykumari
+import padmana5 from "../../../../assets/images/oneday/kanyakumari/padmana5.jpg";
+import attukalTemple from "../../../../assets/images/oneday/kanyakumari/Attukal_temple.jpg";
+import kovalamBeach from "../../../../assets/images/oneday/kanyakumari/kovalamBeach.jpg";
+import PoovarBoating from "../../../../assets/images/oneday/kanyakumari/Poovar-Boating-Noah-Pic.jpg";
+import azhimalaSivaStatue from "../../../../assets/images/oneday/kanyakumari/azhimalaSivaStatue.jpg";
+import padmanadhapuramPalace from "../../../../assets/images/oneday/kanyakumari/padmanadhapuramPalace.jpg";
+import thiruvallurStaute from "../../../../assets/images/oneday/kanyakumari/thiruvallurStaute.jpg";
+import gandhiMandabam from "../../../../assets/images/oneday/kanyakumari/gandhiMandabam.jpg";
+import trupatiTempleKanyakumari from "../../../../assets/images/oneday/kanyakumari/trupatiTempleKanyakumari.jpg";
+import deviKanyakumari from "../../../../assets/images/oneday/kanyakumari/deviKanyakumari.jpg";
+import suchindaramTemple from "../../../../assets/images/oneday/kanyakumari/suchindaramTemple.jpg";
+// TowardsVarkala
+import trivandrumZoo from "../../../../assets/images/oneday/varkala/trivandrumZoo.jpg";
+import jatayuEarth from "../../../../assets/images/oneday/varkala/jatayuEarth.jpg";
+import kappilBeach from "../../../../assets/images/oneday/varkala/kappilBeach.jpg";
+import varkalaBeach from "../../../../assets/images/oneday/varkala/varkalaBeach.jpg";
+import anjengoFort from "../../../../assets/images/oneday/varkala/anjengoFort.jpg";
+import shanghumukhamBeach from "../../../../assets/images/oneday/varkala/shanghumukhamBeach.jpg";
+import veliLakeTouristVillage from "../../../../assets/images/oneday/varkala/veliLakeTouristVillage.jpg";
+import parasuraTemple from "../../../../assets/images/oneday/varkala/parasuraTemple.jpg";
+import shangumughamTemple from "../../../../assets/images/oneday/varkala/shangumughamTemple.jpg";
+
 export const itineraryTemple = [
   {
     title: "Ganapathy Temple",
@@ -247,7 +271,7 @@ export const towardsKanyakumari = [
       "Welcome to the sacred realm of Sree Padmanabhaswamy Temple, an architectural masterpiece and a symbol of spiritual heritage in Thiruvananthapuram (Trivandrum), Kerala. This magnificent temple, dedicated to Lord Padmanabha, is not only a place of worship but also a living testament to the rich culture and traditions of Kerala. Join us as we embark on a divine journey through the history and grandeur of Sree Padmanabhaswamy Temple.",
     introduction: `Sree Padmanabhaswamy Temple, often referred to as the 'Abode of Lord Padmanabha,' is one of the most revered and iconic temples in India. This spiritual sanctuary is known for its architectural magnificence, intricate craftsmanship, and the divine presence of Lord Padmanabha, an incarnation of Lord Vishnu.`,
     history: `The history of Sree Padmanabhaswamy Temple dates back over a thousand years, making it an integral part of Kerala's heritage. It has witnessed the rise and fall of empires and continues to stand as a symbol of devotion and cultural pride.`,
-    image: [padma, padmana1, padmana3, padmana2],
+    image: padmana5,
     Visiting: {
       timing:
         "The temple is open for darshan (worship) during specific timings. Devotees and visitors are advised to check the temple's official website for current darshan timings and special pujas.",
@@ -272,7 +296,7 @@ export const towardsKanyakumari = [
       "Welcome to the enchanting Attukal Bhagavathy Temple, located in the heart of Thiruvananthapuram (Trivandrum), Kerala. This revered temple, dedicated to the goddess Attukal Bhagavathy, is not only a place of worship but also a captivating tourist destination. Join us as we take you on a virtual tour of this divine haven.",
     introduction: `The Attukal Bhagavathy Temple, often referred to as the "Sabarimala of Women," holds a special place in the hearts of devotees and tourists alike. It is renowned for the annual Attukal Pongala festival, one of the largest gatherings of women in the world, attracting millions of female devotees from across the globe.`,
     history: `The history of the temple dates back centuries, with legends and folklore weaving tales of its origin. The word "Attukal" means "necklace" in Malayalam, and it is believed that the temple got its name because a divine presence was discovered here when a local woman found a necklace in a nearby stream.`,
-    image: attukal,
+    image: attukalTemple,
     Visiting: {
       timing:
         "The temple is open for devotees throughout the day, with specific timings for morning and evening rituals. It's advisable to check with the temple authorities for precise timings.",
@@ -298,7 +322,7 @@ export const towardsKanyakumari = [
     introduction: `Kovalam Beach is a tropical gem that has become synonymous with relaxation, rejuvenation, and coastal beauty. It offers a serene escape from the hustle and bustle of everyday life, making it a favored destination for both domestic and international tourists.`,
     history:
       "The history of Ganapathy Temple dates back to ancient times, steeped in the rich cultural tapestry of Kerala. While the exact origins are shrouded in legends, the temple's legacy continues to thrive, making it a cherished place of worship.",
-    image: ganabathy,
+    image: kovalamBeach,
     Visiting: {
       timing: "The calm waters at Kovalam Beach are ideal for a leisurely swim",
       dressCode:
@@ -326,7 +350,7 @@ export const towardsKanyakumari = [
       avian: `Poovar Backwaters are a haven for birdwatchers. Witness a diverse range of bird species, from kingfishers to herons, in their natural habitat. Don't forget your binoculars and camera for capturing these avian wonders.`,
       mangrove: `Explore the unique mangrove ecosystem of Poovar, which is home to various species of fish, crabs, and other aquatic life. A guided tour through the mangrove forests is a must for nature enthusiasts.`,
     },
-    image: napier,
+    image: PoovarBoating,
     Visiting: {
       timing:
         "Backwater cruises operate during the day and are typically available from morning to evening.",
@@ -354,7 +378,7 @@ export const towardsKanyakumari = [
       avian: `The statue and the surrounding area are considered sacred, attracting pilgrims who come to seek blessings and spiritual solace.`,
       mangrove: `Devotees often offer prayers and conduct rituals at the site to invoke the blessings of Lord Shiva.`,
     },
-    image: napier,
+    image: azhimalaSivaStatue,
     Visiting: {
       timing:
         "The Azhimala Shiva Statue and the beach are generally accessible throughout the day. However, it's advisable to visit during daylight hours for the best experience.",
@@ -378,7 +402,7 @@ export const towardsKanyakumari = [
     heading: `Welcome to the regal world of Padmanabhapuram Palace, an architectural marvel nestled in the quaint town of Padmanabhapuram, just a short drive from Thiruvananthapuram (Trivandrum), Kerala. This historic palace complex, renowned for its architectural grandeur, rich heritage, and intricate woodwork, invites visitors to step back in time and explore the opulent past of the region. Join us as we delve into the royal legacy and timeless beauty of Padmanabhapuram Palace.`,
     introduction: `Padmanabhapuram Palace, one of Kerala's most captivating heritage sites, is a magnificent example of traditional Kerala architecture and craftsmanship. This sprawling complex was once the seat of the Travancore rulers and continues to be a symbol of their royal opulence and cultural legacy.`,
     history: `The history of Padmanabhapuram Palace dates back to the 16th century when it was constructed under the patronage of Iravi Varma Kulasekhara Perumal, the founder of the Travancore kingdom. The palace complex was the primary residence of the Travancore rulers until the capital was shifted to Thiruvananthapuram.`,
-    image: kanakulla,
+    image: padmanadhapuramPalace,
     highlights: {
       mantrasala:
         "This is the most exquisite part of the palace, with ornate wooden carvings and a polished black granite floor. It was the venue for royal meetings and ceremonies.",
@@ -415,7 +439,7 @@ export const towardsKanyakumari = [
       avian: `The statue is dedicated to the great Tamil poet Thiruvalluvar, whose "Thirukkural" is a revered classical Tamil work that imparts valuable life lessons.`,
       mangrove: `It symbolizes the harmonious cultural exchange between Tamil Nadu and Kerala, emphasizing the universality of Thiruvalluvar's teachings.`,
     },
-    image: napier,
+    image: thiruvallurStaute,
     Visiting: {
       timing:
         "The statue can be viewed from Kovalam Beach throughout the day. To get up close, boat rides to the statue are typically available from morning to evening.",
@@ -438,7 +462,7 @@ export const towardsKanyakumari = [
     heading: `Welcome to the serene world of Gandhi Mandapam, a tribute to the Father of the Nation, Mahatma Gandhi, located in the heart of Thiruvananthapuram, Kerala. This memorial stands as a reminder of Gandhiji's ideals and his significant contributions to India's struggle for independence. Join us as we explore the historical significance, architectural beauty, and cultural heritage of Gandhi Mandapam.`,
     introduction: `Gandhi Mandapam is a revered memorial dedicated to Mahatma Gandhi, the leader of the Indian independence movement. It serves as a place of reflection, inspiration, and a reminder of the principles of nonviolence and truth that Gandhiji advocated.`,
     history: `The foundation stone for Gandhi Mandapam was laid on the 14th of March, 1959, by India's first President, Dr. Rajendra Prasad. The monument was built to commemorate Gandhiji's visit to Kerala in 1937 and his immense contribution to the nation.`,
-    image: kanakulla,
+    image: gandhiMandabam,
     highlights: {
       mantrasala:
         "The central focus of the mandapam is a bronze statue of Mahatma Gandhi, sitting cross-legged, depicting his characteristic pose.",
@@ -472,7 +496,7 @@ export const towardsKanyakumari = [
       "Kanyakumari Shri Tirupathi Temple is a beautiful and serene temple located in Kanyakumari, Tamil Nadu, India. It is a replica of the famous Tirumala Tirupati Venkateswara Temple in Andhra Pradesh, and is dedicated to Lord Venkateswara. The temple is situated on an elevated platform, offering stunning views of the Indian Ocean, the Vivekananda Rock Memorial, and the Thiruvalluvar Statue.",
     introduction: `The Kanyakumari Shri Tirupathi Temple is built in the traditional Dravidian style of architecture. The temple complex is spread over an area of 5.5 acres and includes a main shrine, a mandapam (hall), and a gopuram (gateway tower). The main shrine houses the seven-foot-tall idol of Lord Venkateswara.`,
     history: `The Kanyakumari Shri Tirupathi Temple was built in 2019 by the Tirumala Tirupati Devasthanams (TTD), the governing body of the Tirumala Tirupati Venkateswara Temple. The temple was inaugurated by the then Vice President of India, M. Venkaiah Naidu.`,
-    image: padma,
+    image: trupatiTempleKanyakumari,
     hightlights: {
       one: `The Kanyakumari Shri Tirupathi Temple is a beautiful example of Dravidian architecture. It is built with white marble and has a gopuram (tower gate) that is 90 feet tall. The temple complex also includes a mandapam (hall), a sanctum sanctorum, and a prakaram (outer courtyard).`,
       two: `The main deity of the Kanyakumari Shri Tirupathi Temple is Lord Venkateswara, who is also known as Balaji. He is depicted standing in a three-bent pose, with his right hand raised in blessing. The idol is made of black granite and is adorned with precious jewels.`,
@@ -500,7 +524,7 @@ export const towardsKanyakumari = [
       "Welcome to the sacred destination of Devi Kanya Kumari, where the Southern tip of India meets the mighty Indian Ocean. This spiritual and picturesque location is steeped in mythological significance and natural beauty, offering visitors a unique blend of culture, religion, and stunning coastal vistas. Join us as we explore the spiritual and scenic allure of Devi Kanya Kumari.",
     introduction: `Devi Kanya Kumari, also known simply as Kanyakumari, is a town in the Indian state of Tamil Nadu. It is renowned for being the southernmost tip of the Indian subcontinent, where the Arabian Sea, the Bay of Bengal, and the Indian Ocean converge. This sacred place holds great religious importance and is also a natural wonder.`,
     history: `Devi Kanya Kumari, commonly known as Kanyakumari, is a town in Tamil Nadu, India, famous for being the southernmost tip of the Indian subcontinent. This location holds great religious importance due to the presence of the Bhagavathy Amman Temple, dedicated to Goddess Kanya Kumari, an incarnation of Parvati. Visitors come to this spiritual place to pay their respects and witness the spectacular sunrise and sunset views where the Arabian Sea, the Bay of Bengal, and the Indian Ocean meet.`,
-    image: [padma, padmana1, padmana3, padmana2],
+    image: deviKanyakumari,
     Visiting: {
       timing:
         "The temple is usually open to devotees and visitors from early morning until late evening. However, it's advisable to check the temple's official website or contact the authorities for exact timings.",
@@ -524,7 +548,7 @@ export const towardsKanyakumari = [
       "Welcome to the enchanting world of Suchindram Temple, a sacred destination nestled in the heart of Trivandrum, Kerala. This ancient temple, known for its architectural beauty and spiritual significance, is a haven for devotees and travelers alike. Join us as we explore the rich history, cultural heritage, and religious importance of Suchindram Temple.",
     introduction: `Suchindram Temple, officially known as Sthanumalayan Temple, is a revered Hindu temple dedicated to the holy trinity of Lord Shiva, Lord Brahma, and Lord Vishnu. This unique temple is famous for its towering gopuram (entrance tower), intricate architecture, and its representation of the three principal deities in a single form.`,
     history: `The history of Suchindram Temple dates back over a thousand years. The temple's origins are believed to be ancient, with references in various historical texts. The temple complex reflects the cultural amalgamation of Shaivism, Vaishnavism, and the worship of Lord Shiva, Lord Brahma, and Lord Vishnu.`,
-    image: [padma, padmana1, padmana3, padmana2],
+    image: suchindaramTemple,
     Visiting: {
       timing:
         "The temple is usually open to devotees and visitors from early morning until late evening. However, it's advisable to check the temple's official website or contact the authorities for exact timings.",
@@ -670,7 +694,7 @@ export const towardsVarkala = [
       tranq:
         "The palace features tranquil courtyards adorned with beautiful flowering plants and trees, creating a serene atmosphere that contrasts the bustling city outside.",
     },
-    image: national,
+    image: kuthiramila,
     Visiting: {
       timing:
         "Kuthiramalika Palace Museum is usually open to visitors from 8:30 AM to 1:00 PM and 3:00 PM to 5:30 PM. It's recommended to verify the current timings on the official website before your visit.",
@@ -736,7 +760,7 @@ export const towardsVarkala = [
       rappeling:
         " Explore the serene backwaters on a boat ride, providing an opportunity to soak in the scenic beauty and spot local wildlife.",
     },
-    image: national,
+    image: kappilBeach,
     Visiting: {
       timing:
         "Jatayu Earth's Center is open to visitors from 9:00 AM to 5:00 PM. It's advisable to check the official website for the most current timings and availability of adventure activities.",
@@ -769,7 +793,7 @@ export const towardsVarkala = [
       rappeling:
         " Explore the traditional Ayurvedic treatments available in the area for a rejuvenating and healing experience.",
     },
-    image: national,
+    image: varkalaBeach,
     Visiting: {
       timing:
         "Jatayu Earth's Center is open to visitors from 9:00 AM to 5:00 PM. It's advisable to check the official website for the most current timings and availability of adventure activities.",
@@ -801,7 +825,7 @@ export const towardsVarkala = [
       rappeling:
         "The well-preserved 13-gun battery showcases the fort's military significance during the colonial era.",
     },
-    image: national,
+    image: anjengoFort,
     Visiting: {
       timing:
         "Anjengo Fort is usually open to visitors from 8:30 AM to 5:30 PM. However, it's recommended to verify the current timings on the official website before your visit.",
@@ -833,7 +857,7 @@ export const towardsVarkala = [
       rappeling:
         "Witness the breathtaking sunset, a sight to behold, and a perfect opportunity for photography.",
     },
-    image: national,
+    image: shanghumukhamBeach,
     Visiting: {
       timing:
         "Shanghumukham Beach is open to visitors throughout the day. The best time to visit is during the early morning or in the evening to witness the captivating sunset.",
@@ -865,7 +889,7 @@ export const towardsVarkala = [
       rappeling:
         "The village often hosts cultural programs and live performances, providing a glimpse into Kerala's traditional arts.",
     },
-    image: national,
+    image: veliLakeTouristVillage,
     Visiting: {
       timing:
         "Veli Lake Tourist Village is usually open from 8:30 AM to 6:00 PM. However, it's advisable to verify the current timings on the official website before your visit.",
@@ -918,7 +942,7 @@ export const towardsPilgrimage = [
       "Welcome to the sacred realm of Sree Padmanabhaswamy Temple, an architectural masterpiece and a symbol of spiritual heritage in Thiruvananthapuram (Trivandrum), Kerala. This magnificent temple, dedicated to Lord Padmanabha, is not only a place of worship but also a living testament to the rich culture and traditions of Kerala. Join us as we embark on a divine journey through the history and grandeur of Sree Padmanabhaswamy Temple.",
     introduction: `Sree Padmanabhaswamy Temple, often referred to as the 'Abode of Lord Padmanabha,' is one of the most revered and iconic temples in India. This spiritual sanctuary is known for its architectural magnificence, intricate craftsmanship, and the divine presence of Lord Padmanabha, an incarnation of Lord Vishnu.`,
     history: `The history of Sree Padmanabhaswamy Temple dates back over a thousand years, making it an integral part of Kerala's heritage. It has witnessed the rise and fall of empires and continues to stand as a symbol of devotion and cultural pride.`,
-    image: padma,
+    image: padmana5,
     Visiting: {
       timing:
         "The temple is open for darshan (worship) during specific timings. Devotees and visitors are advised to check the temple's official website for current darshan timings and special pujas.",
@@ -969,7 +993,7 @@ export const towardsPilgrimage = [
       "Welcome to the sacred realm of Thiruvallam Sree Parasurama Temple, an ancient and revered Hindu temple located in the heart of Trivandrum, Kerala. This temple is not only a site of religious significance but also a serene place of cultural heritage and natural beauty. Join us as we embark on a spiritual and cultural journey to explore the charm and sanctity of Thiruvallam Sree Parasurama Temple.",
     introduction: `Thiruvallam Sree Parasurama Temple is a historic temple dedicated to Lord Parasurama, an incarnation of Lord Vishnu. This temple is known for its sacred ambiance and tranquil surroundings, making it a popular pilgrimage site and a place of cultural importance.`,
     history: `The temple's history dates back centuries, with mentions in ancient texts and scriptures. It holds a special place in the hearts of devotees who believe that visiting the temple can cleanse one's soul and bring peace and prosperity.`,
-    image: attukal,
+    image: parasuraTemple,
     highlights: {
       one: "The annual Aaraattu festival is a grand celebration, featuring colorful processions, traditional music, and rituals. Devotees gather to witness the Aaraattu, which is a ceremonial bath of the deity.",
       two: "The nine-day Navaratri festival is celebrated with great enthusiasm, and special pujas and cultural programs are organized.",
@@ -1003,7 +1027,7 @@ export const towardsPilgrimage = [
       two: `The statue and the surrounding area are considered sacred, attracting pilgrims who come to seek blessings and spiritual solace.`,
       three: `Devotees often offer prayers and conduct rituals at the site to invoke the blessings of Lord Shiva.`,
     },
-    image: napier,
+    image: azhimalaSivaStatue,
     Visiting: {
       timing:
         "The Azhimala Shiva Statue and the beach are generally accessible throughout the day. However, it's advisable to visit during daylight hours for the best experience.",
@@ -1028,7 +1052,7 @@ export const towardsPilgrimage = [
       "Kanyakumari Shri Tirupathi Temple is a beautiful and serene temple located in Kanyakumari, Tamil Nadu, India. It is a replica of the famous Tirumala Tirupati Venkateswara Temple in Andhra Pradesh, and is dedicated to Lord Venkateswara. The temple is situated on an elevated platform, offering stunning views of the Indian Ocean, the Vivekananda Rock Memorial, and the Thiruvalluvar Statue.",
     introduction: `The Kanyakumari Shri Tirupathi Temple is built in the traditional Dravidian style of architecture. The temple complex is spread over an area of 5.5 acres and includes a main shrine, a mandapam (hall), and a gopuram (gateway tower). The main shrine houses the seven-foot-tall idol of Lord Venkateswara.`,
     history: `The Kanyakumari Shri Tirupathi Temple was built in 2019 by the Tirumala Tirupati Devasthanams (TTD), the governing body of the Tirumala Tirupati Venkateswara Temple. The temple was inaugurated by the then Vice President of India, M. Venkaiah Naidu.`,
-    image: padma,
+    image: trupatiTempleKanyakumari,
     highlights: {
       one: `The Kanyakumari Shri Tirupathi Temple is a beautiful example of Dravidian architecture. It is built with white marble and has a gopuram (tower gate) that is 90 feet tall. The temple complex also includes a mandapam (hall), a sanctum sanctorum, and a prakaram (outer courtyard).`,
       two: `The main deity of the Kanyakumari Shri Tirupathi Temple is Lord Venkateswara, who is also known as Balaji. He is depicted standing in a three-bent pose, with his right hand raised in blessing. The idol is made of black granite and is adorned with precious jewels.`,
@@ -1056,7 +1080,7 @@ export const towardsPilgrimage = [
       "Welcome to the enchanting world of Suchindram Temple, a sacred destination nestled in the heart of Trivandrum, Kerala. This ancient temple, known for its architectural beauty and spiritual significance, is a haven for devotees and travelers alike. Join us as we explore the rich history, cultural heritage, and religious importance of Suchindram Temple.",
     introduction: `Suchindram Temple, officially known as Sthanumalayan Temple, is a revered Hindu temple dedicated to the holy trinity of Lord Shiva, Lord Brahma, and Lord Vishnu. This unique temple is famous for its towering gopuram (entrance tower), intricate architecture, and its representation of the three principal deities in a single form.`,
     history: `The history of Suchindram Temple dates back over a thousand years. The temple's origins are believed to be ancient, with references in various historical texts. The temple complex reflects the cultural amalgamation of Shaivism, Vaishnavism, and the worship of Lord Shiva, Lord Brahma, and Lord Vishnu.`,
-    image: [padma, padmana1, padmana3, padmana2],
+    image: suchindaramTemple,
     Visiting: {
       timing:
         "The temple is usually open to devotees and visitors from early morning until late evening. However, it's advisable to check the temple's official website or contact the authorities for exact timings.",
@@ -1080,7 +1104,7 @@ export const towardsPilgrimage = [
       "Welcome to the sacred destination of Devi Kanya Kumari, where the Southern tip of India meets the mighty Indian Ocean. This spiritual and picturesque location is steeped in mythological significance and natural beauty, offering visitors a unique blend of culture, religion, and stunning coastal vistas. Join us as we explore the spiritual and scenic allure of Devi Kanya Kumari.",
     introduction: `Devi Kanya Kumari, also known simply as Kanyakumari, is a town in the Indian state of Tamil Nadu. It is renowned for being the southernmost tip of the Indian subcontinent, where the Arabian Sea, the Bay of Bengal, and the Indian Ocean converge. This sacred place holds great religious importance and is also a natural wonder.`,
     history: `Devi Kanya Kumari, commonly known as Kanyakumari, is a town in Tamil Nadu, India, famous for being the southernmost tip of the Indian subcontinent. This location holds great religious importance due to the presence of the Bhagavathy Amman Temple, dedicated to Goddess Kanya Kumari, an incarnation of Parvati. Visitors come to this spiritual place to pay their respects and witness the spectacular sunrise and sunset views where the Arabian Sea, the Bay of Bengal, and the Indian Ocean meet.`,
-    image: [padma, padmana1, padmana3, padmana2],
+    image: deviKanyakumari,
     Visiting: {
       timing:
         "The temple is usually open to devotees and visitors from early morning until late evening. However, it's advisable to check the temple's official website or contact the authorities for exact timings.",
@@ -1104,7 +1128,7 @@ export const towardsPilgrimage = [
       "Welcome to the divine realm of Shanghumugham Devi Temple, a place of spiritual significance and serene beauty nestled in the heart of Trivandrum, Kerala. This sacred temple, dedicated to Goddess Bhadrakali, invites devotees and travelers alike to experience a blend of culture, devotion, and coastal charm. Join us as we explore the spiritual and cultural allure of Shanghumugham Devi Temple",
     introduction: `Shanghumugham Devi Temple, also known as Adi Parashakti Temple, is a place of worship dedicated to Goddess Bhadrakali, a fierce and powerful form of the Divine Mother. This sacred temple holds a special place in the hearts of devotees and is also a tranquil destination for those seeking solace and spirituality.`,
     history: `Shanghumugham Devi Temple, also known as Adi Parashakti Temple, boasts a history steeped in spirituality and devotion. While specific historical records may be scarce, the temple's significance has been deeply rooted in the cultural and religious heritage of Kerala. `,
-    image: [padma, padmana1, padmana3, padmana2],
+    image: shangumughamTemple,
     highlights: {
       one: `The presiding deity of the temple is Goddess Bhadrakali, a formidable form of Goddess Parvati. Devotees believe that she bestows blessings and protection upon her worshipers.`,
       two: `The temple comes alive during festivals like Navaratri, where elaborate rituals, cultural performances, and processions make the atmosphere vibrant and festive.`,

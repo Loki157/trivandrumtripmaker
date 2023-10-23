@@ -175,7 +175,7 @@ function HeaderPage() {
       </Dialog>
       <Drawer
         open={drawerOpen}
-        anchor=""
+        // anchor=""
         variant="temporary"
         sx={{
           "& .MuiDrawer-paper": {
@@ -202,8 +202,8 @@ function HeaderPage() {
         </Box>
         <Box
           sx={{
-            flex: 1,
-            width: "100%",
+            // flex: 1,
+            // width: "100%",
             display: "flex",
             justifyContent: "center",
             padding: "20px",
@@ -282,15 +282,15 @@ function HeaderPage() {
               // height: "0px",
             }}
             variant={"contained"}
-            startIcon={<WhatsAppIcon />}
+            // startIcon={<WhatsAppIcon />}
             className="top-contact-btn"
             fullWidth
             onClick={() => setContactDialog(true)}
           >
-            Contact Now
+            Contact Now !
           </Button>
         ) : (
-          <Box sx={{ backgroundColor: THEMEColor.PRIMARY }}>
+          <Box sx={{ backgroundColor: THEMEColor.Secondary, padding: "2px" }}>
             <Container fixed>
               <Box
                 height={"100%"}
@@ -302,7 +302,13 @@ function HeaderPage() {
               >
                 <Box display="flex" gap="15px">
                   <Box className="email-mob mail">
-                    <IconButton sx={{}}>
+                    <IconButton
+                      size="small"
+                      sx={{
+                        color: THEMEColor.PRIMARY,
+                        border: `2px solid ${THEMEColor.PRIMARY}`,
+                      }}
+                    >
                       <MailRoundedIcon fontSize="small" />
                     </IconButton>{" "}
                     <a href="mailto:trivandrumtripmaker@gmail.com">
@@ -312,11 +318,17 @@ function HeaderPage() {
                   <Divider
                     orientation="vertical"
                     variant="middle"
-                    sx={{ height: "auto", borderColor: THEMEColor.buttons }}
+                    sx={{ height: "auto", borderColor: THEMEColor.PRIMARY }}
                   />
                   <Box className="email-mob phone">
                     {" "}
-                    <IconButton sx={{}}>
+                    <IconButton
+                      size="small"
+                      sx={{
+                        color: THEMEColor.PRIMARY,
+                        border: `2px solid ${THEMEColor.PRIMARY}`,
+                      }}
+                    >
                       <CallRoundedIcon fontSize="small" />
                     </IconButton>
                     <a href="tel:+918086040400">Ph :+918086040400</a>
