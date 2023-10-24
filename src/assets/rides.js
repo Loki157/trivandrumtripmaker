@@ -11,7 +11,7 @@ import varkala from "../assets/images/places/Varkala_beach_from_above.jpg";
 import honeymoon from "../assets/images/tour/honeymoon.jpg";
 import pilgrimg from "../assets/images/tour/kerala-pilgrimage.jpg";
 import tourplan from "../assets/images/tour/tourplan.jpg";
-import tourPlan from "../assets/images/tour/Kerala-Tour.jpg"
+import tourPlan from "../assets/images/tour/Kerala-Tour.jpg";
 import { useNavigate } from "react-router-dom";
 
 export const rides = [
@@ -104,3 +104,157 @@ export const tour = [
     nav: ROUTEPATH.MAIN + ROUTEPATH.TOURPLAN + "/" + ROUTEPATH.TOURPACK,
   },
 ];
+
+export const honeymoonPlan = [
+  {
+    place: "Arrival in Trivandrum",
+    points: [
+      "Warm welcome and transfer to your comfortable accommodation.",
+      "Transfer to a charming beachfront resort.",
+      "Evening at leisure with a romantic dinner.",
+    ],
+  },
+  {
+    place: "Beachfront Romance in Kovalam",
+    points: [
+      "Explore the pristine beaches of Kovalam.",
+      "Enjoy water sports or simply relax by the shore.",
+      "Candlelit beachfront dinner for two.",
+    ],
+  },
+  {
+    place: "Backwater Bliss in Alleppey",
+    points: [
+      "Journey to Alleppey for a houseboat adventure.",
+      "Cruise through serene backwaters.",
+      "Stay in a luxurious, private houseboat.",
+    ],
+  },
+  {
+    place: "Munnar Hill Station Retreat",
+    points: [
+      "Head to Munnar, a picturesque hill station.",
+      "Discover tea plantations and lush landscapes.",
+      "Cozy evening by a fireplace in your hillside cottage.",
+    ],
+  },
+  {
+    place: "Departure from Cochin",
+    points: [
+      "Travel to Cochin for a blend of culture and history.",
+      "Visit Fort Kochi, the Chinese fishing nets, and more.",
+      "Depart with unforgettable memories.",
+    ],
+  },
+];
+export const pilgrimagePlan = [
+  {
+    place: "Arrival in Trivandrum",
+    points: [
+      "Warm welcome and transfer to your comfortable accommodation.",
+      "Transfer to a tranquil spiritual retreat.",
+      "Evening orientation and spiritual discourse.",
+    ],
+  },
+  {
+    place: " Padmanabhaswamy Temple Visit",
+    points: [
+      "Explore the awe-inspiring Padmanabhaswamy Temple.",
+      "Participate in the rituals and seek blessings.",
+      "Evening visit to the nearby spiritual sites.",
+    ],
+  },
+  {
+    place: "Kanyakumari Sacred Sojourn",
+    points: [
+      "Journey to the southern tip of India, Kanyakumari.",
+      "Visit the famous Vivekananda Rock Memorial.",
+      "Explore Kanyakumari town and its spiritual significance.",
+    ],
+  },
+  {
+    place: "Meditation and Serenity in Suchindram",
+    points: [
+      "Visit the Suchindram Temple known for its intricate architecture.",
+      "Engage in meditation and spiritual discussions.",
+      "Return to Trivandrum for an overnight stay.",
+    ],
+  },
+  {
+    place: "Neyyattinkara Temples and Departure",
+    points: [
+      "Explore the sacred temples in Neyyattinkara known for their unique rituals.",
+      "Experience the divine atmosphere.",
+      "Depart with a heart full of spiritual blessings and newfound serenity.",
+    ],
+  },
+];
+export const tourPackPlan = [
+  {
+    place: "Arrival in Trivandrum",
+    points: [
+      "Warm welcome at Trivandrum Airport.",
+      "Transfer to your comfortable accommodation.",
+      "Orientation and briefing about the tour.",
+    ],
+  },
+  {
+    place: "Beach Bliss in Kovalam",
+    points: [
+      "Head to the serene beaches of Kovalam.",
+      "Enjoy sunbathing, beach sports, and beachside cuisine.",
+      "Sunset viewing and beachfront relaxation.",
+    ],
+  },
+  {
+    place: "Backwater Cruise in Alleppey",
+    points: [
+      "Journey to Alleppey for a memorable houseboat cruise.",
+      "Glide through the tranquil backwaters of Kerala.",
+      "Enjoy the unique experience of staying in a houseboat.",
+    ],
+  },
+  {
+    place: "Munnar Hill Station Retreat",
+    points: [
+      "Travel to Munnar, a hill station known for its tea gardens.",
+      "Explore lush tea plantations, waterfalls, and scenic landscapes.",
+      "Cozy overnight stay in a hillside cottage.",
+    ],
+  },
+  {
+    place: "Cochin Culture and Departure",
+    points: [
+      "Visit the historic city of Cochin.",
+      "Explore Fort Kochi, the Chinese fishing nets, and cultural landmarks.",
+      "Depart with incredible memories of your Kerala adventure.",
+    ],
+  },
+];
+
+export const inclusions = {
+  honey: [
+    "Airport transfers and comfortable transportation throughout the tour.",
+    "Accommodations in romantic resorts and a private houseboat.",
+    "Daily breakfast and select meals.",
+    "Guided tours and activities as per the itinerary.",
+    "All entrance fees and permits.",
+    "24/7 customer support.",
+  ],
+  pilgrimage: [
+    "Airport transfers and comfortable transportation throughout the pilgrimage.",
+    "Accommodations in peaceful and spiritual retreats.",
+    "Daily breakfast and select meals.",
+    "Guided tours and activities as per the itinerary.",
+    "All entrance fees and permits.",
+    "24/7 customer support.",
+  ],
+  tour: [
+    "Airport transfers and comfortable transportation throughout the pilgrimage.",
+    "Accommodations in handpicked, diverse hotels and houseboats.",
+    "Daily breakfast and select meals.",
+    "Guided tours and activities as per the itinerary.",
+    "All entrance fees and permits.",
+    "24/7 customer support.",
+  ],
+};

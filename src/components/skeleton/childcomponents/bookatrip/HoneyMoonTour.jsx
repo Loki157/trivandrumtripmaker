@@ -19,13 +19,61 @@ import {
   Alert,
   IconButton,
 } from "@mui/material";
+import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
+import MuiAccordion from "@mui/material/Accordion";
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
+import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import { ArrowBackRounded as ArrowBackRoundedIcon } from "@mui/icons-material";
-import { useTheme } from "@mui/material/styles";
+import { useTheme, styled } from "@mui/material/styles";
 import honeymoon from "../../../../assets/images/tour/honeymoon.jpg";
 import { THEMEColor } from "../../../../assets/THEMES";
 import emailjs from "@emailjs/browser";
 import moment from "moment";
 import { useLocation, useNavigate } from "react-router-dom";
+import { honeymoonPlan, inclusions } from "../../../../assets/rides";
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  borderRadius: "10px",
+  backgroundColor: THEMEColor.Secondary,
+  "&:not(:last-child)": {
+    borderBottom: 0,
+  },
+  "&:before": {
+    display: "none",
+  },
+  width: "70% ",
+}));
+
+const AccordionSummary = styled((props) => (
+  <MuiAccordionSummary
+    expandIcon={
+      <ArrowForwardIosSharpIcon
+        sx={{ fontSize: "0.9rem", color: THEMEColor.PRIMARY }}
+      />
+    }
+    {...props}
+  />
+))(({ theme }) => ({
+  backgroundColor:
+    theme.palette.mode === "dark"
+      ? "rgba(255, 255, 255, .05)"
+      : "rgba(0, 0, 0, .03)",
+  //flexDirection: 'row-reverse',
+  "& .MuiAccordionSummary-expandIconWrapper.Mui-expanded": {
+    transform: "rotate(90deg)",
+  },
+  "& .MuiAccordionSummary-content": {
+    marginLeft: theme.spacing(1),
+  },
+}));
+
+const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
+  padding: theme.spacing(2),
+  backgroundColor: THEMEColor.PRIMARY,
+  borderTop: `1px solid ${THEMEColor.PRIMARY}`,
+}));
 function HoneyMoonTour() {
   const theme = useTheme();
   const location = useLocation();
@@ -35,6 +83,11 @@ function HoneyMoonTour() {
   const isDevice = useMediaQuery(theme.breakpoints.up("md"));
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeDeviceUp = useMediaQuery(theme.breakpoints.up("lg"));
+  const [expanded, setExpanded] = React.useState("pane20");
+
+  const handleChange = (panel) => (event, newExpanded) => {
+    setExpanded(newExpanded ? panel : false);
+  };
   const [reqACall, setReqACall] = useState({
     name: "",
     email: "",
@@ -121,14 +174,15 @@ function HoneyMoonTour() {
             <IconButton
               sx={{
                 backgroundColor: THEMEColor.Secondary,
-                color: THEMEColor.PRIMARY,transition:"0.2s all",
+                color: THEMEColor.PRIMARY,
+                transition: "0.2s all",
                 "&:hover": { backgroundColor: "#0a6d2e" },
               }}
               onClick={() => navigate(-1)}
             >
               <ArrowBackRoundedIcon />
             </IconButton>
-            <Box sx={{ width: "60%" }}>
+            <Box sx={{ width: "100%" }}>
               <img src={honeymoon} height={"100%"} width="100%" />
             </Box>
             <Box
@@ -154,7 +208,10 @@ function HoneyMoonTour() {
               <Typography
                 variant="body2"
                 sx={{
-                  fontFamily: "Poppins-Medium",
+                  fontFamily:
+                    isMobile || isDeviceDown
+                      ? "Poppins-Regular"
+                      : "Poppins-Medium",
                   color: THEMEColor.buttons,
                   // textAlign: "center",
                   // lineHeight: "20px",
@@ -175,7 +232,7 @@ function HoneyMoonTour() {
               flexDirection={"column"}
               gap={"25px"}
               alignItems={"flex-start"}
-              width={"60%"}
+              width={"100%"}
             >
               <Typography
                 variant="h5"
@@ -327,6 +384,129 @@ function HoneyMoonTour() {
                             Thanks for submitting!
                           </Alert>
                         ) : null} */}
+              </Box>
+            </Box>
+            <Box
+              height={"100%"}
+              display="flex"
+              flexDirection={"column"}
+              gap={"25px"}
+              alignItems={"flex-start"}
+              width={"100%"}
+            >
+              <Typography
+                variant="h5"
+                sx={{
+                  fontFamily: "Poppins-SemiBold",
+                  color: THEMEColor.buttons,
+                }}
+              >
+                Details:
+              </Typography>
+              {honeymoonPlan.map((i, ind) => {
+                return (
+                  <>
+                    <Accordion
+                      expanded={expanded === `panel${ind + 20}`}
+                      onChange={handleChange(`panel${ind + 20}`)}
+                    >
+                      <AccordionSummary
+                        aria-controls="panel1d-content"
+                        id="panel1d-header"
+                      >
+                        <Typography
+                          variant={
+                            isMobile || isDeviceDown ? "caption" : "body1"
+                          }
+                          sx={{
+                            fontFamily: "Poppins-SemiBold",
+                            color: THEMEColor.PRIMARY,
+                          }}
+                        >
+                          Day #{ind + 1} - {i.place}
+                        </Typography>
+                      </AccordionSummary>
+                      <AccordionDetails>
+                        <Box
+                          // bgcolor={THEMEColor.PRIMARY}
+                          // height={"100%"}
+                          // width="100%"
+                          display={"flex"}
+                          flexDirection={"column"}
+                          gap="10px"
+                        >
+                          <ul>
+                            {i.points.map((item) => {
+                              return (
+                                <>
+                                  <li>
+                                    <span
+                                      style={{
+                                        fontFamily:
+                                          isMobile || isDeviceDown
+                                            ? "Poppins-Regular"
+                                            : "Poppins-SemiBold",
+                                      }}
+                                    >
+                                      {item}
+                                    </span>
+                                  </li>
+                                </>
+                              );
+                            })}
+                          </ul>
+                        </Box>
+                      </AccordionDetails>
+                    </Accordion>
+                  </>
+                );
+              })}
+            </Box>{" "}
+            <Box
+              height={"100%"}
+              display="flex"
+              flexDirection={"column"}
+              gap={"25px"}
+              alignItems={"flex-start"}
+              width={"100%"}
+            >
+              <Typography
+                variant="h5"
+                sx={{
+                  fontFamily: "Poppins-SemiBold",
+                  color: THEMEColor.buttons,
+                }}
+              >
+                Inclusion:
+              </Typography>
+              <Box
+                // bgcolor={THEMEColor.PRIMARY}
+                // height={"100%"}
+                // width="100%"
+                display={"flex"}
+                flexDirection={"column"}
+                gap="10px"
+              >
+                <ul>
+                  {inclusions.honey.map((item) => {
+                    return (
+                      <>
+                        <li>
+                          <span
+                            style={{
+                              fontFamily:
+                                isMobile || isDeviceDown
+                                  ? "Poppins-Regular"
+                                  : "Poppins-SemiBold",
+                            }}
+                          >
+                            {item}
+                          </span>
+                        </li>
+                      </>
+                    );
+                  })}
+                </ul>
               </Box>
             </Box>
           </Box>

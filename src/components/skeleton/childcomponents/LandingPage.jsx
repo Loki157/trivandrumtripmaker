@@ -218,7 +218,7 @@ function LandingPage() {
 
         {/* AboutUs */}
         <Box
-          ref={bookAtrip}
+          
           sx={{
             width: "100%",
             height: "30%",
@@ -251,7 +251,8 @@ function LandingPage() {
                 <Grid item md={6} sm={0} xs={0}>
                   {isMobile || isDeviceDown ? null : (
                     <Box
-                      height={"50%"}
+                  ref={bookAtrip}
+                  height={"50%"}
                       className="about-img"
                       width={"70%"}
                       // borderRadius="50%"
@@ -285,7 +286,7 @@ function LandingPage() {
                   )}
                 </Grid>
                 <Grid item md={6}>
-                  <motion.div
+                  <motion.div 
                     height="100%"
                     style={{
                       display: "flex",
