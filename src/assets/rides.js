@@ -12,13 +12,16 @@ import honeymoon from "../assets/images/tour/honeymoon.jpg";
 import pilgrimg from "../assets/images/tour/kerala-pilgrimage.jpg";
 import tourplan from "../assets/images/tour/tourplan.jpg";
 import tourPlan from "../assets/images/tour/Kerala-Tour.jpg";
-import { useNavigate } from "react-router-dom";
+import whatWeOffer from "../assets/images/oneday/whatweoffer.jpg"
+import whatWeOfferMob from "../assets/images/oneday/whatweoffermob.jpg"
+import { useNavigate } from "react-router-dom"; 
+import { useTheme } from "@mui/material";
 
 export const rides = [
   {
     head: "What we Offer",
     title: "Craft your Unforgettable memories with Trivandrum TripMaker",
-    imgs: padhmanabha,
+    imgs: whatWeOffer,
     subHead:
       "Our passion lies in crafting unforgettable travel moments for every traveler who chooses us. With our range of services, we transform ordinary trips into extraordinary adventures.",
     nav: ROUTEPATH.MAIN + ROUTEPATH.ONEDAY,

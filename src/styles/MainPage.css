@@ -268,7 +268,7 @@ nav.nav-button-footer a.nav-btn {
   color: var(--green) !important;
 }
 .swiper-pagination-bullet {
-  background-color:  var(--green) !important;
+  background-color: var(--green) !important;
   /* width: 13px !important; */
   /* height: 13px !important; */
 }
@@ -477,6 +477,11 @@ nav.nav-button-footer a.nav-btn {
   /* CSS specific to iOS devices */
   .land-main-img.MuiBox-root {
     background-attachment: initial !important;
+  }
+}
+@media screen and(max-width:400px) {
+  .land-main-img.MuiBox-root {
+    background-position: 80% 100% !important;
   }
 }
 .place-card {

@@ -18,10 +18,15 @@ import React, { useEffect, useRef, useState } from "react";
 import landImage from "../../../assets/images/wallpaperflare.com_wallpaper (4).jpg";
 import ttmCar1 from "../../../assets/images/ttmcar1.jpeg";
 import ttmCard1 from "../../../assets/images/ttmcard1.png";
-import kathak from "../../../assets/images/kerala_kathak.jpg";
+// import kathak from "../../../assets/images/kerala_kathak.jpg";
+// import kathak from "../../../assets/images/image-list/mohiniyattamFlip2.jpg";
+// import kathak from "../../../assets/images/mohiniyattamFlip.jpg";
+// import kathak from "../../../assets/images/kathakali_87.jpg";
+import kathak from "../../../assets/images/image-list/mohiniyattam_91.jpg";
+// import kathak from "../../../assets/images/image-list/kathakali_87Land.jpg";
 import padhmanabha from "../../../assets/images/places/Padmanabhaswamy_temple.jpg";
 import airport from "../../../assets/images/places/airport.jpg";
-
+import whtaWeOfferMob from "../../../assets/images/oneday/whatweoffermob.jpg";
 // -------//
 import { THEMEColor } from "../../../assets/THEMES";
 import { useTheme } from "@mui/material/styles";
@@ -35,7 +40,7 @@ import { useNavigate } from "react-router-dom";
 import { ROUTEPATH } from "../../ROUTEPATH";
 import { motion } from "framer-motion";
 import { rides } from "../../../assets/rides";
-import { imageListData } from "../../../assets/imageListData";
+import { imageListData2 } from "../../../assets/imageListData";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Import Swiper styles
@@ -117,17 +122,19 @@ function LandingPage() {
         <Box
           sx={{
             background: `url("${kathak}") no-repeat fixed center center`,
-
-            backgroundAttachment: "fixed",
+            backgroundPosition:
+              isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
+            backgroundAttachment:
+              isMobile || isDeviceDown ? "initial" : "fixed",
             // backgroundSize: "cover",
-            height: isMobile || isDeviceDown ? "400px" : "600px",
+            height: isMobile || isDeviceDown ? "500px" : "700px",
           }}
           className="land-main-img"
         >
           <Box
             sx={{
               height: "100%",
-              // background: " rgba(0,0,0, 0.4)",
+              background: " rgba(0,0,0, 0.3)",
               width: "100%",
             }}
           >
@@ -218,7 +225,6 @@ function LandingPage() {
 
         {/* AboutUs */}
         <Box
-          
           sx={{
             width: "100%",
             height: "30%",
@@ -251,8 +257,8 @@ function LandingPage() {
                 <Grid item md={6} sm={0} xs={0}>
                   {isMobile || isDeviceDown ? null : (
                     <Box
-                  ref={bookAtrip}
-                  height={"50%"}
+                      ref={bookAtrip}
+                      height={"50%"}
                       className="about-img"
                       width={"70%"}
                       // borderRadius="50%"
@@ -286,7 +292,7 @@ function LandingPage() {
                   )}
                 </Grid>
                 <Grid item md={6}>
-                  <motion.div 
+                  <motion.div
                     height="100%"
                     style={{
                       display: "flex",
@@ -392,7 +398,12 @@ function LandingPage() {
                       sx={{
                         width: "100%",
                         height: "500px",
-                        backgroundImage: `url(${i.imgs})`,
+                        backgroundImage:
+                          ind === 0
+                            ? isMobile || isDeviceDown
+                              ? `url(${whtaWeOfferMob})`
+                              : `url(${i.imgs})`
+                            : `url(${i.imgs})`,
                         backgroundSize: "cover",
                         backgroundPosition: "center",
                         backgroundRepeat: "no-repeat",
@@ -680,7 +691,7 @@ function LandingPage() {
                 cols={3}
                 rowHeight={121}
               >
-                {imageListData.map((item) => (
+                {imageListData2.map((item) => (
                   <ImageListItem
                     key={item.img}
                     cols={item.cols || 1}
