@@ -1,4 +1,4 @@
-import { Container, useMediaQuery } from "@mui/material";
+import { Box, Container, useMediaQuery } from "@mui/material";
 
 import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 
@@ -46,49 +46,80 @@ function FooterPage() {
             <div className="footer-box-2">
               <h2>Quick Links</h2>
               <ul>
-                <li
-                  onClick={() => {
-                    navigate(ROUTEPATH.HOME);
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                  }}
-                >
-                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
-                  Home
-                </li>
-                <li
-                  onClick={() => {
-                    navigate(ROUTEPATH.PLACES);
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                  }}
-                >
-                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
-                  Place
-                </li>
-                <li
-                  onClick={() => {
-                    navigate(ROUTEPATH.ABOUT);
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                  }}
-                >
-                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
-                  About
-                </li>
-                <li
-                  onClick={() => {
-                    navigate(ROUTEPATH.CONTACT);
-                    window.scrollTo({ top: 0, behavior: "instant" });
-                  }}
-                >
-                  <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
-                  Contact Us
-                </li>
+                <Box>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.ONEDAY);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    One day trip
+                  </li>{" "}
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.PICKDROP);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Airport Pickup & Drop
+                  </li>{" "}
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.TOURPLAN);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Tour Package
+                  </li>
+                </Box>
+                <Box>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.HOME);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Home
+                  </li>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.PLACES);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Place
+                  </li>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.ABOUT);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    About
+                  </li>
+                  <li
+                    onClick={() => {
+                      navigate(ROUTEPATH.CONTACT);
+                      window.scrollTo({ top: 0, behavior: "instant" });
+                    }}
+                  >
+                    <KeyboardArrowRightIcon sx={{ fontSize: 20 }} />
+                    Contact Us
+                  </li>
+                </Box>
               </ul>
             </div>
             <div className="footer-box-3">
               <h2>Contact Details</h2>
               <div className="contactus-details-1">
                 <h3>Phone Number</h3>
-                <div>
+                <div style={{ display: "flex" }}>
                   <CallRoundedIcon
                     sx={{
                       fontSize: 18,
@@ -98,7 +129,24 @@ function FooterPage() {
                       padding: "5px",
                     }}
                   />
-                  <text>+918086040400</text>
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "flex-start",
+                      // gap: "10px",
+                    }}
+                  >
+                    <a href="tel:+918086040400">
+                      <text>+918086040400</text>
+                    </a>
+                    {/* <br></br> */}
+
+                    <p>or</p>
+                    <a href="tel:+918547676840">
+                      <text>+918547676840</text>
+                    </a>
+                  </div>{" "}
                 </div>
               </div>
               <div className="contactus-details-1">
@@ -113,7 +161,9 @@ function FooterPage() {
                       padding: "5px",
                     }}
                   />
-                  <text> trivandrumtripmaker@gmail.com</text>
+                  <a href="mailto:trivandrumtripmaker@gmail.com">
+                    <text> trivandrumtripmaker@gmail.com</text>
+                  </a>
                 </div>
               </div>
               <div className="contactus-details-2">
@@ -129,8 +179,8 @@ function FooterPage() {
                     }}
                   />
                   <text>
-                    Puunamoodu House TC 89/1162, Near wireless station, Beach
-                    Post, Trivandrum-695007
+                    TC 89/1162, Near wireless station, Beach Post,
+                    Trivandrum-695007
                   </text>
                 </div>
               </div>

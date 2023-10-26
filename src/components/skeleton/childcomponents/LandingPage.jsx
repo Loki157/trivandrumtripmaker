@@ -18,22 +18,40 @@ import React, { useEffect, useRef, useState } from "react";
 import landImage from "../../../assets/images/wallpaperflare.com_wallpaper (4).jpg";
 import ttmCar1 from "../../../assets/images/ttmcar1.jpeg";
 import ttmCard1 from "../../../assets/images/ttmcard1.png";
-import kathak from "../../../assets/images/kerala_kathak.jpg";
+// import kathak from "../../../assets/images/kerala_kathak.jpg";
+// import kathak from "../../../assets/images/image-list/mohiniyattamFlip2.jpg";
+// import kathak from "../../../assets/images/mohiniyattamFlip.jpg";
+// import kathak from "../../../assets/images/kathakali_87.jpg";
+import kathak from "../../../assets/images/image-list/mohiniyattam_91.jpg";
+// import kathak from "../../../assets/images/image-list/kathakali_87Land.jpg";
 import padhmanabha from "../../../assets/images/places/Padmanabhaswamy_temple.jpg";
 import airport from "../../../assets/images/places/airport.jpg";
-
+import whtaWeOfferMob from "../../../assets/images/oneday/whatweoffermob.jpg";
 // -------//
 import { THEMEColor } from "../../../assets/THEMES";
 import { useTheme } from "@mui/material/styles";
 import {
   ArrowForward as ArrowForwardIcon,
   ArrowUpwardRounded as ArrowUpwardRoundedIcon,
+  NavigateBeforeRounded as NavigateBeforeRoundedIcon,
+  NavigateNextRounded as NavigationNextRoundedIcon,
 } from "@mui/icons-material";
 import { useNavigate } from "react-router-dom";
 import { ROUTEPATH } from "../../ROUTEPATH";
 import { motion } from "framer-motion";
 import { rides } from "../../../assets/rides";
-import { imageListData } from "../../../assets/imageListData";
+import { imageListData2 } from "../../../assets/imageListData";
+import { Swiper, SwiperSlide } from "swiper/react";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
+// import "./styles.css";
+
+// import required modules
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 function srcset(image, size, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
@@ -42,13 +60,19 @@ function srcset(image, size, rows = 1, cols = 1) {
     }&fit=crop&auto=format&dpr=2 2x`,
   };
 }
+
 function LandingPage() {
   const Typographymotion = motion(Typography);
   const Buttonmotion = motion(Button);
   const Cardmotion = motion(Card);
   const bookAtrip = useRef(null);
   const handleScrollToBookTrip = () => {
-    bookAtrip.current.scrollIntoView({ behavior: "smooth" });
+    document?.querySelector("#bookAtrip").scrollIntoView();
+    bookAtrip.current?.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "start",
+    });
   };
   // useEffect(() => {
   //    window.addEventListener("scroll", handleScroll);
@@ -88,6 +112,7 @@ function LandingPage() {
             ? "-4vh"
             : "5vh",
           height: "100%",
+          overflow: "auto",
           // display: "flex",
           // flexDirection: "column",
           // alignItems: "center",justifyContent:"space-between"
@@ -97,20 +122,19 @@ function LandingPage() {
         <Box
           sx={{
             background: `url("${kathak}") no-repeat fixed center center`,
-
-            // backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
+            backgroundPosition:
+              isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
+            backgroundAttachment:
+              isMobile || isDeviceDown ? "initial" : "fixed",
             // backgroundSize: "cover",
-            height: isMobile || isDeviceDown ? "400px" : "600px",
-          
-            
+            height: isMobile || isDeviceDown ? "500px" : "700px",
           }}
           className="land-main-img"
         >
           <Box
             sx={{
               height: "100%",
-              // background: " rgba(0,0,0, 0.4)",
+              background: " rgba(0,0,0, 0.3)",
               width: "100%",
             }}
           >
@@ -233,6 +257,7 @@ function LandingPage() {
                 <Grid item md={6} sm={0} xs={0}>
                   {isMobile || isDeviceDown ? null : (
                     <Box
+                      ref={bookAtrip}
                       height={"50%"}
                       className="about-img"
                       width={"70%"}
@@ -347,205 +372,291 @@ function LandingPage() {
           </Container>
         </Box>
         {/* What we offer */}
-        <Box
-          sx={{
-            width: "100%",
-            height: "60%",
-            background: ` linear-gradient(white,white) bottom/100% 40% no-repeat,url(${kathak}) center/cover no-repeat`,
-          }}
-        >
-          <Box
-            height={"100%"}
-            sx={{
-              background:
-                "linear-gradient(white,white) bottom/100% 40% no-repeat,rgba(0,0,0, 0.7) center/cover no-repeat ",
+        <div id="bookAtrip" style={{ height: "100%", overflow: "auto" }}>
+          <Swiper
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: true,
             }}
+            loop={true}
+            pagination={{
+              clickable: true,
+            }}
+            navigation={true}
+            modules={[Autoplay, Pagination, Navigation]}
+            style={{}}
+            // className="mySwiper"
           >
-            <Container fixed sx={{ width: "100%", height: "100%" }}>
-              <Box height={"100%"} width={"100%"}>
-                <Box
-                  height="100%"
-                  display={"flex"}
-                  flexDirection={"column"}
-                  gap="20px"
-                  padding={"20px"}
-                  alignItems={"center"}
-                  // width={"100%"}
-                  // sx={{ transform: "translateY(15%)" }}
-                  // justifyContent="inherit/"
-                >
-                  <Typographymotion
-                    initial={{ opacity: 0, scale: 0.5 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{
-                      duration: 0.9,
-                      delay: 0.9,
-                      ease: [0, 0.71, 0.2, 1.01],
-                    }}
-                    variant="h5"
-                    className="about-company"
-                  >
-                    <span></span>What we Offer{" "}
-                  </Typographymotion>
-                  <Box
-                    width={isMobile || isDeviceDown ? "100%" : "60%"}
-                    display={"flex"}
-                    flexDirection={"column"}
-                    gap="10px"
-                  >
-                    <Typographymotion
-                      variant={isMobile || isDeviceDown ? "h5" : "h4"}
+            {rides.map((i, ind) => {
+              return (
+                <>
+                  <SwiperSlide>
+                    {" "}
+                    <Box
                       sx={{
-                        fontFamily: "Poppins-SemiBold",
-                        color: THEMEColor.PRIMARY,
-                        textAlign: "center",
-                        lineHeight: "40px",
-                      }}
-                      initial={{ opacity: 0, scale: 0.5 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true, amount: 0.5 }}
-                      transition={{
-                        duration: 0.9,
-                        delay: 0.9,
-                        ease: [0, 0.71, 0.2, 1.01],
+                        width: "100%",
+                        height: "500px",
+                        backgroundImage:
+                          ind === 0
+                            ? isMobile || isDeviceDown
+                              ? `url(${whtaWeOfferMob})`
+                              : `url(${i.imgs})`
+                            : `url(${i.imgs})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                        backgroundRepeat: "no-repeat",
                       }}
                     >
-                      Craft your Unforgettable memories with Trivandrum Trip
-                      Maker
-                    </Typographymotion>
-                    <Typographymotion
-                      ref={bookAtrip}
-                      variant={isMobile || isDeviceDown ? "caption" : "body2"}
-                      sx={{
-                        fontFamily: "Poppins-Regular",
-                        color: THEMEColor.PRIMARY,
-                        textAlign: "center",
-                        lineHeight: "20px",
-                      }}
-                      initial={{ opacity: 0, scale: 0.5 }}
-                      whileInView={{ opacity: 1, scale: 1 }}
-                      viewport={{ once: true, amount: 0.5 }}
-                      transition={{
-                        duration: 0.9,
-                        delay: 0.9,
-                        ease: [0, 0.71, 0.2, 1.01],
-                      }}
-                    >
-                      Our passion lies in crafting unforgettable travel moments
-                      for every traveler who chooses us. With our range of
-                      services, we transform ordinary trips into extraordinary
-                      adventures.
-                    </Typographymotion>
-                  </Box>
-                  <Box
-                    sx={{
-                      display: "flex",
-                      flexDirection:
-                        isMobile || isDeviceDown ? "column" : "row",
-                      justifyContent: "space-between",
-                      gap: "30px",
-                      height: "60%",
-                      width: "100%",
-                    }}
-                  >
-                    {rides.map((i, index) => {
-                      return (
-                        <>
-                          <Cardmotion
+                      <Box
+                        height={"100%"}
+                        sx={{
+                          backgroundColor: "rgba(0,0,0, 0.7)",
+                        }}
+                      >
+                        <Container fixed sx={{ width: "100%", height: "100%" }}>
+                          <Box
+                            height={"100%"}
+                            width={"100%"}
                             sx={{
-                              borderRadius: 0,
-                              boxShadow: 0,
-                              width: isMobile || isDeviceDown ? "100%" : "75%",
-                            }}
-                            className="card-trip"
-                            initial={{ opacity: 0, y: 100 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            transition={{
-                              duration: 1,
-                              delay:
-                                index === 0 ? 0.1 : index === 1 ? 0.4 : 0.9,
-                              ease: [0, 0.5, 0.2, 1.01],
+                              display: "flex",
+                              alignItems: "center",
+                              justifyContent: "flex-start",
                             }}
                           >
-                            <CardMedia
-                            // component={"img"}
-                            // alt="title"
-                            // image={i.imgs}
-                            // height="300px"
+                            <Box
+                              height="100%"
+                              display={"flex"}
+                              flexDirection={"column"}
+                              gap="20px"
+                              padding={"20px"}
+                              alignItems={"flex-start"}
+                              justifyContent={"center"}
                             >
                               {" "}
-                              <img
-                                src={i.imgs}
-                                alt={i.title}
-                                height={"300px"}
-                                className="card-img"
-                              />{" "}
-                            </CardMedia>
-                            <CardContent>
+                              <Typographymotion
+                                initial={{ opacity: 0, x: 100 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                // viewport={{ once: true, amount: 0.5 }}
+                                transition={{
+                                  duration: 0.9,
+                                  delay: 0.4,
+                                  ease: [0, 0.71, 0.2, 1.01],
+                                }}
+                                variant="h5"
+                                className="about-company"
+                              >
+                                <span></span>
+                                What we Offer
+                              </Typographymotion>
                               <Box
-                                width={"100%"}
+                                width={
+                                  isMobile || isDeviceDown ? "100%" : "60%"
+                                }
                                 display={"flex"}
                                 flexDirection={"column"}
-                                gap="10px"
+                                gap="30px"
                               >
-                                <Typography
-                                  variant="h5"
+                                <Typographymotion
+                                  variant={
+                                    isMobile || isDeviceDown ? "h5" : "h4"
+                                  }
                                   sx={{
-                                    fontFamily:
-                                      isMobile || isDeviceDown
-                                        ? "Poppins-SemiBold"
-                                        : "Poppins-Bold",
-                                    color: THEMEColor.buttons,
-                                    textAlign: "center",
-                                    // lineHeight: "40px",
+                                    fontFamily: "Poppins-Bold",
+                                    color: THEMEColor.PRIMARY,
+                                    textAlign: "left",
+                                    lineHeight: "40px",
+                                  }}
+                                  initial={{ opacity: 0, x: 150 }}
+                                  whileInView={{ opacity: 1, x: 0 }}
+                                  // viewport={{ once: true, amount: 0.5 }}
+                                  transition={{
+                                    duration: 0.9,
+                                    delay: 0.4,
+                                    ease: [0, 0.71, 0.2, 1.01],
                                   }}
                                 >
                                   {i.title}
-                                </Typography>
-                                <Typography
+                                </Typographymotion>
+                                <Typographymotion
                                   variant={
-                                    isMobile || isDeviceDown
-                                      ? "caption"
-                                      : "body2"
+                                    isMobile || isDeviceDown ? "caption" : "h6"
                                   }
                                   sx={{
                                     fontFamily: "Poppins-Regular",
-                                    color: THEMEColor.buttons,
-                                    textAlign: "center",
-                                    // lineHeight: "20px",
+                                    color: THEMEColor.PRIMARY,
+                                    textAlign: "left",
+                                    lineHeight: "20px",
+                                  }}
+                                  initial={{ opacity: 0, x: 200 }}
+                                  whileInView={{ opacity: 1, x: 0 }}
+                                  // viewport={{ once: true, amount: 0.5 }}
+                                  transition={{
+                                    duration: 0.9,
+                                    delay: 0.4,
+                                    ease: [0, 0.71, 0.2, 1.01],
                                   }}
                                 >
                                   {i.subHead}
-                                </Typography>
+                                </Typographymotion>
                               </Box>
-                            </CardContent>
-                            <CardActions>
-                              <Button
-                                variant="contained"
-                                sx={{ borderRadius: 0, boxShadow: 0 }}
-                                fullWidth
-                                className="learnmore-btn"
-                                onClick={() => navigate(i.nav)}
+                              {ind === 0 ? null : (
+                                <Buttonmotion
+                                  initial={{ opacity: 0, x: 200 }}
+                                  whileInView={{ opacity: 1, x: 0 }}
+                                  // viewport={{ once: true, amount: 0.5 }}
+                                  transition={{
+                                    duration: 0.9,
+                                    delay: 0.4,
+                                    ease: [0, 0.71, 0.2, 1.01],
+                                  }}
+                                  variant="contained"
+                                  sx={{ borderRadius: 0, boxShadow: 0 }}
+                                  // fullWidth
+                                  className="learnmore-btn"
+                                  onClick={() => navigate(i.nav)}
+                                >
+                                  Book Now &nbsp;{" "}
+                                  <ArrowForwardIcon
+                                    sx={{ transition: "0.2s all" }}
+                                    className="arrow-icn"
+                                  />
+                                </Buttonmotion>
+                              )}
+                              <Box
+                                sx={{
+                                  width: "100%",
+                                }}
                               >
-                                Book Now &nbsp;{" "}
-                                <ArrowForwardIcon
-                                  sx={{ transition: "0.2s all" }}
-                                  className="arrow-icn"
-                                />
-                              </Button>
-                            </CardActions>
-                          </Cardmotion>
-                        </>
-                      );
-                    })}
-                  </Box>
-                </Box>
-              </Box>
-            </Container>
-          </Box>
-        </Box>
+                                {/* <Swiper
+                                spaceBetween={30}
+                                centeredSlides={true}
+                                autoplay={{
+                                  delay: 4000,
+                                  disableOnInteraction: true,
+                                }}
+                                // pagination={{
+                                //   clickable: true,
+                                // }}
+                                navigation={true}
+                                modules={[Autoplay, Pagination, Navigation]}
+                                style={{}}
+                                // className="mySwiper"
+                              >
+                                {rides.map((i, index) => {
+                                  return (
+                                    <>
+                                      <SwiperSlide
+                                        style={{
+                                          display: "flex",
+                                          justifyContent: "center",
+                                        }}
+                                      >
+                                        <Cardmotion
+                                          sx={{
+                                            borderRadius: 0,
+                                            boxShadow: 0,
+                                            width:
+                                              isMobile || isDeviceDown ? "100%" : "60%",
+                                          }}
+                                          className="card-trip"
+                                          // initial={{ opacity: 0, y: 100 }}
+                                          // whileInView={{ opacity: 1, y: 0 }}
+                                          // viewport={{ once: true, amount: 0.2 }}
+                                          // transition={{
+                                          //   duration: 1,
+                                          //   delay:
+                                          //     index === 0 ? 0.1 : index === 1 ? 0.4 : 0.9,
+                                          //   ease: [0, 0.5, 0.2, 1.01],
+                                          // }}
+                                        >
+                                          <CardMedia
+                                          // component={"img"}
+                                          // alt="title"
+                                          // image={i.imgs}
+                                          // height="300px"
+                                          >
+                                            {" "}
+                                            <img
+                                              src={i.imgs}
+                                              alt={i.title}
+                                              height={"300px"}
+                                              className="card-img"
+                                            />{" "}
+                                          </CardMedia>
+                                          <CardContent>
+                                            <Box
+                                              width={"100%"}
+                                              display={"flex"}
+                                              flexDirection={"column"}
+                                              gap="10px"
+                                            >
+                                              <Typography
+                                                variant="h5"
+                                                sx={{
+                                                  fontFamily:
+                                                    isMobile || isDeviceDown
+                                                      ? "Poppins-SemiBold"
+                                                      : "Poppins-Bold",
+                                                  color: THEMEColor.buttons,
+                                                  textAlign: "center",
+                                                  // lineHeight: "40px",
+                                                }}
+                                              >
+                                                {i.title}
+                                              </Typography>
+                                              <Typography
+                                                variant={
+                                                  isMobile || isDeviceDown
+                                                    ? "caption"
+                                                    : "body2"
+                                                }
+                                                sx={{
+                                                  fontFamily: "Poppins-Regular",
+                                                  color: THEMEColor.buttons,
+                                                  textAlign: "center",
+                                                  // lineHeight: "20px",
+                                                }}
+                                              >
+                                                {i.subHead}
+                                              </Typography>
+                                            </Box>
+                                          </CardContent>
+                                          <CardActions>
+                                            <Button
+                                              variant="contained"
+                                              sx={{ borderRadius: 0, boxShadow: 0 }}
+                                              fullWidth
+                                              className="learnmore-btn"
+                                              onClick={() => navigate(i.nav)}
+                                            >
+                                              Book Now &nbsp;{" "}
+                                              <ArrowForwardIcon
+                                                sx={{ transition: "0.2s all" }}
+                                                className="arrow-icn"
+                                              />-- 
+                                            </Button>
+                                          </CardActions>
+                                        </Cardmotion>
+                                      </SwiperSlide>
+                                    </>
+                                  );
+                                })}
+                              </Swiper> */}
+                              </Box>
+                            </Box>
+                          </Box>
+                        </Container>
+                      </Box>
+                    </Box>
+                  </SwiperSlide>
+                </>
+              );
+            })}
+          </Swiper>
+        </div>
+        <br />
         <Box height="100%">
           <Container fixed sx={{ height: "100%" }}>
             <Box
@@ -580,7 +691,7 @@ function LandingPage() {
                 cols={3}
                 rowHeight={121}
               >
-                {imageListData.map((item) => (
+                {imageListData2.map((item) => (
                   <ImageListItem
                     key={item.img}
                     cols={item.cols || 1}
@@ -598,7 +709,6 @@ function LandingPage() {
           </Container>
         </Box>
       </div>
-      <Container fixed sx={{ height: "100%" }}></Container>
     </>
   );
 }

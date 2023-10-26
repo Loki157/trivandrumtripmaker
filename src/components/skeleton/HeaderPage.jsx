@@ -1,13 +1,18 @@
-  import {
+import {
   AppBar,
   Box,
   Button,
   Container,
+  Dialog,
   Divider,
   Drawer,
   IconButton,
   Toolbar,
   useMediaQuery,
+  DialogContent,
+  DialogTitle,
+  DialogActions,
+  Typography,
 } from "@mui/material";
 import { useState } from "react";
 import { THEMEColor } from "../../assets/THEMES";
@@ -23,6 +28,7 @@ import {
   CallRounded as CallRoundedIcon,
   FacebookOutlined as FacebookOutlinedIcon,
   Instagram as InstagramIcon,
+  LocationOn as LocationOnIcon,
 } from "@mui/icons-material";
 import { ROUTEPATH } from "../ROUTEPATH";
 
@@ -33,7 +39,7 @@ function HeaderPage() {
   const location = useLocation();
   const currentUrl = location.pathname;
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
+  const [contactDialog, setContactDialog] = useState(false);
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   const handleDrawerOpen = (value) => {
     setDrawerOpen(value);
@@ -41,9 +47,135 @@ function HeaderPage() {
   console.log("object", currentUrl, ROUTEPATH.MAIN + ROUTEPATH.HOME);
   return (
     <>
+      <Dialog
+        open={contactDialog}
+        sx={{ zIndex: "99999" }}
+        fullScreen
+        onClose={() => setContactDialog(false)}
+      >
+        <DialogTitle bgcolor={THEMEColor.Secondary} height={"8%"}>
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              height: "100%",
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                fontFamily: "Poppins-SemiBold",
+                color: THEMEColor.PRIMARY,
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              Contact Now!
+            </Typography>
+            <IconButton
+              onClick={() => setContactDialog(false)}
+              sx={{ color: THEMEColor.PRIMARY }}
+            >
+              <CloseIcon />
+            </IconButton>
+          </Box>
+        </DialogTitle>
+        <DialogContent>
+          {" "}
+          <div className="footer-box-3">
+            <div className="contactus-details-1">
+              <h3>Phone Number</h3>
+              <div style={{ display: "flex" }}>
+                <CallRoundedIcon
+                  sx={{
+                    fontSize: 18,
+                    marginRight: "10px",
+                    backgroundColor: "#3dae2b",
+                    color: "white",
+                    padding: "5px",
+                  }}
+                />
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    // alignItems: "flex-start",
+                    gap: "10px",
+                  }}
+                >
+                  <a href="tel:+918086040400">
+                    <text>+918086040400</text>
+                  </a>
+                  {/* <br></br> */}
+
+                  <h3>or</h3>
+                  <a href="tel:+918547676840">
+                    <text>+918547676840</text>
+                  </a>
+                </div>{" "}
+              </div>
+            </div>
+            <div className="contactus-details-1">
+              <h3>WhatsApp</h3>
+              <div>
+                <WhatsAppIcon
+                  sx={{
+                    fontSize: 18,
+                    marginRight: "10px",
+                    backgroundColor: "#3dae2b",
+                    color: "white",
+                    padding: "5px",
+                  }}
+                />
+                <a
+                  href="https://wa.me/message/5QKJSYVWLPELD1"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  <text> Go to WhatsApp Chat</text>
+                </a>
+              </div>
+            </div>
+            <div className="contactus-details-1">
+              <h3>Email</h3>
+              <div>
+                <MailRoundedIcon
+                  sx={{
+                    fontSize: 18,
+                    marginRight: "10px",
+                    backgroundColor: "#3dae2b",
+                    color: "white",
+                    padding: "5px",
+                  }}
+                />
+                <text> trivandrumtripmaker@gmail.com</text>
+              </div>
+            </div>
+            <div className="contactus-details-2">
+              <h3>Address</h3>
+              <div>
+                <LocationOnIcon
+                  sx={{
+                    fontSize: 18,
+                    marginRight: "10px",
+                    backgroundColor: "#3dae2b",
+                    color: "white",
+                    padding: "5px",
+                  }}
+                />
+                <text>
+                  TC 89/1162, Near wireless station, Beach Post,
+                  Trivandrum-695007
+                </text>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+        {/* <DialogActions></DialogActions> */}
+      </Dialog>
       <Drawer
         open={drawerOpen}
-        anchor=""
+        // anchor=""
         variant="temporary"
         sx={{
           "& .MuiDrawer-paper": {
@@ -70,8 +202,8 @@ function HeaderPage() {
         </Box>
         <Box
           sx={{
-            flex: 1,
-            width: "100%",
+            // flex: 1,
+            // width: "100%",
             display: "flex",
             justifyContent: "center",
             padding: "20px",
@@ -150,17 +282,15 @@ function HeaderPage() {
               // height: "0px",
             }}
             variant={"contained"}
-            startIcon={<WhatsAppIcon />}
+            // startIcon={<WhatsAppIcon />}
             className="top-contact-btn"
             fullWidth
+            onClick={() => setContactDialog(true)}
           >
-            {" "}
-            <a href="//api.whatsapp.com/send?phone=918086040400&text=Hi i would ">
-              Contact Now
-            </a>
+            Contact Now !
           </Button>
         ) : (
-          <Box sx={{ backgroundColor: THEMEColor.PRIMARY }}>
+          <Box sx={{ backgroundColor: THEMEColor.Secondary, padding: "2px" }}>
             <Container fixed>
               <Box
                 height={"100%"}
@@ -172,7 +302,13 @@ function HeaderPage() {
               >
                 <Box display="flex" gap="15px">
                   <Box className="email-mob mail">
-                    <IconButton sx={{}}>
+                    <IconButton
+                      size="small"
+                      sx={{
+                        color: THEMEColor.PRIMARY,
+                        border: `2px solid ${THEMEColor.PRIMARY}`,
+                      }}
+                    >
                       <MailRoundedIcon fontSize="small" />
                     </IconButton>{" "}
                     <a href="mailto:trivandrumtripmaker@gmail.com">
@@ -182,11 +318,17 @@ function HeaderPage() {
                   <Divider
                     orientation="vertical"
                     variant="middle"
-                    sx={{ height: "auto", borderColor: THEMEColor.buttons }}
+                    sx={{ height: "auto", borderColor: THEMEColor.PRIMARY }}
                   />
                   <Box className="email-mob phone">
                     {" "}
-                    <IconButton sx={{}}>
+                    <IconButton
+                      size="small"
+                      sx={{
+                        color: THEMEColor.PRIMARY,
+                        border: `2px solid ${THEMEColor.PRIMARY}`,
+                      }}
+                    >
                       <CallRoundedIcon fontSize="small" />
                     </IconButton>
                     <a href="tel:+918086040400">Ph :+918086040400</a>

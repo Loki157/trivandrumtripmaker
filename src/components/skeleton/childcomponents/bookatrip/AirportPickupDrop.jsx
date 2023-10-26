@@ -41,6 +41,8 @@ import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import emailjs from "@emailjs/browser";
+import { cards } from "../../../../assets/rides";
+import { airportData } from "./airportData";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -764,7 +766,7 @@ function AirportPickupDrop() {
                           isMobile || isDeviceDown ? "column" : "row"
                         }
                       >
-                        <a href="tel:+918086040400" style={{width:"100%"}}>
+                        <a href="tel:+918086040400" style={{ width: "100%" }}>
                           {" "}
                           <Button
                             variant="contained"
@@ -779,7 +781,7 @@ function AirportPickupDrop() {
                           href="https://wa.me/message/5QKJSYVWLPELD1"
                           target="_blank"
                           rel="noreferrer"
-                          style={{width:"100%"}}
+                          style={{ width: "100%" }}
                         >
                           <Button
                             variant="contained"
@@ -835,6 +837,106 @@ function AirportPickupDrop() {
                   Airports in Kerala
                 </Typography>
               </Box>
+              <Grid container>
+                {airportData.map((i, index) => {
+                  return (
+                    <>
+                      <Grid item md={6} sm={12} xs={12}>
+                        <Card
+                          sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            flexDirection: "column",
+                            borderRadius: 0,
+                            boxShadow: 0,
+                            marginTop: "30px",
+                          }}
+                          className="card-trip"
+                          initial={{ opacity: 0, y: 100 }}
+                          whileInView={{ opacity: 1, y: 0 }}
+                          viewport={{ once: true, amount: 0.2 }}
+                          transition={{
+                            duration: 1,
+                            delay: index === 0 ? 0.1 : index === 1 ? 0.4 : 0.9,
+                            ease: [0, 0.5, 0.2, 1.01],
+                          }}
+                        >
+                          <div
+                            style={{
+                              width: isMobile || isDeviceDown ? "100%" : "75%",
+                              border: "2px solid #3dae2b",
+                              overflow: "hidden",
+                              height: "540px",
+                              position: "relative",
+                              borderRadius: "10px",
+                            }}
+                          >
+                            <div className="place-card"></div>
+                            <CardMedia
+                              // component={"img"}
+                              // alt="title"
+                              // image={i.imgs}
+                              // height="300px"
+                              sx={{ overflow: "hidden" }}
+                            >
+                              {" "}
+                              <img
+                                src={i.img}
+                                alt={i.title}
+                                height={"300px"}
+                                className="card-img"
+                              />{" "}
+                            </CardMedia>
+                            <CardContent>
+                              <Box
+                                width={"100%"}
+                                display={"flex"}
+                                flexDirection={"column"}
+                                gap="10px"
+                              >
+                                <Typography
+                                  variant="h5"
+                                  sx={{
+                                    fontFamily:
+                                      isMobile || isDeviceDown
+                                        ? "Poppins-SemiBold"
+                                        : "Poppins-Bold",
+                                    color: "#51764b",
+                                    textAlign: "center",
+                                    // lineHeight: "40px",
+                                  }}
+                                >
+                                  {i.title}
+                                </Typography>
+                                <Typography
+                                  variant={
+                                    isMobile || isDeviceDown
+                                      ? "caption"
+                                      : "body2"
+                                  }
+                                  sx={{
+                                    fontFamily: "Poppins-Regular",
+                                    color: THEMEColor.buttons,
+                                    textAlign: "center",
+                                    // lineHeight: "20px",
+                                    height: "160px",
+                                    overflow: "hidden",
+                                    textOverflow: "ellipsis",
+                                    zIndex: "1",
+                                  }}
+                                >
+                                  {i.content}
+                                </Typography>
+                              </Box>
+                            </CardContent>
+                          </div>
+                        </Card>
+                      </Grid>
+                    </>
+                  );
+                })}
+              </Grid>
             </Box>
           </Container>
         </Box>{" "}

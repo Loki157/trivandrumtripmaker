@@ -17,11 +17,19 @@ import {
   MenuItem,
   Divider,
   Alert,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
 } from "@mui/material";
 import {
   ArrowForward as ArrowForwardIcon,
   Call as CallIcon,
   WhatsApp as WhatsAppIcon,
+  LooksOne as LooksOneIcon,
+  LooksTwo as LooksTwoIcon,
+  Looks3 as Looks3Icon,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 import { THEMEColor } from "../../../../assets/THEMES";
@@ -30,13 +38,21 @@ import "../../../../styles/OneDayTrip.css";
 import oneDay from "../../../../assets/images/places/oneday.jpg";
 import { LocalizationProvider, DatePicker } from "@mui/x-date-pickers";
 import { AdapterMoment } from "@mui/x-date-pickers/AdapterMoment";
-import { itineraryTemple } from "./OnedayTripData";
+import {
+  itineraryTemple,
+  towardsKanyakumari,
+  towardsPilgrimage,
+  towardsVarkala,
+} from "./OnedayTripData";
 import moment from "moment";
 import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import emailjs from "@emailjs/browser";
+import kanyakumari from "../../../../assets/images/oneday/kanyakumari/kanyakumari.jpg";
+import varkala from "../../../../assets/images/oneday/varkala/varkala.jpg";
+import pilgrimage from "../../../../assets/images/oneday/pilgrimage/pilgrimage.jpg";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -97,6 +113,12 @@ function OneDayTrip() {
   const isLargeDeviceDown = useMediaQuery(theme.breakpoints.down("lg"));
 
   const reqCallBackRef = useRef(null);
+  const towardsKanyakumariScroll = useRef(null);
+  const towardsVarkalaScroll = useRef(null);
+  const towardsPilgrimageiScroll = useRef(null);
+  const handleTowardsScroll = (scrollToName) => {
+    scrollToName.current.scrollIntoView({ behavior: "smooth" });
+  };
   const handleReqCallBackIntoView = () => {
     reqCallBackRef.current.scrollIntoView({ behavior: "smooth" });
   };
@@ -111,6 +133,23 @@ function OneDayTrip() {
     travelDate: moment(),
     desc: "",
   });
+  const towardsDirections = [
+    {
+      name: "Towards Kanyakumari",
+      icon: <LooksOneIcon sx={{ color: THEMEColor.Secondary }} />,
+      scroll: towardsKanyakumariScroll,
+    },
+    {
+      name: "Towards Varkala",
+      icon: <LooksTwoIcon sx={{ color: THEMEColor.Secondary }} />,
+      scroll: towardsVarkalaScroll,
+    },
+    {
+      name: "Pilgrimage one day",
+      icon: <Looks3Icon sx={{ color: THEMEColor.Secondary }} />,
+      scroll: towardsPilgrimageiScroll,
+    },
+  ];
   const exceptThisSymbols = ["e", "E", "+", "-", ".", "ArrowUp", "ArrowDown"];
   const vehicleType = ["4-Seater", "7-Seater", "12-Seater", "other"];
   const handleValueChange = (stateName, value) => {
@@ -173,19 +212,19 @@ function OneDayTrip() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, [pathname]);
 
   return (
     <>
       {" "}
       {isVisible && (
         <button
-          className="scroll-to-top-button"
+          className="scroll-to-top-button1"
           onClick={handleReqCallBackIntoView}
         >
-          Check
+          Check Availability
         </button>
       )}
       <div
@@ -339,7 +378,6 @@ function OneDayTrip() {
 
               {/* --------------------Request CallBack ---------------------------*/}
               <Box
-                ref={reqCallBackRef}
                 sx={{
                   display: "flex",
                   flexDirection: "column",
@@ -364,6 +402,7 @@ function OneDayTrip() {
                       // width: "80%",
                     }}
                     className="oneday-heading"
+                    ref={reqCallBackRef}
                   >
                     Request a CallBack
                   </Typography>
@@ -652,7 +691,7 @@ function OneDayTrip() {
                           isMobile || isDeviceDown ? "column" : "row"
                         }
                       >
-                        <a href="tel:+918086040400">
+                        <a href="tel:+918086040400" style={{ width: "100%" }}>
                           {" "}
                           <Button
                             variant="contained"
@@ -667,6 +706,7 @@ function OneDayTrip() {
                           href="https://wa.me/message/5QKJSYVWLPELD1"
                           target="_blank"
                           rel="noreferrer"
+                          style={{ width: "100%" }}
                         >
                           <Button
                             variant="contained"
@@ -731,245 +771,1752 @@ function OneDayTrip() {
                   us as we embark on a day filled with discovery and exploration
                   in this captivating city.
                 </Typography>
-                <Box
-                  display="flex"
-                  flexDirection={"column"}
-                  gap="20px"
-                  height={"100%"}
-                  width="100%"
+
+                <Typography
+                  variant={isMobile || isDeviceDown ? "h6" : "h5"}
+                  sx={{
+                    fontFamily: "Poppins-Bold",
+                    color: THEMEColor.buttons,
+                    textAlign: "center",
+                    // width: "80%",
+                  }}
+                  className="oneday-heading"
                 >
-                  {itineraryTemple.map((i, ind) => {
-                    return (
-                      <>
-                        <Accordion
-                          expanded={expanded === `panel${ind}`}
-                          onChange={handleChange(`panel${ind}`)}
+                  Three Unique Starting Points for Your Journey
+                </Typography>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontFamily: "Poppins-Medium",
+                    color: THEMEColor.buttons,
+                    // textAlign: "center",
+                    // lineHeight: "20px",
+                  }}
+                >
+                  In our Trivandrum trip planning website, travelers have the
+                  flexibility to commence their journey from one of three
+                  distinct starting points.
+                </Typography>
+                <Box>
+                  <List>
+                    {towardsDirections.map((i, index) => {
+                      return (
+                        <ListItem
+                          key={index}
+                          onClick={() => handleTowardsScroll(i.scroll)}
                         >
-                          <AccordionSummary
-                            aria-controls="panel1d-content"
-                            id="panel1d-header"
+                          <ListItemButton>
+                            <ListItemIcon>{i.icon}</ListItemIcon>
+                            <ListItemText>
+                              <p style={{ fontFamily: "Poppins-SemiBold" }}>
+                                {i.name}
+                              </p>
+                            </ListItemText>
+                          </ListItemButton>
+                        </ListItem>
+                      );
+                    })}
+                  </List>
+                </Box>
+                <Box
+                  sx={{
+                    height: "100%",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "30px",
+                  }}
+                >
+                  <Box
+                    ref={towardsKanyakumariScroll}
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "20px",
+                    }}
+                  >
+                    {" "}
+                    <Grid container spacing={5}>
+                      <Grid item md={12}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "20px",
+                          }}
+                        >
+                          {" "}
+                          <Box
+                            sx={{
+                              display: "flex",
+                              height: "100%",
+                              justifyContent: "center",
+                              width: "100%",
+                            }}
                           >
                             <Typography
-                              variant="body1"
+                              variant={isMobile || isDeviceDown ? "h6" : "h4"}
                               sx={{
-                                fontFamily: "Poppins-SemiBold",
-                                color: THEMEColor.PRIMARY,
+                                fontFamily: "Poppins-Bold",
+                                color: THEMEColor.buttons,
+                                textAlign: "center",
+                                // width: "80%",
                               }}
+                              className="oneday-heading1"
                             >
-                              Place #{ind + 1} - {i.title}
+                              Towards Kanyakumari
                             </Typography>
-                          </AccordionSummary>
-                          <AccordionDetails>
-                            <Box
-                              // bgcolor={THEMEColor.PRIMARY}
-                              height={"100%"}
-                              width="100%"
-                              display={"flex"}
-                              flexDirection={"column"}
-                              gap="20px"
+                          </Box>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              fontFamily: "Poppins-Medium",
+                              color: THEMEColor.buttons,
+                              // textAlign: "center",
+                              // lineHeight: "20px",
+                            }}
+                          >
+                            Setting your course towards Kanyakumari, the first
+                            of three exciting starting directions on our
+                            Trivandrum trip planner, promises breathtaking
+                            coastal vistas, cultural landmarks, and memorable
+                            experiences along the way. Explore the beauty and
+                            charm of the southernmost tip of India as you embark
+                            on an unforgettable journey.
+                          </Typography>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              fontFamily: "Poppins-Medium",
+                              color: THEMEColor.buttons,
+                              // textAlign: "center",
+                              // lineHeight: "20px",
+                            }}
+                          >
+                            {" "}
+                            will take you on a remarkable journey through a
+                            multitude of captivating locations. Explore the
+                            divine beauty of the Padmanabha Swamy Temple, bask
+                            in the spiritual aura of Attukal Bhagavathi Temple,
+                            and unwind at the scenic Kovalam Beach. Along the
+                            way, you can marvel at the impressive Azhimala Shiva
+                            Statue and delve into the rich history of the
+                            Padmanabhapuram Palace, just to name a few of the
+                            many enchanting stops that await you on this
+                            unforgettable route.
+                          </Typography>
+                        </Box>
+                      </Grid>{" "}
+                      <Grid item md={12}>
+                        <Box
+                          sx={{
+                            height:
+                              isMobile || isDeviceDown ? "300px" : "600px",
+                            width: "100%",
+                          }}
+                        >
+                          <img
+                            src={kanyakumari}
+                            height={"100%"}
+                            width={"100%"}
+                          />
+                        </Box>
+                      </Grid>
+                    </Grid>
+                    <Box
+                      display="flex"
+                      flexDirection={"column"}
+                      gap="20px"
+                      height={"100%"}
+                      width="100%"
+                    >
+                      {towardsKanyakumari.map((i, ind) => {
+                        return (
+                          <>
+                            <Accordion
+                              expanded={expanded === `panel${ind}`}
+                              onChange={handleChange(`panel${ind}`)}
                             >
-                              <Typography
-                                variant="body2"
-                                sx={{
-                                  fontFamily: "Poppins-Medium",
-                                  color: THEMEColor.buttons,
-                                  // textAlign: "center",
-                                  // lineHeight: "20px",
-                                }}
+                              <AccordionSummary
+                                aria-controls="panel1d-content"
+                                id="panel1d-header"
                               >
-                                {i.heading}
-                              </Typography>
-                              <Box
-                                height={"100%"}
-                                width={
-                                  isMobile || isDeviceDown ? "100%" : "80%"
-                                }
-                              >
-                                <img
-                                  src={i.image}
+                                <Typography
+                                  variant="body1"
+                                  sx={{
+                                    fontFamily: "Poppins-SemiBold",
+                                    color: THEMEColor.PRIMARY,
+                                  }}
+                                >
+                                  Place #{ind + 1} - {i.title}
+                                </Typography>
+                              </AccordionSummary>
+                              <AccordionDetails>
+                                <Box
+                                  // bgcolor={THEMEColor.PRIMARY}
                                   height={"100%"}
-                                  width={"100%"}
-                                />
-                              </Box>
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  gap: "15px",
-                                  alignItems: "flex-start",
-                                }}
+                                  width="100%"
+                                  display={"flex"}
+                                  flexDirection={"column"}
+                                  gap="20px"
+                                >
+                                  <Typography
+                                    variant="body2"
+                                    sx={{
+                                      fontFamily: "Poppins-Medium",
+                                      color: THEMEColor.buttons,
+                                      // textAlign: "center",
+                                      // lineHeight: "20px",
+                                    }}
+                                  >
+                                    {i.heading}
+                                  </Typography>
+                                  <Box
+                                    sx={{
+                                      height:
+                                        isMobile || isDeviceDown
+                                          ? "300px"
+                                          : "600px",
+                                      width: "100%",
+                                    }}
+                                  >
+                                    <img
+                                      src={i.image}
+                                      height={"100%"}
+                                      width={"100%"}
+                                    />
+                                  </Box>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <Typography
+                                      variant={
+                                        isMobile || isDeviceDown ? "h6" : "h5"
+                                      }
+                                      sx={{
+                                        fontFamily: "Poppins-Bold",
+                                        color: THEMEColor.buttons,
+                                        textAlign: "center",
+                                        // width: "80%",
+                                      }}
+                                      // className="oneday-heading"
+                                    >
+                                      Introduction
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      {i.introduction}
+                                    </Typography>
+                                  </Box>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    {ind === 3 || ind === 4 || ind === 6 ? (
+                                      <>
+                                        <Typography
+                                          variant={
+                                            isMobile || isDeviceDown
+                                              ? "h6"
+                                              : "h5"
+                                          }
+                                          sx={{
+                                            fontFamily: "Poppins-Bold",
+                                            color: THEMEColor.buttons,
+                                            textAlign: "center",
+                                            // width: "80%",
+                                          }}
+                                          // className="oneday-heading"
+                                        >
+                                          {ind === 3
+                                            ? "Backwater Cruises"
+                                            : "The Statue"}
+                                        </Typography>
+                                        <Box
+                                          sx={{
+                                            fontFamily: "Poppins-Medium",
+                                            color: THEMEColor.buttons,
+                                            // textAlign: "center",
+                                            // lineHeight: "20px",
+                                          }}
+                                        >
+                                          <ul className="list-space">
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 3
+                                                  ? ` Houseboat Cruises (Scenic
+                                                Backwater Tours)`
+                                                  : ind === 6
+                                                  ? `Towering Statue(Grand Monument)`
+                                                  : `Majestic Sculpture`}
+                                              </span>
+                                              -{i.backwaterCruises.house}
+                                            </li>
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 3
+                                                  ? `Avian Paradise (Bird watching)`
+                                                  : ind === 6
+                                                  ? `Homage to Thiruvalluvar(Literary Significance)`
+                                                  : "Pilgrimage Site"}
+                                              </span>
+                                              -{i.backwaterCruises.avian}
+                                            </li>
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 3
+                                                  ? `Mangrove Safari (Mangrove
+                                                Forest)`
+                                                  : ind === 6
+                                                  ? `Cultural Bridge(Literary Significance)`
+                                                  : "Rituals and Offerings"}
+                                              </span>
+                                              -{i.backwaterCruises.avian}
+                                            </li>
+                                          </ul>
+                                        </Box>
+                                      </>
+                                    ) : (
+                                      <>
+                                        {" "}
+                                        <Typography
+                                          variant={
+                                            isMobile || isDeviceDown
+                                              ? "h6"
+                                              : "h5"
+                                          }
+                                          sx={{
+                                            fontFamily: "Poppins-Bold",
+                                            color: THEMEColor.buttons,
+                                            textAlign: "center",
+                                            // width: "80%",
+                                          }}
+                                          // className="oneday-heading"
+                                        >
+                                          History
+                                        </Typography>
+                                        <Typography
+                                          variant="body2"
+                                          sx={{
+                                            fontFamily: "Poppins-Medium",
+                                            color: THEMEColor.buttons,
+                                            // textAlign: "center",
+                                            // lineHeight: "20px",
+                                          }}
+                                        >
+                                          {i.history}
+                                        </Typography>
+                                      </>
+                                    )}
+                                  </Box>
+                                  {ind === 5 || ind === 7 ? (
+                                    <Box
+                                      sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "15px",
+                                        alignItems: "flex-start",
+                                      }}
+                                    >
+                                      <Typography
+                                        variant={
+                                          isMobile || isDeviceDown ? "h6" : "h5"
+                                        }
+                                        sx={{
+                                          fontFamily: "Poppins-Bold",
+                                          color: THEMEColor.buttons,
+                                          textAlign: "center",
+                                          // width: "80%",
+                                        }}
+                                        // className="oneday-heading"
+                                      >
+                                        {i.title} Highlights
+                                      </Typography>
+                                      <Typography
+                                        variant="body2"
+                                        sx={{
+                                          fontFamily: "Poppins-Medium",
+                                          color: THEMEColor.buttons,
+                                          // textAlign: "center",
+                                          // lineHeight: "20px",
+                                        }}
+                                      >
+                                        <ul className="list-space">
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {ind === 7
+                                                ? `Mahatma Gandhi Statue(Central Statue)`
+                                                : "Mantrasala"}
+                                            </span>
+                                            -{i.highlights.mantrasala}
+                                          </li>
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {ind === 7
+                                                ? `Mahatma's Life in Panels(Memorial Wall)`
+                                                : " Amma Vilasom"}
+                                            </span>
+                                            -{i.highlights.ammaVilasom}
+                                          </li>
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {ind === 7
+                                                ? `A Place of Reflection(Meditation Hall)`
+                                                : "Kottaram"}
+                                            </span>
+                                            -{i.highlights.kottaram}
+                                          </li>
+                                          {ind === 7 ? null : (
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                Nataksala
+                                              </span>
+                                              -{i.highlights.nataksala}
+                                            </li>
+                                          )}
+                                        </ul>
+                                      </Typography>
+                                    </Box>
+                                  ) : null}
+
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <Typography
+                                      variant={
+                                        isMobile || isDeviceDown ? "h6" : "h5"
+                                      }
+                                      sx={{
+                                        fontFamily: "Poppins-Bold",
+                                        color: THEMEColor.buttons,
+                                        textAlign: "center",
+                                        // width: "80%",
+                                      }}
+                                      // className="oneday-heading"
+                                    >
+                                      Visiting {i.title}
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      <ul className="list-space">
+                                        <li>
+                                          <span
+                                            style={{
+                                              fontFamily: "Poppins-Bold",
+                                            }}
+                                          >
+                                            {ind === 2 ? "Swimming" : "Timing"}
+                                          </span>
+                                          -{i.Visiting.timing}
+                                        </li>
+                                        <li>
+                                          {ind === 2 ? (
+                                            <>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                Surfing
+                                              </span>
+                                              -{i.Visiting.dressCode}
+                                            </>
+                                          ) : ind === 0 ||
+                                            ind === 1 ||
+                                            ind === 8 ||
+                                            ind === 9 ||
+                                            ind === 10 ? (
+                                            <>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                Dress Code
+                                              </span>
+                                              -
+                                              {ind === 4
+                                                ? i.Visiting.entryFee
+                                                : i.Visiting.dressCode}
+                                            </>
+                                          ) : (
+                                            <>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 3
+                                                  ? "Packages"
+                                                  : "Entry Fee"}
+                                              </span>
+                                              -{i.Visiting.entryFee}
+                                            </>
+                                          )}
+                                        </li>
+                                        <li>
+                                          {ind === 2 ? (
+                                            <>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                Parasailing
+                                              </span>
+                                              -{i.Visiting.photography}
+                                            </>
+                                          ) : ind === 3 || ind === 6 ? (
+                                            <>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 3
+                                                  ? "Eco-friendly Practices"
+                                                  : "Tour Guide"}
+                                              </span>
+                                              -{i.Visiting.tourGuide}
+                                            </>
+                                          ) : (
+                                            <>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                Photography
+                                              </span>
+                                              -
+                                              {ind === 4
+                                                ? i.Visiting.tourGuide
+                                                : i.Visiting.photography}
+                                            </>
+                                          )}
+                                        </li>
+                                      </ul>
+                                    </Typography>
+                                  </Box>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <Typography
+                                      variant={
+                                        isMobile || isDeviceDown ? "h6" : "h5"
+                                      }
+                                      sx={{
+                                        fontFamily: "Poppins-Bold",
+                                        color: THEMEColor.buttons,
+                                        textAlign: "center",
+                                        // width: "80%",
+                                      }}
+                                      // className="oneday-heading"
+                                    >
+                                      Plan your visit
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      {i.planVisit.content}
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{ fontFamily: "Poppins-Bold" }}
+                                      >
+                                        Address
+                                      </span>
+                                      -{i.planVisit.address}
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      {i.conclude}
+                                    </Typography>
+                                  </Box>
+                                </Box>
+                              </AccordionDetails>
+                            </Accordion>
+                          </>
+                        );
+                      })}
+                    </Box>
+                  </Box>
+                  <Box
+                    ref={towardsVarkalaScroll}
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "20px",
+                    }}
+                  >
+                    {" "}
+                    <Grid container spacing={5}>
+                      <Grid item md={12}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "20px",
+                          }}
+                        >
+                          <Box
+                            sx={{
+                              display: "flex",
+                              height: "100%",
+                              justifyContent: "center",
+                              width: "100%",
+                            }}
+                          >
+                            <Typography
+                              variant={isMobile || isDeviceDown ? "h6" : "h4"}
+                              sx={{
+                                fontFamily: "Poppins-Bold",
+                                color: THEMEColor.buttons,
+                                textAlign: "center",
+                                // width: "80%",
+                              }}
+                              className="oneday-heading1"
+                            >
+                              Towards Varkala
+                            </Typography>
+                          </Box>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              fontFamily: "Poppins-Medium",
+                              color: THEMEColor.buttons,
+                              // textAlign: "center",
+                              // lineHeight: "20px",
+                            }}
+                          >
+                            Opting for the second direction, &apos;Towards
+                            Varkala,&apos; through our Trivandrum trip planner
+                            promises an enriching journey through an array of
+                            captivating locales. Immerse yourself in the
+                            serenity of the Ganapathi Temple, where spirituality
+                            meets tranquility. Experience the wonders of
+                            wildlife at Trivandrum Zoo, delve into history and
+                            culture at the Napier Museum, and step back in time
+                            at the regal Kuthira Malika.
+                          </Typography>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              fontFamily: "Poppins-Medium",
+                              color: THEMEColor.buttons,
+                              // textAlign: "center",
+                              // lineHeight: "20px",
+                            }}
+                          >
+                            Along the way, revel in the peaceful shores of
+                            Kappil Beach, with each destination offering a
+                            unique and enriching experience. This route is a
+                            delightful blend of history, nature, and culture,
+                            providing travelers with a diverse range of
+                            attractions. The &apos;Towards Varkala&apos;
+                            direction will undoubtedly leave you with
+                            unforgettable memories, thanks to the myriad of
+                            enchanting stops that await you along the way.
+                          </Typography>
+                        </Box>
+                      </Grid>{" "}
+                      <Grid item md={12}>
+                        <Box
+                          sx={{
+                            height:
+                              isMobile || isDeviceDown ? "300px" : "600px",
+                            width: "100%",
+                          }}
+                        >
+                          <img src={varkala} height={"100%"} width={"100%"} />
+                        </Box>
+                      </Grid>
+                    </Grid>
+                    <Box
+                      display="flex"
+                      flexDirection={"column"}
+                      gap="20px"
+                      height={"100%"}
+                      width="100%"
+                    >
+                      {towardsVarkala.map((i, ind) => {
+                        return (
+                          <>
+                            <Accordion
+                              expanded={expanded === `panel${ind + 30}`}
+                              onChange={handleChange(`panel${ind + 30}`)}
+                            >
+                              <AccordionSummary
+                                aria-controls="panel1d-content"
+                                id="panel1d-header"
                               >
                                 <Typography
-                                  variant={
-                                    isMobile || isDeviceDown ? "h6" : "h5"
-                                  }
+                                  variant="body1"
                                   sx={{
-                                    fontFamily: "Poppins-Bold",
-                                    color: THEMEColor.buttons,
-                                    textAlign: "center",
-                                    // width: "80%",
-                                  }}
-                                  // className="oneday-heading"
-                                >
-                                  Introduction
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  sx={{
-                                    fontFamily: "Poppins-Medium",
-                                    color: THEMEColor.buttons,
-                                    // textAlign: "center",
-                                    // lineHeight: "20px",
+                                    fontFamily: "Poppins-SemiBold",
+                                    color: THEMEColor.PRIMARY,
                                   }}
                                 >
-                                  {i.introduction}
+                                  Place #{ind + 1} - {i.title}
                                 </Typography>
-                              </Box>
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  gap: "15px",
-                                  alignItems: "flex-start",
-                                }}
+                              </AccordionSummary>
+                              <AccordionDetails>
+                                <Box
+                                  // bgcolor={THEMEColor.PRIMARY}
+                                  height={"100%"}
+                                  width="100%"
+                                  display={"flex"}
+                                  flexDirection={"column"}
+                                  gap="20px"
+                                >
+                                  <Typography
+                                    variant="body2"
+                                    sx={{
+                                      fontFamily: "Poppins-Medium",
+                                      color: THEMEColor.buttons,
+                                      // textAlign: "center",
+                                      // lineHeight: "20px",
+                                    }}
+                                  >
+                                    {i.heading}
+                                  </Typography>
+                                  <Box
+                                    sx={{
+                                      height:
+                                        isMobile || isDeviceDown
+                                          ? "300px"
+                                          : "600px",
+                                      width: "100%",
+                                    }}
+                                  >
+                                    <img
+                                      src={i.image}
+                                      height={"100%"}
+                                      width={"100%"}
+                                    />
+                                  </Box>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <Typography
+                                      variant={
+                                        isMobile || isDeviceDown ? "h6" : "h5"
+                                      }
+                                      sx={{
+                                        fontFamily: "Poppins-Bold",
+                                        color: THEMEColor.buttons,
+                                        textAlign: "center",
+                                        // width: "80%",
+                                      }}
+                                      // className="oneday-heading"
+                                    >
+                                      Introduction
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      {i.introduction}
+                                    </Typography>
+                                  </Box>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    {ind === 1 ? (
+                                      <>
+                                        <Typography
+                                          variant={
+                                            isMobile || isDeviceDown
+                                              ? "h6"
+                                              : "h5"
+                                          }
+                                          sx={{
+                                            fontFamily: "Poppins-Bold",
+                                            color: THEMEColor.buttons,
+                                            textAlign: "center",
+                                            // width: "80%",
+                                          }}
+                                          // className="oneday-heading"
+                                        >
+                                          {ind === 1
+                                            ? "Wildlife Collection"
+                                            : ""}
+                                        </Typography>
+                                        <Box
+                                          sx={{
+                                            fontFamily: "Poppins-Medium",
+                                            color: THEMEColor.buttons,
+                                            // textAlign: "center",
+                                            // lineHeight: "20px",
+                                          }}
+                                        >
+                                          <ul className="list-space">
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 1
+                                                  ? `Majestic Big Cats(Lions and Tigers)`
+                                                  : ``}
+                                              </span>
+                                              -{i.wildllife.majestic}
+                                            </li>
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 1
+                                                  ? `Gentle Giants(Elephants)`
+                                                  : ""}
+                                              </span>
+                                              -{i.wildllife.gentle}
+                                            </li>
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 1
+                                                  ? `Slithering Wonders(Reptiles)`
+                                                  : ""}
+                                              </span>
+                                              -{i.wildllife.reptile}
+                                            </li>
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 1
+                                                  ? `Feathered Friends(Aviary)`
+                                                  : ""}
+                                              </span>
+                                              -{i.wildllife.aviary}
+                                            </li>
+                                          </ul>
+                                        </Box>
+                                      </>
+                                    ) : (
+                                      <>
+                                        {" "}
+                                        <Typography
+                                          variant={
+                                            isMobile || isDeviceDown
+                                              ? "h6"
+                                              : "h5"
+                                          }
+                                          sx={{
+                                            fontFamily: "Poppins-Bold",
+                                            color: THEMEColor.buttons,
+                                            textAlign: "center",
+                                            // width: "80%",
+                                          }}
+                                          // className="oneday-heading"
+                                        >
+                                          History
+                                        </Typography>
+                                        <Typography
+                                          variant="body2"
+                                          sx={{
+                                            fontFamily: "Poppins-Medium",
+                                            color: THEMEColor.buttons,
+                                            // textAlign: "center",
+                                            // lineHeight: "20px",
+                                          }}
+                                        >
+                                          {i.history}
+                                        </Typography>
+                                      </>
+                                    )}
+                                  </Box>
+                                  {ind === 3 ||
+                                  ind === 4 ||
+                                  ind === 5 ||
+                                  ind === 6 ||
+                                  ind === 7 ||
+                                  ind === 8 ? (
+                                    <Box
+                                      sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "15px",
+                                        alignItems: "flex-start",
+                                      }}
+                                    >
+                                      <Typography
+                                        variant={
+                                          isMobile || isDeviceDown ? "h6" : "h5"
+                                        }
+                                        sx={{
+                                          fontFamily: "Poppins-Bold",
+                                          color: THEMEColor.buttons,
+                                          textAlign: "center",
+                                          // width: "80%",
+                                        }}
+                                        // className="oneday-heading"
+                                      >
+                                        {i.title} Highlights
+                                      </Typography>
+                                      <Typography
+                                        variant="body2"
+                                        sx={{
+                                          fontFamily: "Poppins-Medium",
+                                          color: THEMEColor.buttons,
+                                          // textAlign: "center",
+                                          // lineHeight: "20px",
+                                        }}
+                                      >
+                                        <ul className="list-space">
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {ind === 3
+                                                ? `Regal Artifacts(Royal Collection)`
+                                                : ind === 5
+                                                ? `Seashell Treasures(Beachcombing)`
+                                                : ind === 6 || ind === 8
+                                                ? `Relaxation by the Sea(Sunbathing)`
+                                                : ind === 7
+                                                ? `Historic Graves(Cemetery)`
+                                                : `Hiking Trails(Jatayu Nature Park)`}
+                                            </span>
+                                            -
+                                            {ind === 3
+                                              ? i.highlights.regal
+                                              : i.activity.hiking}
+                                          </li>
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {ind === 3
+                                                ? `Musical Legacy(Swathi Sangeethotsavam)`
+                                                : ind === 5
+                                                ? `Capture the Serenity(Photography)`
+                                                : ind === 6 || ind === 8
+                                                ? `Refreshing Waters(Swimming)`
+                                                : ind === 7
+                                                ? `Colonial Legacy(Chapel)`
+                                                : `Zip Lining(Jatayu Nature Park)`}
+                                            </span>
+                                            -
+                                            {ind === 3
+                                              ? i.highlights.music
+                                              : i.activity.zip}
+                                          </li>
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {ind === 3
+                                                ? `Tranquil Retreat(Exquisite Courtyards)`
+                                                : ind === 5
+                                                ? `Refreshing Waters(Swimming)`
+                                                : ind === 6 || ind === 8
+                                                ? `Catch the Waves(Surfing)`
+                                                : ind === 7
+                                                ? `Panoramic Views(Lighthouse)`
+                                                : `Rock Climbing(Jatayu Adventure Center)`}
+                                            </span>
+                                            -
+                                            {ind === 3
+                                              ? i.highlights.tranq
+                                              : i.activity.rock}
+                                          </li>
+                                          {ind === 4 ||
+                                          ind === 5 ||
+                                          ind === 6 ||
+                                          ind === 7 ? (
+                                            <li>
+                                              <span
+                                                style={{
+                                                  fontFamily: "Poppins-Bold",
+                                                }}
+                                              >
+                                                {ind === 4
+                                                  ? ` Rappelling(Jatayu Adventure
+                                                Center)`
+                                                  : ind === 6
+                                                  ? `Holistic Wellness(Ayurvedic Treatments)`
+                                                  : ind === 7
+                                                  ? `Militaristic Past(Cannon Battery)`
+                                                  : ind === 8
+                                                  ? `Mesmerizing Evenings(Sunset Views)`
+                                                  : `Backwater Cruises(Boat Rides)`}
+                                              </span>
+                                              -{i.activity.rappeling}
+                                            </li>
+                                          ) : null}
+                                        </ul>
+                                      </Typography>
+                                    </Box>
+                                  ) : null}
+
+                                  {ind === 5 || ind === 6 ? null : (
+                                    <Box
+                                      sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "15px",
+                                        alignItems: "flex-start",
+                                      }}
+                                    >
+                                      <Typography
+                                        variant={
+                                          isMobile || isDeviceDown ? "h6" : "h5"
+                                        }
+                                        sx={{
+                                          fontFamily: "Poppins-Bold",
+                                          color: THEMEColor.buttons,
+                                          textAlign: "center",
+                                          // width: "80%",
+                                        }}
+                                        // className="oneday-heading"
+                                      >
+                                        Visiting {i.title}
+                                      </Typography>
+                                      <Typography
+                                        variant="body2"
+                                        sx={{
+                                          fontFamily: "Poppins-Medium",
+                                          color: THEMEColor.buttons,
+                                          // textAlign: "center",
+                                          // lineHeight: "20px",
+                                        }}
+                                      >
+                                        <ul className="list-space">
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {"Timing"}
+                                            </span>
+                                            -{i.Visiting.timing}
+                                          </li>
+                                          <li>
+                                            {ind === 0 ? (
+                                              <>
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Poppins-Bold",
+                                                  }}
+                                                >
+                                                  Dress Code
+                                                </span>
+                                                -{i.Visiting.dressCode}
+                                              </>
+                                            ) : (
+                                              <>
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Poppins-Bold",
+                                                  }}
+                                                >
+                                                  {"Entry Fee"}
+                                                </span>
+                                                -{i.Visiting.entryFee}
+                                              </>
+                                            )}
+                                          </li>
+                                          <li>
+                                            {ind === 2 ? (
+                                              <>
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Poppins-Bold",
+                                                  }}
+                                                >
+                                                  {"Tour Guide"}
+                                                </span>
+                                                -{i.Visiting.tourGuide}
+                                              </>
+                                            ) : (
+                                              <>
+                                                <span
+                                                  style={{
+                                                    fontFamily: "Poppins-Bold",
+                                                  }}
+                                                >
+                                                  {ind === 4
+                                                    ? "Safety Guidelines"
+                                                    : "Photography"}
+                                                </span>
+                                                -{i.Visiting.photography}
+                                              </>
+                                            )}
+                                          </li>
+                                        </ul>
+                                      </Typography>
+                                    </Box>
+                                  )}
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <Typography
+                                      variant={
+                                        isMobile || isDeviceDown ? "h6" : "h5"
+                                      }
+                                      sx={{
+                                        fontFamily: "Poppins-Bold",
+                                        color: THEMEColor.buttons,
+                                        textAlign: "center",
+                                        // width: "80%",
+                                      }}
+                                      // className="oneday-heading"
+                                    >
+                                      Plan your visit
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      {i.planVisit.content}
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{ fontFamily: "Poppins-Bold" }}
+                                      >
+                                        Address
+                                      </span>
+                                      -{i.planVisit.address}
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      {i.conclude}
+                                    </Typography>
+                                  </Box>
+                                </Box>
+                              </AccordionDetails>
+                            </Accordion>
+                          </>
+                        );
+                      })}
+                    </Box>
+                  </Box>
+                  <Box
+                    ref={towardsPilgrimageiScroll}
+                    sx={{
+                      height: "100%",
+                      display: "flex",
+                      flexDirection: "column",
+                      gap: "20px",
+                    }}
+                  >
+                    {" "}
+                    <Grid container spacing={5}>
+                      <Grid item md={12}>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "flex-start",
+                            gap: "20px",
+                          }}
+                        >
+                          {" "}
+                          <Box
+                            sx={{
+                              display: "flex",
+                              height: "100%",
+                              justifyContent: "center",
+                              width: "100%",
+                            }}
+                          >
+                            <Typography
+                              variant={isMobile || isDeviceDown ? "h6" : "h4"}
+                              sx={{
+                                fontFamily: "Poppins-Bold",
+                                color: THEMEColor.buttons,
+                                textAlign: "center",
+                                // width: "80%",
+                              }}
+                              className="oneday-heading1"
+                            >
+                              Pilgrimage Oneday trip
+                            </Typography>
+                          </Box>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              fontFamily: "Poppins-Medium",
+                              color: THEMEColor.buttons,
+                              // textAlign: "center",
+                              // lineHeight: "20px",
+                            }}
+                          >
+                            Embark on a spiritual odyssey with our
+                            &apos;Pilgrimage Oneday Trip&apos; direction,
+                            thoughtfully crafted in our Trivandrum trip planner.
+                            This sacred journey unfolds with a visit to the
+                            renowned Padmanabha Swamy Temple, where history and
+                            spirituality blend seamlessly. The Ganapathy Temple
+                            offers a serene haven for seekers, and the
+                            Thiruvallam Parasurama Temple adds a touch of divine
+                            grace to your experience. En route, you&apos;ll also
+                            encounter the majestic Azhimala Shiva Statue and the
+                            Thirupathi Temple in Kanyakumari, where centuries of
+                            tradition and faith converge. Finally, your
+                            pilgrimage culminates at the enchanting Suchindram
+                            Temple, a testament to the rich tapestry of
+                            spiritual heritage in this region.
+                          </Typography>
+                          <Typography
+                            variant="body1"
+                            sx={{
+                              fontFamily: "Poppins-Medium",
+                              color: THEMEColor.buttons,
+                              // textAlign: "center",
+                              // lineHeight: "20px",
+                            }}
+                          >
+                            Your spiritual quest continues as you delve deeper
+                            into the &apos;Pilgrimage Oneday Trip.&apos; Each
+                            destination along this path holds a unique
+                            significance, offering insights into the rich
+                            spiritual and cultural heritage of the region. With
+                            each visit, you&apos;ll connect with the profound
+                            history and devotion that define these sacred sites.
+                            This direction not only promises a deep sense of
+                            fulfillment but also provides a comprehensive
+                            understanding of the diverse religious traditions
+                            that thrive in Trivandrum and its surroundings,
+                            making it a truly enriching journey for the soul.
+                          </Typography>
+                        </Box>
+                      </Grid>{" "}
+                      <Grid item md={12}>
+                        <Box
+                          sx={{
+                            height:
+                              isMobile || isDeviceDown ? "300px" : "600px",
+                            width: "100%",
+                          }}
+                        >
+                          <img
+                            src={pilgrimage}
+                            height={"100%"}
+                            width={"100%"}
+                          />
+                        </Box>
+                      </Grid>
+                    </Grid>
+                    <Box
+                      display="flex"
+                      flexDirection={"column"}
+                      gap="20px"
+                      height={"100%"}
+                      width="100%"
+                    >
+                      {towardsPilgrimage.map((i, ind) => {
+                        return (
+                          <>
+                            <Accordion
+                              expanded={expanded === `panel${ind + 20}`}
+                              onChange={handleChange(`panel${ind + 20}`)}
+                            >
+                              <AccordionSummary
+                                aria-controls="panel1d-content"
+                                id="panel1d-header"
                               >
                                 <Typography
-                                  variant={
-                                    isMobile || isDeviceDown ? "h6" : "h5"
-                                  }
+                                  variant="body1"
                                   sx={{
-                                    fontFamily: "Poppins-Bold",
-                                    color: THEMEColor.buttons,
-                                    textAlign: "center",
-                                    // width: "80%",
-                                  }}
-                                  // className="oneday-heading"
-                                >
-                                  History
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  sx={{
-                                    fontFamily: "Poppins-Medium",
-                                    color: THEMEColor.buttons,
-                                    // textAlign: "center",
-                                    // lineHeight: "20px",
+                                    fontFamily: "Poppins-SemiBold",
+                                    color: THEMEColor.PRIMARY,
                                   }}
                                 >
-                                  {i.history}
+                                  Place #{ind + 1} - {i.title}
                                 </Typography>
-                              </Box>
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  gap: "15px",
-                                  alignItems: "flex-start",
-                                }}
-                              >
-                                <Typography
-                                  variant={
-                                    isMobile || isDeviceDown ? "h6" : "h5"
-                                  }
-                                  sx={{
-                                    fontFamily: "Poppins-Bold",
-                                    color: THEMEColor.buttons,
-                                    textAlign: "center",
-                                    // width: "80%",
-                                  }}
-                                  // className="oneday-heading"
+                              </AccordionSummary>
+                              <AccordionDetails>
+                                <Box
+                                  // bgcolor={THEMEColor.PRIMARY}
+                                  height={"100%"}
+                                  width="100%"
+                                  display={"flex"}
+                                  flexDirection={"column"}
+                                  gap="20px"
                                 >
-                                  Visiting {i.title}
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  sx={{
-                                    fontFamily: "Poppins-Medium",
-                                    color: THEMEColor.buttons,
-                                    // textAlign: "center",
-                                    // lineHeight: "20px",
-                                  }}
-                                >
-                                  <ul>
-                                    <li>Timing-{i.Visiting.timing}</li>
-                                    <li>
-                                      {ind === 0 || ind === 1 || ind === 8
-                                        ? `Dress Code-${i.Visiting.dressCode}`
-                                        : `Entry Fee-${i.Visiting.entryFee}`}
-                                    </li>
-                                    <li>
-                                      {ind === 2 ||
-                                      ind === 3 ||
-                                      ind === 4 ||
-                                      ind === 5
-                                        ? `Tour Guide-${i.Visiting.tourGuide}`
-                                        : `Photography-${i.Visiting.photography}`}
-                                    </li>
-                                  </ul>
-                                </Typography>
-                              </Box>
-                              <Box
-                                sx={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  gap: "15px",
-                                  alignItems: "flex-start",
-                                }}
-                              >
-                                <Typography
-                                  variant={
-                                    isMobile || isDeviceDown ? "h6" : "h5"
-                                  }
-                                  sx={{
-                                    fontFamily: "Poppins-Bold",
-                                    color: THEMEColor.buttons,
-                                    textAlign: "center",
-                                    // width: "80%",
-                                  }}
-                                  // className="oneday-heading"
-                                >
-                                  Plan your visit
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  sx={{
-                                    fontFamily: "Poppins-Medium",
-                                    color: THEMEColor.buttons,
-                                    // textAlign: "center",
-                                    // lineHeight: "20px",
-                                  }}
-                                >
-                                  {i.planVisit.content}
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  sx={{
-                                    fontFamily: "Poppins-Medium",
-                                    color: THEMEColor.buttons,
-                                    // textAlign: "center",
-                                    // lineHeight: "20px",
-                                  }}
-                                >
-                                  <b>Address</b>-{i.planVisit.address}
-                                </Typography>
-                                <Typography
-                                  variant="body2"
-                                  sx={{
-                                    fontFamily: "Poppins-Medium",
-                                    color: THEMEColor.buttons,
-                                    // textAlign: "center",
-                                    // lineHeight: "20px",
-                                  }}
-                                >
-                                  {i.conclude}
-                                </Typography>
-                              </Box>
-                            </Box>
-                          </AccordionDetails>
-                        </Accordion>
-                      </>
-                    );
-                  })}
+                                  <Typography
+                                    variant="body2"
+                                    sx={{
+                                      fontFamily: "Poppins-Medium",
+                                      color: THEMEColor.buttons,
+                                      // textAlign: "center",
+                                      // lineHeight: "20px",
+                                    }}
+                                  >
+                                    {i.heading}
+                                  </Typography>
+                                  <Box
+                                    sx={{
+                                      height:
+                                        isMobile || isDeviceDown
+                                          ? "300px"
+                                          : "600px",
+                                      width: "100%",
+                                    }}
+                                  >
+                                    <img
+                                      src={i.image}
+                                      height={"100%"}
+                                      width={"100%"}
+                                    />
+                                  </Box>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <Typography
+                                      variant={
+                                        isMobile || isDeviceDown ? "h6" : "h5"
+                                      }
+                                      sx={{
+                                        fontFamily: "Poppins-Bold",
+                                        color: THEMEColor.buttons,
+                                        textAlign: "center",
+                                        // width: "80%",
+                                      }}
+                                      // className="oneday-heading"
+                                    >
+                                      Introduction
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      {i.introduction}
+                                    </Typography>
+                                  </Box>
+                                  {ind === 3 ? null : (
+                                    <Box
+                                      sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "15px",
+                                        alignItems: "flex-start",
+                                      }}
+                                    >
+                                      <>
+                                        {" "}
+                                        <Typography
+                                          variant={
+                                            isMobile || isDeviceDown
+                                              ? "h6"
+                                              : "h5"
+                                          }
+                                          sx={{
+                                            fontFamily: "Poppins-Bold",
+                                            color: THEMEColor.buttons,
+                                            textAlign: "center",
+                                            // width: "80%",
+                                          }}
+                                          // className="oneday-heading"
+                                        >
+                                          History
+                                        </Typography>
+                                        <Typography
+                                          variant="body2"
+                                          sx={{
+                                            fontFamily: "Poppins-Medium",
+                                            color: THEMEColor.buttons,
+                                            // textAlign: "center",
+                                            // lineHeight: "20px",
+                                          }}
+                                        >
+                                          {i.history}
+                                        </Typography>
+                                      </>
+                                    </Box>
+                                  )}
+                                  {ind === 2 ||
+                                  ind === 3 ||
+                                  ind === 4 ||
+                                  ind === 7 ? (
+                                    <Box
+                                      sx={{
+                                        display: "flex",
+                                        flexDirection: "column",
+                                        gap: "15px",
+                                        alignItems: "flex-start",
+                                      }}
+                                    >
+                                      <Typography
+                                        variant={
+                                          isMobile || isDeviceDown ? "h6" : "h5"
+                                        }
+                                        sx={{
+                                          fontFamily: "Poppins-Bold",
+                                          color: THEMEColor.buttons,
+                                          textAlign: "center",
+                                          // width: "80%",
+                                        }}
+                                        // className="oneday-heading"
+                                      >
+                                        {i.title} Highlights
+                                      </Typography>
+                                      <Typography
+                                        variant="body2"
+                                        sx={{
+                                          fontFamily: "Poppins-Medium",
+                                          color: THEMEColor.buttons,
+                                          // textAlign: "center",
+                                          // lineHeight: "20px",
+                                        }}
+                                      >
+                                        <ul className="list-space">
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {ind === 2
+                                                ? `Aaraattu Festival`
+                                                : ind === 3
+                                                ? `Majestic Sculpture`
+                                                : ind === 4
+                                                ? `Architecture`
+                                                : ind === 7
+                                                ? `Goddess Bhadrakali`
+                                                : ``}
+                                            </span>
+                                            -{i.highlights.one}
+                                          </li>
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {ind === 2
+                                                ? `Navaratri Festival`
+                                                : ind === 3
+                                                ? `Pilgrimage`
+                                                : ind === 4
+                                                ? `Deity`
+                                                : ind === 7
+                                                ? `Festivals`
+                                                : " Amma Vilasom"}
+                                            </span>
+                                            -{i.highlights.two}
+                                          </li>
+                                          <li>
+                                            <span
+                                              style={{
+                                                fontFamily: "Poppins-Bold",
+                                              }}
+                                            >
+                                              {ind === 2
+                                                ? `Vishu`
+                                                : ind === 3
+                                                ? `Rituals and Offerings`
+                                                : ind === 4
+                                                ? `Festivals`
+                                                : ind === 7
+                                                ? `Artistic Significance`
+                                                : "Kottaram"}
+                                            </span>
+                                            -{i.highlights.three}
+                                          </li>
+                                        </ul>
+                                      </Typography>
+                                    </Box>
+                                  ) : null}
+
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <Typography
+                                      variant={
+                                        isMobile || isDeviceDown ? "h6" : "h5"
+                                      }
+                                      sx={{
+                                        fontFamily: "Poppins-Bold",
+                                        color: THEMEColor.buttons,
+                                        textAlign: "center",
+                                        // width: "80%",
+                                      }}
+                                      // className="oneday-heading"
+                                    >
+                                      Visiting {i.title}
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      <ul className="list-space">
+                                        <li>
+                                          <span
+                                            style={{
+                                              fontFamily: "Poppins-Bold",
+                                            }}
+                                          >
+                                            Timing
+                                          </span>
+                                          -{i.Visiting.timing}
+                                        </li>
+                                        <li>
+                                          <span
+                                            style={{
+                                              fontFamily: "Poppins-Bold",
+                                            }}
+                                          >
+                                            {ind === 3
+                                              ? `Entry Fee`
+                                              : `Dress Code`}
+                                          </span>
+                                          -
+                                          {ind === 3
+                                            ? i.Visiting.entryFee
+                                            : i.Visiting.dressCode}
+                                        </li>
+                                        <li>
+                                          <span
+                                            style={{
+                                              fontFamily: "Poppins-Bold",
+                                            }}
+                                          >
+                                            {ind === 3
+                                              ? `Tour Guide`
+                                              : "Photography"}
+                                          </span>
+                                          -
+                                          {ind === 3
+                                            ? i.Visiting.tourGuide
+                                            : i.Visiting.photography}
+                                        </li>
+                                      </ul>
+                                    </Typography>
+                                  </Box>
+                                  <Box
+                                    sx={{
+                                      display: "flex",
+                                      flexDirection: "column",
+                                      gap: "15px",
+                                      alignItems: "flex-start",
+                                    }}
+                                  >
+                                    <Typography
+                                      variant={
+                                        isMobile || isDeviceDown ? "h6" : "h5"
+                                      }
+                                      sx={{
+                                        fontFamily: "Poppins-Bold",
+                                        color: THEMEColor.buttons,
+                                        textAlign: "center",
+                                        // width: "80%",
+                                      }}
+                                      // className="oneday-heading"
+                                    >
+                                      Plan your visit
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      {i.planVisit.content}
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      <span
+                                        style={{ fontFamily: "Poppins-Bold" }}
+                                      >
+                                        Address
+                                      </span>
+                                      -{i.planVisit.address}
+                                    </Typography>
+                                    <Typography
+                                      variant="body2"
+                                      sx={{
+                                        fontFamily: "Poppins-Medium",
+                                        color: THEMEColor.buttons,
+                                        // textAlign: "center",
+                                        // lineHeight: "20px",
+                                      }}
+                                    >
+                                      {i.conclude}
+                                    </Typography>
+                                  </Box>
+                                </Box>
+                              </AccordionDetails>
+                            </Accordion>
+                          </>
+                        );
+                      })}
+                    </Box>
+                  </Box>
                 </Box>
               </Box>
               {/* ------- */}

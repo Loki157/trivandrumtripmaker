@@ -74,18 +74,18 @@ footer {
 
 .email-mob.MuiBox-root a {
   text-decoration: none;
-  color: var(--black);
+  color: var(--white);
   font-family: Poppins-Medium;
   font-size: 12px;
   text-align: center;
 }
-.email-mob.MuiBox-root:hover a {
+/* .email-mob.MuiBox-root:hover a {
   color: var(--green);
-}
+} */
 .header-svg-box.MuiBox-root a .fb,
 .header-svg-box.MuiBox-root a .wa,
 .header-svg-box.MuiBox-root a .in {
-  color: var(--black);
+  color: var(--white);
   cursor: pointer;
   transition: 0.3s all;
 }
@@ -164,13 +164,13 @@ nav.nav-button-mobile a.nav-active-btn {
 .nav-button-mobile a.nav-btn {
   color: var(--white);
   font-family: Poppins-Medium;
-  font-size: 10px;
+  font-size: 24px;
   transition: 0.3s all;
 }
 .nav-button-mobile a.nav-active-btn {
   color: var(--green);
   font-family: Poppins-Medium;
-  font-size: 10px;
+  font-size: 24px;
   transition: 0.3s all;
 }
 .nav-button-mobile a.nav-active-btn::after {
@@ -263,17 +263,26 @@ nav.nav-button-footer a.nav-btn {
 .image-container img {
   width: 100%;
 }
+.swiper-button-prev,
+.swiper-button-next {
+  color: var(--green) !important;
+}
+.swiper-pagination-bullet {
+  background-color: var(--green) !important;
+  /* width: 13px !important; */
+  /* height: 13px !important; */
+}
 .book-trip-btn.MuiButton-root {
   border-radius: 0;
 
   text-transform: capitalize;
-  background-color: var(--white);
-  color: var(--black);
-  border: 2px solid var(--white);
-  transition: 0.2s all;
+  background-color: var(--green);
+  color: var(--white);
+  border: 2px solid var(--green);
+  transition: 0.3s all;
 }
 .book-trip-btn.MuiButton-root:hover {
-  color: var(--white);
+  color: var(--green);
   background-color: transparent;
 }
 .aboutus-text::after {
@@ -407,9 +416,24 @@ nav.nav-button-footer a.nav-btn {
   display: flex;
   align-items: center;
 }
+.footer-box-3 .contactus-details-1 div a text,
+.footer-box-3 .contactus-details-1 div p,
 .footer-box-3 .contactus-details-1 div text {
   font-family: "Poppins-SemiBold";
   font-size: 12px;
+  transition: 0.2s all;
+  text-decoration: none;
+}
+.footer-box-3 .contactus-details-1 div div a,
+.contactus-details-1 div text,
+.footer-box-3 .contactus-details-1 div a {
+  text-decoration: none;
+  color: var(--black);
+  cursor: pointer;
+}
+.footer-box-3 .contactus-details-1 div a:hover,
+.contactus-details-1 div text:hover {
+  color: var(--green);
 }
 .footer-box-3 .contactus-details-2 h3 {
   font-family: "Poppins-SemiBold";
@@ -454,4 +478,18 @@ nav.nav-button-footer a.nav-btn {
   .land-main-img.MuiBox-root {
     background-attachment: initial !important;
   }
+}
+@media screen and(max-width:400px) {
+  .land-main-img.MuiBox-root {
+    background-position: 80% 100% !important;
+  }
+}
+.place-card {
+  position: absolute;
+  height: 150px;
+  width: 150px;
+  background-color: #3dae2b;
+  border-radius: 50%;
+  bottom: -80px;
+  right: -80px;
 }
