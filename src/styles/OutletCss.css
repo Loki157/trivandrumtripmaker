@@ -10,7 +10,14 @@
   .contact-us-bg.MuiBox-root {
     height: 1000px;
   }
-}
+}@media only screen and (max-width: 900px) {
+  .contact-us-bg.MuiBox-root {
+    height: 1000px;
+  }
+}@media only screen and (max-width: 900px) {
+  .contact-us-bg.MuiBox-root {
+    height: 1200px;
+  }}
 .place-card{
   position: absolute;
   height: 150px;

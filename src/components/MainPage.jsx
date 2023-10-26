@@ -1,15 +1,53 @@
 import { useEffect, useState } from "react";
 
-import { Box, IconButton } from "@mui/material";
+import {
+  Backdrop,
+  Box,
+  IconButton,
+  SpeedDial,
+  SpeedDialAction,
+  SpeedDialIcon,
+} from "@mui/material";
 import "../styles/MainPage.css";
 import { Outlet } from "react-router-dom";
 import HeaderPage from "./skeleton/HeaderPage";
 import FooterPage from "./skeleton/FooterPage";
-
-import { ArrowUpwardRounded as ArrowUpwardRoundedIcon } from "@mui/icons-material";
-
+import { useTheme } from "@mui/material/styles";
+import {
+  ArrowUpwardRounded as ArrowUpwardRoundedIcon,
+  CallOutlined as CallOutlinedIcon,
+  WhatsApp as WhatsAppIcon,
+  MailOutline as MailOutlineIcon,
+} from "@mui/icons-material";
+import { THEMEColor } from "../assets/THEMES";
+const actions = [
+  {
+    icon: <CallOutlinedIcon />,
+    name: "+918547676840",
+    open: "tel:+918086040400",
+  },
+  {
+    icon: <CallOutlinedIcon />,
+    name: "+918086040400",
+    open: "tel:+918086040400",
+  },
+  {
+    icon: <WhatsAppIcon />,
+    name: "Go to WhatsApp Chat",
+    open: "https://wa.me/message/5QKJSYVWLPELD1",
+  },
+  {
+    icon: <MailOutlineIcon />,
+    name: "trivandrumtripmaker@gmail.com",
+    open: "mailto:trivandrumtripmaker@gmail.com",
+  },
+];
 function MainPage() {
+  const theme = useTheme();
   const [isVisible, setIsVisible] = useState(false);
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
   const handleScroll = () => {
     if (window.scrollY > 100) {
       setIsVisible(true);
@@ -37,7 +75,55 @@ function MainPage() {
           <ArrowUpwardRoundedIcon />
         </IconButton>
       )}
-
+      <div style={{ width: "100%", height: "100%" }}>
+        <SpeedDial
+          ariaLabel="SpeedDial tooltip example"
+          sx={{
+            position: "fixed",
+            bottom: 16,
+            left: 16,
+            ".css-7dv1rb-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab,.css-7dv1rb-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab:active,.css-7dv1rb-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab:hover":
+              {
+                backgroundColor: THEMEColor.Secondary,
+              },
+            width: "100%",
+            alignItems: "flex-start",
+          }}
+          icon={<SpeedDialIcon />}
+          onClose={(event, reason) => {
+            if (reason === "mouseLeave" && open === true) {
+              handleOpen();
+            }
+            // handleClose
+          }}
+          onOpen={(event, reason) => {
+            if (reason === "mouseEnter") {
+              handleClose();
+            }
+          }}
+          onClick={(event, reason) => {
+            setOpen((open) => !open);
+          }}
+          open={open}
+          direction="up"
+        >
+          {actions.map((action) => (
+            <SpeedDialAction
+              sx={{
+                "&.MuiSpeedDialAction-staticTooltip .MuiSpeedDialAction-staticTooltipLabel":
+                  { left: "100%", width: "240px" },
+              }}
+              key={action.name}
+              icon={action.icon}
+              tooltipTitle={action.name}
+              tooltipOpen
+              onClick={() => {
+                window.open(action.open, "_blank");
+              }}
+            />
+          ))}
+        </SpeedDial>
+      </div>
       {/* <Box className="main"> */}
       <Box className="main-head" id="main-head-scroll">
         {/* <Box position={"relative"} width={"100%"}> */}
@@ -47,6 +133,7 @@ function MainPage() {
           </header>
           {/* </Box> */}
           <Box className="container">
+            <Backdrop open={open} />
             <Outlet />
           </Box>
           <footer>

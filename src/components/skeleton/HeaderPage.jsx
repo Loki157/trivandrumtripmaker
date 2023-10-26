@@ -98,9 +98,9 @@ function HeaderPage() {
                 <div
                   style={{
                     display: "flex",
-                    flexDirection: "row",
+                    flexDirection: "column",
                     // alignItems: "flex-start",
-                    gap: "10px",
+                    // gap: "10px",    
                   }}
                 >
                   <a href="tel:+918086040400">
@@ -147,8 +147,10 @@ function HeaderPage() {
                     color: "white",
                     padding: "5px",
                   }}
-                />
+                /> <a href="mailto:trivandrumtripmaker@gmail.com">
                 <text> trivandrumtripmaker@gmail.com</text>
+              </a>
+               
               </div>
             </div>
             <div className="contactus-details-2">
@@ -331,7 +333,11 @@ function HeaderPage() {
                     >
                       <CallRoundedIcon fontSize="small" />
                     </IconButton>
-                    <a href="tel:+918086040400">Ph :+918086040400</a>
+                    <a href="tel:+918086040400">Ph :+918086040400</a>{" "}
+                  <span style={{color:THEMEColor.PRIMARY,fontFamily:"Poppins-Regular"}} >Or</span>
+                    <a href="tel:+918547676840">
+                      <text>+918547676840</text>
+                    </a>
                   </Box>
                 </Box>
                 <Box display={"flex"} gap="10px" className="header-svg-box">

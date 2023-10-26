@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   Button,
@@ -24,36 +24,51 @@ import oneDay from "../../../assets/images/places/oneday.jpg";
 import { styled, useTheme } from "@mui/material/styles";
 import { THEMEColor } from "../../../assets/THEMES";
 import { cards } from "../../../assets/rides";
-
+import tourImg from "../../../assets/images/tour/tour.jpg"
+import { useLocation } from "react-router";
 function Places() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDevice = useMediaQuery(theme.breakpoints.up("md"));
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeDeviceUp = useMediaQuery(theme.breakpoints.up("lg"));
-
+  const location=useLocation()
+  const pathname=location.pathname
+  useEffect(() => {
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }, [pathname]);
   return (
-    <div>
-      {" "}
-      <Box
-        sx={{
-          backgroundImage: `url("${oneDay}")`,
-          backgroundPositionY: isMobile || isDeviceDown ? "50%" : "70%",
-          backgroundRepeat: "no-repeat",
-          backgroundAttachment: "fixed",
-          backgroundSize: "cover",
-          height: isMobile || isDeviceDown ? "300px" : "350px",
-          minWidth: "100%",
-          // filter: "brightness(50% )",
-        }}
-      >
-        <Box
+    <div
+    style={{
+      marginTop: isDevice ? "9px" :isMobile||isDeviceDown?"-33.3px": "-28px",
+      height: "100%",
+      // display: "flex",
+      // flexDirection: "column",
+      // alignItems: "center",justifyContent:"space-between"
+    }}
+  >
+         <Box
           sx={{
-            height: "100%",
-            background: " rgba(0,0,0, 0.8)",
-            width: "100%",
+            backgroundImage: `url("${tourImg}")`,
+            backgroundRepeat: "no-repeat",
+            backgroundPosition:
+            isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
+          backgroundAttachment:
+            isMobile || isDeviceDown ? "initial" : "fixed",
+          // backgroundSize: "cover",
+          height: isMobile || isDeviceDown ? "400px" : "400px",
+            backgroundSize: "cover",
+            minWidth: "100%",
+            // filter: "brightness(50% )",
           }}
         >
+          <Box
+            sx={{
+              height: "100%",
+              background: " rgba(0,0,0, 0.6)",
+              width: "100%",
+            }}
+          >
           <Container
             fixed
             sx={{

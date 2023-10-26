@@ -23,7 +23,8 @@ import ArrowForwardIosSharpIcon from "@mui/icons-material/ArrowForwardIosSharp";
 import MuiAccordion from "@mui/material/Accordion";
 import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
-import { ArrowBackRounded as ArrowBackRoundedIcon } from "@mui/icons-material";
+import { ArrowBackRounded as ArrowBackRoundedIcon, Call as CallIcon,
+  WhatsApp as WhatsAppIcon, } from "@mui/icons-material";
 import { useTheme, styled } from "@mui/material/styles";
 import honeymoon from "../../../../assets/images/tour/honeymoon.jpg";
 import { THEMEColor } from "../../../../assets/THEMES";
@@ -32,6 +33,7 @@ import moment from "moment";
 import { useLocation, useNavigate } from "react-router-dom";
 import PilgrimageTour1 from "../../../../assets/images/tour/pilgrimage1.jpg";
 import { inclusions, pilgrimagePlan } from "../../../../assets/rides";
+import { ROUTEPATH } from "../../../ROUTEPATH";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -145,13 +147,13 @@ function PilgrimageTour() {
       console.log("error", err);
     }
   };
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
   return (
     <div
       style={{
-        marginTop: isLargeDeviceUp ? "7.1vh" : isDevice ? "4.8vh" : "5vh",
+        marginTop: isDevice ? "9px" :isMobile||isDeviceDown?"-33.3px": "-28px",
         height: "100%",
         // display: "flex",
         // flexDirection: "column",
@@ -214,7 +216,13 @@ function PilgrimageTour() {
                   // lineHeight: "20px",
                 }}
               >
-                At Trivandrum Trip Maker, we believe that pilgrimage is more
+                At &nbsp;
+                  <span className="highlight-text">
+                    <a onClick={() => navigate(ROUTEPATH.MAIN)}>
+                      TrivandrumTripMaker.com
+                    </a>
+                  </span>{" "}
+                  &nbsp;, we believe that pilgrimage is more
                 than just a physical journey; it&apos;s a spiritual quest that
                 rejuvenates the mind and uplifts the spirit. Our pilgrimage
                 packages offer a harmonious blend of faith, culture, and
@@ -368,7 +376,75 @@ function PilgrimageTour() {
                         // sx={{my:2}}
                       >
                         Submit
-                      </Button>
+                      </Button>         <Divider
+                        sx={{
+                          width: "100%",
+                          "::before": {
+                            borderTop: `2px solid ${THEMEColor.buttons}`,
+                          },
+                          "::after": {
+                            borderTop: `2px solid ${THEMEColor.buttons}`,
+                          },
+                        }}
+                        textAlign="center"
+                      >
+                        <b>OR</b>
+                      </Divider>
+                      <Box
+                        display={"flex"}
+                        gap="20px"
+                        width="100%"
+                        justifyContent={"center"}
+                        flexDirection={"column"}
+                      >
+                        <Box
+                          display={"flex"}
+                          gap="20px"
+                          width="100%"
+                          justifyContent={"center"}
+                          flexDirection={
+                            isMobile || isDeviceDown ? "column" : "row"
+                          }
+                        >
+                          <a href="tel:+918086040400" style={{ width: "100%" }}>
+                            {" "}
+                            <Button
+                              variant="contained"
+                              className="learnmore-btn"
+                              fullWidth
+                              startIcon={<CallIcon />}
+                            >
+                              +918086040400
+                            </Button>
+                          </a>
+                          <a href="tel:+918547676840" style={{ width: "100%" }}>
+                            {" "}
+                            <Button
+                              variant="contained"
+                              className="learnmore-btn"
+                              fullWidth
+                              startIcon={<CallIcon />}
+                            >
+                              +918547676840
+                            </Button>
+                          </a>
+                        </Box>{" "}
+                        <a
+                          href="https://wa.me/message/5QKJSYVWLPELD1"
+                          target="_blank"
+                          rel="noreferrer"
+                          style={{ width: "100%" }}
+                        >
+                          <Button
+                            variant="contained"
+                            className="learnmore-btn"
+                            fullWidth
+                            startIcon={<WhatsAppIcon />}
+                          >
+                            WhatsApp
+                          </Button>
+                        </a>
+                      </Box>
                     </Box>
                   </form>
                 </Box>

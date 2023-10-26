@@ -43,6 +43,8 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import emailjs from "@emailjs/browser";
 import { cards } from "../../../../assets/rides";
 import { airportData } from "./airportData";
+import airportImg from "../../../../assets/images/airports/trivandrumairport.jpg"
+import { ROUTEPATH } from "../../../ROUTEPATH";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -221,21 +223,24 @@ function AirportPickupDrop() {
       )}
       <div
         style={{
-          marginTop: isLargeDeviceUp ? "7.1vh" : isDevice ? "4.8vh" : "5vh",
+          marginTop: isDevice ? "9px" :isMobile||isDeviceDown?"-33.3px": "-28px",
           height: "100%",
           // display: "flex",
           // flexDirection: "column",
           // alignItems: "center",justifyContent:"space-between"
         }}
       >
-        <Box
+             <Box
           sx={{
-            backgroundImage: `url("${oneDay}")`,
-            backgroundPositionY: isMobile || isDeviceDown ? "50%" : "70%",
+            backgroundImage: `url("${airportImg}")`,
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
+            backgroundPosition:
+            isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
+          backgroundAttachment:
+            isMobile || isDeviceDown ? "initial" : "fixed",
+          // backgroundSize: "cover",
+          height: isMobile || isDeviceDown ? "400px" : "400px",
             backgroundSize: "cover",
-            height: isMobile || isDeviceDown ? "300px" : "350px",
             minWidth: "100%",
             // filter: "brightness(50% )",
           }}
@@ -243,7 +248,7 @@ function AirportPickupDrop() {
           <Box
             sx={{
               height: "100%",
-              background: " rgba(0,0,0, 0.8)",
+              background: " rgba(0,0,0, 0.6)",
               width: "100%",
             }}
           >
@@ -357,14 +362,11 @@ function AirportPickupDrop() {
                 >
                   Welcome to your gateway to hassle-free travel in Trivandrum,
                   the heart of Kerala! At{" "}
-                  <span
-                    style={{
-                      color: THEMEColor.Secondary,
-                      fontFamily: "Poppins-SemiBold",
-                    }}
-                  >
-                    TrivandrumTripMaker.com
-                  </span>
+                 <span className="highlight-text">
+                      <a onClick={() => navigate(ROUTEPATH.MAIN)}>
+                        TrivandrumTripMaker.com
+                      </a>
+                    </span>
                   , we understand that a smooth arrival and departure experience
                   is essential for making your visit memorable. That&apos;s why
                   we offer top-notch airport pickup and drop-off services
@@ -761,22 +763,41 @@ function AirportPickupDrop() {
                         display={"flex"}
                         gap="20px"
                         width="100%"
-                        justifyContent={"space-between"}
-                        flexDirection={
-                          isMobile || isDeviceDown ? "column" : "row"
-                        }
+                        justifyContent={"center"}
+                        flexDirection={"column"}
                       >
-                        <a href="tel:+918086040400" style={{ width: "100%" }}>
-                          {" "}
-                          <Button
-                            variant="contained"
-                            className="learnmore-btn"
-                            fullWidth
-                            startIcon={<CallIcon />}
-                          >
-                            +918086040400
-                          </Button>
-                        </a>
+                        <Box
+                          display={"flex"}
+                          gap="20px"
+                          width="100%"
+                          justifyContent={"center"}
+                          flexDirection={
+                            isMobile || isDeviceDown ? "column" : "row"
+                          }
+                        >
+                          <a href="tel:+918086040400" style={{ width: "100%" }}>
+                            {" "}
+                            <Button
+                              variant="contained"
+                              className="learnmore-btn"
+                              fullWidth
+                              startIcon={<CallIcon />}
+                            >
+                              +918086040400
+                            </Button>
+                          </a>
+                          <a href="tel:+918547676840" style={{ width: "100%" }}>
+                            {" "}
+                            <Button
+                              variant="contained"
+                              className="learnmore-btn"
+                              fullWidth
+                              startIcon={<CallIcon />}
+                            >
+                              +918547676840
+                            </Button>
+                          </a>
+                        </Box>{" "}
                         <a
                           href="https://wa.me/message/5QKJSYVWLPELD1"
                           target="_blank"
