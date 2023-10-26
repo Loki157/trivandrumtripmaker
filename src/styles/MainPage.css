@@ -1,3 +1,8 @@
+@media screen and (max-width: 600px) {
+  :root {
+    --swiper-navigation-size: 30px !important;
+  }
+}
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -250,7 +255,18 @@ nav.nav-button-footer a.nav-btn {
   font-size: 12px;
   text-align: center;
 }
-/* ---------------- */
+/* -------LANDINGPAGE--------- */
+.highlight-text a {
+  transition: 0.2s all;
+  font-family: Barlow-SemiBold;
+  color: var(--green);
+  cursor: pointer;
+}
+.highlight-text a:hover,
+.highlight-text a:active {
+  text-decoration: none;
+  border-bottom: 1.6px solid var(--green);
+}
 .land-main-img.MuiBox-root {
   background-size: cover;
   -webkit-background-size: cover;

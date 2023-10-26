@@ -40,6 +40,8 @@ import MuiAccordionSummary from "@mui/material/AccordionSummary";
 import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import emailjs from "@emailjs/browser";
 import { tour } from "../../../../assets/rides";
+import tourImg from "../../../../assets/images/tour/tour.jpg";
+import { ROUTEPATH } from "../../../ROUTEPATH";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -177,9 +179,9 @@ function TourPlans() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
@@ -194,7 +196,11 @@ function TourPlans() {
       )} */}
       <div
         style={{
-          marginTop: isDevice ? "9px" : "-28px",
+          marginTop: isDevice
+            ? "9px"
+            : isMobile || isDeviceDown
+            ? "-33.3px"
+            : "-28px",
           height: "100%",
           // display: "flex",
           // flexDirection: "column",
@@ -203,12 +209,15 @@ function TourPlans() {
       >
         <Box
           sx={{
-            backgroundImage: `url("${oneDay}")`,
-            backgroundPositionY: isMobile || isDeviceDown ? "50%" : "70%",
+            backgroundImage: `url("${tourImg}")`,
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
+            backgroundPosition:
+              isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
+            backgroundAttachment:
+              isMobile || isDeviceDown ? "initial" : "fixed",
+            // backgroundSize: "cover",
+            height: isMobile || isDeviceDown ? "400px" : "400px",
             backgroundSize: "cover",
-            height: isMobile || isDeviceDown ? "300px" : "350px",
             minWidth: "100%",
             // filter: "brightness(50% )",
           }}
@@ -216,7 +225,7 @@ function TourPlans() {
           <Box
             sx={{
               height: "100%",
-              background: " rgba(0,0,0, 0.8)",
+              background: " rgba(0,0,0, 0.6)",
               width: "100%",
             }}
           >
@@ -330,15 +339,19 @@ function TourPlans() {
                   immersion, and unforgettable journeys! Our tour plans are
                   meticulously crafted to take you on a voyage of discovery,
                   offering a kaleidoscope of experiences that will enrich your
-                  life and create memories to last a lifetime. At
-                  TrivandrumTripMaker, were&apos; passionate about turning your
-                  travel dreams into reality. Join us on a transformative
-                  journey where every moment is a chance to explore new
-                  horizons, experience the world&apos;s wonders, and embrace the
-                  beauty of diverse cultures. Get ready to embark on an
-                  incredible adventure with our thoughtfully designed tour plans
-                  as your compass, guiding you to the heart of unforgettable
-                  experiences.
+                  life and create memories to last a lifetime. At &nbsp;
+                  <span className="highlight-text">
+                    <a onClick={() => navigate(ROUTEPATH.MAIN)}>
+                      TrivandrumTripMaker.com
+                    </a>
+                  </span>{" "}
+                  &nbsp;, were&apos; passionate about turning your travel dreams
+                  into reality. Join us on a transformative journey where every
+                  moment is a chance to explore new horizons, experience the
+                  world&apos;s wonders, and embrace the beauty of diverse
+                  cultures. Get ready to embark on an incredible adventure with
+                  our thoughtfully designed tour plans as your compass, guiding
+                  you to the heart of unforgettable experiences.
                 </Typography>
               </Box>
               <Box
@@ -488,7 +501,9 @@ function TourPlans() {
                                         : "-30px"
                                       : isMobile || isDeviceDown
                                       ? "30px"
-                                      : XS?"60px":"",
+                                      : XS
+                                      ? "60px"
+                                      : "",
                                 }}
                               >
                                 <IconButton

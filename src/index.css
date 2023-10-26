@@ -8,6 +8,7 @@
   --black: #282626;
   --white: #ffffff;
   scroll-behavior: smooth;
+  
 }
 body,
 html {
@@ -16,7 +17,7 @@ html {
   box-sizing: border-box;
   height: 100vh;
   min-height: 100vh;
-  max-height: 100vh;
+  max-height: 100vh;background-color: #f8f8f8;
 }
 @font-face {
   font-family: "Poppins-Medium";

@@ -25,6 +25,7 @@ import {
   CallRounded as CallRoundedIcon,
   MailRounded as MailRoundedIcon,
   LocationOn as LocationOnIcon,
+  WhatsApp as WhatsAppIcon,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../../../styles/OutletCss.css";
@@ -129,20 +130,26 @@ function ContactUs() {
       {" "}
       <div
         style={{
-          marginTop: isLargeDeviceUp ? "7.1vh" : isDevice ? "4.8vh" : "5vh",
+          marginTop: isDevice
+            ? "9px"
+            : isMobile || isDeviceDown
+            ? "-33.3px"
+            : "-28px",
           height: "100%",
-          // display: "flex",
-          // flexDirection: "column",
+          display: "flex",
+          flexDirection: "column",
+          gap: "10px",
           // alignItems: "center",justifyContent:"space-between"
         }}
       >
         <Box
           sx={{
-            backgroundImage: `url("${oneDay}")`,
-            backgroundPositionY: isMobile || isDeviceDown ? "50%" : "70%",
-            backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
-            backgroundSize: "cover",
+            backgroundColor:THEMEColor.buttons,
+            // backgroundImage: `url("${oneDay}")`,
+            // backgroundPositionY: isMobile || isDeviceDown ? "50%" : "70%",
+            // backgroundRepeat: "no-repeat",
+            // backgroundAttachment: "fixed",
+            // backgroundSize: "cover",
             height: isMobile || isDeviceDown ? "300px" : "350px",
             minWidth: "100%",
             // filter: "brightness(50% )",
@@ -243,13 +250,13 @@ function ContactUs() {
                 gap={"20px"}
               >
                 <Grid container spacing={4}>
-                  <Grid item md={6}>
+                  <Grid item md={6} sm={12} xs={12}>
                     <Box
                       height={"100%"}
                       display="flex"
                       flexDirection={"column"}
                       gap={"25px"}
-                      width="80%"
+                      width="100%"
                     >
                       <Typography
                         variant="h5"
@@ -292,26 +299,120 @@ function ContactUs() {
                         <Box
                           display="flex"
                           flexDirection={"column"}
-                          justifyContent={"space-between"}
+                          justifyContent={"center"}
                           alignItems={"center"}
                         >
                           <Typography
-                            variant="body1"
+                            variant="body2"
                             sx={{ fontFamily: "Poppins-SemiBold" }}
                           >
                             Contact Number
                           </Typography>
+                          <Box
+                            height={"100%"}
+                            display="flex"
+                            flexDirection={"column"}
+                            // justifyContent={"space-around"}
+                            // alignItems={"flex-start "}
+                            gap={"2px"}
+                          >
+                            <a
+                              href="tel:+918086040400"
+                              style={{ textDecoration: "none" }}
+                            >
+                              <Typography
+                                variant={"body1"}
+                                sx={{
+                                  fontFamily:
+                                    isMobile || isDeviceDown
+                                      ? "Poppins-SemiBold"
+                                      : "Poppins-Bold",
+                                  color: THEMEColor.Secondary,
+                                }}
+                              >
+                                +918086040400
+                              </Typography>
+                            </a>
+                            <span
+                              style={{
+                                color: THEMEColor.buttons,
+                                fontFamily: "Poppins-Bold",
+                                textAlign: "center",
+                              }}
+                            >
+                              Or
+                            </span>
+                            <a
+                              href="tel:+918547676840"
+                              style={{ textDecoration: "none" }}
+                            >
+                              <Typography
+                                variant={"body1"}
+                                sx={{
+                                  fontFamily:
+                                    isMobile || isDeviceDown
+                                      ? "Poppins-SemiBold"
+                                      : "Poppins-Bold",
+                                  color: THEMEColor.Secondary,
+                                }}
+                              >
+                                +918547676840
+                              </Typography>
+                            </a>
+                          </Box>
+                        </Box>
+                      </Box>{" "}
+                      <Box display="flex" gap={"10px"} height="100%">
+                        <Box display="flex" alignItems={"center"}>
+                          <IconButton
+                            disableFocusRipple
+                            disableTouchRipple
+                            disableRipple
+                            sx={{
+                              borderRadius: 0,
+                              ":active": { borderRadius: 0 },
+                              backgroundColor: THEMEColor.buttons,
+                              color: THEMEColor.Secondary,
+                              padding: "10px",
+                            }}
+                          >
+                            <WhatsAppIcon />
+                          </IconButton>
+                        </Box>
+                        <Box
+                          display="flex"
+                          flexDirection={"column"}
+                          justifyContent={"center"}
+                          alignItems={"flex-start"}
+                          width={"100%"}
+                        >
                           <Typography
                             variant="body1"
                             sx={{
-                              fontFamily: "Poppins-Bold",
-                              color: THEMEColor.Secondary,
+                              fontFamily: "Poppins-SemiBold",
+                              // float: "left",
                             }}
                           >
-                            +918086040400
-                          </Typography>
+                            WhatsApp
+                          </Typography>{" "}
+                          <a
+                            href="https://wa.me/message/5QKJSYVWLPELD1"
+                            target="_blank"
+                            rel="noreferrer"
+                            style={{ textDecoration: "none" }}
+                          >
+                            <Typography
+                              variant="body1"
+                              sx={{
+                                fontFamily: "Poppins-Bold",
+                                color: THEMEColor.Secondary,
+                              }}
+                            >
+                              Go to WhatsApp Chat
+                            </Typography>
+                          </a>
                         </Box>
-                      </Box>{" "}
+                      </Box>
                       <Box display="flex" gap={"10px"} height="100%">
                         <Box display="flex" alignItems={"center"}>
                           <IconButton
@@ -332,27 +433,34 @@ function ContactUs() {
                         <Box
                           display="flex"
                           flexDirection={"column"}
-                          justifyContent={"space-between"}
+                          justifyContent={"center"}
                           alignItems={"flex-start"}
+                          width={"100%"}
                         >
                           <Typography
                             variant="body1"
                             sx={{
                               fontFamily: "Poppins-SemiBold",
-                              float: "left",
+                              // float: "left",
                             }}
                           >
                             Email Id
                           </Typography>
-                          <Typography
-                            variant="body1"
-                            sx={{
-                              fontFamily: "Poppins-Bold",
-                              color: THEMEColor.Secondary,
-                            }}
+                          <a
+                            href="mailto:trivandrumtripmaker@gmail.com"
+                            style={{ textDecoration: "none" }}
                           >
-                            trivandrumtripmaker@gmail.com
-                          </Typography>
+                            {" "}
+                            <Typography
+                              variant="body1"
+                              sx={{
+                                fontFamily: "Poppins-Bold",
+                                color: THEMEColor.Secondary,
+                              }}
+                            >
+                              trivandrumtripmaker@gmail .com
+                            </Typography>
+                          </a>
                         </Box>
                       </Box>{" "}
                       <Box display="flex" gap={"10px"} height="100%">
@@ -398,13 +506,14 @@ function ContactUs() {
                       </Box>
                     </Box>
                   </Grid>
-                  <Grid item md={6}>
+                  <Grid item md={6} sm={12} xs={12}>
                     <Box
                       height={"100%"}
                       display="flex"
                       flexDirection={"column"}
-                      gap={"25px"}
+                      gap={"10px"}
                       alignItems={"flex-start"}
+                      width={"100%"}
                     >
                       <Typography
                         variant="h5"
@@ -420,28 +529,32 @@ function ContactUs() {
                         flexDirection={"column"}
                         justifyContent={"center"}
                         width="100%"
-                        gap="20px"
+                        gap="10px"
                       >
-                        <Box
-                          sx={{
-                            display: "flex",
-                            flexDirection: "column",
-                            gap: "10px",
-                            alignItems: "center",
-                            width: "100%",
-                          }}
+                        {" "}
+                        <form
+                          ref={form}
+                          style={{ width: "100%" }}
+                          onSubmit={handleSubmit}
                         >
                           {" "}
-                          <form
-                            ref={form}
-                            style={{ width: "100%" }}
-                            onSubmit={handleSubmit}
+                          <Box
+                            sx={{
+                              display: "flex",
+                              flexDirection: "column",
+                              gap: "10px",
+                              alignItems: "center",
+                              width: "100%",
+                            }}
                           >
                             <Box
                               display={"flex"}
                               gap="20px"
                               width="100%"
                               justifyContent={"center"}
+                              flexDirection={
+                                isMobile || isDeviceDown ? "column" : "row"
+                              }
                             >
                               <FormControl required fullWidth>
                                 <FormLabel>Full Name</FormLabel>
@@ -536,8 +649,8 @@ function ContactUs() {
                             >
                               Submit
                             </Button>
-                          </form>
-                        </Box>
+                          </Box>
+                        </form>
                         {openAlert ? (
                           <Alert
                             onClose={() => {

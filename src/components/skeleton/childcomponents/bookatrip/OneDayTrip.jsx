@@ -53,6 +53,8 @@ import emailjs from "@emailjs/browser";
 import kanyakumari from "../../../../assets/images/oneday/kanyakumari/kanyakumari.jpg";
 import varkala from "../../../../assets/images/oneday/varkala/varkala.jpg";
 import pilgrimage from "../../../../assets/images/oneday/pilgrimage/pilgrimage.jpg";
+import padma3 from '../../../../assets/images/oneday/kanyakumari/padmana/padmana3.jpg'
+import { ROUTEPATH } from "../../../ROUTEPATH";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -212,9 +214,9 @@ function OneDayTrip() {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  // }, [pathname]);
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   return (
     <>
@@ -229,7 +231,11 @@ function OneDayTrip() {
       )}
       <div
         style={{
-          marginTop: isLargeDeviceUp ? "7.1vh" : isDevice ? "4.8vh" : "5vh",
+          marginTop: isDevice
+            ? "9px"
+            : isMobile || isDeviceDown
+            ? "-33.3px"
+            : "-28px",
           height: "100%",
           // display: "flex",
           // flexDirection: "column",
@@ -238,12 +244,15 @@ function OneDayTrip() {
       >
         <Box
           sx={{
-            backgroundImage: `url("${oneDay}")`,
-            backgroundPositionY: isMobile || isDeviceDown ? "50%" : "70%",
+            backgroundImage: `url("${padma3}")`,
             backgroundRepeat: "no-repeat",
-            backgroundAttachment: "fixed",
+            backgroundPosition:
+            isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
+          backgroundAttachment:
+            isMobile || isDeviceDown ? "initial" : "fixed",
+          // backgroundSize: "cover",
+          height: isMobile || isDeviceDown ? "400px" : "400px",
             backgroundSize: "cover",
-            height: isMobile || isDeviceDown ? "300px" : "350px",
             minWidth: "100%",
             // filter: "brightness(50% )",
           }}
@@ -251,7 +260,7 @@ function OneDayTrip() {
           <Box
             sx={{
               height: "100%",
-              background: " rgba(0,0,0, 0.8)",
+              background: " rgba(0,0,0, 0.5)",
               width: "100%",
             }}
           >
@@ -309,8 +318,10 @@ function OneDayTrip() {
                     }}
                   >
                     Kerala&apos;s Best One-Day Trip Experience with &nbsp;
-                    <span style={{ color: THEMEColor.Secondary }}>
-                      Trivandrum Trip Maker
+                    <span className="highlight-text">
+                      <a onClick={() => navigate(ROUTEPATH.MAIN)} style={{fontSize:isMobile || isDeviceDown ?"25px":"40px"}}>
+                        Trivandrum Trip Maker
+                      </a>
                     </span>
                   </Typography>
                 </Box>
@@ -435,6 +446,9 @@ function OneDayTrip() {
                       {" "}
                       <Box
                         display={"flex"}
+                        flexDirection={
+                          isMobile || isDeviceDown ? "column" : "row"
+                        }
                         gap="20px"
                         width="100%"
                         justifyContent={"center"}
@@ -469,6 +483,9 @@ function OneDayTrip() {
                         gap="20px"
                         width="100%"
                         justifyContent={"center"}
+                        flexDirection={
+                          isMobile || isDeviceDown ? "column" : "row"
+                        }
                       >
                         <FormControl required fullWidth>
                           <FormLabel>Your Phone number</FormLabel>
@@ -687,21 +704,40 @@ function OneDayTrip() {
                         gap="20px"
                         width="100%"
                         justifyContent={"center"}
-                        flexDirection={
-                          isMobile || isDeviceDown ? "column" : "row"
-                        }
+                        flexDirection={"column"}
                       >
-                        <a href="tel:+918086040400" style={{ width: "100%" }}>
-                          {" "}
-                          <Button
-                            variant="contained"
-                            className="learnmore-btn"
-                            fullWidth
-                            startIcon={<CallIcon />}
-                          >
-                            +918086040400
-                          </Button>
-                        </a>
+                        <Box
+                          display={"flex"}
+                          gap="20px"
+                          width="100%"
+                          justifyContent={"center"}
+                          flexDirection={
+                            isMobile || isDeviceDown ? "column" : "row"
+                          }
+                        >
+                          <a href="tel:+918086040400" style={{ width: "100%" }}>
+                            {" "}
+                            <Button
+                              variant="contained"
+                              className="learnmore-btn"
+                              fullWidth
+                              startIcon={<CallIcon />}
+                            >
+                              +918086040400
+                            </Button>
+                          </a>
+                          <a href="tel:+918547676840" style={{ width: "100%" }}>
+                            {" "}
+                            <Button
+                              variant="contained"
+                              className="learnmore-btn"
+                              fullWidth
+                              startIcon={<CallIcon />}
+                            >
+                              +918547676840
+                            </Button>
+                          </a>
+                        </Box>{" "}
                         <a
                           href="https://wa.me/message/5QKJSYVWLPELD1"
                           target="_blank"
