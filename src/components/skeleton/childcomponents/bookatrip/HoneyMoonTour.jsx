@@ -36,6 +36,7 @@ import moment from "moment";
 import { useLocation, useNavigate } from "react-router-dom";
 import { honeymoonPlan, inclusions } from "../../../../assets/rides";
 import AlertSnack from "../separate/AlertSnack";
+import HeaderHelmet from "../../../HeaderHelmet";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -172,6 +173,8 @@ function HoneyMoonTour() {
     window.scrollTo(0, 0);
   }, [pathname]);
   return (
+  <>
+<HeaderHelmet  value={"Tour Packages for Honeymoon, Pilgrimage, and 5-Day Trips"}/>
     <div
       style={{
         marginTop: isDevice
@@ -603,6 +606,7 @@ function HoneyMoonTour() {
         </Container>
       </Box>
     </div>
+  </>
   );
 }
 

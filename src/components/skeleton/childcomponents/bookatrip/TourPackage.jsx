@@ -35,6 +35,7 @@ import tour from "../../../../assets/images/tour/tour.jpg";
 import { inclusions, tourPackPlan } from "../../../../assets/rides";
 import { ROUTEPATH } from "../../../ROUTEPATH";
 import AlertSnack from "../separate/AlertSnack";
+import HeaderHelmet from "../../../HeaderHelmet";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -166,7 +167,8 @@ function TourPackage() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-  return (
+  return (<>
+  <HeaderHelmet  value={"Tour Packages for Honeymoon, Pilgrimage, and 5-Day Trips"}/>
     <div
       style={{
         marginTop: isDevice ? "9px" :isMobile||isDeviceDown?"-33.3px": "-28px",
@@ -601,6 +603,7 @@ function TourPackage() {
         </Container>
       </Box>
     </div>
+  </>
   );
 }
 

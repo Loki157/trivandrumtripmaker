@@ -55,6 +55,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import AboutUsPart from "./separate/AboutUsPart";
 import WhatWeOfferPart from "./separate/WhatWeOfferPart";
 import CallUsNowPart from "./separate/CallUsNowPart";
+import HeaderHelmet from "../../HeaderHelmet";
 function srcset(image, size, rows = 1, cols = 1) {
   return {
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
@@ -85,8 +86,8 @@ function LandingPage() {
   // }, []);
   const theme = useTheme();
   const navigate = useNavigate();
-const location=useLocation()
-const pathname=location.pathname
+  const location = useLocation();
+  const pathname = location.pathname;
   const isMobileUp = useMediaQuery(theme.breakpoints.up("sm"));
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isDevice = useMediaQuery(theme.breakpoints.up("md"));
@@ -99,7 +100,7 @@ const pathname=location.pathname
 
   return (
     <>
-      {" "}
+      <HeaderHelmet value={"Trivandrum Trip Maker"} />{" "}
       {/* {isVisible && (
         <IconButton className="scroll-to-top-button" onClick={scrollToTop}>
           <ArrowUpwardRoundedIcon />
@@ -210,11 +211,16 @@ const pathname=location.pathname
                     </span>
                     ,{" "}
                     <span className="highlight-text">
-                      <a  onClick={() => navigate(ROUTEPATH.PICKDROP)}>Airport Pickup & Drop</a>
+                      <a onClick={() => navigate(ROUTEPATH.PICKDROP)}>
+                        Airport Pickup & Drop
+                      </a>
                     </span>{" "}
                     and{" "}
                     <span className="highlight-text">
-                      <a onClick={() => navigate(ROUTEPATH.TOURPLAN)}> Tour Plan</a>
+                      <a onClick={() => navigate(ROUTEPATH.TOURPLAN)}>
+                        {" "}
+                        Tour Plan
+                      </a>
                     </span>{" "}
                     for everyone.
                   </Typographymotion>

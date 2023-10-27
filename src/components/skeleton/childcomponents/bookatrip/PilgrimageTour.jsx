@@ -34,6 +34,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import PilgrimageTour1 from "../../../../assets/images/tour/pilgrimage1.jpg";
 import { inclusions, pilgrimagePlan } from "../../../../assets/rides";
 import { ROUTEPATH } from "../../../ROUTEPATH";
+import HeaderHelmet from "../../../HeaderHelmet";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -163,6 +164,7 @@ function PilgrimageTour() {
     window.scrollTo(0, 0);
   }, [pathname]);
   return (
+  <><HeaderHelmet  value={"Tour Packages for Honeymoon, Pilgrimage, and 5-Day Trips"}/>
     <div
       style={{
         marginTop: isDevice ? "9px" :isMobile||isDeviceDown?"-33.3px": "-28px",
@@ -577,6 +579,7 @@ function PilgrimageTour() {
         </Container>
       </Box>
     </div>
+  </>
   );
 }
 

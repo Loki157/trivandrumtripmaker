@@ -38,6 +38,7 @@ import AboutUsPart from "./separate/AboutUsPart";
 import WhatWeOfferPart from "./separate/WhatWeOfferPart";
 import CallUsNowPart from "./separate/CallUsNowPart";
 import { ROUTEPATH } from "../../ROUTEPATH";
+import HeaderHelmet from "../../HeaderHelmet";
 function AboutUs() {
   const theme = useTheme();
   const navigate = useNavigate();
@@ -100,7 +101,7 @@ function AboutUs() {
   }, [pathname]);
 
   return (
-    <>
+    <><HeaderHelmet value={"Trivandrum Trip Maker"} />{" "}
       {" "}
       <div
         style={{

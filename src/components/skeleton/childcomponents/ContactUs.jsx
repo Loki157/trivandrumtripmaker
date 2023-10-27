@@ -35,6 +35,7 @@ import moment from "moment";
 import { THEMEColor } from "../../../assets/THEMES";
 import emailjs from "@emailjs/browser";
 import AlertSnack from "./separate/AlertSnack";
+import HeaderHelmet from "../../HeaderHelmet";
 // require("dot")
 function ContactUs() {
   const theme = useTheme();
@@ -128,7 +129,7 @@ function ContactUs() {
     window.scrollTo({ top: 0, behavior: "instant" });
   }, [pathname]);
   return (
-    <>
+    <><HeaderHelmet value={"Trivandrum Trip Maker"} />{" "}
       {" "}
       <div
         style={{

@@ -37,9 +37,12 @@ function FooterPage() {
               </div>
               <div>
                 <p>
-                  Trivandrum trip makers is a car booking service provider that
-                  offers safe and comfortable trips in trivandrum. we committed
-                  to providing the best travel experience to our customers.
+                  Trivandrum Trip Maker : Get to know Kerala through one-day
+                  trips to Kanyakumari, Varkala, and pilgrimage destinations.
+                  Airport pickup and drop services are available at Cochin,
+                  Trivandrum, Calicut, and Kannur airports. Whether you&apos;re
+                  looking for honeymoons, pilgrimages, or 5-day tours, we have
+                  customized tour packages for you to choose from.
                 </p>
               </div>
             </div>

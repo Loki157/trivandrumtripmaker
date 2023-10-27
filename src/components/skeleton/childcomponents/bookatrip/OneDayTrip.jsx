@@ -56,6 +56,7 @@ import pilgrimage from "../../../../assets/images/oneday/pilgrimage/pilgrimage.j
 import padma3 from "../../../../assets/images/oneday/kanyakumari/padmana/padmana3.jpg";
 import { ROUTEPATH } from "../../../ROUTEPATH";
 import AlertSnack from "../separate/AlertSnack";
+import HeaderHelmet from "../../../HeaderHelmet";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -222,7 +223,7 @@ function OneDayTrip() {
         direction: "",
       });
       setTimeout(() => {
-        setOpenAlert(false)
+        setOpenAlert(false);
       }, 3500);
     } catch (err) {
       console.log("error", err);
@@ -240,7 +241,11 @@ function OneDayTrip() {
 
   return (
     <>
-      {" "}
+      <HeaderHelmet
+        value={
+          "OneDay Trip to Trivandrum,Kanyakumari,and Varkala:A Pilgrimage to Three Directions"
+        }
+      />{" "}
       {isVisible && (
         <button
           className="scroll-to-top-button1"
@@ -337,7 +342,8 @@ function OneDayTrip() {
                       width: "80%",
                     }}
                   >
-                    Kerala&apos;s Best One-Day Trip Experience with &nbsp;
+                    OneDay Trip to Trivandrum,Kanyakumari,and Varkala:A
+                    Pilgrimage to Three Directions with &nbsp;
                     <span className="highlight-text">
                       <a
                         onClick={() => navigate(ROUTEPATH.MAIN)}
@@ -397,6 +403,62 @@ function OneDayTrip() {
                     // lineHeight: "20px",
                   }}
                 >
+                  One Day Trip to Trivandrum,{" "}
+                  <span className="highlight-text">
+                    <a
+                      onClick={() =>
+                        towardsKanyakumariScroll.current.scrollIntoView({
+                          behavior: "smooth",
+                        })
+                      }
+                      // style={{
+                      //   fontSize: isMobile || isDeviceDown ? "25px" : "40px",
+                      // }}
+                    >
+                      Kanyakumari
+                    </a>
+                  </span>
+                  , and{" "}
+                  <span className="highlight-text">
+                    <a
+                      onClick={() =>
+                        towardsVarkalaScroll.current.scrollIntoView({
+                          behavior: "smooth",
+                        })
+                      }
+                      // style={{
+                      //   fontSize: isMobile || isDeviceDown ? "25px" : "40px",
+                      // }}
+                    >
+                      Varkala
+                    </a>
+                  </span>
+                  : A
+                  <span className="highlight-text">
+                    <a
+                      onClick={() =>
+                        towardsPilgrimageiScroll.current.scrollIntoView({
+                          behavior: "smooth",
+                        })
+                      }
+                      // style={{
+                      //   fontSize: isMobile || isDeviceDown ? "25px" : "40px",
+                      // }}
+                    >
+                      Pilgrimage
+                    </a>
+                  </span>{" "}
+                  to Three Directions.Experience the best of Kerala&apos;s
+                  culture, nature, and cuisine on a one-day trip from
+                  Trivandrum,Kanyakumari and Varkala.With our expert guidance,
+                  you&apos;ll discover the magic of these three sacred
+                  destinations in a single day.From the ancient temples of
+                  Kanyakumari to the dramatic cliffside beaches of Varkala,
+                  immerse yourself in the essence of Kerala&apos;s rich cultural
+                  heritage.This one-day trip is perfect for travelers who want
+                  to experience the best of Kerala in a short amount of time.
+                  <br />
+                  <br />
                   Are you looking for a quick escape from the daily grind?
                   Perhaps you have a day to spare and a thirst for exploration.
                   At Trivandrum Trip Maker Cab and Tour Website, we understand
@@ -803,8 +865,11 @@ function OneDayTrip() {
                   </form>
                 </Box>
                 {openAlert ? (
-                         <AlertSnack  openAlert={openAlert} setOpenAlert={setOpenAlert} />
-                        ) : null}
+                  <AlertSnack
+                    openAlert={openAlert}
+                    setOpenAlert={setOpenAlert}
+                  />
+                ) : null}
               </Box>
               {/* ==------- -------------------*****---------------------------*/}
               {/* ittineration */}

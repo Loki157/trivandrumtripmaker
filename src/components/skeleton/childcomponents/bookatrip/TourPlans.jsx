@@ -42,6 +42,7 @@ import emailjs from "@emailjs/browser";
 import { tour } from "../../../../assets/rides";
 import tourImg from "../../../../assets/images/tour/tour.jpg";
 import { ROUTEPATH } from "../../../ROUTEPATH";
+import HeaderHelmet from "../../../HeaderHelmet";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -141,7 +142,6 @@ function TourPlans() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-
     const serviceID = "service_n2nymz7";
 
     const templateID = "template_d9f10qw";
@@ -184,6 +184,7 @@ function TourPlans() {
 
   return (
     <>
+    <HeaderHelmet  value={"Tour Packages for Honeymoon, Pilgrimage, and 5-Day Trips"}/>
       {" "}
       {/* {isVisible && (
         <button
@@ -320,7 +321,7 @@ function TourPlans() {
                   }}
                   className="oneday-heading"
                 >
-                  Introduction
+                  Tour Packages for Honeymoon, Pilgrimage, and 5-Day Trips
                 </Typography>
                 <Typography
                   variant="body2"
@@ -334,6 +335,13 @@ function TourPlans() {
                     // lineHeight: "20px",
                   }}
                 >
+                  Trivandrum Trip Maker: Your Gateway to Unforgettable Journeys
+                  with Tour Packages for Honeymoon, Pilgrimage, and 5-Day Trips
+                  Embark on a transformative journey with our thoughtfully
+                  designed tour packages, offering a kaleidoscope of experiences
+                  to enrich your life and create memories to last a lifetime.
+                  <br />
+                  <br />
                   Welcome to the world of boundless adventure, cultural
                   immersion, and unforgettable journeys! Our tour plans are
                   meticulously crafted to take you on a voyage of discovery,

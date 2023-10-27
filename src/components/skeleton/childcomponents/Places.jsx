@@ -26,6 +26,7 @@ import { THEMEColor } from "../../../assets/THEMES";
 import { cards } from "../../../assets/rides";
 import tourImg from "../../../assets/images/tour/tour.jpg"
 import { useLocation } from "react-router";
+import HeaderHelmet from "../../HeaderHelmet";
 function Places() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -37,7 +38,8 @@ function Places() {
   useEffect(() => {
       window.scrollTo({ top: 0, behavior: "instant" });
     }, [pathname]);
-  return (
+  return (<>
+  <HeaderHelmet value={"Trivandrum Trip Maker"} />{" "}
     <div
     style={{
       marginTop: isDevice ? "9px" :isMobile||isDeviceDown?"-33.3px": "-28px",
@@ -249,6 +251,7 @@ function Places() {
         </Container>
       </div>
     </div>
+  </>
   );
 }
 
