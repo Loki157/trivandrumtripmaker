@@ -47,7 +47,7 @@ function MainPage() {
   const theme = useTheme();
   const [isVisible, setIsVisible] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-
+const load=isLoading===true
   useEffect(() => {
     window.addEventListener("load", () => {
       setIsLoading(false);
@@ -58,7 +58,7 @@ function MainPage() {
         setIsLoading(false);
       });
     };
-  }, []);
+  }, [load]);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
