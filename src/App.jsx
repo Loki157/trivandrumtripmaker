@@ -11,8 +11,15 @@ import TourPlans from "./components/skeleton/childcomponents/bookatrip/TourPlans
 import HoneyMoonTour from "./components/skeleton/childcomponents/bookatrip/HoneyMoonTour";
 import PilgrimageTour from "./components/skeleton/childcomponents/bookatrip/PilgrimageTour";
 import TourPackage from "./components/skeleton/childcomponents/bookatrip/TourPackage";
+import { useEffect } from "react";
 
 function App() {
+  // useEffect(() => {
+    
+  // window.onload(()=>{})
+    
+  // }, [])
+  
   return (
     <>
       <HashRouter>

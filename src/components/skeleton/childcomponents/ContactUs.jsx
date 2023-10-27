@@ -85,8 +85,6 @@ function ContactUs() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    e.preventDefault();
-
     const serviceID = "service_n2nymz7";
     const templateID = "template_7ap0n3p";
     const publickey = "jJhGOvecr6Fg00Xcl";
@@ -107,7 +105,7 @@ function ContactUs() {
         email: "",
         mobile: null,
         altMobile: null,
-        noOfTravel: null,
+        noOfTravel: "",
         vehicle: "",
         travelDate: moment(),
         desc: "",
@@ -144,7 +142,7 @@ function ContactUs() {
       >
         <Box
           sx={{
-            backgroundColor:THEMEColor.buttons,
+            backgroundColor: THEMEColor.buttons,
             // backgroundImage: `url("${oneDay}")`,
             // backgroundPositionY: isMobile || isDeviceDown ? "50%" : "70%",
             // backgroundRepeat: "no-repeat",
@@ -628,9 +626,10 @@ function ContactUs() {
                               />
                             </FormControl>
 
-                            <FormControl fullWidth>
-                              <FormLabel> Description (Optional)</FormLabel>
+                            <FormControl fullWidth required>
+                              <FormLabel> Feedback/Suggestion</FormLabel>
                               <TextField
+                                required
                                 multiline
                                 onChange={(e) => {
                                   handleValueChange("desc", e.target.value);

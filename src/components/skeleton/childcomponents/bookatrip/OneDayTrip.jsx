@@ -53,8 +53,9 @@ import emailjs from "@emailjs/browser";
 import kanyakumari from "../../../../assets/images/oneday/kanyakumari/kanyakumari.jpg";
 import varkala from "../../../../assets/images/oneday/varkala/varkala.jpg";
 import pilgrimage from "../../../../assets/images/oneday/pilgrimage/pilgrimage.jpg";
-import padma3 from '../../../../assets/images/oneday/kanyakumari/padmana/padmana3.jpg'
+import padma3 from "../../../../assets/images/oneday/kanyakumari/padmana/padmana3.jpg";
 import { ROUTEPATH } from "../../../ROUTEPATH";
+
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -134,6 +135,7 @@ function OneDayTrip() {
     vehicle: "",
     travelDate: moment(),
     desc: "",
+    direction: "",
   });
   const towardsDirections = [
     {
@@ -176,15 +178,28 @@ function OneDayTrip() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    e.preventDefault();
+    const travel = { ...reqACall.travelDate };
 
+    const travelDateD = moment(travel);
+    const formattedData = travelDateD.format("DD-MM-YYYY");
+    console.log("daata", reqACall, formattedData);
     const serviceID = "service_n2nymz7";
 
     const templateID = "template_d9f10qw";
     const publickey = "jJhGOvecr6Fg00Xcl";
-
+    const sendData = {
+      name: reqACall.name,
+      email: reqACall.email,
+      mobile: reqACall.mobile,
+      altMobile: reqACall.altMobile,
+      noOfTravel: reqACall.noOfTravel,
+      vehicle: reqACall.vehicle,
+      travelDate: formattedData,
+      desc: reqACall.desc,
+      direction: reqACall.direction,
+    };
     try {
-      emailjs.sendForm(serviceID, templateID, form.current, publickey).then(
+      emailjs.send(serviceID, templateID, sendData, publickey).then(
         (result) => {
           console.log(result.text);
         },
@@ -197,12 +212,13 @@ function OneDayTrip() {
         ...reqACall,
         name: "",
         email: "",
-        mobile: null,
-        altMobile: null,
-        noOfTravel: null,
+        mobile: "",
+        altMobile: "",
+        noOfTravel: "",
         vehicle: "",
         travelDate: moment(),
         desc: "",
+        direction: "",
       });
     } catch (err) {
       console.log("error", err);
@@ -247,11 +263,11 @@ function OneDayTrip() {
             backgroundImage: `url("${padma3}")`,
             backgroundRepeat: "no-repeat",
             backgroundPosition:
-            isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
-          backgroundAttachment:
-            isMobile || isDeviceDown ? "initial" : "fixed",
-          // backgroundSize: "cover",
-          height: isMobile || isDeviceDown ? "400px" : "400px",
+              isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
+            backgroundAttachment:
+              isMobile || isDeviceDown ? "initial" : "fixed",
+            // backgroundSize: "cover",
+            height: isMobile || isDeviceDown ? "400px" : "400px",
             backgroundSize: "cover",
             minWidth: "100%",
             // filter: "brightness(50% )",
@@ -319,7 +335,12 @@ function OneDayTrip() {
                   >
                     Kerala&apos;s Best One-Day Trip Experience with &nbsp;
                     <span className="highlight-text">
-                      <a onClick={() => navigate(ROUTEPATH.MAIN)} style={{fontSize:isMobile || isDeviceDown ?"25px":"40px"}}>
+                      <a
+                        onClick={() => navigate(ROUTEPATH.MAIN)}
+                        style={{
+                          fontSize: isMobile || isDeviceDown ? "25px" : "40px",
+                        }}
+                      >
                         Trivandrum Trip Maker
                       </a>
                     </span>
@@ -528,7 +549,27 @@ function OneDayTrip() {
                             }}
                           />
                         </FormControl>
-                      </Box>
+                      </Box>{" "}
+                      <FormControl required fullWidth>
+                        <FormLabel>Select Direction</FormLabel>
+                        <Select
+                          variant="outlined"
+                          required
+                          name="direction"
+                          value={reqACall.direction}
+                          onChange={(e) => {
+                            handleValueChange("direction", e.target.value);
+                          }}
+                        >
+                          {towardsDirections.map((i, ind) => {
+                            return (
+                              <MenuItem key={ind} value={i.name}>
+                                {i.name}
+                              </MenuItem>
+                            );
+                          })}
+                        </Select>
+                      </FormControl>
                       <FormControl required fullWidth>
                         <FormLabel>No.of Travelers</FormLabel>
                         <TextField
@@ -603,9 +644,9 @@ function OneDayTrip() {
                               name="travelDate"
                               value={reqACall.travelDate}
                               format="DD-MM-YYYY"
-                              // onChange={(e) => {
-                              //   handleValueChange("travelDate", e.target.value);
-                              // }}
+                              onChange={(e) => {
+                                setReqACall({ ...reqACall, travelDate: e });
+                              }}
                               // onChange={(val) => {
                               //   formikProps.setFieldValue(
                               //     "expiry_date_from",
@@ -763,7 +804,7 @@ function OneDayTrip() {
                       setOpenAlert(false);
                     }}
                   >
-                    Thanks for submitting!
+                    Thanks for submitting,We&apos;ll reach to you soon!
                   </Alert>
                 ) : null}
               </Box>

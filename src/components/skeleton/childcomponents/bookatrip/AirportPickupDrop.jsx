@@ -43,7 +43,7 @@ import MuiAccordionDetails from "@mui/material/AccordionDetails";
 import emailjs from "@emailjs/browser";
 import { cards } from "../../../../assets/rides";
 import { airportData } from "./airportData";
-import airportImg from "../../../../assets/images/airports/trivandrumairport.jpg"
+import airportImg from "../../../../assets/images/airports/trivandrumairport.jpg";
 import { ROUTEPATH } from "../../../ROUTEPATH";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -103,7 +103,7 @@ function AirportPickupDrop() {
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeDeviceUp = useMediaQuery(theme.breakpoints.up("lg"));
   const isLargeDeviceDown = useMediaQuery(theme.breakpoints.down("lg"));
-
+  const [travelTime, setTravelTime] = useState(null);
   const reqCallBackRef = useRef(null);
   const handleReqCallBackIntoView = () => {
     reqCallBackRef.current.scrollIntoView({ behavior: "smooth" });
@@ -121,9 +121,12 @@ function AirportPickupDrop() {
     flightNo: "",
     pick: "",
     drop: "",
-    dateTime: null,
+    dateTime: moment(),
     air: "",
   });
+  const CustomTimeFormatter = (time) => {
+    return moment(time).format("hh:mm a");
+  };
   const exceptThisSymbols = ["e", "E", "+", "-", ".", "ArrowUp", "ArrowDown"];
   const vehicleType = ["4-Seater", "7-Seater", "12-Seater", "other"];
   const airportType = [
@@ -142,63 +145,69 @@ function AirportPickupDrop() {
       setIsVisible(false);
     }
   };
-  const emailTemp = `   <h1>Airport Pickup and Drop-off Details</h1>
-<p><strong>Full Name:</strong> [Full Name]</p>
-<p><strong>Email:</strong> [Email]</p>
-<p><strong>Mobile:</strong> [Mobile]</p>
-<p><strong>Alternate Mobile:</strong> [Alternate Mobile]</p>
-<hr>
-<h2>Flight Details</h2>
-<p><strong>Flight Number:</strong> [Flight Number]</p>
-<p><strong>Date and Time of Flight:</strong> [Flight Date and Time]</p>
-<p><strong>Pickup Location:</strong> [Pickup Location]</p>
-<p><strong>Drop Location:</strong> [Drop Location]</p>
-<p><strong>Number of Passengers:</strong> [Number of Passengers]</p>
-<p><strong>Vehicle Type:</strong> [Vehicle Type]</p>
-<hr>
-<h2>Special Instructions</h2>
-<p>[Special Instructions]</p>`;
-  // const scrollToTop = () => {
-  //   window.scrollTo({
-  //     top: 0,
-  //     behavior: 'smooth',
-  //   });
-  // };
+
   const form = useRef();
   const [openAlert, setOpenAlert] = useState(false);
+
   const handleSubmit = (e) => {
     e.preventDefault();
+    const travel = { ...reqACall.travelDate };
 
-    const serviceID = "service_n2nymz7";
+    const travelDateD = moment(travel);
+    const formattedData = travelDateD.format("DD-MM-YYYY");
+    const travel2 = { ...reqACall.dateTime };
 
-    const templateID = "template_d9f10qw";
-    const publickey = "jJhGOvecr6Fg00Xcl";
-
-    console.log("reqacall", reqACall);
-    // try {
-    //   emailjs.sendForm(serviceID, templateID, form.current, publickey).then(
-    //     (result) => {
-    //       console.log(result.text);
-    //     },
-    //     (error) => {
-    //       console.log(error.text);
-    //     }
-    //   );
-    //   setOpenAlert(true);
-    //   setReqACall({
-    //     ...reqACall,
-    //     name: "",
-    //     email: "",
-    //     mobile: null,
-    //     altMobile: null,
-    //     noOfTravel: null,
-    //     vehicle: "",
-    //     travelDate: moment(),
-    //     desc: "",
-    //   });
-    // } catch (err) {
-    //   console.log("error", err);
-    // }
+    const travelDateD2 = moment(travel2);
+    const formattedData2 = travelDateD2.format("LT");
+    console.log("ssdad", formattedData, formattedData2);
+    const serviceID = "service_celisxe";
+    const templateID = "template_gsl388e";
+    const publickey = "Qs6eeqo7LGb5omh09";
+    const sendData = {
+      name: reqACall.name,
+      email: reqACall.email,
+      mobile: reqACall.mobile,
+      altMobile: reqACall.altMobile,
+      noOfTravel: reqACall.noOfTravel,
+      vehicle: reqACall.vehicle,
+      travelDate: formattedData,
+      desc: reqACall.desc,
+      flightNo: reqACall.flightNo,
+      pick: reqACall.pick,
+      drop: reqACall.drop,
+      dateTime: formattedData2,
+      air: reqACall.air,
+    };
+    console.log("airport", reqACall);
+    try {
+      emailjs.send(serviceID, templateID, sendData, publickey).then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
+      setOpenAlert(true);
+      setReqACall({
+        ...reqACall,
+        name: "",
+        email: "",
+        mobile: "",
+        altMobile: "",
+        noOfTravel: null,
+        vehicle: "",
+        travelDate: moment(),
+        desc: "",
+        flightNo: "",
+        pick: "",
+        drop: "",
+        dateTime: moment(),
+        air: "",
+      });
+    } catch (err) {
+      console.log("error", err);
+    }
   };
   useEffect(() => {
     window.addEventListener("scroll", handleScroll);
@@ -223,23 +232,27 @@ function AirportPickupDrop() {
       )}
       <div
         style={{
-          marginTop: isDevice ? "9px" :isMobile||isDeviceDown?"-33.3px": "-28px",
+          marginTop: isDevice
+            ? "9px"
+            : isMobile || isDeviceDown
+            ? "-33.3px"
+            : "-28px",
           height: "100%",
           // display: "flex",
           // flexDirection: "column",
           // alignItems: "center",justifyContent:"space-between"
         }}
       >
-             <Box
+        <Box
           sx={{
             backgroundImage: `url("${airportImg}")`,
             backgroundRepeat: "no-repeat",
             backgroundPosition:
-            isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
-          backgroundAttachment:
-            isMobile || isDeviceDown ? "initial" : "fixed",
-          // backgroundSize: "cover",
-          height: isMobile || isDeviceDown ? "400px" : "400px",
+              isMobile || isDeviceDown ? "80% 100%" : "100% 50% ",
+            backgroundAttachment:
+              isMobile || isDeviceDown ? "initial" : "fixed",
+            // backgroundSize: "cover",
+            height: isMobile || isDeviceDown ? "400px" : "400px",
             backgroundSize: "cover",
             minWidth: "100%",
             // filter: "brightness(50% )",
@@ -362,11 +375,11 @@ function AirportPickupDrop() {
                 >
                   Welcome to your gateway to hassle-free travel in Trivandrum,
                   the heart of Kerala! At{" "}
-                 <span className="highlight-text">
-                      <a onClick={() => navigate(ROUTEPATH.MAIN)}>
-                        TrivandrumTripMaker.com
-                      </a>
-                    </span>
+                  <span className="highlight-text">
+                    <a onClick={() => navigate(ROUTEPATH.MAIN)}>
+                      TrivandrumTripMaker.com
+                    </a>
+                  </span>
                   , we understand that a smooth arrival and departure experience
                   is essential for making your visit memorable. That&apos;s why
                   we offer top-notch airport pickup and drop-off services
@@ -591,6 +604,10 @@ function AirportPickupDrop() {
                                 value={reqACall.travelDate}
                                 format="DD-MM-YYYY"
                                 disablePast
+                                onChange={(e) => {
+                                  console.log("date", e.toLocaleString());
+                                  setReqACall({ ...reqACall, travelDate: e });
+                                }}
                               />
                             </LocalizationProvider>
                           </FormControl>
@@ -601,9 +618,9 @@ function AirportPickupDrop() {
                                 required
                                 name="dateTime"
                                 value={reqACall.dateTime}
+                                format={"hh:mm a"}
                                 onChange={(e) => {
-                                  console.log("value", moment(e));
-                                  handleValueChange("dateTime", moment(e));
+                                  setReqACall({ ...reqACall, dateTime: e });
                                 }}
                               />
                             </LocalizationProvider>
@@ -823,7 +840,7 @@ function AirportPickupDrop() {
                       setOpenAlert(false);
                     }}
                   >
-                    Thanks for submitting!
+                    Thanks for submitting,We&apos;ll reach to you soon!
                   </Alert>
                 ) : null}
               </Box>

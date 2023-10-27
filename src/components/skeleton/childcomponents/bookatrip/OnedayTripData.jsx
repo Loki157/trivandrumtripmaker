@@ -727,7 +727,7 @@ export const towardsVarkala = [
       rappeling:
         "Descend the rock face with professional guidance and admire the natural beauty from a unique perspective.",
     },
-    image: national,
+    image: jatayuEarth,
     Visiting: {
       timing:
         "Jatayu Earth's Center is open to visitors from 9:00 AM to 5:00 PM. It's advisable to check the official website for the most current timings and availability of adventure activities.",

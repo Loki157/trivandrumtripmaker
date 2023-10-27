@@ -116,14 +116,26 @@ function PilgrimageTour() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    e.preventDefault();
+    console.log("honey", reqACall);
+    const travel = { ...reqACall.travelDate };
 
-    const serviceID = "service_n2nymz7";
-    const templateID = "template_7ap0n3p";
-    const publickey = "jJhGOvecr6Fg00Xcl";
-
+    const travelDateD = moment(travel);
+    const formattedData = travelDateD.format("DD-MM-YYYY");
+    const serviceID = "service_celisxe";
+    const templateID = "template_cpu29vp";
+    const publickey = "Qs6eeqo7LGb5omh09";
+    const sendData = {
+      name: reqACall.name,
+      email: reqACall.email,
+      mobile: reqACall.mobile,
+      altMobile: reqACall.altMobile,
+      noOfTravel: reqACall.noOfTravel,
+      vehicle: reqACall.vehicle,
+      travelDate: formattedData,
+      desc: reqACall.desc,package:"Pilgrimage Package"
+    };
     try {
-      emailjs.sendForm(serviceID, templateID, form.current, publickey).then(
+      emailjs.send(serviceID, templateID, sendData, publickey).then(
         (result) => {
           console.log(result.text);
         },
@@ -136,9 +148,9 @@ function PilgrimageTour() {
         ...reqACall,
         name: "",
         email: "",
-        mobile: null,
-        altMobile: null,
-        noOfTravel: null,
+        mobile: "",
+        altMobile: "",
+        noOfTravel: "",
         vehicle: "",
         travelDate: moment(),
         desc: "",

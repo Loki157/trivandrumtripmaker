@@ -16,7 +16,12 @@ import whatWeOffer from "../assets/images/oneday/whatweoffer.jpg"
 import whatWeOfferMob from "../assets/images/oneday/whatweoffermob.jpg"
 import { useNavigate } from "react-router-dom"; 
 import { useTheme } from "@mui/material";
-
+import ganabathy from "../assets/images/oneday/Pazhavangadi_ganapathi_temple_01.jpg";
+import PoovarBoating from "../assets/images/oneday/kanyakumari/Poovar-Boating-Noah-Pic.jpg";
+import azhimalaSivaStatue from "../assets/images/oneday/kanyakumari/azhimalaSivaStatue.jpg"; 
+import jatayuEarth from "../assets/images/oneday/varkala/jatayuEarth.jpg";
+import anjengoFort from "../assets/images/oneday/varkala/anjengoFort.jpg";
+import veliLakeTouristVillage from "../assets/images/oneday/varkala/veliLakeTouristVillage.jpg";
 export const rides = [
   {
     head: "What we Offer",
@@ -85,6 +90,37 @@ export const cards = [
     imgs: varkala,
     subHead:
       "Varkala Beach is a great place to relax and enjoy the natural beauty of Kerala. Visitors can swim, sunbathe, or take a walk along the beach. There are also a number of restaurants and cafes located on the clifftop, offering stunning views of the Arabian Sea.",
+  },{
+    title: "Ganapathy Temple",
+    imgs: ganabathy,
+    subHead:
+      `Ganapathy Temple, also known as "Sree Mahaganapathy Temple," is dedicated to Lord Ganesha, the remover of obstacles and the god of wisdom and prosperity. The temple radiates an aura of tranquility and spirituality, making it a must-visit for both devotees and tourists.`,
+  },{
+    title: "Poovar Backwater Cruise",
+    imgs: PoovarBoating,
+    subHead:
+      `Poovar, a serene fishing village, is celebrated for its tranquil backwaters, golden beaches, and the enchanting confluence of the Neyyar River, the Arabian Sea, and the exotic flora and fauna that define the region. The Poovar Backwater Cruise is your gateway to a world of natural beauty and cultural experiences.`,
+  },
+  {
+    title: "Azhimala Shiva Statue",
+    imgs: azhimalaSivaStatue,
+    subHead:
+      `Azhimala, a serene coastal destination in Kerala, is home to the majestic Azhimala Shiva Statue. This iconic sculpture not only represents the divine presence of Lord Shiva but also offers a tranquil escape for seekers of spirituality and natural beauty.`,
+  },{
+    title: "Jatayu Earth's Center",
+    imgs: jatayuEarth,
+    subHead:
+      `Jatayu Earth's Center is a remarkable eco-tourism destination that takes its name from the mythical bird "Jatayu" in the Indian epic, Ramayana. The center is dedicated to preserving the natural beauty of the region while also offering visitors a range of activities and experiences.`,
+  },{
+    title: "Anjengo Fort",
+    imgs: anjengoFort,
+    subHead:
+      `Anjengo Fort, with its colonial charm and stunning coastal location, stands as a testimony to the historic events that shaped this region. The fort is named "Anjengo," which means "five coconut trees," due to the five tall coconut trees that once marked the fort's entrance.`,
+  },{
+    title: "Veli Lake Tourist Village",
+    imgs: veliLakeTouristVillage,
+    subHead:
+      `Veli Lake Tourist Village, situated at the confluence of the Veli Lake and the Arabian Sea, offers a serene and picturesque environment that combines the beauty of backwaters and the sea. This destination is known for its pristine landscapes, recreational facilities, and cultural experiences.`,
   },
 ];
 export const tour = [

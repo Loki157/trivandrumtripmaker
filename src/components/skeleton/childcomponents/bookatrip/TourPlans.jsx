@@ -141,7 +141,6 @@ function TourPlans() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    e.preventDefault();
 
     const serviceID = "service_n2nymz7";
 

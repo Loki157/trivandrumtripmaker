@@ -20,6 +20,7 @@ import {
   MailOutline as MailOutlineIcon,
 } from "@mui/icons-material";
 import { THEMEColor } from "../assets/THEMES";
+import Loader from "./Loader";
 const actions = [
   {
     icon: <CallOutlinedIcon />,
@@ -45,6 +46,20 @@ const actions = [
 function MainPage() {
   const theme = useTheme();
   const [isVisible, setIsVisible] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    window.addEventListener("load", () => {
+      setIsLoading(false);
+    });
+
+    return () => {
+      window.removeEventListener("load", () => {
+        setIsLoading(false);
+      });
+    };
+  }, []);
+
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -68,82 +83,105 @@ function MainPage() {
       behavior: "smooth",
     });
   };
-  return (
-    <>
-      {isVisible && (
-        <IconButton className="scroll-to-top-button" onClick={scrollToTop}>
-          <ArrowUpwardRoundedIcon />
-        </IconButton>
-      )}
-      <div style={{ width: "100%", height: "100%" }}>
-        <SpeedDial
-          ariaLabel="SpeedDial tooltip example"
-          sx={{
-            position: "fixed",
-            bottom: 16,
-            left: 16,
-            ".css-7dv1rb-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab,.css-7dv1rb-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab:active,.css-7dv1rb-MuiButtonBase-root-MuiFab-root-MuiSpeedDial-fab:hover":
-              {
+
+  if (isLoading) {
+    return <Loader />;
+  } else {
+    return (
+      <>
+        {isVisible && (
+          <IconButton className="scroll-to-top-button" onClick={scrollToTop}>
+            <ArrowUpwardRoundedIcon />
+          </IconButton>
+        )}
+        <div style={{ width: "100%", height: "100%" }}>
+          <SpeedDial
+            ariaLabel="SpeedDial tooltip example"
+            sx={{
+              position: "fixed",
+              bottom: 16,
+              left: 16,
+
+              width: "100%",
+              alignItems: "flex-start",
+            }}
+            FabProps={{
+              sx: {
                 backgroundColor: THEMEColor.Secondary,
+                transition: "0.3s all !important",
+                "&:hover,&:active": {
+                  backgroundColor: THEMEColor.PRIMARY,
+                  color: THEMEColor.Secondary,
+                },
               },
-            width: "100%",
-            alignItems: "flex-start",
-          }}
-          icon={<SpeedDialIcon />}
-          onClose={(event, reason) => {
-            if (reason === "mouseLeave" && open === true) {
-              handleOpen();
-            }
-            // handleClose
-          }}
-          onOpen={(event, reason) => {
-            if (reason === "mouseEnter") {
-              handleClose();
-            }
-          }}
-          onClick={(event, reason) => {
-            setOpen((open) => !open);
-          }}
-          open={open}
-          direction="up"
-        >
-          {actions.map((action) => (
-            <SpeedDialAction
-              sx={{
-                "&.MuiSpeedDialAction-staticTooltip .MuiSpeedDialAction-staticTooltipLabel":
-                  { left: "100%", width: "240px" },
-              }}
-              key={action.name}
-              icon={action.icon}
-              tooltipTitle={action.name}
-              tooltipOpen
-              onClick={() => {
-                window.open(action.open, "_blank");
-              }}
-            />
-          ))}
-        </SpeedDial>
-      </div>
-      {/* <Box className="main"> */}
-      <Box className="main-head" id="main-head-scroll">
-        {/* <Box position={"relative"} width={"100%"}> */}
-        <Box>
-          <header style={{ minHeight: "10vh" }}>
-            <HeaderPage />
-          </header>
-          {/* </Box> */}
-          <Box className="container">
-            <Backdrop open={open} />
-            <Outlet />
+            }}
+            icon={<SpeedDialIcon />}
+            onClose={(event, reason) => {
+              if (reason === "mouseLeave" && open === true) {
+                handleOpen();
+              }
+              // handleClose
+            }}
+            onOpen={(event, reason) => {
+              if (reason === "mouseEnter") {
+                handleClose();
+              }
+            }}
+            onClick={(event, reason) => {
+              setOpen((open) => !open);
+            }}
+            open={open}
+            direction="up"
+          >
+            {actions.map((action) => (
+              <SpeedDialAction
+                sx={{
+                  "&.MuiSpeedDialAction-staticTooltip .MuiSpeedDialAction-staticTooltipLabel":
+                    { left: "100%", width: "240px", cursor: "pointer" },
+                }}
+                key={action.name}
+                icon={action.icon}
+                tooltipTitle={action.name}
+                tooltipOpen
+                FabProps={{
+                  sx: {
+                    backgroundColor: THEMEColor.Secondary,
+                    color: THEMEColor.PRIMARY,
+                    transition: "0.2s all",
+                    "&:hover,&:active": {
+                      backgroundColor: THEMEColor.PRIMARY,
+                      color: THEMEColor.Secondary,
+                    },
+                  },
+                }}
+                onClick={() => {
+                  window.open(action.open, "_blank");
+                }}
+              />
+            ))}
+          </SpeedDial>
+        </div>
+        {/* <Box className="main"> */}
+        <Box className="main-head" id="main-head-scroll">
+          {/* <Box position={"relative"} width={"100%"}> */}
+          <Box>
+            <header style={{ minHeight: "10vh" }}>
+              <HeaderPage />
+            </header>
+            {/* </Box> */}
+            <Box className="container">
+              <Backdrop open={open} />
+              <Outlet />
+            </Box>
+            <footer>
+              <FooterPage />
+            </footer>
           </Box>
-          <footer>
-            <FooterPage />
-          </footer>
         </Box>
-      </Box>
-      {/* </Box> */}
-    </>
-  );
+        {/* </Box> */}
+      </>
+    );
+  }
 }
 
 export default MainPage;
