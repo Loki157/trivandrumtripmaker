@@ -34,6 +34,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import tour from "../../../../assets/images/tour/tour.jpg";
 import { inclusions, tourPackPlan } from "../../../../assets/rides";
 import { ROUTEPATH } from "../../../ROUTEPATH";
+import AlertSnack from "../separate/AlertSnack";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -87,7 +88,7 @@ function TourPackage() {
   const isDeviceDown = useMediaQuery(theme.breakpoints.down("md"));
   const isLargeDeviceUp = useMediaQuery(theme.breakpoints.up("lg"));
   const [expanded, setExpanded] = React.useState("pane20");
-
+  const [openAlert,setOpenAlert]=useState(false)
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
@@ -144,7 +145,7 @@ function TourPackage() {
           console.log(error.text);
         }
       );
-      // setOpenAlert(true);
+      setOpenAlert(true);
       setReqACall({
         ...reqACall,
         name: "",
@@ -155,7 +156,9 @@ function TourPackage() {
         vehicle: "",
         travelDate: moment(),
         desc: "",
-      });
+      });  setTimeout(() => {
+        setOpenAlert(false)
+      }, 3500);
     } catch (err) {
       console.log("error", err);
     }
@@ -460,7 +463,9 @@ function TourPackage() {
                             WhatsApp
                           </Button>
                         </a>
-                      </Box>
+                      </Box>{openAlert ? (
+                         <AlertSnack  openAlert={openAlert} setOpenAlert={setOpenAlert} />
+                        ) : null}
                     </Box>
                   </form>
                 </Box>
@@ -589,15 +594,7 @@ function TourPackage() {
                     </ul>
                   </Box>
                 </Box>
-                {/* {openAlert ? (
-                          <Alert
-                            onClose={() => {
-                              setOpenAlert(false);
-                            }}
-                          >
-                            Thanks for submitting!
-                          </Alert>
-                        ) : null} */}
+               
               </Box>
             </Box>
           </Box>

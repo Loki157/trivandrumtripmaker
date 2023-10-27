@@ -46,19 +46,19 @@ const actions = [
 function MainPage() {
   const theme = useTheme();
   const [isVisible, setIsVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
-const load=isLoading===true
-  useEffect(() => {
-    window.addEventListener("load", () => {
-      setIsLoading(false);
-    });
+  // const [isLoading, setIsLoading] = useState(true);
+  // const load=isLoading===true
+  //   useEffect(() => {
+  //     window.addEventListener("load", () => {
+  //       setIsLoading(false);
+  //     });
 
-    return () => {
-      window.removeEventListener("load", () => {
-        setIsLoading(false);
-      });
-    };
-  }, [load]);
+  //     return () => {
+  //       window.removeEventListener("load", () => {
+  //         setIsLoading(false);
+  //       });
+  //     };
+  //   }, [load]);
 
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -84,104 +84,104 @@ const load=isLoading===true
     });
   };
 
-  if (isLoading) {
-    return <Loader />;
-  } else {
-    return (
-      <>
-        {isVisible && (
-          <IconButton className="scroll-to-top-button" onClick={scrollToTop}>
-            <ArrowUpwardRoundedIcon />
-          </IconButton>
-        )}
-        <div style={{ width: "100%", height: "100%" }}>
-          <SpeedDial
-            ariaLabel="SpeedDial tooltip example"
-            sx={{
-              position: "fixed",
-              bottom: 16,
-              left: 16,
+  // if (isLoading) {
+  //   return <Loader />;
+  // } else {
+  return (
+    <>
+      {isVisible && (
+        <IconButton className="scroll-to-top-button" onClick={scrollToTop}>
+          <ArrowUpwardRoundedIcon />
+        </IconButton>
+      )}
+      <div style={{ width: "100%", height: "100%" }}>
+        <SpeedDial
+          ariaLabel="SpeedDial tooltip example"
+          sx={{
+            position: "fixed",
+            bottom: 16,
+            left: 16,
 
-              width: "100%",
-              alignItems: "flex-start",
-            }}
-            FabProps={{
-              sx: {
-                backgroundColor: THEMEColor.Secondary,
-                transition: "0.3s all !important",
-                "&:hover,&:active": {
-                  backgroundColor: THEMEColor.PRIMARY,
-                  color: THEMEColor.Secondary,
-                },
+            width: "100%",
+            alignItems: "flex-start",
+          }}
+          FabProps={{
+            sx: {
+              backgroundColor: THEMEColor.Secondary,
+              transition: "0.3s all !important",
+              "&:hover,&:active": {
+                backgroundColor: THEMEColor.PRIMARY,
+                color: THEMEColor.Secondary,
               },
-            }}
-            icon={<SpeedDialIcon />}
-            onClose={(event, reason) => {
-              if (reason === "mouseLeave" && open === true) {
-                handleOpen();
-              }
-              // handleClose
-            }}
-            onOpen={(event, reason) => {
-              if (reason === "mouseEnter") {
-                handleClose();
-              }
-            }}
-            onClick={(event, reason) => {
-              setOpen((open) => !open);
-            }}
-            open={open}
-            direction="up"
-          >
-            {actions.map((action) => (
-              <SpeedDialAction
-                sx={{
-                  "&.MuiSpeedDialAction-staticTooltip .MuiSpeedDialAction-staticTooltipLabel":
-                    { left: "100%", width: "240px", cursor: "pointer" },
-                }}
-                key={action.name}
-                icon={action.icon}
-                tooltipTitle={action.name}
-                tooltipOpen
-                FabProps={{
-                  sx: {
-                    backgroundColor: THEMEColor.Secondary,
-                    color: THEMEColor.PRIMARY,
-                    transition: "0.2s all",
-                    "&:hover,&:active": {
-                      backgroundColor: THEMEColor.PRIMARY,
-                      color: THEMEColor.Secondary,
-                    },
+            },
+          }}
+          icon={<SpeedDialIcon />}
+          onClose={(event, reason) => {
+            if (reason === "mouseLeave" && open === true) {
+              handleOpen();
+            }
+            // handleClose
+          }}
+          onOpen={(event, reason) => {
+            if (reason === "mouseEnter") {
+              handleClose();
+            }
+          }}
+          onClick={(event, reason) => {
+            setOpen((open) => !open);
+          }}
+          open={open}
+          direction="up"
+        >
+          {actions.map((action) => (
+            <SpeedDialAction
+              sx={{
+                "&.MuiSpeedDialAction-staticTooltip .MuiSpeedDialAction-staticTooltipLabel":
+                  { left: "100%", width: "240px", cursor: "pointer" },
+              }}
+              key={action.name}
+              icon={action.icon}
+              tooltipTitle={action.name}
+              tooltipOpen
+              FabProps={{
+                sx: {
+                  backgroundColor: THEMEColor.Secondary,
+                  color: THEMEColor.PRIMARY,
+                  transition: "0.2s all",
+                  "&:hover,&:active": {
+                    backgroundColor: THEMEColor.PRIMARY,
+                    color: THEMEColor.Secondary,
                   },
-                }}
-                onClick={() => {
-                  window.open(action.open, "_blank");
-                }}
-              />
-            ))}
-          </SpeedDial>
-        </div>
-        {/* <Box className="main"> */}
-        <Box className="main-head" id="main-head-scroll">
-          {/* <Box position={"relative"} width={"100%"}> */}
-          <Box>
-            <header style={{ minHeight: "10vh" }}>
-              <HeaderPage />
-            </header>
-            {/* </Box> */}
-            <Box className="container">
-              <Backdrop open={open} />
-              <Outlet />
-            </Box>
-            <footer>
-              <FooterPage />
-            </footer>
+                },
+              }}
+              onClick={() => {
+                window.open(action.open, "_blank");
+              }}
+            />
+          ))}
+        </SpeedDial>
+      </div>
+      {/* <Box className="main"> */}
+      <Box className="main-head" id="main-head-scroll">
+        {/* <Box position={"relative"} width={"100%"}> */}
+        <Box>
+          <header style={{ minHeight: "10vh" }}>
+            <HeaderPage />
+          </header>
+          {/* </Box> */}
+          <Box className="container">
+            <Backdrop open={open} />
+            <Outlet />
           </Box>
+          <footer>
+            <FooterPage />
+          </footer>
         </Box>
-        {/* </Box> */}
-      </>
-    );
-  }
+      </Box>
+      {/* </Box> */}
+    </>
+  );
+  // }
 }
 
 export default MainPage;

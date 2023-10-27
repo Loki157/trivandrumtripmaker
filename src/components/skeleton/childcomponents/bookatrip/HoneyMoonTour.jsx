@@ -35,6 +35,7 @@ import emailjs from "@emailjs/browser";
 import moment from "moment";
 import { useLocation, useNavigate } from "react-router-dom";
 import { honeymoonPlan, inclusions } from "../../../../assets/rides";
+import AlertSnack from "../separate/AlertSnack";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -92,6 +93,8 @@ function HoneyMoonTour() {
   const handleChange = (panel) => (event, newExpanded) => {
     setExpanded(newExpanded ? panel : false);
   };
+
+  const [openAlert,setOpenAlert]=useState(false)
   const [reqACall, setReqACall] = useState({
     name: "",
     email: "",
@@ -146,7 +149,7 @@ function HoneyMoonTour() {
           console.log(error.text);
         }
       );
-      // setOpenAlert(true);
+      setOpenAlert(true);
       setReqACall({
         ...reqACall,
         name: "",
@@ -158,6 +161,9 @@ function HoneyMoonTour() {
         travelDate: moment(),
         desc: "",
       });
+      setTimeout(() => {
+        setOpenAlert(false)
+      }, 3500);
     } catch (err) {
       console.log("error", err);
     }
@@ -465,15 +471,9 @@ function HoneyMoonTour() {
                     </Box>
                   </form>
                 </Box>
-                {/* {openAlert ? (
-                          <Alert
-                            onClose={() => {
-                              setOpenAlert(false);
-                            }}
-                          >
-                            Thanks for submitting!
-                          </Alert>
-                        ) : null} */}
+                {openAlert ? (
+                         <AlertSnack  openAlert={openAlert} setOpenAlert={setOpenAlert} />
+                        ) : null}
               </Box>
             </Box>
             <Box

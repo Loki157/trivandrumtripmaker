@@ -55,6 +55,7 @@ import varkala from "../../../../assets/images/oneday/varkala/varkala.jpg";
 import pilgrimage from "../../../../assets/images/oneday/pilgrimage/pilgrimage.jpg";
 import padma3 from "../../../../assets/images/oneday/kanyakumari/padmana/padmana3.jpg";
 import { ROUTEPATH } from "../../../ROUTEPATH";
+import AlertSnack from "../separate/AlertSnack";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -220,6 +221,9 @@ function OneDayTrip() {
         desc: "",
         direction: "",
       });
+      setTimeout(() => {
+        setOpenAlert(false)
+      }, 3500);
     } catch (err) {
       console.log("error", err);
     }
@@ -799,14 +803,8 @@ function OneDayTrip() {
                   </form>
                 </Box>
                 {openAlert ? (
-                  <Alert
-                    onClose={() => {
-                      setOpenAlert(false);
-                    }}
-                  >
-                    Thanks for submitting,We&apos;ll reach to you soon!
-                  </Alert>
-                ) : null}
+                         <AlertSnack  openAlert={openAlert} setOpenAlert={setOpenAlert} />
+                        ) : null}
               </Box>
               {/* ==------- -------------------*****---------------------------*/}
               {/* ittineration */}

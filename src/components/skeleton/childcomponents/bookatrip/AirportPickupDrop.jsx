@@ -45,6 +45,7 @@ import { cards } from "../../../../assets/rides";
 import { airportData } from "./airportData";
 import airportImg from "../../../../assets/images/airports/trivandrumairport.jpg";
 import { ROUTEPATH } from "../../../ROUTEPATH";
+import AlertSnack from "../separate/AlertSnack";
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
 ))(({ theme }) => ({
@@ -835,14 +836,8 @@ function AirportPickupDrop() {
                   </form>
                 </Box>
                 {openAlert ? (
-                  <Alert
-                    onClose={() => {
-                      setOpenAlert(false);
-                    }}
-                  >
-                    Thanks for submitting,We&apos;ll reach to you soon!
-                  </Alert>
-                ) : null}
+                         <AlertSnack openAlert={openAlert} setOpenAlert={setOpenAlert} />
+                        ) : null}
               </Box>
             </Box>
             <Box

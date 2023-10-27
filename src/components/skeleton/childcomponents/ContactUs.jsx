@@ -34,6 +34,7 @@ import oneDay from "../../../assets/images/places/oneday.jpg";
 import moment from "moment";
 import { THEMEColor } from "../../../assets/THEMES";
 import emailjs from "@emailjs/browser";
+import AlertSnack from "./separate/AlertSnack";
 // require("dot")
 function ContactUs() {
   const theme = useTheme();
@@ -103,13 +104,16 @@ function ContactUs() {
         ...reqACall,
         name: "",
         email: "",
-        mobile: null,
-        altMobile: null,
+        mobile: "",
+        altMobile: "",
         noOfTravel: "",
         vehicle: "",
         travelDate: moment(),
         desc: "",
       });
+      setTimeout(() => {
+        setOpenAlert(false);
+      }, 3500);
     } catch (err) {
       console.log("error", err);
     }
@@ -651,13 +655,10 @@ function ContactUs() {
                           </Box>
                         </form>
                         {openAlert ? (
-                          <Alert
-                            onClose={() => {
-                              setOpenAlert(false);
-                            }}
-                          >
-                            Thanks for submitting!
-                          </Alert>
+                          <AlertSnack
+                            openAlert={openAlert}
+                            setOpenAlert={setOpenAlert}
+                          />
                         ) : null}
                       </Box>
                     </Box>
