@@ -382,7 +382,7 @@ function HeaderPage() {
         }}
         position="fixed"
       >
-        <Toolbar>
+        {/* <Toolbar> */}
           <Box display={"flex"} width={"100%"}>
             <Box
               sx={{
@@ -393,7 +393,7 @@ function HeaderPage() {
             >
               <Box
                 sx={{
-                  width: isMobile || isDeviceDown ? "130px" : "30vh",
+                  width: isMobile || isDeviceDown ? "160px" : "30vh",
                   cursor: "pointer",
                 }}
                 onClick={() => {
@@ -500,7 +500,7 @@ function HeaderPage() {
               )}
             </Box>
           </Box>
-        </Toolbar>
+        {/* </Toolbar> */}
       </AppBar>
     </>
   );
