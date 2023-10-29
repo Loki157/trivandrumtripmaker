@@ -323,6 +323,7 @@ function OneDayTrip() {
                   gap="20px"
                   alignItems={"center"}
                   justifyContent={"center"}
+                  width={"100%"}
                 >
                   <Typography
                     variant="h5"
@@ -336,13 +337,14 @@ function OneDayTrip() {
                   <Typography
                     variant={isMobile || isDeviceDown ? "h5" : "h4"}
                     sx={{
-                      fontFamily: "Poppins-SemiBold",
+                      fontFamily: isMobile || isDeviceDown ?"Poppins-Medium":"Poppins-SemiBold",
                       color: THEMEColor.PRIMARY,
                       textAlign: "center",
                       width: "80%",
                     }}
                   >
-                    OneDay Trip to Trivandrum,Kanyakumari,and Varkala:A
+                    OneDay Trip to Trivandrum,Kanyakumari,
+                    <br />and Varkala:A
                     Pilgrimage to Three Directions with &nbsp;
                     <span className="highlight-text">
                       <a

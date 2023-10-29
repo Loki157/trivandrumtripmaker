@@ -250,7 +250,9 @@ function LandingPage() {
         {/* AboutUs */}
         <AboutUsPart bookAtrip={bookAtrip} />
         {/* What we offer */}
-        <WhatWeOfferPart />
+        <Box sx={{ height: "100%", width: "100%" }} ref={bookAtrip}>
+          <WhatWeOfferPart />
+        </Box>
         <br />
         <Box height="100%">
           <Container fixed sx={{ height: "100%" }}>

@@ -100,7 +100,7 @@ function HeaderPage() {
                     display: "flex",
                     flexDirection: "column",
                     // alignItems: "flex-start",
-                    // gap: "10px",    
+                    // gap: "10px",
                   }}
                 >
                   <a href="tel:+918086040400">
@@ -147,10 +147,10 @@ function HeaderPage() {
                     color: "white",
                     padding: "5px",
                   }}
-                /> <a href="mailto:trivandrumtripmaker@gmail.com">
-                <text> trivandrumtripmaker@gmail.com</text>
-              </a>
-               
+                />{" "}
+                <a href="mailto:trivandrumtripmaker@gmail.com">
+                  <text> trivandrumtripmaker@gmail.com</text>
+                </a>
               </div>
             </div>
             <div className="contactus-details-2">
@@ -334,7 +334,14 @@ function HeaderPage() {
                       <CallRoundedIcon fontSize="small" />
                     </IconButton>
                     <a href="tel:+918086040400">Ph :+918086040400</a>{" "}
-                  <span style={{color:THEMEColor.PRIMARY,fontFamily:"Poppins-Regular"}} >Or</span>
+                    <span
+                      style={{
+                        color: THEMEColor.PRIMARY,
+                        fontFamily: "Poppins-Regular",
+                      }}
+                    >
+                      Or
+                    </span>
                     <a href="tel:+918547676840">
                       <text>+918547676840</text>
                     </a>
@@ -386,7 +393,7 @@ function HeaderPage() {
             >
               <Box
                 sx={{
-                  width: isMobile || isDeviceDown ? "15vh" : "30vh",
+                  width: isMobile || isDeviceDown ? "130px" : "30vh",
                   cursor: "pointer",
                 }}
                 onClick={() => {

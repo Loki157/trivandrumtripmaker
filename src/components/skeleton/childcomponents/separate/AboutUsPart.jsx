@@ -63,7 +63,7 @@ function AboutUsPart({ bookAtrip }) {
             <Grid item md={6} sm={0} xs={0}>
               {isMobile || isDeviceDown ? null : (
                 <Box
-                  ref={bookAtrip}
+                  
                   height={"50%"}
                   className="about-img"
                   width={"70%"}
